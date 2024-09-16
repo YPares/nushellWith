@@ -1,0 +1,112 @@
+{
+  "nodes": {
+    "crane": {
+      "locked": {
+        "lastModified": 1725409566,
+        "narHash": "sha256-PrtLmqhM6UtJP7v7IGyzjBFhbG4eOAHT6LPYOFmYfbk=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "7e4586bad4e3f8f97a9271def747cf58c4b68f3c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "highlight": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724329174,
+        "narHash": "sha256-Uw35liQlEblf/GIP13uBEM3MSGEl069Dk++XueJpWxI=",
+        "owner": "cptpiepmatz",
+        "repo": "nu-plugin-highlight",
+        "rev": "12b62e2cd105a09af1562cfa6874f2e4ed49cfd3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cptpiepmatz",
+        "repo": "nu-plugin-highlight",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1726436956,
+        "narHash": "sha256-a3rP7uafX/qBFX0y4CGS8vvTPvxsLl9eZQ85DkIn3DI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "039b72d0c738c934e2e36d7fc5520d1b425287a6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nushellWith": {
+      "inputs": {
+        "crane": "crane"
+      },
+      "locked": {
+        "lastModified": 1726497888,
+        "narHash": "sha256-FuSDjeEwG73hDy4mBl5afclLCMjgUaDDO/89wUunHeA=",
+        "owner": "YPares",
+        "repo": "nushellWith",
+        "rev": "8102664f7cb0fecd2a586a0e1271c06964c974fe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "YPares",
+        "repo": "nushellWith",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "highlight": "highlight",
+        "nixpkgs": "nixpkgs",
+        "nushellWith": "nushellWith"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

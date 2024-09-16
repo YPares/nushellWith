@@ -1,0 +1,5 @@
+inputs:
+  nixpkgs:
+    url: github:NixOS/nixpkgs/nixpkgs-unstable
+  nushellWith:
+    url: github:YPares/nushellWith
