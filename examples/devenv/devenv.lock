@@ -82,10 +82,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1726436956,
+        "lastModified": 1726481836,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "039b72d0c738c934e2e36d7fc5520d1b425287a6",
+        "rev": "20f9370d5f588fb8c72e844c54511cab054b5f40",
         "type": "github"
       },
       "original": {
@@ -115,17 +115,14 @@
         "crane": "crane"
       },
       "locked": {
-        "lastModified": 1726501506,
-        "owner": "YPares",
-        "repo": "nushellWith",
-        "rev": "5048e6e5d4402ef14ea2c8fc0efe645ca8c80673",
-        "type": "github"
+        "path": "../..",
+        "type": "path"
       },
       "original": {
-        "owner": "YPares",
-        "repo": "nushellWith",
-        "type": "github"
-      }
+        "path": "../..",
+        "type": "path"
+      },
+      "parent": []
     },
     "pre-commit-hooks": {
       "inputs": {
@@ -155,7 +152,23 @@
         "highlight": "highlight",
         "nixpkgs": "nixpkgs",
         "nushellWith": "nushellWith",
-        "pre-commit-hooks": "pre-commit-hooks"
+        "pre-commit-hooks": "pre-commit-hooks",
+        "webserver": "webserver"
+      }
+    },
+    "webserver": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725923972,
+        "owner": "Jan9103",
+        "repo": "webserver.nu",
+        "rev": "9d7d43b19bbe85fdd7e951d5ff76f7a1f7fde34e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Jan9103",
+        "repo": "webserver.nu",
+        "type": "github"
       }
     }
   },

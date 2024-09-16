@@ -1,7 +1,8 @@
 # nushellWith
 
-Build a nushell with a specific set of plugins. See the examples folder for how to use it
-either with regular nix flakes, or in the context of [`devenv`](http://devenv.sh).
+Build a nushell with a specific set of plugins (from either nixpkgs or built from source) and nu libraries (from source).
+
+See the examples folder for how to use it. Examples show usage with regular nix flakes and with [`devenv`](http://devenv.sh).
 
 ## Notes
 
