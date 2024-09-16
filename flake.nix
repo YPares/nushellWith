@@ -20,7 +20,7 @@
         all_paths = from_nix_paths ++ from_source_paths;
 
       in pkgs.writeShellScriptBin "nu" ''
-        ${nushell}/bin/nu --plugins "[${concatStringsSep " " all_paths}]"
+        ${nushell}/bin/nu --plugins "[${concatStringsSep " " all_paths}]" "$@"
       '';
   };
 }
