@@ -6,7 +6,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    nushellWith.url = "../.." # Replace by "github:YPares/nushellWith";
+    nushellWith.url = "../.."; # Replace by "github:YPares/nushellWith"
     highlight = {
       url = "github:cptpiepmatz/nu-plugin-highlight";
       flake = false;
@@ -28,6 +28,7 @@
           plugins.nix = { nu_plugin_polars = pkgs.nushellPlugins.polars; };
           plugins.source = { nu_plugin_highlight = highlight; };
           libraries = [ webserver ];
+          bins = with pkgs; [ netcat coreutils ]; # Needed by webserver
         };
       in { packages.default = myNushell; });
 }
