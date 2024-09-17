@@ -9,6 +9,6 @@ let
     inherit pkgs;
     plugins.nix = [ pkgs.nushellPlugins.polars ];
     plugins.source = [ inputs.highlight ];
-    libraries = [ nupkgs.webserver-nu ];
+    libraries.source = [ nupkgs.webserver-nu ];
   };
 in { packages = [ myNushell ]; }

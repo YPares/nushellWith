@@ -22,7 +22,7 @@
           inherit pkgs;
           plugins.nix = [ pkgs.nushellPlugins.polars ];
           plugins.source = [ highlight ];
-          libraries = [ nupkgs.webserver-nu ];
+          libraries.source = [ nupkgs.webserver-nu ];
         };
       in { packages.default = myNushell; });
 }

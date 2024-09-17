@@ -3,7 +3,7 @@
 Build an isolated nushell environment with a specific set of plugins (from
 either nixpkgs or built from source) and nu libraries (from source).
 
-See the examples folder for how to use it. Examples show usage with regular nix
+See the [`examples`](./examples) folder for how to use it. Examples show usage with regular nix
 flakes and with [`devenv`](http://devenv.sh).
 
 ## Outputs of this flake

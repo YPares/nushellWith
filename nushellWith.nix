@@ -1,13 +1,12 @@
 crane:
 { pkgs, # From `import nixpkgs {...}`
 plugins ? { }
-, # Which plugins to use. Can contain `nix` and `source` attributes (both lists)
-libraries ? [ ]
-, # Which nushell libraries to use. These can be raw folder downloaded
-# from github or archives, or they can be the output of nushellWith.lib.makeNuLibrary
+, # Which plugins to use. Can contain `nix` and `source` attributes (lists)
+libraries ? { }
+, # Which nushell libraries to use. Can contain a `source` attribute (a list)
 path ? [ ],
-# Which nix paths to add to the PATH.
-# IMPORTANT: THE PATH WILL BE EMPTY BY DEFAULT!
+# Which nix paths to add to the PATH. Useful if you directly use libraries
+# downloaded from raw sources. IMPORTANT: THE PATH WILL BE EMPTY BY DEFAULT!
 nushell ? pkgs.nushell, # Which nushell derivation to use
 config_file ? ./default_config_files/config.nu, # Which config.nu file to use
 env_file ?
@@ -16,10 +15,13 @@ env_file ?
 with pkgs.lib;
 let
   craneLib = crane.mkLib pkgs;
+
   plugins_with_defs = {
     nix = [ ];
     source = [ ];
   } // plugins;
+
+  libraries_with_defs = { source = [ ]; } // libraries;
 
   # Build the plugins in plugins.source
   crane_pkgs =
@@ -39,7 +41,7 @@ let
   env_file_with_libs = pkgs.writeText "env.nu" ''
     ${builtins.readFile env_file}
 
-    $env.NU_LIB_DIRS = [${concatStringsSep " " libraries}]
+    $env.NU_LIB_DIRS = [${concatStringsSep " " libraries_with_defs.source}]
   '';
 
   wrapper_script = ''
