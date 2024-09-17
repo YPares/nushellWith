@@ -20,13 +20,9 @@
         nupkgs = nushellWith.packages.${system};
         myNushell = nushellWith.lib.nushellWith {
           inherit pkgs;
-          # For both 'nix' and 'source' plugins, the keys must match the name of
-          # the executable defined by the plugin
-          plugins.nix = { nu_plugin_polars = pkgs.nushellPlugins.polars; };
-          plugins.source = { nu_plugin_highlight = highlight; };
+          plugins.nix = [ pkgs.nushellPlugins.polars ];
+          plugins.source = [ highlight ];
           libraries = [ nupkgs.webserver-nu ];
         };
-      in {
-        packages.default = myNushell;
-      });
+      in { packages.default = myNushell; });
 }
