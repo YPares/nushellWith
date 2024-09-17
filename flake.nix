@@ -14,7 +14,10 @@
     };
 
     # Dependencies for Nu libraries which are not present in nixpkgs:
-    
+    github-linguist-src = {
+      url = "github:github-linguist/linguist";
+      flake = false;
+    };
   };
 
   outputs = { self, crane, nixpkgs, flake-utils, ... }@inputs:
