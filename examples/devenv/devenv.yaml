@@ -6,6 +6,3 @@ inputs:
   highlight:
     url: github:cptpiepmatz/nu-plugin-highlight
     flake: false
-  webserver:
-    url: github:Jan9103/webserver.nu
-    flake: false

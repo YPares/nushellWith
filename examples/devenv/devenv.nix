@@ -3,11 +3,12 @@
 { pkgs, inputs, ... }:
 
 let
-  myNushell = inputs.nushellWith.lib.nushellWith {
+  nuw = inputs.nushellWith;
+  nulibs = nuw.packages.${pkgs.system}.nuLibraries;
+  myNushell = nuw.lib.nushellWith {
     inherit pkgs;
     plugins.nix = { nu_plugin_polars = pkgs.nushellPlugins.polars; };
     plugins.source = { nu_plugin_highlight = inputs.highlight; };
-    libraries = [ inputs.webserver ];
-    bins = with pkgs; [ netcat coreutils ]; # Needed by webserver
+    libraries = [ nulibs.webserver-nu ];
   };
 in { packages = [ myNushell ]; }

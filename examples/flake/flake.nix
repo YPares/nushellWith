@@ -21,14 +21,14 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
+        nulibs = nushellWith.packages.${system}.nuLibraries;
         myNushell = nushellWith.lib.nushellWith {
           inherit pkgs;
           # For both 'nix' and 'source' plugins, the keys must match the name of
           # the executable defined by the plugin
           plugins.nix = { nu_plugin_polars = pkgs.nushellPlugins.polars; };
           plugins.source = { nu_plugin_highlight = highlight; };
-          libraries = [ webserver ];
-          bins = with pkgs; [ netcat coreutils ]; # Needed by webserver
+          libraries = [ nulibs.webserver-nu ];
         };
       in { packages.default = myNushell; });
 }
