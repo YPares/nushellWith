@@ -8,6 +8,9 @@ path ? [ ],
 # Which nix paths to add to the PATH.
 # IMPORTANT: THE PATH WILL BE EMPTY BY DEFAULT!
 nushell ? pkgs.nushell, # Which nushell derivation to use
+config_file ? ./default_config_files/config.nu, # Which config.nu file to use
+env_file ?
+  ./default_config_files/env.nu # When env.nu file to use (NU_LIB_DIRS will be added to it)
 }:
 with pkgs.lib;
 let
@@ -26,17 +29,9 @@ let
 
   all_plugins_paths = nix_plugins_paths ++ source_plugins_paths;
 
-  config_file = pkgs.writeText "config.nu" ''
-    $env.config = {
-      plugin_gc: {
-        default: {
-          enabled: false
-        }
-      }
-    }
-  '';
+  updated_env_file = pkgs.writeText "env.nu" ''
+    ${builtins.readFile env_file}
 
-  env_file = pkgs.writeText "env.nu" ''
     $env.NU_LIB_DIRS = [${concatStringsSep " " libraries}]
   '';
 
@@ -49,7 +44,7 @@ let
       --plugins "[${concatStringsSep " " all_plugins_paths}]" \
       --plugin-config dummy \
       --config ${config_file} \
-      --env-config ${env_file} \
+      --env-config ${updated_env_file} \
       "$@"
   '';
 

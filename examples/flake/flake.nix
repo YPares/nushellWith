@@ -30,5 +30,7 @@
           plugins.source = { nu_plugin_highlight = highlight; };
           libraries = [ nulibs.webserver-nu ];
         };
-      in { packages.default = myNushell; });
+      in {
+        packages.default = myNushell;
+      });
 }
