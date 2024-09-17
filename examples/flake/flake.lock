@@ -108,12 +108,12 @@
       },
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-PHhJlpqfYZfLxhvpmwiGdHP/d8q02pH4+6MuJSc8bI4=",
-        "path": "/nix/store/52q99l8y9z6s56nc3r6ma5q11abgh8w9-source",
+        "narHash": "sha256-X1tLRHrHgUfPLgCSH7fz87WD/ylnXzL0Y4JLm0wG6a4=",
+        "path": "/nix/store/55m43a4vby77hd374v3nmgngla2icwkf-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/52q99l8y9z6s56nc3r6ma5q11abgh8w9-source",
+        "path": "/nix/store/55m43a4vby77hd374v3nmgngla2icwkf-source",
         "type": "path"
       }
     },
@@ -122,8 +122,7 @@
         "flake-utils": "flake-utils",
         "highlight": "highlight",
         "nixpkgs": "nixpkgs",
-        "nushellWith": "nushellWith",
-        "webserver": "webserver"
+        "nushellWith": "nushellWith"
       }
     },
     "systems": {
@@ -153,22 +152,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "webserver": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1725923972,
-        "narHash": "sha256-JVE3osZQvbT+ufjulKsgf3OGj93LD7LjbreS21TTTOk=",
-        "owner": "Jan9103",
-        "repo": "webserver.nu",
-        "rev": "9d7d43b19bbe85fdd7e951d5ff76f7a1f7fde34e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Jan9103",
-        "repo": "webserver.nu",
         "type": "github"
       }
     },

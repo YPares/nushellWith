@@ -4,11 +4,11 @@
 
 let
   nuw = inputs.nushellWith;
-  nulibs = nuw.packages.${pkgs.system}.nuLibraries;
+  nupkgs = nuw.packages.${pkgs.system};
   myNushell = nuw.lib.nushellWith {
     inherit pkgs;
     plugins.nix = { nu_plugin_polars = pkgs.nushellPlugins.polars; };
     plugins.source = { nu_plugin_highlight = inputs.highlight; };
-    libraries = [ nulibs.webserver-nu ];
+    libraries = [ nupkgs.webserver-nu ];
   };
 in { packages = [ myNushell ]; }

@@ -11,24 +11,20 @@
       url = "github:cptpiepmatz/nu-plugin-highlight";
       flake = false;
     };
-    webserver = {
-      url = "github:Jan9103/webserver.nu";
-      flake = false;
-    };
   };
 
-  outputs = { nixpkgs, flake-utils, nushellWith, highlight, webserver, ... }:
+  outputs = { nixpkgs, flake-utils, nushellWith, highlight, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
-        nulibs = nushellWith.packages.${system}.nuLibraries;
+        nupkgs = nushellWith.packages.${system};
         myNushell = nushellWith.lib.nushellWith {
           inherit pkgs;
           # For both 'nix' and 'source' plugins, the keys must match the name of
           # the executable defined by the plugin
           plugins.nix = { nu_plugin_polars = pkgs.nushellPlugins.polars; };
           plugins.source = { nu_plugin_highlight = highlight; };
-          libraries = [ nulibs.webserver-nu ];
+          libraries = [ nupkgs.webserver-nu ];
         };
       in {
         packages.default = myNushell;

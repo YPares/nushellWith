@@ -13,8 +13,8 @@
       flake = false;
     };
 
-    # Dependencies for Nu libraries which are not present in nixpkgs:
-    
+    # Dependencies for Nu libraries outside of nixpkgs-unstable:
+
   };
 
   outputs = { self, crane, nixpkgs, flake-utils, ... }@inputs:
@@ -38,5 +38,8 @@
           self.lib.makeNuLibrary
           ({ inherit name pkgs; } // fn (inputsForLibs // nuLibrariesDeps)))
           (import ./nuLibraries.nix);
-      in { packages = nuLibrariesDeps // { inherit nuLibraries; }; }));
+      in {
+        packages = nuLibraries;
+        inherit nuLibrariesDeps;
+      }));
 }

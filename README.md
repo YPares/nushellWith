@@ -16,7 +16,7 @@ flakes and with [`devenv`](http://devenv.sh).
   flagged with `flake = false;`) and patches it to add some binary dependencies
   to its path when it is imported. It outputs the resulting patched folder as a
   derivation, ready to be passed to `libraries` in `lib.nushellWith`
-- [`packages.<system>.nuLibraries`](./nuLibraries.nix): a set of pre-packaged
+- [`packages.<system>`](./nuLibraries.nix): a set of pre-packaged
   nushell libraries (see below)
 
 ## Nushell libraries
