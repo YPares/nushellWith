@@ -17,29 +17,27 @@
 
   };
 
-  outputs = { self, crane, nixpkgs, flake-utils, ... }@inputs:
-    {
-      lib.nushellWith = import ./nushellWith.nix crane;
-      lib.makeNuLibrary = import ./makeNuLibrary.nix;
-    } // (flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-        inputsForLibs = {
-          inherit pkgs;
-        } // (builtins.removeAttrs inputs [
-          "self"
-          "crane"
-          "nixpkgs"
-          "flake-utils"
-        ]);
-        nuLibrariesDeps = builtins.mapAttrs (name: fn: fn inputsForLibs)
-          (import ./nuLibrariesDeps.nix);
-        nuLibraries = builtins.mapAttrs (name: fn:
-          self.lib.makeNuLibrary
-          ({ inherit name pkgs; } // fn (inputsForLibs // nuLibrariesDeps)))
-          (import ./nuLibraries.nix);
-      in {
-        packages = nuLibraries;
-        inherit nuLibrariesDeps;
-      }));
+  outputs = { self, crane, nixpkgs, flake-utils, ... }@flakeInputs:
+    let
+      systemAgnostic = { lib = import ./lib.nix flakeInputs; };
+      systemSpecific = flake-utils.lib.eachDefaultSystem (system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+          inputsForLibs = {
+            inherit pkgs;
+          } // (builtins.removeAttrs flakeInputs [
+            "self"
+            "crane"
+            "nixpkgs"
+            "flake-utils"
+          ]);
+        in rec {
+          nuLibrariesDeps = builtins.mapAttrs (name: fn: fn inputsForLibs)
+            (import ./nuLibrariesDeps.nix);
+          packages = builtins.mapAttrs (name: fn:
+            self.lib.makeNuLibrary
+            ({ inherit name pkgs; } // fn (inputsForLibs // nuLibrariesDeps)))
+            (import ./nuLibraries.nix);
+        });
+    in systemAgnostic // systemSpecific;
 }
