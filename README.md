@@ -23,7 +23,7 @@ flakes and with [`devenv`](http://devenv.sh).
 
 This flake also packages (as Nix derivations) some nushell libraries published
 on Github, so their dependencies are taken care of for you. PRs to add new
-libraries to [`this list`](./nuLibraries.nix) are very much welcome. Don't
+libraries to [this list](./nuLibraries.nix) are very much welcome. Don't
 forget to add the URL of the library to wrap in the `inputs` of the
 [`flake.nix`](./flake.nix) file too.
 
