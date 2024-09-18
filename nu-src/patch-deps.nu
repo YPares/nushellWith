@@ -28,10 +28,10 @@ def patchNuDir [path: list<path>, inDir: path, outDir: path] {
     }
 }
 
-# Prepend a PATH to each .nu file (recursively) in some folder, writing result someplace else
-def main [path: string, # Colon-separated PATH to add
-          inDir: path, # Source directory
-          outDir: path # Destination directory. Must already exist
+# Prepend a PATH to each .nu file (recursively) in some folder $inDir, writing result to $env.out
+def main [inDir: path, # Source directory
+          ...path: path, # Directories to add to the PATH
     ] {
-    patchNuDir ($path | split row :) $inDir $outDir
+    mkdir $env.out
+    patchNuDir $path $inDir $env.out
 }

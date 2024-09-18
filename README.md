@@ -31,3 +31,8 @@ forget to add the URL of the library to wrap in the `inputs` of the
 
 - Only plugins written in Rust can be used
 - Using plugins built from source with `devenv` only works with devenv >= 1.1
+
+## Naming conventions
+
+- All names for external consumption (lib functions, packages) are `camelCased`
+- All other names are `snake-cased`

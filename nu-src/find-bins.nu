@@ -3,7 +3,7 @@
 # Fails if one of the folders contains more than one executable file
 #
 # Prints the results in outFile
-def main [outFile ...dirs] {
+def main [...dirs] {
     mut results = []
     for dir in $dirs {
         let executables = ls -l $dir | where type == file and mode =~ "x$"
@@ -13,5 +13,5 @@ def main [outFile ...dirs] {
             _ => (error make -u {msg: $"Folder ($dir) contains more than one executable: ($executables.name)"})
         }
     }
-    $results | to nuon | save -r $outFile
+    $results | to nuon | save -r $env.out
 }

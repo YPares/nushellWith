@@ -1,4 +1,4 @@
-crane:
+flake-inputs:
 { pkgs, # From `import nixpkgs {...}`
 plugins ? { }
 , # Which plugins to use. Can contain `nix` and `source` attributes (lists)
@@ -8,14 +8,16 @@ path ? [ ],
 # Which nix paths to add to the PATH. Useful if you directly use libraries
 # downloaded from raw sources. IMPORTANT: THE PATH WILL BE EMPTY BY DEFAULT!
 nushell ? pkgs.nushell, # Which nushell derivation to use
-config-nu ? ./default_config_files/config.nu, # Which config.nu file to use
-env-nu ?
-  ./default_config_files/env.nu, # Which env.nu file to use (NU_LIB_DIRS will be added to it)
+config-nu ? ./default-config-files/config.nu, # Which config.nu file to use
+env-nu ? ./default-config-files/env.nu
+, # Which env.nu file to use (NU_LIB_DIRS will be added to it)
 env-vars-file ? null # A sh script describing
 }:
 with pkgs.lib;
 let
-  craneLib = crane.mkLib pkgs;
+  flake-lib = flake-inputs.self.lib;
+
+  crane-builder = flake-inputs.crane.mkLib pkgs;
 
   plugins-with-defs = {
     nix = [ ];
@@ -25,19 +27,16 @@ let
   libs-with-defs = { source = [ ]; } // libraries;
 
   # Build the plugins in plugins.source
-  crane_pkgs =
-    map (src: craneLib.buildPackage { inherit src; }) plugins-with-defs.source;
+  crane-pkgs = map (src: crane-builder.buildPackage { inherit src; })
+    plugins-with-defs.source;
 
-  all_plugins_paths =
-    map (src: "${src}/bin") (plugins-with-defs.nix ++ crane_pkgs);
+  all-plugin-exes =
+    map (src: "${src}/bin") (plugins-with-defs.nix ++ crane-pkgs);
 
   # Find the executable for each plugin and write it as a nuon (nu object
   # notation) list in a file
-  plugin-exes-list = pkgs.runCommand "nu-plugin-exes-list" { } ''
-    ${nushell}/bin/nu -n ${./nu_src}/findBins.nu $out ${
-      concatStringsSep " " all_plugins_paths
-    }
-  '';
+  plugin-exes-list =
+    flake-lib.runNuScript pkgs "nu-plugin-exes" ./nu-src/find-bins.nu all-plugin-exes;
 
   env-nu-with-libs = pkgs.writeText "env.nu" ''
     ${builtins.readFile env-nu}
@@ -50,7 +49,10 @@ let
 
     export PATH=${concatStringsSep ":" path}
 
-    ${if env-vars-file != null then "set -a; source ${env-vars-file}; set +a" else ""}
+    ${if env-vars-file != null then
+      "set -a; source ${env-vars-file}; set +a"
+    else
+      ""}
 
     ${nushell}/bin/nu \
       --plugins "$(<${plugin-exes-list})" \
