@@ -23,6 +23,12 @@
           plugins.nix = [ pkgs.nushellPlugins.polars ];
           plugins.source = [ highlight ];
           libraries.source = [ nupkgs.webserver-nu ];
+          env-vars-file = ./env-vars;
         };
-      in { packages.default = myNushell; });
+      in {
+        packages.myNushell = myNushell;
+        packages.default = pkgs.writeShellScriptBin "dummy-command" ''
+          ${myNushell}/bin/nu -c 'print $"RANDOM_ENV_VAR contains: < ($env.RANDOM_ENV_VAR) >"'
+        '';
+      });
 }

@@ -8,58 +8,61 @@ path ? [ ],
 # Which nix paths to add to the PATH. Useful if you directly use libraries
 # downloaded from raw sources. IMPORTANT: THE PATH WILL BE EMPTY BY DEFAULT!
 nushell ? pkgs.nushell, # Which nushell derivation to use
-config_file ? ./default_config_files/config.nu, # Which config.nu file to use
-env_file ?
-  ./default_config_files/env.nu # Which env.nu file to use (NU_LIB_DIRS will be added to it)
+config-nu ? ./default_config_files/config.nu, # Which config.nu file to use
+env-nu ?
+  ./default_config_files/env.nu, # Which env.nu file to use (NU_LIB_DIRS will be added to it)
+env-vars-file ? null # A sh script describing
 }:
 with pkgs.lib;
 let
   craneLib = crane.mkLib pkgs;
 
-  plugins_with_defs = {
+  plugins-with-defs = {
     nix = [ ];
     source = [ ];
   } // plugins;
 
-  libraries_with_defs = { source = [ ]; } // libraries;
+  libs-with-defs = { source = [ ]; } // libraries;
 
   # Build the plugins in plugins.source
   crane_pkgs =
-    map (src: craneLib.buildPackage { inherit src; }) plugins_with_defs.source;
+    map (src: craneLib.buildPackage { inherit src; }) plugins-with-defs.source;
 
   all_plugins_paths =
-    map (src: "${src}/bin") (plugins_with_defs.nix ++ crane_pkgs);
+    map (src: "${src}/bin") (plugins-with-defs.nix ++ crane_pkgs);
 
   # Find the executable for each plugin and write it as a nuon (nu object
   # notation) list in a file
-  plugin_exes_list = pkgs.runCommand "nu-plugin-exes-list" { } ''
+  plugin-exes-list = pkgs.runCommand "nu-plugin-exes-list" { } ''
     ${nushell}/bin/nu -n ${./nu_src}/findBins.nu $out ${
       concatStringsSep " " all_plugins_paths
     }
   '';
 
-  env_file_with_libs = pkgs.writeText "env.nu" ''
-    ${builtins.readFile env_file}
+  env-nu-with-libs = pkgs.writeText "env.nu" ''
+    ${builtins.readFile env-nu}
 
-    $env.NU_LIB_DIRS = [${concatStringsSep " " libraries_with_defs.source}]
+    $env.NU_LIB_DIRS = [${concatStringsSep " " libs-with-defs.source}]
   '';
 
-  wrapper_script = ''
+  wrapper-script = ''
     #!${pkgs.runtimeShell}
 
     export PATH=${concatStringsSep ":" path}
 
+    ${if env-vars-file != null then "set -a; source ${env-vars-file}; set +a" else ""}
+
     ${nushell}/bin/nu \
-      --plugins "$(<${plugin_exes_list})" \
+      --plugins "$(<${plugin-exes-list})" \
       --plugin-config dummy \
-      --config ${config_file} \
-      --env-config ${env_file_with_libs} \
+      --config ${config-nu} \
+      --env-config ${env-nu-with-libs} \
       "$@"
   '';
 
 in pkgs.writeTextFile {
   name = "nushellWith-wrapper";
-  text = wrapper_script;
+  text = wrapper-script;
   executable = true;
   destination = "/bin/nu";
 }
