@@ -1,6 +1,6 @@
 # nushellWith
 
-Build an isolated nushell environment with a specific set of plugins (from
+Build an isolated [nushell](https://www.nushell.sh/) environment with a specific set of plugins (from
 either nixpkgs or built from source) and nu libraries (from source).
 
 See the [`examples`](./examples) folder for how to use it. Examples show usage with regular nix
