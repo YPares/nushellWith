@@ -25,19 +25,28 @@
           pkgs = import nixpkgs { inherit system; };
           inputs-for-libs = {
             inherit pkgs;
+            inherit (self.lib) makeNuLibrary;
           } // (builtins.removeAttrs flake-inputs [
             "self"
             "crane"
             "nixpkgs"
             "flake-utils"
           ]);
-        in rec {
-          nu-libraries-deps = builtins.mapAttrs (name: fn: fn inputs-for-libs)
-            (import ./nu-libraries-deps.nix);
-          packages = builtins.mapAttrs (name: fn:
-            self.lib.makeNuLibrary
-            ({ inherit name pkgs; } // fn (inputs-for-libs // nu-libraries-deps)))
-            (import ./nu-libraries.nix);
+          nu-libraries = import ./nu-libraries.nix inputs-for-libs;
+          nushellWithStdPlugins = self.lib.nushellWith {
+            inherit pkgs;
+            plugins.nix = with pkgs.nushellPlugins; [
+              polars
+              query
+              formats
+              gstat
+            ];
+            config-nu = builtins.toFile "nushellWithStdPlugin-config.nu" "#just use the default config";
+          };
+        in {
+          packages = nu-libraries // {
+            inherit nushellWithStdPlugins;
+          };
         });
     in system-agnostic // system-specific;
 }

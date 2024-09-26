@@ -1,10 +1,14 @@
-# This flake also exposes some existing nushell libraries (packaged with their dependencies)
+# This flake exposes some existing nushell libraries (packaged with their dependencies)
 #
 # When adding a library here, don't forget to add its inputs to the main flake.nix
-{
+{ makeNuLibrary, pkgs, ... }@inputs: {
+
   # https://github.com/Jan9103/webserver.nu"
-  webserver-nu = { pkgs, webserver-nu-src, ... }: {
-    src = webserver-nu-src;
+  webserver-nu = makeNuLibrary {
+    inherit pkgs;
+    name = "webserver-nu";
+    src = inputs.webserver-nu-src;
     path = with pkgs; [ "${netcat}/bin" "${coreutils}/bin" ];
   };
+
 }
