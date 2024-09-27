@@ -8,17 +8,20 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # Nu libraries sources:
-    webserver-nu-src = {
-      url = "github:Jan9103/webserver.nu";
-      flake = false;
-    };
     nu-batteries-src = {
       url = "github:nome/nu-batteries";
       flake = false;
     };
+    webserver-nu-src = {
+      url = "github:Jan9103/webserver.nu";
+      flake = false;
+    };
 
-    # Dependencies of Nu libraries outside of nixpkgs-unstable:
-
+    # Nu plugins sources:
+    plugin-explore-src = {
+      url = "github:amtoine/nu_plugin_explore";
+      flake = false;
+    };
   };
 
   outputs = { self, crane, nixpkgs, flake-utils, ... }@flake-inputs:
@@ -32,11 +35,10 @@
             inherit (self.lib) makeNuLibrary;
           } // (builtins.removeAttrs flake-inputs [
             "self"
-            "crane"
             "nixpkgs"
             "flake-utils"
           ]);
-          nu-libraries = import ./nu-libraries.nix inputs-for-libs;
+          nu-libs-and-plugins = import ./nu-libs-and-plugins.nix inputs-for-libs;
           nushellWithStdPlugins = self.lib.nushellWith {
             inherit pkgs;
             plugins.nix = with pkgs.nushellPlugins; [
@@ -49,7 +51,7 @@
             keep-path = true;
           };
         in {
-          packages = nu-libraries // {
+          packages = nu-libs-and-plugins // {
             inherit nushellWithStdPlugins;
           };
         });

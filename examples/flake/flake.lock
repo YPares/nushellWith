@@ -121,17 +121,34 @@
         "flake-utils": "flake-utils_2",
         "nixpkgs": "nixpkgs_2",
         "nu-batteries-src": "nu-batteries-src",
+        "plugin-explore-src": "plugin-explore-src",
         "webserver-nu-src": "webserver-nu-src"
       },
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-42euP7x9rF7MBdnz+RauLVPFE+mcId0Wod8666c+W5A=",
-        "path": "/nix/store/nm5a9q23drnlidb84p5v8xnv7n1vfbvl-source",
+        "narHash": "sha256-O1aKJy6/DBHsdJs359yKQQr8vT3Lq50NxEPxmtIskIg=",
+        "path": "/nix/store/p38bdbaglknlkvhm50y66wdckzzaja93-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/nm5a9q23drnlidb84p5v8xnv7n1vfbvl-source",
+        "path": "/nix/store/p38bdbaglknlkvhm50y66wdckzzaja93-source",
         "type": "path"
+      }
+    },
+    "plugin-explore-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726911003,
+        "narHash": "sha256-EX44IzxEJWK/kzLJ+edUUbGjZMbXJeM+p2/E4kGzrfM=",
+        "owner": "amtoine",
+        "repo": "nu_plugin_explore",
+        "rev": "552ccb7c6a3f3780b07cc1d73afec3f99fbd4452",
+        "type": "github"
+      },
+      "original": {
+        "owner": "amtoine",
+        "repo": "nu_plugin_explore",
+        "type": "github"
       }
     },
     "root": {

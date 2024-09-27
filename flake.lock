@@ -65,12 +65,29 @@
         "type": "github"
       }
     },
+    "plugin-explore-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726911003,
+        "narHash": "sha256-EX44IzxEJWK/kzLJ+edUUbGjZMbXJeM+p2/E4kGzrfM=",
+        "owner": "amtoine",
+        "repo": "nu_plugin_explore",
+        "rev": "552ccb7c6a3f3780b07cc1d73afec3f99fbd4452",
+        "type": "github"
+      },
+      "original": {
+        "owner": "amtoine",
+        "repo": "nu_plugin_explore",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "crane": "crane",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "nu-batteries-src": "nu-batteries-src",
+        "plugin-explore-src": "plugin-explore-src",
         "webserver-nu-src": "webserver-nu-src"
       }
     },
