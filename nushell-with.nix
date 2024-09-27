@@ -6,7 +6,9 @@ libraries ? { }
 , # Which nushell libraries to use. Can contain a `source` attribute (a list)
 path ? [ ],
 # Which nix paths to add to the PATH. Useful if you directly use libraries
-# downloaded from raw sources. IMPORTANT: THE PATH WILL BE EMPTY BY DEFAULT!
+# downloaded from raw sources
+keep-path ? false, # Whether to append to the PATH of the parent process
+# (for more hermeticity) or overwrite it
 nushell ? pkgs.nushell, # Which nushell derivation to use
 config-nu ? ./default-config-files/config.nu, # Which config.nu file to use
 env-nu ? ./default-config-files/env.nu
@@ -51,7 +53,9 @@ let
   wrapper-script = ''
     #!${pkgs.runtimeShell}
 
-    export PATH=${concatStringsSep ":" path}
+    export PATH=${if keep-path then "$PATH:" else ""}${
+      concatStringsSep ":" path
+    }
 
     ${if env-vars-file != null then
       "set -a; source ${env-vars-file}; set +a"

@@ -13,7 +13,7 @@
       flake = false;
     };
 
-    # Dependencies for Nu libraries outside of nixpkgs-unstable:
+    # Dependencies of Nu libraries outside of nixpkgs-unstable:
 
   };
 
@@ -42,6 +42,7 @@
               gstat
             ];
             config-nu = builtins.toFile "nushellWithStdPlugin-config.nu" "#just use the default config";
+            keep-path = true;
           };
         in {
           packages = nu-libraries // {
