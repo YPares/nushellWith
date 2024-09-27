@@ -22,6 +22,10 @@
       url = "github:amtoine/nu_plugin_explore";
       flake = false;
     };
+    plugin-plotters-src = {
+      url = "github:cptpiepmatz/nu-jupyter-kernel";
+      flake = false;
+    };
   };
 
   outputs = { self, crane, nixpkgs, flake-utils, ... }@flake-inputs:

@@ -4,8 +4,7 @@
 { makeNuLibrary, pkgs, ... }@inputs:
 
 let craneLib = inputs.crane.mkLib pkgs;
-in
-{
+in {
   # Libraries (nu code)
   nu-batteries = makeNuLibrary { # https://github.com/nome/nu-batteries
     inherit pkgs;
@@ -20,7 +19,10 @@ in
   };
 
   # Plugins (rust code)
-  plugin-explore = craneLib.buildPackage {
-    src = inputs.plugin-explore-src;
+  plugin-explore = craneLib.buildPackage { src = inputs.plugin-explore-src; };
+  plugin-plotters = craneLib.buildPackage {
+    src = inputs.plugin-plotters-src;
+    cargoExtraArgs = "-p nu_plugin_plotters";
+    buildInputs = with pkgs; [ pkg-config fontconfig ];
   };
 }

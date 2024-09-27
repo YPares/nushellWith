@@ -17,7 +17,7 @@
         nupkgs = nushellWith.packages.${system};
         myNushell = nushellWith.lib.nushellWith {
           inherit pkgs;
-          plugins.nix = [ nupkgs.plugin-explore ];
+          plugins.nix = [ nupkgs.plugin-plotters ];
           libraries.source = [ nupkgs.webserver-nu nupkgs.nu-batteries ];
           env-vars-file = ./env-vars;
         };
