@@ -2,7 +2,6 @@
 #
 # When adding a library here, don't forget to add its inputs to the main flake.nix
 { makeNuLibrary, pkgs, ... }@inputs: {
-
   webserver-nu = makeNuLibrary { # https://github.com/Jan9103/webserver.nu"
     inherit pkgs;
     name = "webserver-nu";
