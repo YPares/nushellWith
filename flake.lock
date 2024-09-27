@@ -49,11 +49,28 @@
         "type": "github"
       }
     },
+    "nu-batteries-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727425773,
+        "narHash": "sha256-O63ifHjEVrxuWIDtMbnrF13RB0cME6ggZeKBDxozuUg=",
+        "owner": "nome",
+        "repo": "nu-batteries",
+        "rev": "51bea68cfc5c00aa38188d9c602b037e29da7443",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nome",
+        "repo": "nu-batteries",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "crane": "crane",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
+        "nu-batteries-src": "nu-batteries-src",
         "webserver-nu-src": "webserver-nu-src"
       }
     },

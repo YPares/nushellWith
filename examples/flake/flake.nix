@@ -20,9 +20,7 @@
         nupkgs = nushellWith.packages.${system};
         myNushell = nushellWith.lib.nushellWith {
           inherit pkgs;
-          plugins.nix = [ pkgs.nushellPlugins.polars ];
-          plugins.source = [ highlight ];
-          libraries.source = [ nupkgs.webserver-nu ];
+          libraries.source = [ nupkgs.webserver-nu nupkgs.nu-batteries ];
           env-vars-file = ./env-vars;
         };
       in {

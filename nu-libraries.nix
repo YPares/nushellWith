@@ -11,4 +11,9 @@
     path = with pkgs; [ "${netcat}/bin" "${coreutils}/bin" ];
   };
 
+  nu-batteries = makeNuLibrary {
+    inherit pkgs;
+    name = "nu-batteries";
+    src = inputs.nu-batteries-src;
+  };
 }

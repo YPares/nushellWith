@@ -12,6 +12,10 @@
       url = "github:Jan9103/webserver.nu";
       flake = false;
     };
+    nu-batteries-src = {
+      url = "github:nome/nu-batteries";
+      flake = false;
+    };
 
     # Dependencies of Nu libraries outside of nixpkgs-unstable:
 
