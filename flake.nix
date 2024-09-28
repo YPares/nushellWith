@@ -22,6 +22,10 @@
       url = "github:amtoine/nu_plugin_explore";
       flake = false;
     };
+    plugin-file-src = {
+      url = "github:fdncred/nu_plugin_file";
+      flake = false;
+    };
     plugin-plotters-src = {
       url = "github:cptpiepmatz/nu-jupyter-kernel";
       flake = false;
@@ -30,38 +34,39 @@
 
   outputs = { self, crane, nixpkgs, flake-utils, ... }@flake-inputs:
     let
-      system-agnostic = { lib = import ./lib.nix flake-inputs; };
+      system-agnostic = {
+        lib = import ./lib.nix flake-inputs;
+        # Enables to use the flake directly as a function:
+        __functor = (_: self.lib.nushellWith);
+      };
       system-specific = flake-utils.lib.eachDefaultSystem (system:
         let
           pkgs = import nixpkgs { inherit system; };
           inputs-for-libs = {
             inherit pkgs;
+            inherit system;
             inherit (self.lib) makeNuLibrary;
           } // (builtins.removeAttrs flake-inputs [
             "self"
             "nixpkgs"
             "flake-utils"
           ]);
+          std-plugins = with pkgs.nushellPlugins; [ formats gstat polars query ];
           nu-libs-and-plugins = import ./nu-libs-and-plugins.nix inputs-for-libs;
           mk-nu-with-extras = libs: plugins: self.lib.nushellWith {
             inherit pkgs;
             libraries.source = libs;
-            plugins.nix = with pkgs.nushellPlugins; [
-              polars
-              query
-              formats
-              gstat
-            ] ++ plugins;
-            config-nu = builtins.toFile "nushellWithStdPlugin-config.nu" "#just use the default config";
+            plugins.nix = std-plugins ++ plugins;
+            config-nu = builtins.toFile "nushellWith-wrapper-config.nu" "#just use the default config";
             keep-path = true;
           };
-          nushellWithStdPlugins = mk-nu-with-extras [] [];
-          nushellWithExtras = with nu-libs-and-plugins;
-            mk-nu-with-extras [nu-batteries] [plugin-plotters];
         in {
-          packages = nu-libs-and-plugins // {
-            inherit nushellWithStdPlugins nushellWithExtras;
-          };
+          packages = nu-libs-and-plugins // (with nu-libs-and-plugins; {
+            nushellWithStdPlugins = mk-nu-with-extras [] [];
+            nushellWithExtras = mk-nu-with-extras
+              [ nu-batteries ]
+              [ plugin-file plugin-plotters ];
+          });
         });
     in system-agnostic // system-specific;
 }

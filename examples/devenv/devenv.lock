@@ -17,10 +17,10 @@
     "devenv": {
       "locked": {
         "dir": "src/modules",
-        "lastModified": 1727363353,
+        "lastModified": 1727457166,
         "owner": "cachix",
         "repo": "devenv",
-        "rev": "32ccab428aa9e0d82626cb4632ae28ec6fb506b9",
+        "rev": "6090da46bfb53e358b818cee491df1a25daa85e0",
         "type": "github"
       },
       "original": {
@@ -99,10 +99,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1727266098,
+        "lastModified": 1727492312,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4f31540079322e6013930b5b2563fd10f96917f0",
+        "rev": "4471f9f67fe0f95f5fec4cc2ebac59fe32af2b62",
         "type": "github"
       },
       "original": {
@@ -114,10 +114,10 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1727264057,
+        "lastModified": 1727397532,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "759537f06e6999e141588ff1c9be7f3a5c060106",
+        "rev": "f65141456289e81ea0d5a05af8898333cab5c53d",
         "type": "github"
       },
       "original": {
@@ -129,10 +129,10 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1727266098,
+        "lastModified": 1727492312,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4f31540079322e6013930b5b2563fd10f96917f0",
+        "rev": "4471f9f67fe0f95f5fec4cc2ebac59fe32af2b62",
         "type": "github"
       },
       "original": {
@@ -142,11 +142,30 @@
         "type": "github"
       }
     },
+    "nu-batteries-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727425773,
+        "owner": "nome",
+        "repo": "nu-batteries",
+        "rev": "51bea68cfc5c00aa38188d9c602b037e29da7443",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nome",
+        "repo": "nu-batteries",
+        "type": "github"
+      }
+    },
     "nushellWith": {
       "inputs": {
         "crane": "crane",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs_2",
+        "nu-batteries-src": "nu-batteries-src",
+        "plugin-explore-src": "plugin-explore-src",
+        "plugin-file-src": "plugin-file-src",
+        "plugin-plotters-src": "plugin-plotters-src",
         "webserver-nu-src": "webserver-nu-src"
       },
       "locked": {
@@ -159,6 +178,51 @@
       },
       "parent": []
     },
+    "plugin-explore-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726911003,
+        "owner": "amtoine",
+        "repo": "nu_plugin_explore",
+        "rev": "552ccb7c6a3f3780b07cc1d73afec3f99fbd4452",
+        "type": "github"
+      },
+      "original": {
+        "owner": "amtoine",
+        "repo": "nu_plugin_explore",
+        "type": "github"
+      }
+    },
+    "plugin-file-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726668693,
+        "owner": "fdncred",
+        "repo": "nu_plugin_file",
+        "rev": "253417750662690baac3e818e15009edb1343d64",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fdncred",
+        "repo": "nu_plugin_file",
+        "type": "github"
+      }
+    },
+    "plugin-plotters-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727433053,
+        "owner": "cptpiepmatz",
+        "repo": "nu-jupyter-kernel",
+        "rev": "11c2540caab608f888e40d34d44aa7b570ca2518",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cptpiepmatz",
+        "repo": "nu-jupyter-kernel",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -169,10 +233,10 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1726745158,
+        "lastModified": 1727514110,
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "4e743a6920eab45e8ba0fbe49dc459f1423a4b74",
+        "rev": "85f7a7177c678de68224af3402ab8ee1bcee25c8",
         "type": "github"
       },
       "original": {

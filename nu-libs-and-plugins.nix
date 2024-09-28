@@ -1,9 +1,10 @@
 # This flake exposes some existing nushell libraries (packaged with their dependencies)
 #
 # When adding a library/plugin here, don't forget to add its inputs to the main flake.nix
-{ makeNuLibrary, pkgs, ... }@inputs:
+{ makeNuLibrary, pkgs, system, ... }@inputs:
 
 let craneLib = inputs.crane.mkLib pkgs;
+    ccs = craneLib.cleanCargoSource;
 in {
   # Libraries (nu code)
   nu-batteries = makeNuLibrary { # https://github.com/nome/nu-batteries
@@ -19,10 +20,15 @@ in {
   };
 
   # Plugins (rust code)
-  # plugin-explore doesn't build yet because nu-plugin crate v0.98.0 isn't in nixpkgs yet
-  plugin-explore = craneLib.buildPackage { src = inputs.plugin-explore-src; };
+  plugin-explore = craneLib.buildPackage {
+    src = ccs inputs.plugin-explore-src;
+    # At the time of writing, the Cargo.lock needs to be updated
+  };
+  plugin-file = craneLib.buildPackage {
+    src = ccs inputs.plugin-file-src;
+  };
   plugin-plotters = craneLib.buildPackage {
-    src = inputs.plugin-plotters-src;
+    src = ccs inputs.plugin-plotters-src;
     cargoExtraArgs = "-p nu_plugin_plotters";
     buildInputs = with pkgs; [ pkg-config fontconfig ];
   };
