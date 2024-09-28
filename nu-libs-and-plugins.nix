@@ -19,6 +19,7 @@ in {
   };
 
   # Plugins (rust code)
+  # plugin-explore doesn't build yet because nu-plugin crate v0.98.0 isn't in nixpkgs yet
   plugin-explore = craneLib.buildPackage { src = inputs.plugin-explore-src; };
   plugin-plotters = craneLib.buildPackage {
     src = inputs.plugin-plotters-src;

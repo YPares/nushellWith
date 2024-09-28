@@ -43,20 +43,24 @@
             "flake-utils"
           ]);
           nu-libs-and-plugins = import ./nu-libs-and-plugins.nix inputs-for-libs;
-          nushellWithStdPlugins = self.lib.nushellWith {
+          mk-nu-with-extras = libs: plugins: self.lib.nushellWith {
             inherit pkgs;
+            libraries.source = libs;
             plugins.nix = with pkgs.nushellPlugins; [
               polars
               query
               formats
               gstat
-            ];
+            ] ++ plugins;
             config-nu = builtins.toFile "nushellWithStdPlugin-config.nu" "#just use the default config";
             keep-path = true;
           };
+          nushellWithStdPlugins = mk-nu-with-extras [] [];
+          nushellWithExtras = with nu-libs-and-plugins;
+            mk-nu-with-extras [nu-batteries] [plugin-plotters];
         in {
           packages = nu-libs-and-plugins // {
-            inherit nushellWithStdPlugins;
+            inherit nushellWithStdPlugins nushellWithExtras;
           };
         });
     in system-agnostic // system-specific;

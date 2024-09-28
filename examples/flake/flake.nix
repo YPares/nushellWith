@@ -1,4 +1,4 @@
-# - Run the script with `nix run .`
+# - Run the dummy script with `nix run .`
 # - Run the nushell env with `nix run .#myNushell`
 
 {
@@ -7,7 +7,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    nushellWith.url = "../.."; # Replace by "github:YPares/nushellWith"
+    nushellWith = {
+        url = "../.."; # Replace by "github:YPares/nushellWith"
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, flake-utils, nushellWith, ... }:

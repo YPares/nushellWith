@@ -50,11 +50,10 @@ let
     }]
   '';
 
-  wrapper-script = ''
-    #!${pkgs.runtimeShell}
+  wrapper-script = ''#!${pkgs.runtimeShell}
 
-    export PATH=${if keep-path then "$PATH:" else ""}${
-      concatStringsSep ":" path
+    export PATH=${
+      concatStringsSep ":" ((if keep-path then ["$PATH"] else []) ++ path)
     }
 
     ${if env-vars-file != null then
