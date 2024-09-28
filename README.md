@@ -8,22 +8,22 @@ flakes and with [`devenv`](http://devenv.sh).
 
 ## Outputs of this flake
 
-- [`lib.nushellWith`](./nushellWith.nix): a function that takes a description of
-  a nushell configuration (which libraries and plugins to use) and outputs a
+- [`lib.nushellWith`](./nushell-with.nix): a function that takes a description
+  of a nushell configuration (which libraries and plugins to use) and outputs a
   nushell wrapper
-- [`lib.makeNuLibrary`](./makeNuLibrary.nix): a function that takes a nushell
-  library as a folder (e.g. obtained from github via one of your flake inputs
-  flagged with `flake = false;`) and patches it to add some binary dependencies
-  to its path when it is imported. It outputs the resulting patched folder as a
-  derivation, ready to be passed to `libraries` in `lib.nushellWith`
-- [`packages.<system>`](./nuLibraries.nix): a set of pre-packaged
+- [`lib.makeNuLibrary`](./lib.nix): a function that takes a nushell library as a
+  folder (e.g. obtained from github via one of your flake inputs flagged with
+  `flake = false;`) and patches it to add some binary dependencies to its path
+  when it is imported. It outputs the resulting patched folder as a derivation,
+  ready to be passed to the `libraries.source` argument of `nushellWith`
+- [`packages.<system>`](./nu-libs-and-plugins.nix): a set of pre-packaged
   nushell libraries (see below)
 
 ## Nushell libraries
 
 This flake also packages (as Nix derivations) some nushell libraries published
 on Github, so their dependencies are taken care of for you. PRs to add new
-libraries to [this list](./nuLibraries.nix) are very much welcome. Don't
+libraries to [this list](./nu-libs-and-plugins.nix) are very much welcome. Don't
 forget to add the URL of the library to wrap in the `inputs` of the
 [`flake.nix`](./flake.nix) file too.
 
