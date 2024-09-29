@@ -3,34 +3,45 @@
 # When adding a library/plugin here, don't forget to add its inputs to the main flake.nix
 { makeNuLibrary, pkgs, system, ... }@inputs:
 
-let craneLib = inputs.crane.mkLib pkgs;
-    ccs = craneLib.cleanCargoSource;
+let
+  # Shortcut to build a nu library without too much fuss:
+  simpleLib = name: extraArgs:
+    makeNuLibrary ({
+      inherit pkgs name;
+      src = inputs."${name}-src";
+    } // extraArgs);
+
+  craneLib = inputs.crane.mkLib pkgs;
+  pluginInputs = builtins.mapAttrs (_: p: craneLib.cleanCargoSource p) inputs;
+
+  # Shortcut to build a plugin from a repo that contains a single crate:
+  cratePlugin = shortName: extraArgs:
+    craneLib.buildPackage ({ src = pluginInputs."plugin-${shortName}-src"; } // extraArgs);
+
+  # Shortcut to build a plugin from a repo that contains a workspace (several crates):
+  workspacePlugin = shortName: extraArgs:
+    craneLib.buildPackage (rec {
+      name = "nu_plugin_${shortName}";
+      src = pluginInputs."plugin-${shortName}-src";
+      cargoExtraArgs = "-p ${name}";
+    } // extraArgs);
 in {
+
   # Libraries (nu code)
-  nu-batteries = makeNuLibrary { # https://github.com/nome/nu-batteries
-    inherit pkgs;
-    name = "nu-batteries";
-    src = inputs.nu-batteries-src;
-  };
-  webserver-nu = makeNuLibrary { # https://github.com/Jan9103/webserver.nu"
-    inherit pkgs;
-    name = "webserver-nu";
-    src = inputs.webserver-nu-src;
+
+  nu-batteries = simpleLib "nu-batteries" { };
+  webserver-nu = simpleLib "webserver-nu" {
     path = with pkgs; [ "${netcat}/bin" "${coreutils}/bin" ];
   };
 
   # Plugins (rust code)
-  plugin-explore = craneLib.buildPackage {
-    src = ccs inputs.plugin-explore-src;
-    # At the time of writing, the Cargo.lock needs to be updated
-  };
-  plugin-file = craneLib.buildPackage {
-    src = ccs inputs.plugin-file-src;
-  };
-  plugin-plotters = craneLib.buildPackage {
-    name = "nu_plugin_plotters";
-    src = ccs inputs.plugin-plotters-src;
-    cargoExtraArgs = "-p nu_plugin_plotters";
+  
+  # NOTE: At the time of writing, the Cargo.lock of nu_plugin_explore needs to
+  # be updated
+  plugin-explore = cratePlugin "explore" { };
+  plugin-file = cratePlugin "file" { };
+  plugin-plotters = workspacePlugin "plotters" {
     buildInputs = with pkgs; [ pkg-config fontconfig ];
   };
+
 }
