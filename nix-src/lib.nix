@@ -16,5 +16,5 @@ flake-inputs: rec {
     src, # Folder containing the library source
     path ? [], # Dependencies (list of folders to add to the PATH)
     }:
-    runNuScript pkgs "${name}-patched" ./nu-src/patch-deps.nu ([ src ] ++ path);
+    runNuScript pkgs "${name}-patched" ../nu-src/patch-deps.nu ([ src ] ++ path);
 }

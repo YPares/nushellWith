@@ -8,15 +8,15 @@ flakes and with [`devenv`](http://devenv.sh).
 
 ## Outputs of this flake
 
-- [`lib.nushellWith`](./nushell-with.nix): a function that takes a description
+- [`lib.nushellWith`](./nix-src/nushell-with.nix): a function that takes a description
   of a nushell configuration (which libraries and plugins to use) and outputs a
   nushell wrapper
-- [`lib.makeNuLibrary`](./lib.nix): a function that takes a nushell library as a
+- [`lib.makeNuLibrary`](./nix-src/lib.nix): a function that takes a nushell library as a
   folder (e.g. obtained from github via one of your flake inputs flagged with
   `flake = false;`) and patches it to add some binary dependencies to its path
   when it is imported. It outputs the resulting patched folder as a derivation,
   ready to be passed to the `libraries.source` argument of `nushellWith`
-- [`packages.<system>`](./nu-libs-and-plugins.nix): a set of pre-packaged
+- [`packages.<system>`](./nix-src/nu-libs-and-plugins.nix): a set of pre-packaged
   nushell libraries and plugins (see below)
 
 ## Pre-packaged nushell libraries & plugins
@@ -28,8 +28,8 @@ list](./nu-libs-and-plugins.nix) are very much welcome. Don't forget to add the
 URL of the library/plugin (and also of its external dependencies if it has any)
 to the `inputs` of the main [`flake.nix`](./flake.nix).
 
-The nix attribute names of the provided plugins should be of the form
-`"plugin-*"` to tell plugins and libraries apart.
+The nix attribute names of the provided plugins should be of the form `plugin-*`
+to tell plugins and libraries apart.
 
 ## Limitations & important notes
 

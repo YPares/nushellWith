@@ -10,8 +10,8 @@ path ? [ ],
 keep-path ? false, # Whether to append to the PATH of the parent process
 # (for more hermeticity) or overwrite it
 nushell ? pkgs.nushell, # Which nushell derivation to use
-config-nu ? ./default-config-files/config.nu, # Which config.nu file to use
-env-nu ? ./default-config-files/env.nu
+config-nu ? ../default-config-files/config.nu, # Which config.nu file to use
+env-nu ? ../default-config-files/env.nu
 , # Which env.nu file to use (NU_LIB_DIRS will be added to it)
 env-vars-file ?
   null # A sh script describing env vars to add to the nushell process
@@ -39,7 +39,7 @@ let
   # Find the executable for each plugin and write it as a nuon (nu object
   # notation) list in a file
   plugin-exes-list =
-    flake-lib.runNuScript pkgs "nu-plugin-exes" ./nu-src/find-bins.nu
+    flake-lib.runNuScript pkgs "nu-plugin-exes" ../nu-src/find-bins.nu
     all-plugin-exes;
 
   env-nu-with-libs = pkgs.writeText "env.nu" ''

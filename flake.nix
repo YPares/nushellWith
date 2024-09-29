@@ -35,7 +35,7 @@
   outputs = { self, crane, nixpkgs, flake-utils, ... }@flake-inputs:
     let
       system-agnostic = {
-        lib = import ./lib.nix flake-inputs;
+        lib = import ./nix-src/lib.nix flake-inputs;
         # Enables to use the flake directly as a function:
         __functor = (_: self.lib.nushellWith);
       };
@@ -52,7 +52,7 @@
             "flake-utils"
           ]);
           std-plugins = with pkgs.nushellPlugins; [ formats gstat polars query ];
-          nu-libs-and-plugins = import ./nu-libs-and-plugins.nix inputs-for-libs;
+          nu-libs-and-plugins = import ./nix-src/nu-libs-and-plugins.nix inputs-for-libs;
           mk-nu-with-extras = libs: plugins: self.lib.nushellWith {
             inherit pkgs;
             libraries.source = libs;

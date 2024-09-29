@@ -28,6 +28,7 @@ in {
     src = ccs inputs.plugin-file-src;
   };
   plugin-plotters = craneLib.buildPackage {
+    name = "nu_plugin_plotters";
     src = ccs inputs.plugin-plotters-src;
     cargoExtraArgs = "-p nu_plugin_plotters";
     buildInputs = with pkgs; [ pkg-config fontconfig ];
