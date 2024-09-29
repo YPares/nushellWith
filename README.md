@@ -17,22 +17,27 @@ flakes and with [`devenv`](http://devenv.sh).
   when it is imported. It outputs the resulting patched folder as a derivation,
   ready to be passed to the `libraries.source` argument of `nushellWith`
 - [`packages.<system>`](./nu-libs-and-plugins.nix): a set of pre-packaged
-  nushell libraries (see below)
+  nushell libraries and plugins (see below)
 
-## Nushell libraries
+## Pre-packaged nushell libraries & plugins
 
-This flake also packages (as Nix derivations) some nushell libraries published
-on Github, so their dependencies are taken care of for you. PRs to add new
-libraries to [this list](./nu-libs-and-plugins.nix) are very much welcome. Don't
-forget to add the URL of the library to wrap in the `inputs` of the
-[`flake.nix`](./flake.nix) file too.
+This flake also provides as Nix derivations some nushell libraries and plugins
+published on Github, so you don't have to write nix derivations for them and
+deal with their own dependencies. PRs to add new things to [this
+list](./nu-libs-and-plugins.nix) are very much welcome. Don't forget to add the
+URL of the library/plugin (and also of its external dependencies if it has any)
+to the `inputs` of the main [`flake.nix`](./flake.nix).
 
-## Limitations
+The nix attribute names of the provided plugins should be of the form
+`"plugin-*"` to tell plugins and libraries apart.
 
-- Only plugins written in Rust can be used
-- Using plugins built from source with `devenv` only works with devenv >= 1.1
+## Limitations & important notes
 
-## Naming conventions
-
-- All names for external consumption (lib functions, packages) are `camelCased`
-- All other names are `snake-cased`
+- Only plugins written in Rust can be passed to `plugins.source`, and they will
+  be built by [`crane`](https://github.com/ipetkov/crane). `plugins.nix` on the
+  other hand accepts any derivation that builds a proper plugin, ie. that builds
+  one single `$out/bin/nu_plugin_*` executable which implements the [nu-plugin
+  protocol](https://www.nushell.sh/contributor-book/plugins.html). In both
+  cases, the plugin executable is automatically discovered by `nushellWith`, and
+  must be the _only_ executable present in the given derivation.
+- Using `plugins.source` with `devenv` only works with `devenv >= v1.1`.
