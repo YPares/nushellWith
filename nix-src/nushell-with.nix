@@ -1,20 +1,27 @@
 flake-inputs:
-{ pkgs, # From `import nixpkgs {...}`
-plugins ? { }
-, # Which plugins to use. Can contain `nix` and `source` attributes (lists)
-libraries ? { }
-, # Which nushell libraries to use. Can contain a `source` attribute (a list)
-path ? [ ],
+{
+# Obtained from `import nixpkgs {...}`
+pkgs,
+# How to name the produced derivation
+name ? "nushell-wrapper",
+# Which plugins to use. Can contain `nix` and `source` attributes (both lists)
+plugins ? { },
+# Which nushell libraries to use. Can contain a `source` attribute (a list)
+libraries ? { },
 # Which nix paths to add to the PATH. Useful if you directly use libraries
 # downloaded from raw sources
-keep-path ? false, # Whether to append to the PATH of the parent process
+path ? [ ],
+# Whether to append to the PATH of the parent process
 # (for more hermeticity) or overwrite it
-nushell ? pkgs.nushell, # Which nushell derivation to use
-config-nu ? ../default-config-files/config.nu, # Which config.nu file to use
-env-nu ? ../default-config-files/env.nu
-, # Which env.nu file to use (NU_LIB_DIRS will be added to it)
-env-vars-file ?
-  null # A sh script describing env vars to add to the nushell process
+keep-path ? false,
+# Which nushell derivation to use
+nushell ? pkgs.nushell,
+# Which config.nu file to use
+config-nu ? ../default-config-files/config.nu,
+# Which env.nu file to use (NU_LIB_DIRS will be added to it)
+env-nu ? ../default-config-files/env.nu,
+# A sh script describing env vars to add to the nushell process
+env-vars-file ? null,
 }:
 with pkgs.lib;
 let
@@ -39,7 +46,7 @@ let
   # Find the executable for each plugin and write it as a nuon (nu object
   # notation) list in a file
   plugin-exes-list =
-    flake-lib.runNuScript pkgs "nu-plugin-exes" ../nu-src/find-bins.nu
+    flake-lib.runNuScript pkgs "nu-plugin-exes" ../nu-src/find-plugin-exes.nu
     all-plugin-exes;
 
   env-nu-with-libs = pkgs.writeText "env.nu" ''
@@ -70,7 +77,7 @@ let
   '';
 
 in pkgs.writeTextFile {
-  name = "nushellWith-wrapper";
+  inherit name;
   text = wrapper-script;
   executable = true;
   destination = "/bin/nu";

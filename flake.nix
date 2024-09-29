@@ -53,17 +53,17 @@
           ]);
           std-plugins = with pkgs.nushellPlugins; [ formats gstat polars query ];
           nu-libs-and-plugins = import ./nix-src/nu-libs-and-plugins.nix inputs-for-libs;
-          mk-nu-with-extras = libs: plugins: self.lib.nushellWith {
-            inherit pkgs;
+          mk-nu-with-extras = name: libs: plugins: self.lib.nushellWith {
+            inherit pkgs name;
             libraries.source = libs;
             plugins.nix = std-plugins ++ plugins;
-            config-nu = builtins.toFile "nushellWith-wrapper-config.nu" "#just use the default config";
+            config-nu = builtins.toFile "nushell-wrapper-config.nu" "#just use the default config";
             keep-path = true;
           };
         in {
           packages = nu-libs-and-plugins // (with nu-libs-and-plugins; {
-            nushellWithStdPlugins = mk-nu-with-extras [] [];
-            nushellWithExtras = mk-nu-with-extras
+            nushellWithStdPlugins = mk-nu-with-extras "nushell-with-std-plugins" [] [];
+            nushellWithExtras = mk-nu-with-extras "nushell-with-extras"
               [ nu-batteries ]
               [ plugin-file plugin-plotters ];
           });
