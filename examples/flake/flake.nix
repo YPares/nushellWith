@@ -20,8 +20,8 @@
         nupkgs = nushellWith.packages.${system};
         myNushell = nushellWith {
           inherit pkgs;
-          plugins.nix = [ nupkgs.plugin-file ];
-          libraries.source = [ nupkgs.webserver-nu nupkgs.nu-batteries ];
+          plugins.nix = [ nupkgs.plugin-httpserve ];
+          libraries.source = [ nupkgs.nu-batteries ];
           env-vars-file = ./env-vars;
         };
       in {

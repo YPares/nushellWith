@@ -40,6 +40,7 @@ in {
   # be updated
   plugin-explore = cratePlugin "explore" { };
   plugin-file = cratePlugin "file" { };
+  plugin-httpserve = cratePlugin "httpserve" { };
   plugin-plotters = workspacePlugin "plotters" {
     buildInputs = with pkgs; [ pkg-config fontconfig ];
   };

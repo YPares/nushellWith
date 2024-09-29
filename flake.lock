@@ -35,11 +35,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1727586919,
-        "narHash": "sha256-e/YXG0tO5GWHDS8QQauj8aj4HhXEm602q9swrrlTlKQ=",
+        "lastModified": 1727617520,
+        "narHash": "sha256-uNfh3aMyCekMpjtL/PZtl2Hz/YqNuUpCBEzVxt1QYck=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2dcd9c55e8914017226f5948ac22c53872a13ee2",
+        "rev": "7eee17a8a5868ecf596bbb8c8beb527253ea8f4d",
         "type": "github"
       },
       "original": {
@@ -97,6 +97,22 @@
         "type": "github"
       }
     },
+    "plugin-httpserve-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727700224,
+        "narHash": "sha256-bbTid84gYsiVc10L0URP5BGAh8fvL9ClfvIvzvr7BEI=",
+        "owner": "YPares",
+        "repo": "nu_plugin_httpserve",
+        "rev": "5ef9aea573d16a9ac346dc114b95219799ea8ff5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "YPares",
+        "repo": "nu_plugin_httpserve",
+        "type": "github"
+      }
+    },
     "plugin-plotters-src": {
       "flake": false,
       "locked": {
@@ -121,6 +137,7 @@
         "nu-batteries-src": "nu-batteries-src",
         "plugin-explore-src": "plugin-explore-src",
         "plugin-file-src": "plugin-file-src",
+        "plugin-httpserve-src": "plugin-httpserve-src",
         "plugin-plotters-src": "plugin-plotters-src",
         "webserver-nu-src": "webserver-nu-src"
       }

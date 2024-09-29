@@ -93,17 +93,18 @@
         "nu-batteries-src": "nu-batteries-src",
         "plugin-explore-src": "plugin-explore-src",
         "plugin-file-src": "plugin-file-src",
+        "plugin-httpserve-src": "plugin-httpserve-src",
         "plugin-plotters-src": "plugin-plotters-src",
         "webserver-nu-src": "webserver-nu-src"
       },
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-4BHMlgZYUPpdgdUaQICwtMG00g+N3db5xlWk1U6NDJA=",
-        "path": "/nix/store/bnbvgy6b8ir0qjywqqi1s4agjhahn5mv-source",
+        "narHash": "sha256-5KXopGypMSC5L+1OGJxqQL2h3VVxhxh746n1nuWXUWA=",
+        "path": "/nix/store/yfd42j1hirsmf141wg7igbzzhisywbmq-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/bnbvgy6b8ir0qjywqqi1s4agjhahn5mv-source",
+        "path": "/nix/store/yfd42j1hirsmf141wg7igbzzhisywbmq-source",
         "type": "path"
       }
     },
@@ -136,6 +137,22 @@
       "original": {
         "owner": "fdncred",
         "repo": "nu_plugin_file",
+        "type": "github"
+      }
+    },
+    "plugin-httpserve-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727640800,
+        "narHash": "sha256-tz7QTWkn5ehlo44yaE5h0tNmHDWbXFwT09Q8atDcNKE=",
+        "owner": "YPares",
+        "repo": "nu_plugin_httpserve",
+        "rev": "de31123c1f30b40ebea2a09e8ab19d49f2e5ccfb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "YPares",
+        "repo": "nu_plugin_httpserve",
         "type": "github"
       }
     },

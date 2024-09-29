@@ -26,6 +26,10 @@
       url = "github:fdncred/nu_plugin_file";
       flake = false;
     };
+    plugin-httpserve-src = {
+      url = "github:YPares/nu_plugin_httpserve";
+      flake = false;
+    };
     plugin-plotters-src = {
       url = "github:cptpiepmatz/nu-jupyter-kernel";
       flake = false;
