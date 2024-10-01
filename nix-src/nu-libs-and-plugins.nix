@@ -16,7 +16,8 @@ let
 
   # Shortcut to build a plugin from a repo that contains a single crate:
   cratePlugin = shortName: extraArgs:
-    craneLib.buildPackage ({ src = pluginInputs."plugin-${shortName}-src"; } // extraArgs);
+    craneLib.buildPackage
+    ({ src = pluginInputs."plugin-${shortName}-src"; } // extraArgs);
 
   # Shortcut to build a plugin from a repo that contains a workspace (several crates):
   workspacePlugin = shortName: extraArgs:
@@ -35,12 +36,18 @@ in {
   };
 
   # Plugins (rust code)
-  
+
   # NOTE: At the time of writing, the Cargo.lock of nu_plugin_explore needs to
   # be updated
   plugin-explore = cratePlugin "explore" { };
   plugin-file = cratePlugin "file" { };
-  plugin-httpserve = cratePlugin "httpserve" { };
+  plugin-httpserve = cratePlugin "httpserve" {
+    buildInputs = with pkgs;
+      lib.optionals (stdenv.hostPlatform.isDarwin) [
+        iconv
+        darwin.apple_sdk.frameworks.IOKit
+      ];
+  };
   plugin-plotters = workspacePlugin "plotters" {
     buildInputs = with pkgs; [ pkg-config fontconfig ];
   };
