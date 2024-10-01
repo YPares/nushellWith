@@ -40,7 +40,9 @@ in {
   # be updated
   plugin-explore = cratePlugin "explore" { };
   plugin-file = cratePlugin "file" { };
-  plugin-httpserve = cratePlugin "httpserve" { };
+  plugin-httpserve = cratePlugin "httpserve" { 
+    buildInputs = with pkgs; lib.optionals (stdenv.hostPlatform.isDarwin) [ iconv ];
+  };
   plugin-plotters = workspacePlugin "plotters" {
     buildInputs = with pkgs; [ pkg-config fontconfig ];
   };
