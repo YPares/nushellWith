@@ -41,7 +41,7 @@ in {
   plugin-explore = cratePlugin "explore" { };
   plugin-file = cratePlugin "file" { };
   plugin-httpserve = cratePlugin "httpserve" { 
-    buildInputs = with pkgs; lib.optionals (stdenv.hostPlatform.isDarwin) [ iconv ];
+    buildInputs = with pkgs; lib.optionals (stdenv.hostPlatform.isDarwin) [ iconv darwin.apple_sdk.frameworks.IOKit ];
   };
   plugin-plotters = workspacePlugin "plotters" {
     buildInputs = with pkgs; [ pkg-config fontconfig ];
