@@ -1,7 +1,7 @@
 # This flake exposes some existing nushell libraries (packaged with their dependencies)
 #
 # When adding a library/plugin here, don't forget to add its inputs to the main flake.nix
-{ makeNuLibrary, pkgs, system, ... }@inputs:
+{ makeNuLibrary, pkgs, ... }@inputs:
 
 let
   # Shortcut to build a nu library without too much fuss:

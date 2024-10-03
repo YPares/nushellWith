@@ -1,4 +1,7 @@
-flake-inputs:
+let
+  defcfg = ../default-config-files/config.nu;
+  defenv = ../default-config-files/env.nu;
+in flake-inputs:
 {
 # Obtained from `import nixpkgs {...}`
 pkgs,
@@ -17,16 +20,13 @@ keep-path ? false,
 # Which nushell derivation to use
 nushell ? pkgs.nushell,
 # Which config.nu file to use
-config-nu ? ../default-config-files/config.nu,
+config-nu ? defcfg,
 # Which env.nu file to use (NU_LIB_DIRS will be added to it)
-env-nu ? ../default-config-files/env.nu,
+env-nu ? defenv,
 # A sh script describing env vars to add to the nushell process
-env-vars-file ? null,
-}:
+env-vars-file ? null, }:
 with pkgs.lib;
 let
-  flake-lib = flake-inputs.self.lib;
-
   crane-builder = flake-inputs.crane.mkLib pkgs;
 
   plugins-with-defs = {
@@ -40,16 +40,17 @@ let
   crane-pkgs = map (src: crane-builder.buildPackage { inherit src; })
     plugins-with-defs.source;
 
-  all-plugin-exes =
-    map (src: "${src}/bin") (plugins-with-defs.nix ++ crane-pkgs);
+  plugins-env = pkgs.buildEnv {
+    name = "${name}-plugins-env";
+    paths = plugins-with-defs.nix ++ crane-pkgs;
+    # Creating and saving the plugin list along with the env:
+    postBuild = ''
+      ${nushell}/bin/nu --plugin-config dummy --config ${defcfg} --env-config ${defenv} -c \
+        "ls $out/bin | where name =~ nu_plugin_ | get name | save $out/plugins.nuon"
+    '';
+  };
 
-  # Find the executable for each plugin and write it as a nuon (nu object
-  # notation) list in a file
-  plugin-exes-list =
-    flake-lib.runNuScript pkgs "nu-plugin-exes" ../nu-src/find-plugin-exes.nu
-    all-plugin-exes;
-
-  env-nu-with-libs = pkgs.writeText "env.nu" ''
+  env-nu-with-libs = pkgs.writeText "${name}-env.nu" ''
     ${builtins.readFile env-nu}
 
     $env.NU_LIB_DIRS = [${
@@ -57,10 +58,11 @@ let
     }]
   '';
 
-  wrapper-script = ''#!${pkgs.runtimeShell}
+  wrapper-script = ''
+    #!${pkgs.runtimeShell}
 
     export PATH=${
-      concatStringsSep ":" ((if keep-path then ["$PATH"] else []) ++ path)
+      concatStringsSep ":" ((if keep-path then [ "$PATH" ] else [ ]) ++ path)
     }
 
     ${if env-vars-file != null then
@@ -69,16 +71,18 @@ let
       ""}
 
     ${nushell}/bin/nu \
-      --plugins "$(<${plugin-exes-list})" \
       --plugin-config dummy \
-      --config ${config-nu} \
-      --env-config ${env-nu-with-libs} \
+      --plugins "$(<${plugins-env}/plugins.nuon)" \
+      --config "${config-nu}" \
+      --env-config "${env-nu-with-libs}" \
       "$@"
   '';
 
-in pkgs.writeTextFile {
-  inherit name;
-  text = wrapper-script;
-  executable = true;
-  destination = "/bin/nu";
-}
+  deriv = pkgs.writeTextFile {
+    inherit name;
+    text = wrapper-script;
+    executable = true;
+    destination = "/bin/nu";
+  };
+
+in deriv // { inherit plugins-env; }
