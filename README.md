@@ -28,7 +28,7 @@ flakes and with [`devenv`](http://devenv.sh).
 This flake also provides as Nix derivations some nushell libraries and plugins
 published on Github, so you don't have to write nix derivations for them and
 deal with their own dependencies. PRs to add new things to [this
-list](./nu-libs-and-plugins.nix) are very much welcome. Don't forget to add the
+list](./nix-src/nu-libs-and-plugins.nix) are very much welcome. Don't forget to add the
 URL of the library/plugin (and also of its external dependencies if it has any)
 to the `inputs` of the main [`flake.nix`](./flake.nix).
 
