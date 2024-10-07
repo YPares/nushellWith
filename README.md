@@ -1,3 +1,5 @@
+[![built with garnix](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2FYPares%2FnushellWith%3Fbranch%3Dmaster)](https://garnix.io/repo/YPares/nushellWith)
+
 # nushellWith
 
 Build an isolated [nushell](https://www.nushell.sh/) environment with a specific set of plugins (from
