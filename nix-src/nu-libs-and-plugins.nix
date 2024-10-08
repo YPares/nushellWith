@@ -39,7 +39,7 @@ in {
 
   # NOTE: At the time of writing, the Cargo.lock of nu_plugin_explore needs to
   # be updated
-  plugin-explore = cratePlugin "explore" { };
+  #plugin-explore = cratePlugin "explore" { };
   plugin-file = cratePlugin "file" { };
   plugin-httpserve = cratePlugin "httpserve" {
     buildInputs = with pkgs;
