@@ -39,7 +39,9 @@ to tell plugins and libraries apart.
 
 ## Binary cache
 
-Run `cachix use nushellwith` to benefit from cached binaries.
+Update your `nix.conf` file according to <https://garnix.io/docs/caching>.
+
+nix.conf is either `/etc/nix/nix.conf` (system) or `$HOME/.config/nix/nix.conf` (user).
 
 ## Limitations & important notes
 
