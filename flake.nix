@@ -33,6 +33,10 @@
       url = "github:cptpiepmatz/nu-jupyter-kernel";
       flake = false;
     };
+    plugin-vec-src = {
+      url = "github:PhotonBursted/nu_plugin_vec";
+      flake = false;
+    };
   };
 
   outputs = { self, crane, nixpkgs, ... }@flake-inputs:
@@ -89,6 +93,7 @@
           nushellWithExtras = nu-with "nushell-with-extras" [ nu-batteries ] [
             plugin-file
             plugin-plotters
+            plugin-vec
           ];
         }));
     };

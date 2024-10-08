@@ -111,6 +111,22 @@
         "type": "github"
       }
     },
+    "plugin-vec-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1728337658,
+        "narHash": "sha256-n5pa2RoTBe1dhHjNiUa3SKYCU06YBOk/d9M7/06/Ezw=",
+        "owner": "PhotonBursted",
+        "repo": "nu_plugin_vec",
+        "rev": "d5dd432f9d73747c5d1b43c7da6376fbe6465cab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PhotonBursted",
+        "repo": "nu_plugin_vec",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "crane": "crane",
@@ -120,6 +136,7 @@
         "plugin-file-src": "plugin-file-src",
         "plugin-httpserve-src": "plugin-httpserve-src",
         "plugin-plotters-src": "plugin-plotters-src",
+        "plugin-vec-src": "plugin-vec-src",
         "webserver-nu-src": "webserver-nu-src"
       }
     },

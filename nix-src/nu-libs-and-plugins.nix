@@ -51,5 +51,6 @@ in {
   plugin-plotters = workspacePlugin "plotters" {
     buildInputs = with pkgs; [ pkg-config fontconfig ];
   };
+  plugin-vec = cratePlugin "vec" { };
 
 }
