@@ -2,6 +2,15 @@
   description =
     "Make a nushell instance with specific plugins and/or nushell libraries";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://cache.garnix.io"
+    ];
+    extra-trusted-public-keys = [
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+    ];
+  };
+
   inputs = {
     crane.url = "github:ipetkov/crane";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";

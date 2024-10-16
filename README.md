@@ -37,12 +37,6 @@ to the `inputs` of the main [`flake.nix`](./flake.nix).
 The nix attribute names of the provided plugins should be of the form `plugin-*`
 to tell plugins and libraries apart.
 
-## Binary cache
-
-Update your `nix.conf` file according to <https://garnix.io/docs/caching>.
-
-nix.conf is either `/etc/nix/nix.conf` (system) or `$HOME/.config/nix/nix.conf` (user).
-
 ## Limitations & important notes
 
 - Only plugins written in Rust can be passed to `plugins.source`, and they will
