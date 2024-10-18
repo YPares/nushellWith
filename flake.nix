@@ -3,12 +3,9 @@
     "Make a nushell instance with specific plugins and/or nushell libraries";
 
   nixConfig = {
-    extra-substituters = [
-      "https://cache.garnix.io"
-    ];
-    extra-trusted-public-keys = [
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-    ];
+    extra-substituters = [ "https://cache.garnix.io" ];
+    extra-trusted-public-keys =
+      [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
   };
 
   inputs = {
@@ -94,8 +91,9 @@
               libraries.source = libs;
               plugins.nix = std-plugins ++ plugins;
               config-nu = builtins.toFile "empty-config.nu"
-                "#just use the default config";
+                "# Just source the user config";
               keep-path = true;
+              source-user-config = true;
             };
         in nu-libs-and-plugins // (with nu-libs-and-plugins; {
           nushellWithStdPlugins = nu-with "nushell-with-std-plugins" [ ] [ ];

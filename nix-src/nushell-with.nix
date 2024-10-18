@@ -19,10 +19,13 @@ path ? [ ],
 keep-path ? false,
 # Which nushell derivation to use
 nushell ? pkgs.nushell,
-# Which config.nu file to use
+# Which config.nu file to set at build time
 config-nu ? defcfg,
-# Which env.nu file to use (NU_LIB_DIRS will be added to it)
+# Which env.nu file to set at build time
 env-nu ? defenv,
+# Should we additionally source the user's config.nu & env.nu at runtime?
+# If true, then ~/.config/nushell/{config,env}.nu MUST EXIST
+source-user-config ? false,
 # A sh script describing env vars to add to the nushell process
 env-vars-file ? null, }:
 with pkgs.lib;
@@ -50,8 +53,16 @@ let
     '';
   };
 
-  env-nu-with-libs = pkgs.writeText "${name}-env.nu" ''
+  edited-config-nu = pkgs.writeText "${name}-config.nu" ''
+    ${builtins.readFile config-nu}
+
+    ${if source-user-config then ''source "~/.config/nushell/config.nu"'' else ""}
+  '';
+
+  edited-env-nu = pkgs.writeText "${name}-env.nu" ''
     ${builtins.readFile env-nu}
+
+    ${if source-user-config then ''source "~/.config/nushell/env.nu"'' else ""}
 
     $env.NU_LIB_DIRS = [${
       concatStringsSep " " ([ "." ] ++ libs-with-defs.source)
@@ -73,8 +84,8 @@ let
     ${nushell}/bin/nu \
       --plugin-config dummy \
       --plugins "$(<${plugins-env}/plugins.nuon)" \
-      --config "${config-nu}" \
-      --env-config "${env-nu-with-libs}" \
+      --config "${edited-config-nu}" \
+      --env-config "${edited-env-nu}" \
       "$@"
   '';
 
