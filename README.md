@@ -27,12 +27,12 @@ flakes and with [`devenv`](http://devenv.sh).
 
 ## Pre-packaged nushell libraries & plugins
 
-This flake also provides as Nix derivations some nushell libraries and plugins
-published on Github, so you don't have to write nix derivations for them and
-deal with their own dependencies. PRs to add new things to [this
-list](./nix-src/nu-libs-and-plugins.nix) are very much welcome. Don't forget to add the
-URL of the library/plugin (and also of its external dependencies if it has any)
-to the `inputs` of the main [`flake.nix`](./flake.nix).
+This flake also provides as Nix derivations some nushell libraries and plugins, so you don't have to write nix derivations for them and
+deal with their own dependencies. All plugins from crates.io are procedurally packaged, which means some may fail to build due to their
+system dependencies not being explicitly listed here.
+See the [garnix build results](https://garnix.io/repo/YPares/nushellWith) to know which ones.
+
+PRs to add new things to the list of [packaged libraries & plugins](./nix-src/nu-libs-and-plugins.nix) are very much welcome.
 
 The nix attribute names of the provided plugins should be of the form `plugin-*`
 to tell plugins and libraries apart.
