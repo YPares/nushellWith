@@ -35,13 +35,13 @@ let
       doCheck = false;
     };
 
-  # Non-rust depencies for plugins from crates.io
+  # Non-rust dependencies for plugins from crates.io
   buildInputsForPluginsFromCratesIo = {
     nu_plugin_plotters = with pkgs; [ pkg-config fontconfig ];
   };
 
   # An attrset of all the plugins from crates.io
-  # Each attr is of the form "plugin-<name>" instead of "nu_plugin_<name>"
+  # Each attr is of "nu_plugin_<name>"
   pluginsFromCratesIo = builtins.mapAttrs (_: buildPluginFromCratesIo) cratesIoIndex;
 
 in pluginsFromCratesIo // {

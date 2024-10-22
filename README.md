@@ -34,9 +34,6 @@ See the [garnix build results](https://garnix.io/repo/YPares/nushellWith) to kno
 
 PRs to add new things to the list of [packaged libraries & plugins](./nix-src/nu-libs-and-plugins.nix) are very much welcome.
 
-The nix attribute names of the provided plugins should be of the form `plugin-*`
-to tell plugins and libraries apart.
-
 ## Limitations & important notes
 
 - Only plugins written in Rust can be passed to `plugins.source`, and they will
