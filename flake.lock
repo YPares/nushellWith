@@ -15,6 +15,22 @@
         "type": "github"
       }
     },
+    "crates-io-index": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729618988,
+        "narHash": "sha256-H3X7XPLT2AaFQKev8g8tot3FOQrannHLGbea/9i6RB8=",
+        "owner": "rust-lang",
+        "repo": "crates.io-index",
+        "rev": "4771254cadd563971d1f8282da97a5fa923387aa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "repo": "crates.io-index",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1729428082,
@@ -47,39 +63,7 @@
         "type": "github"
       }
     },
-    "plugin-explore-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1726911003,
-        "narHash": "sha256-EX44IzxEJWK/kzLJ+edUUbGjZMbXJeM+p2/E4kGzrfM=",
-        "owner": "amtoine",
-        "repo": "nu_plugin_explore",
-        "rev": "552ccb7c6a3f3780b07cc1d73afec3f99fbd4452",
-        "type": "github"
-      },
-      "original": {
-        "owner": "amtoine",
-        "repo": "nu_plugin_explore",
-        "type": "github"
-      }
-    },
-    "plugin-file-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1729542312,
-        "narHash": "sha256-2dSdNC89D1IJgbUq+S5FN8ue5BJNOs8exzlYB0Jqj1w=",
-        "owner": "fdncred",
-        "repo": "nu_plugin_file",
-        "rev": "839fadec3b9b6b52475ffea7be39427ae49142ad",
-        "type": "github"
-      },
-      "original": {
-        "owner": "fdncred",
-        "repo": "nu_plugin_file",
-        "type": "github"
-      }
-    },
-    "plugin-httpserve-src": {
+    "nu_plugin_httpserve-src": {
       "flake": false,
       "locked": {
         "lastModified": 1729603579,
@@ -95,48 +79,13 @@
         "type": "github"
       }
     },
-    "plugin-plotters-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1729200536,
-        "narHash": "sha256-A1Y3SwmjQ6Mp5LrLTMoOaaP+V5eKxbQC0YLANuGufGs=",
-        "owner": "cptpiepmatz",
-        "repo": "nu-jupyter-kernel",
-        "rev": "3c29023ed8ed2c110cf4656175ac9d3acd1e5529",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cptpiepmatz",
-        "repo": "nu-jupyter-kernel",
-        "type": "github"
-      }
-    },
-    "plugin-vec-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1729451494,
-        "narHash": "sha256-cFT413IhDxP7PZE6j+wfFqwlsRvi7Y9M8pi9wB+msi8=",
-        "owner": "PhotonBursted",
-        "repo": "nu_plugin_vec",
-        "rev": "4c4c6707b990274a72cbf2412b7fdc358a93d4c2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "PhotonBursted",
-        "repo": "nu_plugin_vec",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "crane": "crane",
+        "crates-io-index": "crates-io-index",
         "nixpkgs": "nixpkgs",
         "nu-batteries-src": "nu-batteries-src",
-        "plugin-explore-src": "plugin-explore-src",
-        "plugin-file-src": "plugin-file-src",
-        "plugin-httpserve-src": "plugin-httpserve-src",
-        "plugin-plotters-src": "plugin-plotters-src",
-        "plugin-vec-src": "plugin-vec-src",
+        "nu_plugin_httpserve-src": "nu_plugin_httpserve-src",
         "webserver-nu-src": "webserver-nu-src"
       }
     },
