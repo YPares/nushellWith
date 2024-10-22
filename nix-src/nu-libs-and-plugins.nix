@@ -27,18 +27,22 @@ let
     ];
 
   buildPluginFromCratesIo = { name, ... }@nameVerCksum:
-    craneLib.buildPackage {
+    let
       src = craneLib.downloadCargoPackage (nameVerCksum // {
         source = "registry+https://github.com/rust-lang/crates.io-index";
       });
       buildInputs = baseBuildInputs
         ++ (buildInputsForPluginsFromCratesIo.${name} or [ ]);
+      cargoArtifacts = craneLib.buildDepsOnly { inherit src buildInputs; };
+    in craneLib.buildPackage {
+      inherit src buildInputs cargoArtifacts;
       doCheck = false;
     };
 
   # Non-rust dependencies for plugins from crates.io
-  buildInputsForPluginsFromCratesIo = {
-    nu_plugin_plotters = with pkgs; [ fontconfig ];
+  buildInputsForPluginsFromCratesIo = with pkgs; {
+    nu_plugin_plotters = [ fontconfig ];
+    nu_plugin_query = [ openssl ];
   };
 
   # An attrset of all the plugins from crates.io
@@ -57,9 +61,12 @@ in pluginsFromCratesIo // {
 
   # Plugins (rust code) from github 
 
-  nu_plugin_httpserve = craneLib.buildPackage {
-    src = craneLib.cleanCargoSource inputs.nu_plugin_httpserve-src;
-    buildInputs = baseBuildInputs;
-  };
+  nu_plugin_httpserve =
+    let src = craneLib.cleanCargoSource inputs.nu_plugin_httpserve-src;
+        buildInputs = baseBuildInputs;
+        cargoArtifacts = craneLib.buildDepsOnly { inherit src buildInputs; };
+    in craneLib.buildPackage {
+      inherit src buildInputs cargoArtifacts;
+    };
 
 }
