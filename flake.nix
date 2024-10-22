@@ -85,9 +85,9 @@
         in nu-libs-and-plugins // (with nu-libs-and-plugins; {
           nushellWithStdPlugins = nu-with "nushell-with-std-plugins" [ ] [ ];
           nushellWithExtras = nu-with "nushell-with-extras" [ nu-batteries ] [
-            plugin-file
-            plugin-plotters
-            plugin-vec
+            nu_plugin_file
+            nu_plugin_plotters
+            nu_plugin_vec
           ];
         }));
     };

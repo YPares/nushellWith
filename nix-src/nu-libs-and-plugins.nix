@@ -20,29 +20,31 @@ let
     builtins.fromJSON (builtins.readFile "${cratesIoJsonIndex}/plugins.json");
 
   baseBuildInputs = with pkgs;
-    lib.optionals (stdenv.hostPlatform.isDarwin) [
+    [ pkg-config ] ++ lib.optionals (stdenv.hostPlatform.isDarwin) [
       iconv
       darwin.apple_sdk.frameworks.IOKit
       darwin.apple_sdk.frameworks.Security
     ];
 
-  buildPluginFromCratesIo = {name, ...}@nameVerCksum:
+  buildPluginFromCratesIo = { name, ... }@nameVerCksum:
     craneLib.buildPackage {
       src = craneLib.downloadCargoPackage (nameVerCksum // {
         source = "registry+https://github.com/rust-lang/crates.io-index";
       });
-      buildInputs = baseBuildInputs ++ (buildInputsForPluginsFromCratesIo.${name} or []);
+      buildInputs = baseBuildInputs
+        ++ (buildInputsForPluginsFromCratesIo.${name} or [ ]);
       doCheck = false;
     };
 
   # Non-rust dependencies for plugins from crates.io
   buildInputsForPluginsFromCratesIo = {
-    nu_plugin_plotters = with pkgs; [ pkg-config fontconfig ];
+    nu_plugin_plotters = with pkgs; [ fontconfig ];
   };
 
   # An attrset of all the plugins from crates.io
   # Each attr is of "nu_plugin_<name>"
-  pluginsFromCratesIo = builtins.mapAttrs (_: buildPluginFromCratesIo) cratesIoIndex;
+  pluginsFromCratesIo =
+    builtins.mapAttrs (_: buildPluginFromCratesIo) cratesIoIndex;
 
 in pluginsFromCratesIo // {
 
