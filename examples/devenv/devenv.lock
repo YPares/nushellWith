@@ -2,10 +2,10 @@
   "nodes": {
     "crane": {
       "locked": {
-        "lastModified": 1727316705,
+        "lastModified": 1729273024,
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "5b03654ce046b5167e7b0bccbd8244cb56c16f0e",
+        "rev": "fa8b7445ddadc37850ed222718ca86622be01967",
         "type": "github"
       },
       "original": {
@@ -14,13 +14,28 @@
         "type": "github"
       }
     },
+    "crates-io-index": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729618784,
+        "owner": "rust-lang",
+        "repo": "crates.io-index",
+        "rev": "1f0ac20b33d39c23cf79a2a4bfd3f02f3ac4d1e1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "repo": "crates.io-index",
+        "type": "github"
+      }
+    },
     "devenv": {
       "locked": {
         "dir": "src/modules",
-        "lastModified": 1727457166,
+        "lastModified": 1729604821,
         "owner": "cachix",
         "repo": "devenv",
-        "rev": "6090da46bfb53e358b818cee491df1a25daa85e0",
+        "rev": "52e7575398ec362c0963fed42dabb6fce8dc7cc4",
         "type": "github"
       },
       "original": {
@@ -42,23 +57,6 @@
       "original": {
         "owner": "edolstra",
         "repo": "flake-compat",
-        "type": "github"
-      }
-    },
-    "flake-utils": {
-      "inputs": {
-        "systems": "systems"
-      },
-      "locked": {
-        "lastModified": 1726560853,
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
         "type": "github"
       }
     },
@@ -99,10 +97,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1727492312,
+        "lastModified": 1729428082,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4471f9f67fe0f95f5fec4cc2ebac59fe32af2b62",
+        "rev": "ca30f584e18024baf39c395001262ed936f27ebd",
         "type": "github"
       },
       "original": {
@@ -114,10 +112,10 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1727397532,
+        "lastModified": 1729449015,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f65141456289e81ea0d5a05af8898333cab5c53d",
+        "rev": "89172919243df199fe237ba0f776c3e3e3d72367",
         "type": "github"
       },
       "original": {
@@ -129,10 +127,10 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1727492312,
+        "lastModified": 1729428082,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4471f9f67fe0f95f5fec4cc2ebac59fe32af2b62",
+        "rev": "ca30f584e18024baf39c395001262ed936f27ebd",
         "type": "github"
       },
       "original": {
@@ -157,15 +155,28 @@
         "type": "github"
       }
     },
+    "nu_plugin_httpserve-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729603579,
+        "owner": "YPares",
+        "repo": "nu_plugin_httpserve",
+        "rev": "41963e81b74dc326b4b4fe22b2c9fb655aec89f0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "YPares",
+        "repo": "nu_plugin_httpserve",
+        "type": "github"
+      }
+    },
     "nushellWith": {
       "inputs": {
         "crane": "crane",
-        "flake-utils": "flake-utils",
+        "crates-io-index": "crates-io-index",
         "nixpkgs": "nixpkgs_2",
         "nu-batteries-src": "nu-batteries-src",
-        "plugin-explore-src": "plugin-explore-src",
-        "plugin-file-src": "plugin-file-src",
-        "plugin-plotters-src": "plugin-plotters-src",
+        "nu_plugin_httpserve-src": "nu_plugin_httpserve-src",
         "webserver-nu-src": "webserver-nu-src"
       },
       "locked": {
@@ -178,51 +189,6 @@
       },
       "parent": []
     },
-    "plugin-explore-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1726911003,
-        "owner": "amtoine",
-        "repo": "nu_plugin_explore",
-        "rev": "552ccb7c6a3f3780b07cc1d73afec3f99fbd4452",
-        "type": "github"
-      },
-      "original": {
-        "owner": "amtoine",
-        "repo": "nu_plugin_explore",
-        "type": "github"
-      }
-    },
-    "plugin-file-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1726668693,
-        "owner": "fdncred",
-        "repo": "nu_plugin_file",
-        "rev": "253417750662690baac3e818e15009edb1343d64",
-        "type": "github"
-      },
-      "original": {
-        "owner": "fdncred",
-        "repo": "nu_plugin_file",
-        "type": "github"
-      }
-    },
-    "plugin-plotters-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1727433053,
-        "owner": "cptpiepmatz",
-        "repo": "nu-jupyter-kernel",
-        "rev": "11c2540caab608f888e40d34d44aa7b570ca2518",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cptpiepmatz",
-        "repo": "nu-jupyter-kernel",
-        "type": "github"
-      }
-    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -233,10 +199,10 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1727514110,
+        "lastModified": 1729104314,
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "85f7a7177c678de68224af3402ab8ee1bcee25c8",
+        "rev": "3c3e88f0f544d6bb54329832616af7eb971b6be6",
         "type": "github"
       },
       "original": {
@@ -254,27 +220,13 @@
         "pre-commit-hooks": "pre-commit-hooks"
       }
     },
-    "systems": {
-      "locked": {
-        "lastModified": 1681028828,
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
     "webserver-nu-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1725923972,
+        "lastModified": 1729079694,
         "owner": "Jan9103",
         "repo": "webserver.nu",
-        "rev": "9d7d43b19bbe85fdd7e951d5ff76f7a1f7fde34e",
+        "rev": "c94179bd28f9e70ec15a23cfdd52faa1763561bb",
         "type": "github"
       },
       "original": {

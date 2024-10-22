@@ -23,12 +23,8 @@
     };
 
     # Nu plugins' sources:
-    plugin-httpserve-src = {
+    nu_plugin_httpserve-src = {
       url = "github:YPares/nu_plugin_httpserve";
-      flake = false;
-    };
-    plugin-plotters-src = {
-      url = "github:cptpiepmatz/nu-jupyter-kernel";
       flake = false;
     };
 

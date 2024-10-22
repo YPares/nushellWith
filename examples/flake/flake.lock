@@ -2,16 +2,32 @@
   "nodes": {
     "crane": {
       "locked": {
-        "lastModified": 1728344376,
-        "narHash": "sha256-lxTce2XE6mfJH8Zk6yBbqsbu9/jpwdymbSH5cCbiVOA=",
+        "lastModified": 1729273024,
+        "narHash": "sha256-Mb5SemVsootkn4Q2IiY0rr9vrXdCCpQ9HnZeD/J3uXs=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "fd86b78f5f35f712c72147427b1eb81a9bd55d0b",
+        "rev": "fa8b7445ddadc37850ed222718ca86622be01967",
         "type": "github"
       },
       "original": {
         "owner": "ipetkov",
         "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crates-io-index": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729616034,
+        "narHash": "sha256-g+JMLRuOkC30WU4ZuGUO4BxYwJeD64lqh/0OAfMGVhU=",
+        "owner": "rust-lang",
+        "repo": "crates.io-index",
+        "rev": "9507368b05c12f9f8f50d1485d8ef7e6a75e8b94",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "repo": "crates.io-index",
         "type": "github"
       }
     },
@@ -35,11 +51,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1728249353,
-        "narHash": "sha256-7NBJm1jfMeAowE1J2oljYqWVvI9X7FyyxBY4O8uB/Os=",
+        "lastModified": 1729428082,
+        "narHash": "sha256-xb4/Y+Y7ZlkQaA5rXnrXplDzdt2Jfgdmar3+qkb56UA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c8a17040be4a20b29589cb4043a9e0c36af1930e",
+        "rev": "ca30f584e18024baf39c395001262ed936f27ebd",
         "type": "github"
       },
       "original": {
@@ -65,92 +81,42 @@
         "type": "github"
       }
     },
+    "nu_plugin_httpserve-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729603579,
+        "narHash": "sha256-fbBIpT3xOX+WbuPH6B0+4aaB0GFWpzVxMMoWkvsD+jc=",
+        "owner": "YPares",
+        "repo": "nu_plugin_httpserve",
+        "rev": "41963e81b74dc326b4b4fe22b2c9fb655aec89f0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "YPares",
+        "repo": "nu_plugin_httpserve",
+        "type": "github"
+      }
+    },
     "nushellWith": {
       "inputs": {
         "crane": "crane",
+        "crates-io-index": "crates-io-index",
         "nixpkgs": [
           "nixpkgs"
         ],
         "nu-batteries-src": "nu-batteries-src",
-        "plugin-explore-src": "plugin-explore-src",
-        "plugin-file-src": "plugin-file-src",
-        "plugin-httpserve-src": "plugin-httpserve-src",
-        "plugin-plotters-src": "plugin-plotters-src",
+        "nu_plugin_httpserve-src": "nu_plugin_httpserve-src",
         "webserver-nu-src": "webserver-nu-src"
       },
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-96PeOCrEfQY2cqDk2xDJFKxdGAp2tjjOnTH6iElQRYU=",
-        "path": "/nix/store/5qn81s4c3ldqlrm97jfia8c5pqizad1s-source",
+        "narHash": "sha256-IZRN8q/1ZFEHo0fwxs67laAgpTabrdSaxriGnC1X/Js=",
+        "path": "/nix/store/6p1h8bap4axsx9zagnblcx1n3mb8x2yi-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/5qn81s4c3ldqlrm97jfia8c5pqizad1s-source",
+        "path": "/nix/store/6p1h8bap4axsx9zagnblcx1n3mb8x2yi-source",
         "type": "path"
-      }
-    },
-    "plugin-explore-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1726911003,
-        "narHash": "sha256-EX44IzxEJWK/kzLJ+edUUbGjZMbXJeM+p2/E4kGzrfM=",
-        "owner": "amtoine",
-        "repo": "nu_plugin_explore",
-        "rev": "552ccb7c6a3f3780b07cc1d73afec3f99fbd4452",
-        "type": "github"
-      },
-      "original": {
-        "owner": "amtoine",
-        "repo": "nu_plugin_explore",
-        "type": "github"
-      }
-    },
-    "plugin-file-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1726668693,
-        "narHash": "sha256-pOQ1t0aJiFunA69+EU6qVzUu25tGQzgzZiSISBwgdGA=",
-        "owner": "fdncred",
-        "repo": "nu_plugin_file",
-        "rev": "253417750662690baac3e818e15009edb1343d64",
-        "type": "github"
-      },
-      "original": {
-        "owner": "fdncred",
-        "repo": "nu_plugin_file",
-        "type": "github"
-      }
-    },
-    "plugin-httpserve-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1728309768,
-        "narHash": "sha256-c9eyleux+dcQCK2yTTpmDF/SedMc5oirZFLpsw5FC6Q=",
-        "owner": "YPares",
-        "repo": "nu_plugin_httpserve",
-        "rev": "63ac92e7b95c862949b1440965dd3e2810b25bd7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "YPares",
-        "repo": "nu_plugin_httpserve",
-        "type": "github"
-      }
-    },
-    "plugin-plotters-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1727433053,
-        "narHash": "sha256-ZaB1ZCOa7cM2a9vX9vXa+SjvPikx6tNVR1IpBxuhZec=",
-        "owner": "cptpiepmatz",
-        "repo": "nu-jupyter-kernel",
-        "rev": "11c2540caab608f888e40d34d44aa7b570ca2518",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cptpiepmatz",
-        "repo": "nu-jupyter-kernel",
-        "type": "github"
       }
     },
     "root": {
@@ -178,11 +144,11 @@
     "webserver-nu-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1725923972,
-        "narHash": "sha256-JVE3osZQvbT+ufjulKsgf3OGj93LD7LjbreS21TTTOk=",
+        "lastModified": 1729079694,
+        "narHash": "sha256-fliqQpg7bIN26MgMR7EPiWI5NL/BNkuvNTloIXTo178=",
         "owner": "Jan9103",
         "repo": "webserver.nu",
-        "rev": "9d7d43b19bbe85fdd7e951d5ff76f7a1f7fde34e",
+        "rev": "c94179bd28f9e70ec15a23cfdd52faa1763561bb",
         "type": "github"
       },
       "original": {

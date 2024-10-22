@@ -55,8 +55,8 @@ in pluginsFromCratesIo // {
 
   # Plugins (rust code) from github 
 
-  plugin-httpserve = craneLib.buildPackage {
-    src = craneLib.cleanCargoSource inputs.plugin-httpserve-src;
+  nu_plugin_httpserve = craneLib.buildPackage {
+    src = craneLib.cleanCargoSource inputs.nu_plugin_httpserve-src;
     buildInputs = baseBuildInputs;
   };
 
