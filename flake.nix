@@ -12,7 +12,7 @@
     crane.url = "github:ipetkov/crane";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    # Nu libraries sources:
+    # Nu libraries' sources:
     nu-batteries-src = {
       url = "github:nome/nu-batteries";
       flake = false;
@@ -22,15 +22,7 @@
       flake = false;
     };
 
-    # Nu plugins sources:
-    plugin-explore-src = {
-      url = "github:amtoine/nu_plugin_explore";
-      flake = false;
-    };
-    plugin-file-src = {
-      url = "github:fdncred/nu_plugin_file";
-      flake = false;
-    };
+    # Nu plugins' sources:
     plugin-httpserve-src = {
       url = "github:YPares/nu_plugin_httpserve";
       flake = false;
@@ -39,8 +31,9 @@
       url = "github:cptpiepmatz/nu-jupyter-kernel";
       flake = false;
     };
-    plugin-vec-src = {
-      url = "github:PhotonBursted/nu_plugin_vec";
+
+    crates-io-index = {
+      url = "github:rust-lang/crates.io-index";
       flake = false;
     };
   };
@@ -71,9 +64,7 @@
           inputs-for-libs = {
             inherit pkgs;
             inherit system;
-            inherit (self.lib) makeNuLibrary;
           } // (builtins.removeAttrs flake-inputs [
-            "self"
             "nixpkgs"
             "flake-utils"
           ]);

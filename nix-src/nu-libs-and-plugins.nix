@@ -1,56 +1,63 @@
 # This flake exposes some existing nushell libraries (packaged with their dependencies)
 #
 # When adding a library/plugin here, don't forget to add its inputs to the main flake.nix
-{ makeNuLibrary, pkgs, ... }@inputs:
+{ self, pkgs, ... }@inputs:
 
 let
   # Shortcut to build a nu library without too much fuss:
   simpleLib = name: extraArgs:
-    makeNuLibrary ({
+    self.lib.makeNuLibrary ({
       inherit pkgs name;
       src = inputs."${name}-src";
     } // extraArgs);
 
   craneLib = inputs.crane.mkLib pkgs;
-  pluginInputs = builtins.mapAttrs (_: p: craneLib.cleanCargoSource p) inputs;
 
-  # Shortcut to build a plugin from a repo that contains a single crate:
-  cratePlugin = shortName: extraArgs:
-    craneLib.buildPackage
-    ({ src = pluginInputs."plugin-${shortName}-src"; } // extraArgs);
+  cratesIoJsonIndex = self.lib.runNuScript pkgs "plugins-in-crates.io-index"
+    ../nu-src/list-plugins-in-index.nu [ inputs.crates-io-index ];
 
-  # Shortcut to build a plugin from a repo that contains a workspace (several crates):
-  workspacePlugin = shortName: extraArgs:
-    craneLib.buildPackage (rec {
-      name = "nu_plugin_${shortName}";
-      src = pluginInputs."plugin-${shortName}-src";
-      cargoExtraArgs = "-p ${name}";
-    } // extraArgs);
-in {
+  cratesIoIndex =
+    builtins.fromJSON (builtins.readFile "${cratesIoJsonIndex}/plugins.json");
 
-  # Libraries (nu code)
+  baseBuildInputs = with pkgs;
+    lib.optionals (stdenv.hostPlatform.isDarwin) [
+      iconv
+      darwin.apple_sdk.frameworks.IOKit
+      darwin.apple_sdk.frameworks.Security
+    ];
+
+  buildPluginFromCratesIo = {name, ...}@nameVerCksum:
+    craneLib.buildPackage {
+      src = craneLib.downloadCargoPackage (nameVerCksum // {
+        source = "registry+https://github.com/rust-lang/crates.io-index";
+      });
+      buildInputs = baseBuildInputs ++ (buildInputsForPluginsFromCratesIo.${name} or []);
+      doCheck = false;
+    };
+
+  # Non-rust depencies for plugins from crates.io
+  buildInputsForPluginsFromCratesIo = {
+    nu_plugin_plotters = with pkgs; [ pkg-config fontconfig ];
+  };
+
+  # An attrset of all the plugins from crates.io
+  # Each attr is of the form "plugin-<name>" instead of "nu_plugin_<name>"
+  pluginsFromCratesIo = builtins.mapAttrs (_: buildPluginFromCratesIo) cratesIoIndex;
+
+in pluginsFromCratesIo // {
+
+  # Libraries (nu code) from github
 
   nu-batteries = simpleLib "nu-batteries" { };
   webserver-nu = simpleLib "webserver-nu" {
     path = with pkgs; [ "${netcat}/bin" "${coreutils}/bin" ];
   };
 
-  # Plugins (rust code)
+  # Plugins (rust code) from github 
 
-  # NOTE: At the time of writing, the Cargo.lock of nu_plugin_explore needs to
-  # be updated
-  #plugin-explore = cratePlugin "explore" { };
-  plugin-file = cratePlugin "file" { };
-  plugin-httpserve = cratePlugin "httpserve" {
-    buildInputs = with pkgs;
-      lib.optionals (stdenv.hostPlatform.isDarwin) [
-        iconv
-        darwin.apple_sdk.frameworks.IOKit
-      ];
+  plugin-httpserve = craneLib.buildPackage {
+    src = craneLib.cleanCargoSource inputs.plugin-httpserve-src;
+    buildInputs = baseBuildInputs;
   };
-  plugin-plotters = workspacePlugin "plotters" {
-    buildInputs = with pkgs; [ pkg-config fontconfig ];
-  };
-  plugin-vec = cratePlugin "vec" { };
 
 }
