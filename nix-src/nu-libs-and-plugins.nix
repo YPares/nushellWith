@@ -40,8 +40,18 @@ let
     #
     # Deps are to be added here on a case-by-case fashion
     buildInputsForPluginsFromCratesIo = with pkgs; {
-      nu_plugin_plotters = [ fontconfig ];
-      nu_plugin_query = [ openssl ];
+      binaryview = [ xorg.libX11 ];
+      cloud = [ openssl ];
+      dbus = [ dbus ];
+      fetch = [ openssl ];
+      from_dhall = [ openssl ];
+      gstat = [ openssl ];
+      plotters = [ fontconfig ];
+      polars = [ openssl ];
+      post = [ openssl ];
+      prometheus = [ openssl ];
+      query = [ openssl ];
+      s3 = [ openssl ];
     };
 
     buildPluginFromCratesIo = { name, ... }@nameVerCksum:
@@ -49,8 +59,9 @@ let
         src = craneLib.downloadCargoPackage (nameVerCksum // {
           source = "registry+https://github.com/rust-lang/crates.io-index";
         });
+        shortName = builtins.replaceStrings ["nu_plugin_"] [""] name;
         buildInputs = pluginsBaseBuildInputs
-          ++ (buildInputsForPluginsFromCratesIo.${name} or [ ]);
+          ++ (buildInputsForPluginsFromCratesIo.${shortName} or [ ]);
         cargoArtifacts = craneLib.buildDepsOnly { inherit src buildInputs; };
       in craneLib.buildPackage {
         inherit src buildInputs cargoArtifacts;
