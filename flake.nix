@@ -48,7 +48,8 @@
         "riscv64-linux"
         "x86_64-freebsd"
       ];
-    in {
+    in
+    {
       lib = import ./nix-src/lib.nix flake-inputs;
 
       # Makes the flake directly usable as a function:
@@ -82,7 +83,8 @@
               keep-path = true;
               source-user-config = true;
             };
-        in nu-libs-and-plugins // (with nu-libs-and-plugins; {
+        in
+        nu-libs-and-plugins // (with nu-libs-and-plugins; {
           nushellWithStdPlugins = nu-with "nushell-with-std-plugins" [ ] [ ];
           nushellWithExtras = nu-with "nushell-with-extras" [ nu-batteries ] [
             nu_plugin_file
@@ -92,4 +94,3 @@
         }));
     };
 }
-
