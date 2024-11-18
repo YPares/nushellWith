@@ -1,33 +1,36 @@
 let
   defcfg = ../default-config-files/config.nu;
   defenv = ../default-config-files/env.nu;
-in flake-inputs:
+in
+flake-inputs:
 {
-# Obtained from `import nixpkgs {...}`
-pkgs,
-# How to name the produced derivation
-name ? "nushell-wrapper",
-# Which plugins to use. Can contain `nix` and `source` attributes (both lists)
-plugins ? { },
-# Which nushell libraries to use. Can contain a `source` attribute (a list)
-libraries ? { },
-# Which nix paths to add to the PATH. Useful if you directly use libraries
-# downloaded from raw sources
-path ? [ ],
-# Whether to append to the PATH of the parent process
-# (for more hermeticity) or overwrite it
-keep-path ? false,
-# Which nushell derivation to use
-nushell ? pkgs.nushell,
-# Which config.nu file to set at build time
-config-nu ? defcfg,
-# Which env.nu file to set at build time
-env-nu ? defenv,
-# Should we additionally source the user's config.nu & env.nu at runtime?
-# If true, then ~/.config/nushell/{config,env}.nu MUST EXIST
-source-user-config ? false,
-# A sh script describing env vars to add to the nushell process
-env-vars-file ? null, }:
+  # Obtained from `import nixpkgs {...}`
+  pkgs
+, # How to name the produced derivation
+  name ? "nushell-wrapper"
+, # Which plugins to use. Can contain `nix` and `source` attributes (both lists)
+  plugins ? { }
+, # Which nushell libraries to use. Can contain a `source` attribute (a list)
+  libraries ? { }
+, # Which nix paths to add to the PATH. Useful if you directly use libraries
+  # downloaded from raw sources
+  path ? [ ]
+, # Whether to append to the PATH of the parent process
+  # (for more hermeticity) or overwrite it
+  keep-path ? false
+, # Which nushell derivation to use
+  nushell ? pkgs.nushell
+, # Which config.nu file to set at build time
+  config-nu ? defcfg
+, # Which env.nu file to set at build time
+  env-nu ? defenv
+, # Should we additionally source the user's config.nu & env.nu at runtime?
+  # If true, then ~/.config/nushell/{config,env}.nu MUST EXIST
+  source-user-config ? false
+, # A sh script describing env vars to add to the nushell process
+  env-vars-file ? null
+,
+}:
 with pkgs.lib;
 let
   crane-builder = flake-inputs.crane.mkLib pkgs;
@@ -96,4 +99,5 @@ let
     destination = "/bin/nu";
   };
 
-in deriv // { inherit plugins-env; }
+in
+deriv // { inherit plugins-env; }

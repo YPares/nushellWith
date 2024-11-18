@@ -58,6 +58,7 @@
       packages = nixpkgs.lib.genAttrs supported-systems (system:
         let
           pkgs = import nixpkgs { inherit system; };
+
           inputs-for-libs = {
             inherit pkgs;
             inherit system;
@@ -65,14 +66,17 @@
             "nixpkgs"
             "flake-utils"
           ]);
+
           std-plugins = with pkgs.nushellPlugins; [
             formats
             gstat
             polars
             query
           ];
+
           nu-libs-and-plugins =
             import ./nix-src/nu-libs-and-plugins.nix inputs-for-libs;
+
           nu-with = name: libs: plugins:
             self.lib.nushellWith {
               inherit pkgs name;
@@ -86,7 +90,9 @@
         in
         nu-libs-and-plugins // (with nu-libs-and-plugins; {
           nushellWithStdPlugins = nu-with "nushell-with-std-plugins" [ ] [ ];
-          nushellWithExtras = nu-with "nushell-with-extras" [ nu-batteries ] [
+          nushellWithExtras = nu-with "nushell-with-extras" [
+            nu-batteries
+          ] [
             nu_plugin_file
             nu_plugin_plotters
             nu_plugin_vec

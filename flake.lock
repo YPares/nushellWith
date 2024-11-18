@@ -18,11 +18,11 @@
     "crates-io-index": {
       "flake": false,
       "locked": {
-        "lastModified": 1731937873,
-        "narHash": "sha256-zkw4h+NUB3JDtuqNLSolM14U/x9BmNT2HA+Lahouujo=",
+        "lastModified": 1731941156,
+        "narHash": "sha256-53wUqiIV4+cVaxVPY2nZuRQTevqZ91PZdGLFtPFuNFU=",
         "owner": "rust-lang",
         "repo": "crates.io-index",
-        "rev": "1c7d93f661c53c4f2b393fd32975872715deca02",
+        "rev": "88a2e92b5b4dc381aefc8a169bac73d5b704a7e5",
         "type": "github"
       },
       "original": {
@@ -66,11 +66,11 @@
     "nu_plugin_httpserve-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1729603579,
-        "narHash": "sha256-fbBIpT3xOX+WbuPH6B0+4aaB0GFWpzVxMMoWkvsD+jc=",
+        "lastModified": 1731940669,
+        "narHash": "sha256-xc7nVESORjIJF+omkTb98AdOBzFp9N1geDEBPvRHEhE=",
         "owner": "YPares",
         "repo": "nu_plugin_httpserve",
-        "rev": "41963e81b74dc326b4b4fe22b2c9fb655aec89f0",
+        "rev": "43c28ca0034d3d14a64cee980648ce67ad192f71",
         "type": "github"
       },
       "original": {
