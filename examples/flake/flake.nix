@@ -4,6 +4,12 @@
 {
   description = "Example of how to use nushellWith";
 
+  nixConfig = {
+    substituters = [ "https://cache.garnix.io" ];
+    trusted-public-keys =
+      [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
+  };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
@@ -20,7 +26,7 @@
         nupkgs = nushellWith.packages.${system};
         myNushell = nushellWith {
           inherit pkgs;
-          plugins.nix = [ nupkgs.nu_plugin_httpserve ];
+          plugins.nix = [ nupkgs.nu_plugin_file ];
           libraries.source = [ nupkgs.nu-batteries ];
           env-vars-file = ./env-vars;
         };

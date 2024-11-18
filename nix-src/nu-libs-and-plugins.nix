@@ -72,20 +72,9 @@ let
         };
 
     in
-    (# All the plugins from crates.io:
-      # (Each attr is of the form "nu_plugin_<name>")
-      builtins.mapAttrs (_: buildPluginFromCratesIo) cratesIoIndex) // {
-      # Nu plugins from sources other than crates.io:
-
-      nu_plugin_httpserve =
-        let
-          src = craneLib.cleanCargoSource inputs.nu_plugin_httpserve-src;
-          buildInputs = pluginsBaseBuildInputs;
-          cargoArtifacts = craneLib.buildDepsOnly { inherit src buildInputs; };
-        in
-        craneLib.buildPackage { inherit src buildInputs cargoArtifacts; };
-
-    };
+    # All the plugins from crates.io:
+    # (Each attr is of the form "nu_plugin_<name>")
+    builtins.mapAttrs (_: buildPluginFromCratesIo) cratesIoIndex;
 
 in
 nu-libraries // nu-plugins

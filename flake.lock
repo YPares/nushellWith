@@ -63,29 +63,12 @@
         "type": "github"
       }
     },
-    "nu_plugin_httpserve-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1731940669,
-        "narHash": "sha256-xc7nVESORjIJF+omkTb98AdOBzFp9N1geDEBPvRHEhE=",
-        "owner": "YPares",
-        "repo": "nu_plugin_httpserve",
-        "rev": "43c28ca0034d3d14a64cee980648ce67ad192f71",
-        "type": "github"
-      },
-      "original": {
-        "owner": "YPares",
-        "repo": "nu_plugin_httpserve",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "crane": "crane",
         "crates-io-index": "crates-io-index",
         "nixpkgs": "nixpkgs",
         "nu-batteries-src": "nu-batteries-src",
-        "nu_plugin_httpserve-src": "nu_plugin_httpserve-src",
         "webserver-nu-src": "webserver-nu-src"
       }
     },

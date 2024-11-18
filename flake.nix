@@ -22,12 +22,6 @@
       flake = false;
     };
 
-    # Nu plugins' sources:
-    nu_plugin_httpserve-src = {
-      url = "github:YPares/nu_plugin_httpserve";
-      flake = false;
-    };
-
     crates-io-index = {
       url = "github:rust-lang/crates.io-index";
       flake = false;
