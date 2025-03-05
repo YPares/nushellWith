@@ -24,8 +24,8 @@ flake-inputs:
   config-nu ? defcfg
 , # Which env.nu file to set at build time
   env-nu ? defenv
-, # Should we additionally source the user's config.nu & env.nu at runtime?
-  # If true, then ~/.config/nushell/{config,env}.nu MUST EXIST
+, # Should we additionally source the user's config.nu at runtime?
+  # If true, then ~/.config/nushell/config.nu MUST EXIST
   source-user-config ? false
 , # A sh script describing env vars to add to the nushell process
   env-vars-file ? null
@@ -52,7 +52,7 @@ let
     # Creating and saving the plugin list along with the env:
     postBuild = ''
       ${nushell}/bin/nu --plugin-config dummy --config ${defcfg} --env-config ${defenv} -c \
-        "ls $out/bin | where name =~ nu_plugin_ | get name | save $out/plugins.nuon"
+        "try {ls $out/bin} catch {[]} | where name =~ nu_plugin_ | get name | save $out/plugins.nuon"
     '';
   };
 
@@ -64,8 +64,6 @@ let
 
   edited-env-nu = pkgs.writeText "${name}-env.nu" ''
     ${builtins.readFile env-nu}
-
-    ${if source-user-config then ''source "~/.config/nushell/env.nu"'' else ""}
 
     $env.NU_LIB_DIRS = [${
       concatStringsSep " " ([ "." ] ++ libs-with-defs.source)
