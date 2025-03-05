@@ -32,8 +32,10 @@
         };
       in {
         packages.myNushell = myNushell;
-        packages.default = pkgs.writeShellScriptBin "dummy-command" ''
-          ${myNushell}/bin/nu -c 'print $"RANDOM_ENV_VAR contains: < ($env.RANDOM_ENV_VAR) >"'
+        packages.default = pkgs.writeScriptBin "dummy-command" ''
+          #!${pkgs.lib.getExe myNushell}
+
+          print $"RANDOM_ENV_VAR contains: ($env.RANDOM_ENV_VAR)"
         '';
       });
 }

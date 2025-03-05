@@ -52,7 +52,7 @@ let
     # Creating and saving the plugin list along with the env:
     postBuild = ''
       ${nushell}/bin/nu --plugin-config dummy --config ${defcfg} --env-config ${defenv} -c \
-        "ls $out/bin | where name =~ nu_plugin_ | get name | save $out/plugins.nuon"
+        "try {ls $out/bin} catch {[]} | where name =~ nu_plugin_ | get name | save $out/plugins.nuon"
     '';
   };
 
