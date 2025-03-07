@@ -35,6 +35,8 @@
         packages.default = pkgs.writeScriptBin "dummy-command" ''
           #!${pkgs.lib.getExe myNushell}
 
+          use nu-batteries
+
           print $"RANDOM_ENV_VAR contains: ($env.RANDOM_ENV_VAR)"
         '';
       });
