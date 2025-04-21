@@ -2,11 +2,12 @@
 
 # nushellWith
 
-Build an isolated [nushell](https://www.nushell.sh/) environment with a specific set of plugins (from
-either nixpkgs or built from source) and nu libraries (from source).
+Build an isolated [nushell](https://www.nushell.sh/) environment with a
+specific set of plugins (from either nixpkgs or built from source) and nu
+libraries (from source).
 
-See the [`examples`](./examples) folder for how to use it. Examples show usage with regular nix
-flakes and with [`devenv`](http://devenv.sh).
+See the [`examples`](./examples) folder for how to use it. Examples show
+usage with regular nix flakes and with [`devenv`](http://devenv.sh).
 
 ## Outputs of this flake
 
@@ -21,18 +22,30 @@ flakes and with [`devenv`](http://devenv.sh).
   folder (e.g. obtained from github via one of your flake inputs flagged with
   `flake = false;`) and patches it to add some binary dependencies to its path
   when it is imported. It outputs the resulting patched folder as a derivation,
-  ready to be passed to the `libraries.source` argument of `nushellWith`
+  ready to be passed to the `libraries.source` argument of `nushellWith`.
+  See my [monurepo](https://github.com/ypares/monurepo) repository as an example of how
+  external repositories can packages Nu libraries with it
 - [`packages.<system>`](./nix-src/nu-libs-and-plugins.nix): a set of pre-packaged
   nushell libraries and plugins (see below)
 
 ## Pre-packaged nushell libraries & plugins
 
-This flake also provides as Nix derivations some nushell libraries and plugins, so you don't have to write nix derivations for them and
-deal with their own dependencies. All plugins from crates.io are procedurally packaged, which means some may fail to build due to their
-system dependencies not being explicitly listed [here](./nix-src/plugin-sysdeps.nix).
-See the [garnix build results](https://garnix.io/repo/YPares/nushellWith) to know which ones.
+This flake also provides as Nix derivations some nushell libraries and
+plugins, so you don't have to write nix derivations for them and deal with
+their own dependencies. All plugins from crates.io are procedurally packaged,
+which means some may fail to build due to their system dependencies not
+being explicitly listed [here](./nix-src/plugin-sysdeps.nix).  Besides,
+plugins are tested to check that they can be loaded with the latest Nushell
+version, therefore some may build successfully but not be usable because
+they use older versions of the `nu-plugin` or `nu-protocol` crates.
 
-PRs to add new things to the list of [packaged libraries & plugins](./nix-src/nu-libs-and-plugins.nix) are very much welcome.
+See the [garnix build results](https://garnix.io/repo/YPares/nushellWith)
+to know which plugins failed to build or load, and [this list from
+`awesome-nu`](https://github.com/nushell/awesome-nu/blob/main/plugin_details.md)
+to check which plugins are based on an up-to-date version of the nu crates.
+
+PRs to add new entries to the list of [packaged libraries &
+plugins](./nix-src/nu-libs-and-plugins.nix) are very much welcome.
 
 ## Limitations & important notes
 
