@@ -1,6 +1,14 @@
 builds:
-  include:
-    - 'packages.x86_64-linux.nushell'
-    - 'packages.x86_64-linux.nushellWith'
-    - 'packages.x86_64-linux.nushellWithStdPlugins'
-    - 'checks.x86_64-linux.*'
+  - include:
+      - 'packages.x86_64-linux.nushell'
+      - 'packages.x86_64-linux.nushellWith'
+      - 'packages.x86_64-linux.nushellWithStdPlugins'
+      - 'checks.x86_64-linux.*'
+    branch: dev
+  - include:
+      - 'packages.x86_64-linux.nushell'
+      - 'packages.x86_64-linux.nushellWith'
+      - 'packages.x86_64-linux.nushellWithStdPlugins'
+      - 'checks.x86_64-linux.*'
+    branch: master
+
