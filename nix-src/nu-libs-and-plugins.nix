@@ -45,32 +45,7 @@ let
           darwin.apple_sdk.frameworks.Security
         ];
 
-      # Non-rust dependencies for plugins from crates.io
-      #
-      # Deps are to be added here on a case-by-case fashion
-      buildInputsForPluginsFromCratesIo = with pkgs; {
-        binaryview = [ xorg.libX11 ];
-        cloud = [ openssl ];
-        dbus = [ dbus ];
-        fetch = [ openssl ];
-        from_dhall = [ openssl ];
-        gstat = [ openssl ];
-        plotters = [ fontconfig ];
-        polars = [ openssl ];
-        post = [ openssl ];
-        prometheus = [ openssl ];
-        query = [ openssl ];
-        s3 = [ openssl ];
-        ws = [ openssl ];
-        twitch = [ openssl ];
-        cassandra_query = [
-          cassandra-cpp-driver
-          cryptodev
-          openssl
-          libuv
-        ];
-        audio_hook = [ alsa-lib ];
-      };
+      pluginSysdeps = import ./plugin-sysdeps.nix pkgs;
 
       nuPluginCrates = craneLib.buildDepsOnly {
         src = ../dummy_plugin;
@@ -87,7 +62,7 @@ let
             }
           );
           shortName = builtins.replaceStrings [ "nu_plugin_" ] [ "" ] name;
-          buildInputs = pluginsBaseBuildInputs ++ (buildInputsForPluginsFromCratesIo.${shortName} or [ ]);
+          buildInputs = pluginsBaseBuildInputs ++ (pluginSysdeps.${shortName} or [ ]);
           cargoArtifacts = craneLib.mkCargoDerivation {
             inherit src buildInputs;
             cargoArtifacts = nuPluginCrates;

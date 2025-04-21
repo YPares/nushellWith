@@ -29,7 +29,7 @@ flakes and with [`devenv`](http://devenv.sh).
 
 This flake also provides as Nix derivations some nushell libraries and plugins, so you don't have to write nix derivations for them and
 deal with their own dependencies. All plugins from crates.io are procedurally packaged, which means some may fail to build due to their
-system dependencies not being explicitly listed here.
+system dependencies not being explicitly listed [here](./nix-src/plugin-sysdeps.nix).
 See the [garnix build results](https://garnix.io/repo/YPares/nushellWith) to know which ones.
 
 PRs to add new things to the list of [packaged libraries & plugins](./nix-src/nu-libs-and-plugins.nix) are very much welcome.
