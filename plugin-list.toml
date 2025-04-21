@@ -1,0 +1,542 @@
+## THIS FILE IS GENERATED AUTOMATICALLY BY update-plugin-list
+## DO NOT EDIT MANUALLY
+
+[nu_plugin_highlight]
+name = "nu_plugin_highlight"
+version = "1.4.8+0.106.0"
+checksum = "7caf7d3ba2b57be7d0eb2d15702cc78a6fc94552fb9ece2bbdbb73ac301c4aef"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_port_list]
+name = "nu_plugin_port_list"
+version = "1.4.7"
+checksum = "cc84569d24dddcacf6a010da44836545e958dbb2e47ef6c41b1b7bd4d4d6b166"
+nu-plugin-dep = "^0.102.0"
+
+[nu_plugin_explore_ir]
+name = "nu_plugin_explore_ir"
+version = "0.6.0"
+checksum = "172896b7312371c23ecf123eef6b47f9a798d015d2183cd339be5b957eae0c4a"
+nu-plugin-dep = "^0.101.0"
+
+[nu_plugin_charset]
+name = "nu_plugin_charset"
+version = "0.1.2"
+checksum = "d386b6b4ea638a4b987e5f6fcd856ae2aeba3f58c05a2ec933a685bd4b0dffdb"
+nu-plugin-dep = "^0.83.1"
+
+[nu_plugin_str]
+name = "nu_plugin_str"
+version = "0.14.0"
+checksum = "3ca144db60a6d98112d5d63ca062e5f436a84359e597603a6e3f5f5c168b1331"
+nu-plugin-dep = "^0.14.0"
+
+[nu_plugin_from_parquet]
+name = "nu_plugin_from_parquet"
+version = "0.0.0"
+checksum = "8d69234ac8077792e022a46c10a8ed7c5635c53405e2d414a9c110eefe86a6e1"
+nu-plugin-dep = "^0.26.0"
+
+[nu_plugin_port_extension]
+name = "nu_plugin_port_extension"
+version = "0.102.1"
+checksum = "b035c1c68ee1a0156a34b6f94689b216eb43a2fc0cec2420ed7f96b91e169133"
+nu-plugin-dep = "^0.102.0"
+
+[nu_plugin_dialog]
+name = "nu_plugin_dialog"
+version = "0.2.0"
+checksum = "bdec9788ddc07b4cc3cf7aff1e631976d2c506c831786aa791519ae0823b78d0"
+nu-plugin-dep = "^0.78.0"
+
+[nu_plugin_match]
+name = "nu_plugin_match"
+version = "0.44.0"
+checksum = "756a3165e505d135baacaba52e1235bab357bbe8748a9547448d738c044c7ac1"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_textview]
+name = "nu_plugin_textview"
+version = "0.44.0"
+checksum = "87ddbf1478b6b5df6606fde8381e1c6e188182b570ab2851facdc9d0b784559d"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_rpm]
+name = "nu_plugin_rpm"
+version = "0.3.5"
+checksum = "683a648f3a41b7490b3dbcea221f2ecd3f7b936a1df52b97990a8ea8567cfc8f"
+nu-plugin-dep = "^0.105.1"
+
+[nu_plugin_skim]
+name = "nu_plugin_skim"
+version = "0.16.0"
+checksum = "9afb698923797278a62680019a5145ce0d67986044259fc09eb047dd456c9c00"
+nu-plugin-dep = "^0.106"
+
+[nu_plugin_mongo]
+name = "nu_plugin_mongo"
+version = "0.1.7"
+checksum = "2def528da9d0242dd35d86c17361770ab916f4bd4dd110818330e56e3e6e4050"
+nu-plugin-dep = "^0.106"
+
+[nu_plugin_from_bson]
+name = "nu_plugin_from_bson"
+version = "0.44.0"
+checksum = "8d9b5b6d5f9a3af961449ca8466dcac8c5fb9ac9612c5a1d403646ec71c4b3c2"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_ulid]
+name = "nu_plugin_ulid"
+version = "0.15.0"
+checksum = "98d779b261784735ae7b811e863c17d19b49cbc3f8cabfbde230aad7ff5d4031"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_roaring]
+name = "nu_plugin_roaring"
+version = "0.1.5"
+checksum = "a71e08fdb0b91aecc774510c6f3d5eb3b6d7177edf3e20f4e61c97b36fecedbc"
+nu-plugin-dep = "^0.105.1"
+
+[nu_plugin_cloud]
+name = "nu_plugin_cloud"
+version = "0.2.9"
+checksum = "b3c3ea03f6bd8049c79dfed228b6a8d101694fe585c5116c223183e6b72e9cff"
+nu-plugin-dep = "^0.106"
+
+[nu_plugin_units]
+name = "nu_plugin_units"
+version = "0.1.7"
+checksum = "17a953ecf93ee44336f491d5c402f7a4978db53602923241d105771a5ada3f85"
+nu-plugin-dep = "^0.105.1"
+
+[nu_plugin_query_json]
+name = "nu_plugin_query_json"
+version = "0.44.0"
+checksum = "e2831553e1dd54862ad3be5f8c4bfad003265dcbf85fd66029f97dac517decfb"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_parquet]
+name = "nu_plugin_parquet"
+version = "0.16.0"
+checksum = "898fd7e969c7cd89b503bed43c0c8b790ba9863db319410dfb09114eea917786"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_desktop_notifications]
+name = "nu_plugin_desktop_notifications"
+version = "1.2.8"
+checksum = "8c50f3a845478968c2c124000bd104e92c8bb0a320842bcf14b48288c931d11c"
+nu-plugin-dep = "^0.102.0"
+
+[nu_plugin_json_path]
+name = "nu_plugin_json_path"
+version = "0.16.0"
+checksum = "09f0e887308a4aeb7397850833b7a0fe5b8904dc4e3ba6c93dbc61f2b87037d5"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_formats]
+name = "nu_plugin_formats"
+version = "0.106.1"
+checksum = "b5f35a4646560d5a0faa1f537f74d2d44b7d7dd0059fdb47c75cd47706590a34"
+nu-plugin-dep = "^0.106.1"
+
+[nu_plugin_selector]
+name = "nu_plugin_selector"
+version = "0.44.0"
+checksum = "5eb7a810316795d6276a7c91e065d99a0d6b876079579cd871b2d91db20f25da"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_twitch]
+name = "nu_plugin_twitch"
+version = "0.1.1"
+checksum = "e7a43800bd302e0eeff09d6ca3908bf3f10c3315bc4f8ae2006aa7f012531707"
+nu-plugin-dep = "^0.106"
+
+[nu_plugin_from_beancount]
+name = "nu_plugin_from_beancount"
+version = "2.0.0"
+checksum = "8135f1d225729210a640c17b58739377e535dd9c8e7cc7d03921facbceab87d6"
+nu-plugin-dep = "^0.76"
+
+[nu_plugin_hcl]
+name = "nu_plugin_hcl"
+version = "0.106.1"
+checksum = "603bff1923116210c5aab6771d0331bc7b66e47bc9d940849efbb6cdd8f6173f"
+nu-plugin-dep = "^0.106.1"
+
+[nu_plugin_from_sqlite]
+name = "nu_plugin_from_sqlite"
+version = "0.44.0"
+checksum = "abf7ebf576ff1387f6003250e7923e122827971e1d468cb0e6d258746acdb185"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_x509]
+name = "nu_plugin_x509"
+version = "0.1.6"
+checksum = "2e0836b507c493994bd26f97f663ad6632b5944583d3155d54296b32332d0d11"
+nu-plugin-dep = "^0.105.1"
+
+[nu_plugin_net]
+name = "nu_plugin_net"
+version = "1.10.0"
+checksum = "f92c838da0eaa5672d2d46a5d6a3ca300c0a46ebfa0da14a4dee05a7b751e166"
+nu-plugin-dep = "^0.104.0"
+
+[nu_plugin_qr]
+name = "nu_plugin_qr"
+version = "0.1.0"
+checksum = "f0195a95517c57add6413d25fee4176fd214dd7c699ebb7f2b890fb458f31a13"
+nu-plugin-dep = "^0.83.1"
+
+[nu_plugin_query]
+name = "nu_plugin_query"
+version = "0.106.1"
+checksum = "df5ab34d0bd07591068e2277b3cca8b207fa206842d14ef8c864e8194eb54a6a"
+nu-plugin-dep = "^0.106.1"
+
+[nu_plugin_file_dialog]
+name = "nu_plugin_file_dialog"
+version = "0.16.0"
+checksum = "31084077b5a61c325673dd407a2990ace3c56c7c2ed32a912bb1c9b80d589ce5"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_semver]
+name = "nu_plugin_semver"
+version = "0.11.6"
+checksum = "97b66a17270bd8ee8b0efe50e7ba862a642685c5e6450c226b0079ecae0a9757"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_jwalk]
+name = "nu_plugin_jwalk"
+version = "0.18.0"
+checksum = "50f227fe0adc66c923c1da9d406e143f61a3de342cfe3761457160779fbe64eb"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_endecode]
+name = "nu_plugin_endecode"
+version = "0.106.1"
+checksum = "2641f00c144b55dc0bd8d870f17ee097dc37e5fee3930bc77a73348adb958fd7"
+nu-plugin-dep = "^0.106.1"
+
+[nu_plugin_sum]
+name = "nu_plugin_sum"
+version = "0.11.0"
+checksum = "78050ee8f2916f1834e7c7cf9c770dafeeac082983e11dffe3b0e63345fb1528"
+nu-plugin-dep = "^0.11.0"
+
+[nu_plugin_sled]
+name = "nu_plugin_sled"
+version = "0.1.3"
+checksum = "182fe6e6cf0acf8b0db82d5440e2db7884667981c206fee04c49a2e037569bd2"
+nu-plugin-dep = "^0.104.0"
+
+[nu_plugin_id3]
+name = "nu_plugin_id3"
+version = "0.3.0"
+checksum = "d6aca7021893530bf8122760d09b221d045742ccffb805b54f5c5fb50e5331c7"
+nu-plugin-dep = "^0.26.0"
+
+[nu_plugin_cassandra_query]
+name = "nu_plugin_cassandra_query"
+version = "0.3.0"
+checksum = "5df6f7c80e58e21c8df46c0ef4198492994841994bc7aac8e62bb0cd949c9513"
+nu-plugin-dep = "^0.101.0"
+
+[nu_plugin_binaryview]
+name = "nu_plugin_binaryview"
+version = "0.44.0"
+checksum = "7547272a6e31a014d98cb5fd016291591e1f0c1c8bd07aba715305711d4c64fe"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_start]
+name = "nu_plugin_start"
+version = "0.44.0"
+checksum = "06a6397a29dbc8c53294c853d9cea881a60f816b331d4810e3deb7e24b581709"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_from_bencode]
+name = "nu_plugin_from_bencode"
+version = "0.11.0"
+checksum = "babe88d96a5b6a74c7141f51175be4985a81c1ff6af6f161d8c7eecf164e966a"
+nu-plugin-dep = "^0.93"
+
+[nu_plugin_plotters]
+name = "nu_plugin_plotters"
+version = "0.2.1+0.106.0"
+checksum = "096704445fcbafdf0730859ab4559daab3ec6ae435b8581c7c6d3c2c7b92c2e8"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_emoji]
+name = "nu_plugin_emoji"
+version = "0.15.0"
+checksum = "22103f81bfae602255b3c471b07047ab287007e63d3e81e1a45a7ef25edcc5f6"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_average]
+name = "nu_plugin_average"
+version = "0.14.0"
+checksum = "12aa2f0550a4a3144a9ac77e6ad348b558e1d6b6983bcd52af4b93a654553192"
+nu-plugin-dep = "^0.14.0"
+
+[nu_plugin_sys]
+name = "nu_plugin_sys"
+version = "0.36.0"
+checksum = "4fe5fe35c8c6b4bcae73dbf97c5a3d24fd79473caa2ab7a74f4a158dd4785a1e"
+nu-plugin-dep = "^0.36.0"
+
+[nu_plugin_vec]
+name = "nu_plugin_vec"
+version = "1.1.6"
+checksum = "98f297f831420e10a56998c0d8c6834c849b481e00d76ebf03372e7d516a1d1c"
+nu-plugin-dep = "^0.105.1"
+
+[nu_plugin_plot]
+name = "nu_plugin_plot"
+version = "0.74.0"
+checksum = "4fb363dcf2ba88a1446af269aa4a57743a39405bb52be57d14246fc9d01f3a59"
+nu-plugin-dep = "^0.74.0"
+
+[nu_plugin_periodic_table]
+name = "nu_plugin_periodic_table"
+version = "0.2.11"
+checksum = "9bde514566c0fd1a02369558beb1f834aa2906bd588a9b2a4cf2d006ee8f1e59"
+nu-plugin-dep = "^0.105.1"
+
+[nu_plugin_from_mp4]
+name = "nu_plugin_from_mp4"
+version = "0.44.0"
+checksum = "e996d0e29836c4d014a7dc5cd56996960e3fab049bc4449de2b033d069504166"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_xpath]
+name = "nu_plugin_xpath"
+version = "0.44.0"
+checksum = "b089d09367b7282db1c9425560eae5b4ba507478627f4ca385e9df6457840ba3"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_nuts]
+name = "nu_plugin_nuts"
+version = "0.1.0"
+checksum = "dd3138d5b50ed7df40863c0699aff352f91943cca86d1d9b2c6f5cef214479ea"
+nu-plugin-dep = "^0.103.0"
+
+[nu_plugin_plist]
+name = "nu_plugin_plist"
+version = "0.96.0"
+checksum = "da9cd35bb47c4721ceb8ae4182cd1a9afc72481067c7a5e6ae99b943db53d562"
+nu-plugin-dep = "^0.96"
+
+[nu_plugin_tree]
+name = "nu_plugin_tree"
+version = "0.44.0"
+checksum = "8b22efa7e2dca32bf79b732cb024189b15649662b24a5b48edcc0175f5b93521"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_compress]
+name = "nu_plugin_compress"
+version = "0.2.7"
+checksum = "9444f60f3ffc911467b8a1091b79558eba3359acbf9b252f225b308ddbc0f507"
+nu-plugin-dep = "^0.105.1"
+
+[nu_plugin_port_scan]
+name = "nu_plugin_port_scan"
+version = "1.2.8"
+checksum = "13ccfd2e71d13032b2375fac00378fcd3c529c3d4df64a095824324c403862f2"
+nu-plugin-dep = "^0.102.0"
+
+[nu_plugin_from_dhall]
+name = "nu_plugin_from_dhall"
+version = "0.1.0"
+checksum = "97d454825c5328da9e09b038d7c788dbed00cca787545584fe2d505f8e669632"
+nu-plugin-dep = "^0.100.0"
+
+[nu_plugin_inc]
+name = "nu_plugin_inc"
+version = "0.106.1"
+checksum = "1bef4c8690fb2e8b81d96ea8ee35cfa1abcd9238d6cd7456a9026afbdc7e8f2c"
+nu-plugin-dep = "^0.106.1"
+
+[nu_plugin_to_bson]
+name = "nu_plugin_to_bson"
+version = "0.44.0"
+checksum = "90b57decddafbbfc1806af008dcedf246e3c552284ab6fd0f6c732a831487d00"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_bash_env]
+name = "nu_plugin_bash_env"
+version = "0.17.3"
+checksum = "ac25af8113d1aad5ca5a6f479c0350c1e09949259022b711043685e42405cb4c"
+nu-plugin-dep = "^0.100.0"
+
+[nu_plugin_bio]
+name = "nu_plugin_bio"
+version = "0.85.0"
+checksum = "ac0588919e944534a6931e485d721215636b6c6775762312c7efb4d988ffae16"
+nu-plugin-dep = "^0.85.0"
+
+[nu_plugin_str_similarity]
+name = "nu_plugin_str_similarity"
+version = "0.7.0"
+checksum = "e333acc2e62df6224fa0ba1342e7bacfe81820cf859d057c8b309d1dda3f9e2e"
+nu-plugin-dep = "^0.98.0"
+
+[nu_plugin_fetch]
+name = "nu_plugin_fetch"
+version = "0.36.0"
+checksum = "89c4c4185f5658606033b2cedc96d657567b6e2a2ee1c40708da1fa9d93428fe"
+nu-plugin-dep = "^0.36.0"
+
+[nu_plugin_hashes]
+name = "nu_plugin_hashes"
+version = "0.1.8"
+checksum = "d4fe8b1086fcd80e4eed833c81e1ef7e72704ee6b7055839de2c07f6d88bb162"
+nu-plugin-dep = "^0.104.0"
+
+[nu_plugin_audio_hook]
+name = "nu_plugin_audio_hook"
+version = "0.105.1"
+checksum = "2bde459d7edc9fd14c5ab50e79266de4a974aef5c8a5f30e7720c65f9e9ed843"
+nu-plugin-dep = "^0.105.1"
+
+[nu_plugin_unzip]
+name = "nu_plugin_unzip"
+version = "0.2.1"
+checksum = "c63786a75a714727d842a0b1da060b40251944b54c7a483eb548a7ebad146291"
+nu-plugin-dep = "^0"
+
+[nu_plugin_ps]
+name = "nu_plugin_ps"
+version = "0.36.0"
+checksum = "7d659fd05ebc0053f2ed931162a39b96041b7a7a201bc07dbf3050bd755386c3"
+nu-plugin-dep = "^0.36.0"
+
+[nu_plugin_from_sse]
+name = "nu_plugin_from_sse"
+version = "0.101.0"
+checksum = "c3597446def61a102f4a20ec5b8fc07554727902c370887f23353a6b49a8f260"
+nu-plugin-dep = "^0.101.0"
+
+[nu_plugin_qr_maker]
+name = "nu_plugin_qr_maker"
+version = "1.0.3"
+checksum = "60a445997b691d92a546015c21cd77bd2c4a7b60b7260fe797a867f04a1de9b4"
+nu-plugin-dep = "^0.90.1"
+
+[nu_plugin_query_git]
+name = "nu_plugin_query_git"
+version = "0.15.0"
+checksum = "d5b88ce4330e3dfb0601c48e416028299681fa85696bb95b98a20fccd7bd2918"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_gstat]
+name = "nu_plugin_gstat"
+version = "0.106.1"
+checksum = "4c3a0bc62cf6d46e1915408f745de22ff3979dbcb1079ff61a7558385435eb85"
+nu-plugin-dep = "^0.106.1"
+
+[nu_plugin_to_sqlite]
+name = "nu_plugin_to_sqlite"
+version = "0.44.0"
+checksum = "5235f72e4527a769fb5db529f3b5a1bc27c8655a226cb657ee5bebd78b1aa919"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_dcm]
+name = "nu_plugin_dcm"
+version = "0.4.0"
+checksum = "78d977628bd4ac4ab16ffe1a8e5d68c6d51240244eb01fb619812f7f4a225794"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_clipboard]
+name = "nu_plugin_clipboard"
+version = "0.102.0"
+checksum = "78b47281a130fda6b15c60ccf4fbaf8dcf50ad4ab927de01162c0047bc0ea1cd"
+nu-plugin-dep = "^0.102.0"
+
+[nu_plugin_s3]
+name = "nu_plugin_s3"
+version = "0.44.0"
+checksum = "54be0dde1828e27864daefb61b87cfe842038a0a7831389f474a22f2c725ba46"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_hmac]
+name = "nu_plugin_hmac"
+version = "0.20.0"
+checksum = "2af16bda4f0c41fa00287c3dda712cc79dca849a655cc1979c45593ab7af8057"
+nu-plugin-dep = "^0.106.1"
+
+[nu_plugin_tracer]
+name = "nu_plugin_tracer"
+version = "0.3.0"
+checksum = "b4b2c5b6088c17b9976331631b4057229db580c7e7614d290b00cf6fa643227f"
+nu-plugin-dep = "<Nothing>"
+
+[nu_plugin_dns]
+name = "nu_plugin_dns"
+version = "4.0.3"
+checksum = "5eda5e9653482e54b410a2b890b8210ac3e2b6552abafa28016ebe744fbab357"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_strutils]
+name = "nu_plugin_strutils"
+version = "0.14.0"
+checksum = "01c7ca130e3c3d8095485f44c40252f14c9d1f20413f3dacf4d62d6a9f07457f"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_polars]
+name = "nu_plugin_polars"
+version = "0.106.1"
+checksum = "e6374b726282f0e6bf8cec7987a96c60733344a6e8119ecc78a82ca55d872d3a"
+nu-plugin-dep = "^0.106.1"
+
+[nu_plugin_prometheus]
+name = "nu_plugin_prometheus"
+version = "0.9.0"
+checksum = "de9bb8d552d67df18934bb33fee801553abd55f7fbb1fa6e75006dba8c345b23"
+nu-plugin-dep = "^0.104.0"
+
+[nu_plugin_ws]
+name = "nu_plugin_ws"
+version = "1.0.5"
+checksum = "a58ec7ab83a3e22460c7b10cdfb97ef6d30d72be490d054a4483d83cc4c985c0"
+nu-plugin-dep = "^0.106.1"
+
+[nu_plugin_file]
+name = "nu_plugin_file"
+version = "0.17.0"
+checksum = "29c7c3d76ebce10cb62bb7dc476133c17c68184c159d30f3d7d0f538a705bdb9"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_post]
+name = "nu_plugin_post"
+version = "0.36.0"
+checksum = "46308b92be95b365317f57fcddd3e9c667d026b62488f4f470b1a82304813638"
+nu-plugin-dep = "^0.36.0"
+
+[nu_plugin_dbus]
+name = "nu_plugin_dbus"
+version = "0.14.0"
+checksum = "6ae027e03533d66d5bdd063dd3a8c3ae272622c9ea482089278233fbd3025ce8"
+nu-plugin-dep = "^0.101.0"
+
+[nu_plugin_regex]
+name = "nu_plugin_regex"
+version = "0.15.0"
+checksum = "4c69828f6e13fe54c00a295329596318faeb85c0963963debd3cae2f30f92afe"
+nu-plugin-dep = "^0.106.0"
+
+[nu_plugin_ron]
+name = "nu_plugin_ron"
+version = "0.1.1"
+checksum = "65fbd3aae350085bd4cfed4cf83ee78150953a1ff830dc93a88a09c58412a136"
+nu-plugin-dep = "^0.85.0"
+
+[nu_plugin_chart]
+name = "nu_plugin_chart"
+version = "0.44.0"
+checksum = "faa81d3fb6a142abb8077cf2b6c9327ecab57c19d41f1d0e5c8883620243db16"
+nu-plugin-dep = "^0.44.0"
+
+[nu_plugin_template]
+name = "nu_plugin_template"
+version = "0.106.1"
+checksum = "9917a3184f9fecb1175bd65b20d84838a3d16609cf1227c733cf4f9ef991cbd6"
+nu-plugin-dep = "^0.106.1"
