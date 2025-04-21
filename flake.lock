@@ -2,11 +2,11 @@
   "nodes": {
     "crane": {
       "locked": {
-        "lastModified": 1743908961,
-        "narHash": "sha256-e1idZdpnnHWuosI3KsBgAgrhMR05T2oqskXCmNzGPq0=",
+        "lastModified": 1745022865,
+        "narHash": "sha256-tXL4qUlyYZEGOHUKUWjmmcvJjjLQ+4U38lPWSc8Cgdo=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "80ceeec0dc94ef967c371dcdc56adb280328f591",
+        "rev": "25ca4c50039d91ad88cc0b8feacb9ad7f748dedf",
         "type": "github"
       },
       "original": {
@@ -18,11 +18,11 @@
     "crates-io-index": {
       "flake": false,
       "locked": {
-        "lastModified": 1744218447,
-        "narHash": "sha256-ExxxmkGP8QzUSw2QaYLkqL4AyQGN1e9agdJI/hEzTJI=",
+        "lastModified": 1745258914,
+        "narHash": "sha256-GD1oQQZnndfwONIgoi3IQ8qx4+aYnmvyFKySFra3Z/8=",
         "owner": "rust-lang",
         "repo": "crates.io-index",
-        "rev": "884b9e97307c7cc0c33bbb6b33df16f73404e3ff",
+        "rev": "5327c015edb240ca87c765712951bc5874f9ca7d",
         "type": "github"
       },
       "original": {
@@ -33,11 +33,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1744096231,
-        "narHash": "sha256-kUfx3FKU1Etnua3EaKvpeuXs7zoFiAcli1gBwkPvGSs=",
+        "lastModified": 1744868846,
+        "narHash": "sha256-5RJTdUHDmj12Qsv7XOhuospjAjATNiTMElplWnJE9Hs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b2b0718004cc9a5bca610326de0a82e6ea75920b",
+        "rev": "ebe4301cbd8f81c4f8d3244b3632338bbeb6d49c",
         "type": "github"
       },
       "original": {
