@@ -1,0 +1,37 @@
+#! /usr/bin/env -S nu -n
+
+def search-crates-io-rec [qs] {
+  let r = http get https://crates.io/api/v1/crates($qs)
+  $r.crates | append (
+    match $r.meta?.next_page? {
+      null => []
+      $qs_next => {
+        search-crates-io-rec $qs_next
+      }
+    }
+  )
+}
+
+export def list-latest-plugin-versions [] {
+  search-crates-io-rec "?q=nu_plugin_&per_page=100" |
+    where name =~ "^nu_plugin_" |
+    select name |
+    each {|crate|
+      let latest = http get https://index.crates.io/nu/_p/($crate.name) |
+        lines | last | from json
+      let nu_plugin_dep = $latest.deps | where name == "nu-plugin" | get -o 0.req
+      {
+        key: $crate.name
+        value : {
+          name: $crate.name
+          version: $latest.vers
+          checksum: $latest.cksum
+          nu-plugin-dep: $nu_plugin_dep
+        }
+      }
+    } | transpose -rd
+}
+
+def main [] {
+  list-latest-plugin-versions | save -f plugin-list.json
+}
