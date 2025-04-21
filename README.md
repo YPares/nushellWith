@@ -33,12 +33,11 @@ usage with a regular nix flake.
 This flake also provides as Nix derivations some nushell libraries and
 plugins, so you don't have to write nix derivations for them and deal with
 their own dependencies. All plugins from crates.io (ie. every crate named
-`nu_plugin_*`) are [packaged](./plugin-list.toml), which means some may
-fail to build due to their system dependencies not being explicitly listed
-[here](./nix-src/plugin-sysdeps.nix). Besides, plugins are tested to check
-that they can be loaded with the latest Nushell version (notably, some may
-build successfully but not be usable because they use too old a version of the
-`nu-plugin` or `nu-protocol` crates).
+`nu_plugin_*`) are procedurally packaged, but their system dependencies
+have to be added on a [case-by-case fashion](./nix-src/plugin-sysdeps.nix).
+Besides, plugins are tested to check that they can be loaded with the latest
+Nushell version (notably, some may build successfully but not be usable
+because they use too old a version of the `nu-plugin` or `nu-protocol` crates).
 
 See the [garnix build results](https://garnix.io/repo/YPares/nushellWith)
 to know which plugins failed to build or load, and [this list from
