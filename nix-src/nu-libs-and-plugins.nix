@@ -61,6 +61,20 @@ let
         prometheus = [ openssl ];
         query = [ openssl ];
         s3 = [ openssl ];
+        ws = [ openssl ];
+        twitch = [ openssl ];
+        cassandra_query = [
+          cassandra-cpp-driver
+          cryptodev
+          openssl
+          libuv
+        ];
+        audio_hook = [ alsa-lib ];
+      };
+
+      nuPluginCrates = craneLib.buildDepsOnly {
+        src = ../dummy_plugin;
+        pname = "dummy_plugin";
       };
 
       buildPluginFromCratesIo =
@@ -74,7 +88,18 @@ let
           );
           shortName = builtins.replaceStrings [ "nu_plugin_" ] [ "" ] name;
           buildInputs = pluginsBaseBuildInputs ++ (buildInputsForPluginsFromCratesIo.${shortName} or [ ]);
-          cargoArtifacts = craneLib.buildDepsOnly { inherit src buildInputs; };
+          cargoArtifacts = craneLib.mkCargoDerivation {
+            inherit src buildInputs;
+            cargoArtifacts = nuPluginCrates;
+            buildPhaseCargoCommand = ''
+              cargoWithProfile check --locked
+              cargoWithProfile build --locked
+            '';
+            checkPhaseCargoCommand = ''
+              cargoWithProfile test --locked
+            '';
+            doInstallCargoArtifacts = true;
+          };
         in
         craneLib.buildPackage {
           inherit src buildInputs cargoArtifacts;
