@@ -4,3 +4,4 @@ builds:
     - 'packages.x86_64-linux.nushellWith'
     - 'packages.x86_64-linux.nushellWithStdPlugins'
     - 'checks.x86_64-linux.*'
+  branch: dev
