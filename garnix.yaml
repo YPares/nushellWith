@@ -1,0 +1,4 @@
+builds:
+  include:
+    - 'packages.x86_64-linux.nushell*'
+    - 'checks.x86_64-linux.*'
