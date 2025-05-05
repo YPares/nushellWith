@@ -6,21 +6,27 @@
 
   nixConfig = {
     substituters = [ "https://cache.garnix.io" ];
-    trusted-public-keys =
-      [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
+    trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
   };
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     nushellWith = {
-        url = "../.."; # Replace by "github:YPares/nushellWith"
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "../.."; # Replace by "github:YPares/nushellWith"
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, flake-utils, nushellWith, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      nixpkgs,
+      flake-utils,
+      nushellWith,
+      ...
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = import nixpkgs { inherit system; };
         nupkgs = nushellWith.packages.${system};
@@ -30,7 +36,8 @@
           libraries.source = [ nupkgs.nu-batteries ];
           env-vars-file = ./env-vars;
         };
-      in {
+      in
+      {
         packages.myNushell = myNushell;
         packages.default = pkgs.writeScriptBin "dummy-command" ''
           #!${pkgs.lib.getExe myNushell}
@@ -39,5 +46,6 @@
 
           print $"RANDOM_ENV_VAR contains: ($env.RANDOM_ENV_VAR)"
         '';
-      });
+      }
+    );
 }

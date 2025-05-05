@@ -7,17 +7,24 @@ let
 
   nu-libraries =
     let # Shortcut to build a nu library without too much fuss:
-      simpleNuLib = name: extraArgs:
-        self.lib.makeNuLibrary ({
-          inherit pkgs name;
-          src = inputs."${name}-src";
-        } // extraArgs);
+      simpleNuLib =
+        name: extraArgs:
+        self.lib.makeNuLibrary (
+          {
+            inherit pkgs name;
+            src = inputs."${name}-src";
+          }
+          // extraArgs
+        );
     in
     {
       nu-batteries = simpleNuLib "nu-batteries" { };
 
       webserver-nu = simpleNuLib "webserver-nu" {
-        path = with pkgs; [ "${netcat}/bin" "${coreutils}/bin" ];
+        path = with pkgs; [
+          "${netcat}/bin"
+          "${coreutils}/bin"
+        ];
       };
     };
 
@@ -25,14 +32,16 @@ let
     let
       craneLib = inputs.crane.mkLib pkgs;
 
-      cratesIoJsonIndex = self.lib.runNuScript pkgs "plugins-in-crates.io-index"
-        ../nu-src/list-plugins-in-index.nu [ inputs.crates-io-index ];
+      cratesIoJsonIndex =
+        self.lib.runNuScript pkgs "plugins-in-crates.io-index" ../nu-src/list-plugins-in-index.nu
+          [ inputs.crates-io-index ];
 
-      cratesIoIndex =
-        builtins.fromJSON (builtins.readFile "${cratesIoJsonIndex}/plugins.json");
+      cratesIoIndex = builtins.fromJSON (builtins.readFile "${cratesIoJsonIndex}/plugins.json");
 
-      pluginsBaseBuildInputs = with pkgs;
-        [ pkg-config ] ++ lib.optionals (stdenv.hostPlatform.isDarwin) [
+      pluginsBaseBuildInputs =
+        with pkgs;
+        [ pkg-config ]
+        ++ lib.optionals (stdenv.hostPlatform.isDarwin) [
           iconv
           darwin.apple_sdk.frameworks.IOKit
           darwin.apple_sdk.frameworks.Security
@@ -56,14 +65,17 @@ let
         s3 = [ openssl ];
       };
 
-      buildPluginFromCratesIo = { name, ... }@nameVerCksum:
+      buildPluginFromCratesIo =
+        { name, ... }@nameVerCksum:
         let
-          src = craneLib.downloadCargoPackage (nameVerCksum // {
-            source = "registry+https://github.com/rust-lang/crates.io-index";
-          });
+          src = craneLib.downloadCargoPackage (
+            nameVerCksum
+            // {
+              source = "registry+https://github.com/rust-lang/crates.io-index";
+            }
+          );
           shortName = builtins.replaceStrings [ "nu_plugin_" ] [ "" ] name;
-          buildInputs = pluginsBaseBuildInputs
-            ++ (buildInputsForPluginsFromCratesIo.${shortName} or [ ]);
+          buildInputs = pluginsBaseBuildInputs ++ (buildInputsForPluginsFromCratesIo.${shortName} or [ ]);
           cargoArtifacts = craneLib.buildDepsOnly { inherit src buildInputs; };
         in
         craneLib.buildPackage {

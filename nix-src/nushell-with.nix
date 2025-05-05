@@ -5,31 +5,30 @@ in
 flake-inputs:
 {
   # Obtained from `import nixpkgs {...}`
-  pkgs
-, # How to name the produced derivation
-  name ? "nushell-wrapper"
-, # Which plugins to use. Can contain `nix` and `source` attributes (both lists)
-  plugins ? { }
-, # Which nushell libraries to use. Can contain a `source` attribute (a list)
-  libraries ? { }
-, # Which nix paths to add to the PATH. Useful if you directly use libraries
+  pkgs,
+  # How to name the produced derivation
+  name ? "nushell-wrapper",
+  # Which plugins to use. Can contain `nix` and `source` attributes (both lists)
+  plugins ? { },
+  # Which nushell libraries to use. Can contain a `source` attribute (a list)
+  libraries ? { },
+  # Which nix paths to add to the PATH. Useful if you directly use libraries
   # downloaded from raw sources
-  path ? [ ]
-, # Whether to append to the PATH of the parent process
+  path ? [ ],
+  # Whether to append to the PATH of the parent process
   # (for more hermeticity) or overwrite it
-  keep-path ? false
-, # Which nushell derivation to use
-  nushell ? pkgs.nushell
-, # Which config.nu file to set at build time
-  config-nu ? defcfg
-, # Which env.nu file to set at build time
-  env-nu ? defenv
-, # Should we additionally source the user's config.nu at runtime?
+  keep-path ? false,
+  # Which nushell derivation to use
+  nushell ? pkgs.nushell,
+  # Which config.nu file to set at build time
+  config-nu ? defcfg,
+  # Which env.nu file to set at build time
+  env-nu ? defenv,
+  # Should we additionally source the user's config.nu at runtime?
   # If true, then ~/.config/nushell/config.nu MUST EXIST
-  source-user-config ? false
-, # A sh script describing env vars to add to the nushell process
-  env-vars-file ? null
-,
+  source-user-config ? false,
+  # A sh script describing env vars to add to the nushell process
+  env-vars-file ? null,
 }:
 with pkgs.lib;
 let
@@ -40,11 +39,12 @@ let
     source = [ ];
   } // plugins;
 
-  libs-with-defs = { source = [ ]; } // libraries;
+  libs-with-defs = {
+    source = [ ];
+  } // libraries;
 
   # Build the plugins in plugins.source
-  crane-pkgs = map (src: crane-builder.buildPackage { inherit src; })
-    plugins-with-defs.source;
+  crane-pkgs = map (src: crane-builder.buildPackage { inherit src; }) plugins-with-defs.source;
 
   plugins-env = pkgs.buildEnv {
     name = "${name}-plugins-env";
@@ -65,22 +65,15 @@ let
   edited-env-nu = pkgs.writeText "${name}-env.nu" ''
     ${builtins.readFile env-nu}
 
-    $env.NU_LIB_DIRS = [${
-      concatStringsSep " " ([ "." ] ++ libs-with-defs.source)
-    }]
+    $env.NU_LIB_DIRS = [${concatStringsSep " " ([ "." ] ++ libs-with-defs.source)}]
   '';
 
   wrapper-script = ''
     #!${pkgs.runtimeShell}
 
-    export PATH=${
-      concatStringsSep ":" ((if keep-path then [ "$PATH" ] else [ ]) ++ path)
-    }
+    export PATH=${concatStringsSep ":" ((if keep-path then [ "$PATH" ] else [ ]) ++ path)}
 
-    ${if env-vars-file != null then
-      "set -a; source ${env-vars-file}; set +a"
-    else
-      ""}
+    ${if env-vars-file != null then "set -a; source ${env-vars-file}; set +a" else ""}
 
     ${nushell}/bin/nu \
       --plugin-config dummy \
