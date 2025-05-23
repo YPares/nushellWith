@@ -75,7 +75,7 @@ let
 
     ${if env-vars-file != null then "set -a; source ${env-vars-file}; set +a" else ""}
 
-    ${nushell}/bin/nu \
+    exec ${nushell}/bin/nu \
       --plugin-config dummy \
       --plugins "$(<${plugins-env}/plugins.nuon)" \
       --config "${edited-config-nu}" \
