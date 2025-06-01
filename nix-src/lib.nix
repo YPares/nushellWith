@@ -23,4 +23,27 @@ flake-inputs: rec {
       path ? [ ], # Dependencies (list of folders to add to the PATH)
     }:
     runNuScript pkgs "${name}-patched" ../nu-src/patch-deps.nu ([ src ] ++ path);
+
+  # Extract the build env of a derivation as a nuon file
+  extractBuildEnvAsNuonFile =
+    { pkgs, drv, preBuildHook ? "", selected ? [".*"] }:
+    drv.overrideAttrs {
+      buildCommand = ''
+        ${preBuildHook}
+        ${pkgs.nushell}/bin/nu -n ${../nu-src/extract-env.nu} \
+          ${pkgs.lib.strings.escapeShellArgs (pkgs.lib.lists.map (s: "^${s}$") selected)} > $out
+      '';
+    };
+
+  # Make a nushell module that, when imported with 'use' or 'overlay use',
+  # will add to the current env the contents of nuon-serialized env files
+  nuModuleFromNuonEnvFiles =
+    { pkgs, files }:
+    pkgs.writeText "env.nu" ''
+      use ${../nu-src/extract-env.nu} merge-into-env
+
+      export-env {
+        merge-into-env [${pkgs.lib.strings.concatStringsSep " " files}]
+      }
+    '';
 }
