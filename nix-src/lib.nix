@@ -25,29 +25,32 @@ flake-inputs: rec {
     }:
     runNuScript pkgs "${name}-patched" ../nu-src/patch-deps.nu ([ src ] ++ path);
 
-  # Extract the build env of a derivation as a nuon file
-  extractBuildEnvAsNuonFile =
+  # Extract the build env of a derivation as a file
+  extractBuildEnv =
     {
       pkgs, # Nixpkgs imported
       drv, # The derivation to override
       preBuildHook ? "", # Bash code to set extra env vars, e.g. by sourcing a file
       selected ? [ ".*" ], # Which env vars to keep (regexes)
       rejected ? [ ], # After selection, which env vars to remove (regexes)
+      format ? "nuon", # A file extension. Which format to use for the env file
     }:
     let
       toNuonList = list: "\"[${pkgs.lib.strings.escapeShellArgs list}]\"";
     in
     drv.overrideAttrs {
+      name = "${drv.name}-env.${format}";
       buildCommand = ''
         ${preBuildHook}
         ${pkgs.nushell}/bin/nu -n ${../nu-src/extract-env.nu} \
-          ${toNuonList selected} ${toNuonList rejected} > $out
+          -s ${toNuonList selected} -r ${toNuonList rejected} -o $out
       '';
     };
 
   # Make a nushell module that, when imported with 'use' or 'overlay use',
-  # will add to the current env the contents of nuon-serialized env files
-  nuModuleFromNuonEnvFiles =
+  # will add to the current env the contents of some env files (which can be
+  # any format usable by nushell 'open' command)
+  makeNuModuleExporting =
     pkgs: files:
     pkgs.writeText "env.nu" ''
       use ${../nu-src/extract-env.nu} merge-into-env
@@ -67,7 +70,7 @@ flake-inputs: rec {
       nushellWith = withPkgs nushellWith;
       runNuScript = runNuScript pkgs;
       makeNuLibrary = withPkgs makeNuLibrary;
-      extractBuildEnvAsNuonFile = withPkgs extractBuildEnvAsNuonFile;
-      nuModuleFromNuonEnvFiles = nuModuleFromNuonEnvFiles pkgs;
+      extractBuildEnv = withPkgs extractBuildEnv;
+      makeNuModuleExporting = makeNuModuleExporting pkgs;
     };
 }

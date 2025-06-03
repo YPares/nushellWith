@@ -33,7 +33,7 @@ export def merge-deep-all [paths: list<path>] {
       $in
     }
     [$p ..$rest] => {
-      merge deep -s append (open $p | from nuon) | merge-deep-all $rest
+      merge deep -s append (open $p) | merge-deep-all $rest
     }
   }
 }
@@ -49,8 +49,9 @@ export def --env merge-into-env [paths: list<path>] {
 }
 
 def main [
-  selected: string
-  rejected: string
+  --selected (-s): string = "['.*']"
+  --rejected (-r): string = "[]"
+  --out (-o): path
 ] {
-  extract-from-env ($selected | from nuon) ($rejected | from nuon) | to nuon
+  extract-from-env ($selected | from nuon) ($rejected | from nuon) | save $out
 }
