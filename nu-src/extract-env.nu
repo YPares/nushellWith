@@ -1,20 +1,28 @@
-const HIDDEN_VARS = [
-  HOME FILE_PWD CURRENT_FILE PWD SHELL SHLVL name shell shellHook TMP TEMP TMPDIR TEMPDIR
-  # LANG LOCALE_ARCHIVE 
+# These are always rejected, whatever the user settings, because
+# they prevent the env from functioning correctly
+const HIDDEN = [
+  HOME FILE_PWD CURRENT_FILE PWD SHELL SHLVL
+  name shell shellHook
+  TMP TEMP TMPDIR TEMPDIR
   NIX_SSL_CERT_FILE
   SSL_CERT_FILE
+  "NU_.*"
 ]
 
-export def extract-from-env [selected] {
+export def extract-from-env [
+  selected: list<string>
+  rejected: list<string>
+] {
+  let rejected = $HIDDEN ++ $rejected
+
   $env |
-    reject -i ...$HIDDEN_VARS |
     transpose k v |
     where {|e| (
       ($e.v | describe) in [string "list<string>"]
       and
-      ($e.k !~ "^NU_.*")
+      ($selected | any {$e.k =~ $"^($in)$"})
       and
-      ($selected | any {$e.k =~ $in})
+      (not ($rejected | any {$e.k =~ $"^($in)$"}))
     )} |
     transpose -rd
 }
@@ -40,6 +48,9 @@ export def --env merge-into-env [paths: list<path>] {
   )
 }
 
-def main [...selected] {
-  extract-from-env $selected | to nuon
+def main [
+  selected: string
+  rejected: string
+] {
+  extract-from-env ($selected | from nuon) ($rejected | from nuon) | to nuon
 }
