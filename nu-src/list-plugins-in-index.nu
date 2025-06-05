@@ -7,10 +7,9 @@ def parse-one [path] {
 }
 
 def main [crates_io_index] {
-    mkdir $env.out
     ls $"($crates_io_index)/nu/_p" |
         where {($in.name | path parse).stem | str starts-with "nu_plugin_"} |
         each {parse-one $in.name | {$in.name: $in}} |
         into record |
-        save $"($env.out)/plugins.json"
+        save $env.out
 }

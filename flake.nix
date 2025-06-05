@@ -19,11 +19,6 @@
       url = "github:Jan9103/webserver.nu";
       flake = false;
     };
-
-    crates-io-index = {
-      url = "github:rust-lang/crates.io-index";
-      flake = false;
-    };
   };
 
   outputs =

@@ -15,22 +15,6 @@
         "type": "github"
       }
     },
-    "crates-io-index": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1746484364,
-        "narHash": "sha256-pTX39D0BMe1V1ntjjPTZpKSpnCxLjXcOHAjrcvTTNmg=",
-        "owner": "rust-lang",
-        "repo": "crates.io-index",
-        "rev": "da58632017d931c816ff679848fc6e9bf9740338",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rust-lang",
-        "repo": "crates.io-index",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1746397377,
@@ -66,7 +50,6 @@
     "root": {
       "inputs": {
         "crane": "crane",
-        "crates-io-index": "crates-io-index",
         "nixpkgs": "nixpkgs",
         "nu-batteries-src": "nu-batteries-src",
         "webserver-nu-src": "webserver-nu-src"

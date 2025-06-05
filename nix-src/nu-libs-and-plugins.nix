@@ -32,11 +32,9 @@ let
     let
       craneLib = inputs.crane.mkLib pkgs;
 
-      cratesIoJsonIndex =
-        self.lib.runNuScript pkgs "plugins-in-crates.io-index" ../nu-src/list-plugins-in-index.nu
-          [ inputs.crates-io-index ];
-
-      cratesIoIndex = builtins.fromJSON (builtins.readFile "${cratesIoJsonIndex}/plugins.json");
+      cratesIoNuPluginsJson =
+        self.lib.runNuScript pkgs "crates-io_nu_plugins.json" ../nu-src/list-plugins-in-index.nu
+          [ (import ../crates-io-source.nix) ];
 
       pluginsBaseBuildInputs =
         with pkgs;
@@ -86,7 +84,9 @@ let
     in
     # All the plugins from crates.io:
     # (Each attr is of the form "nu_plugin_<name>")
-    builtins.mapAttrs (_: buildPluginFromCratesIo) cratesIoIndex;
+    builtins.mapAttrs (_: buildPluginFromCratesIo) (
+      builtins.fromJSON (builtins.readFile cratesIoNuPluginsJson)
+    );
 
 in
 nu-libraries // nu-plugins
