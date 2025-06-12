@@ -51,12 +51,16 @@ flake-inputs: rec {
   # will add to the current env the contents of some env files (which can be
   # any format usable by nushell 'open' command)
   makeNuModuleExporting =
-    pkgs: files:
+    {
+      pkgs, # Nixpkgs imported
+      env-files, # The json/toml/yaml/nuon env files that the produced module should export
+      merge-strategy ? "prepend", # How list-like env vars (notably PATH) should be dealt with
+    }:
     pkgs.writeText "env.nu" ''
       use ${../nu-src/extract-env.nu} merge-into-env
 
       export-env {
-        merge-into-env [${pkgs.lib.strings.concatStringsSep " " files}]
+        merge-into-env --strategy ${merge-strategy} [${pkgs.lib.strings.concatStringsSep " " env-files}]
       }
     '';
 
@@ -71,6 +75,6 @@ flake-inputs: rec {
       runNuScript = runNuScript pkgs;
       makeNuLibrary = withPkgs makeNuLibrary;
       extractBuildEnv = withPkgs extractBuildEnv;
-      makeNuModuleExporting = makeNuModuleExporting pkgs;
+      makeNuModuleExporting = withPkgs makeNuModuleExporting;
     };
 }

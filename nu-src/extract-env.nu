@@ -27,24 +27,30 @@ export def extract-from-env [
     transpose -rd
 }
 
-export def merge-deep-all [paths: list<path>] {
+export def merge-deep-all [
+  --strategy (-s) = "prepend"
+  paths: list<path>
+] {
   match $paths {
     [] => {
       $in
     }
     [$p ..$rest] => {
-      merge deep -s append (open $p) | merge-deep-all $rest
+      merge deep -s $strategy (open $p) | merge-deep-all -s $strategy $rest
     }
   }
 }
 
-export def --env merge-into-env [paths: list<path>] {
+export def --env merge-into-env [
+  --strategy (-s) = "prepend"
+  paths: list<path>
+] {
   load-env (
     $env |
       transpose k v |
       where {($in.v | describe) == "list<string>"} |
       transpose -rd |
-      merge-deep-all $paths
+      merge-deep-all -s $strategy $paths
   )
 }
 
