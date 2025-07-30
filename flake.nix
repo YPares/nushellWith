@@ -8,7 +8,7 @@
 
   inputs = {
     crane.url = "github:ipetkov/crane";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/master";
 
     # Nu libraries' sources:
     nu-batteries-src = {
@@ -53,15 +53,14 @@
         let
           pkgs = import nixpkgs { inherit system; };
 
-          inputs-for-libs =
-            {
-              inherit pkgs;
-              inherit system;
-            }
-            // (builtins.removeAttrs flake-inputs [
-              "nixpkgs"
-              "flake-utils"
-            ]);
+          inputs-for-libs = {
+            inherit pkgs;
+            inherit system;
+          }
+          // (builtins.removeAttrs flake-inputs [
+            "nixpkgs"
+            "flake-utils"
+          ]);
 
           std-plugins = with pkgs.nushellPlugins; [
             formats
