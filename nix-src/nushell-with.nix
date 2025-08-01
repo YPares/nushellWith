@@ -24,8 +24,8 @@ flake-inputs:
   config-nu ? defcfg,
   # Which env.nu file to set at build time
   env-nu ? defenv,
-  # Should we additionally source the user's config.nu at runtime?
-  # If true, then ~/.config/nushell/config.nu MUST EXIST
+  # Should we additionally source the default user's config.nu at runtime?
+  # If true, then this file MUST EXIST
   source-user-config ? false,
   # A sh script describing env vars to add to the nushell process
   env-vars-file ? null,
@@ -37,11 +37,13 @@ let
   plugins-with-defs = {
     nix = [ ];
     source = [ ];
-  } // plugins;
+  }
+  // plugins;
 
   libs-with-defs = {
     source = [ ];
-  } // libraries;
+  }
+  // libraries;
 
   # Build the plugins in plugins.source
   crane-pkgs = map (src: crane-builder.buildPackage { inherit src; }) plugins-with-defs.source;
@@ -51,21 +53,20 @@ let
     paths = plugins-with-defs.nix ++ crane-pkgs;
     # Creating and saving the plugin list along with the env:
     postBuild = ''
-      ${nushell}/bin/nu --plugin-config dummy --config ${defcfg} --env-config ${defenv} -c \
+      ${nushell}/bin/nu -n --no-std-lib -c \
         "try {ls $out/bin} catch {[]} | where name =~ nu_plugin_ | get name | save $out/plugins.nuon"
     '';
   };
 
   edited-config-nu = pkgs.writeText "${name}-config.nu" ''
-    ${builtins.readFile config-nu}
+    source ${config-nu}
 
-    ${if source-user-config then ''source "~/.config/nushell/config.nu"'' else ""}
-  '';
+    ${if source-user-config then ''source ($nu.default-config-dir | path join config.nu)'' else ""}
 
-  edited-env-nu = pkgs.writeText "${name}-env.nu" ''
-    ${builtins.readFile env-nu}
-
-    $env.NU_LIB_DIRS = [${concatStringsSep " " ([ "." ] ++ libs-with-defs.source)}]
+    const NU_LIB_DIRS = (
+      ${if source-user-config then ''$NU_LIB_DIRS ++'' else ""}
+      [${concatStringsSep " " libs-with-defs.source}]
+    )
   '';
 
   wrapper-script = ''
@@ -76,10 +77,10 @@ let
     ${if env-vars-file != null then "set -a; source ${env-vars-file}; set +a" else ""}
 
     exec ${nushell}/bin/nu \
-      --plugin-config dummy \
+      --plugin-config "${name}-plugins" \
       --plugins "$(<${plugins-env}/plugins.nuon)" \
       --config "${edited-config-nu}" \
-      --env-config "${edited-env-nu}" \
+      --env-config ${env-nu} \
       "$@"
   '';
 
