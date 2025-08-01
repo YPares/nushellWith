@@ -6,24 +6,27 @@ flake-inputs: rec {
   runNuScript =
     pkgs: name: scriptPath: args:
     pkgs.runCommand name { } ''
-      ${pkgs.nushell}/bin/nu -n ${scriptPath} ${
-        pkgs.lib.concatStringsSep " " (map (str: "'" + str + "'") args)
-        # TODO: use escapeShellArgs
-      }
+      ${pkgs.nushell}/bin/nu -n ${scriptPath} ${pkgs.lib.escapeShellArgs args}
     '';
 
-  # Patch a nushell library so it refers to a specific PATH
+  # Patch a nushell library so it refers to a specific PATH and can use its dependencies
   makeNuLibrary =
     {
+      # Nixpkgs imported:
       pkgs,
-      # Nixpkgs imported
+      # Name of the library:
       name,
-      # Name of the library
+      # Folder containing the library:
       src,
-      # Folder containing the library source
-      path ? [ ], # Dependencies (list of folders to add to the PATH)
+      # Nu libraries this lib depends on:
+      dependencies ? [ ],
+      # Binary dependencies (list of folders to add to the PATH):
+      path ? [ ],
     }:
-    runNuScript pkgs "${name}-patched" ../nu-src/patch-deps.nu ([ src ] ++ path);
+    runNuScript pkgs name ../nu-src/patch-deps.nu [
+      src
+      (builtins.toJSON { inherit dependencies path; })
+    ];
 
   # Extract the build env of a derivation as a file
   extractBuildEnv =

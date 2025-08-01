@@ -1,18 +1,17 @@
 # Prepend a PATH to a nushell file, writing result someplace else
-def patchNuFile [path: list<path>, inFile: path, outFile: path] {
+def patchNuFile [deps: list<path>, path: list<path>, inFile: path, outFile: path] {
     # `use` directives must remain at the top of the file
     let contents = open -r $inFile
     let new_contents = [
-        $"export-env {
-            $env.PATH = \($env.PATH | prepend ($path | to nuon))
-          }"
+        $"const NU_LIB_DIRS = ($deps | to nuon)"
+        $"export-env {$env.PATH = \($env.PATH | prepend ($path | to nuon))}"
         $contents
     ]
     $new_contents | str join "\n\n" | save -r $outFile
 }
 
 # Recursively add PATH to each .nu file in a directory, writing result someplace else
-def patchNuDir [path: list<path>, inDir: path, outDir: path] {
+def patchNuDir [deps: list<path>, path: list<path>, inDir: path, outDir: path] {
     cd $inDir
     for inFile in (ls -a **/*) {
         let outFile = $"($outDir)/($inFile.name)"
@@ -21,7 +20,7 @@ def patchNuDir [path: list<path>, inDir: path, outDir: path] {
             mkdir $outParent
         }
         if ($inFile.name | path parse | get extension) == "nu" {
-            patchNuFile $path $inFile.name $outFile
+            patchNuFile $deps $path $inFile.name $outFile
         } else if ($inFile.type == "file") {
             cp $inFile.name $outFile
         }
@@ -29,9 +28,11 @@ def patchNuDir [path: list<path>, inDir: path, outDir: path] {
 }
 
 # Prepend a PATH to each .nu file (recursively) in some folder $inDir, writing result to $env.out
-def main [inDir: path, # Source directory
-          ...path: path, # Directories to add to the PATH
-    ] {
+def main [
+    inDir: path, # Source directory
+    args: string, # a JSON obj
+] {
+    let args = $args | from json
     mkdir $env.out
-    patchNuDir $path $inDir $env.out
+    patchNuDir $args.dependencies $args.path $inDir $env.out
 }
