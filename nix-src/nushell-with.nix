@@ -24,8 +24,7 @@ flake-inputs:
   config-nu ? defcfg,
   # Which env.nu file to set at build time
   env-nu ? defenv,
-  # Should we additionally source the default user's config.nu at runtime?
-  # If true, then this file MUST EXIST
+  # Should we additionally source the default user's config.nu at runtime if it exists?
   source-user-config ? false,
   # A sh script describing env vars to add to the nushell process
   env-vars-file ? null,
@@ -61,7 +60,15 @@ let
   edited-config-nu = pkgs.writeText "${name}-config.nu" ''
     source ${config-nu}
 
-    ${if source-user-config then ''source ($nu.default-config-dir | path join config.nu)'' else ""}
+    ${
+      if source-user-config then
+        ''
+          const def_user_config_file = $nu.default-config-dir | path join config.nu
+          source (if ($def_user_config_file | path exists) {$def_user_config_file})
+        ''
+      else
+        ""
+    }
 
     const NU_LIB_DIRS = (
       ${if source-user-config then ''$NU_LIB_DIRS ++'' else ""}
