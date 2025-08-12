@@ -1,8 +1,0 @@
-inputs:
-  nixpkgs:
-    url: github:NixOS/nixpkgs/nixpkgs-unstable
-  nushellWith:
-    url: ../.. # Replace by "github:YPares/nushellWith"
-  highlight:
-    url: github:cptpiepmatz/nu-plugin-highlight
-    flake: false

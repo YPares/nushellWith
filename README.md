@@ -7,7 +7,7 @@ specific set of plugins (from either nixpkgs or built from source) and nu
 libraries (from source).
 
 See the [`examples`](./examples) folder for how to use it. Examples show
-usage with regular nix flakes and with [`devenv`](http://devenv.sh).
+usage with a regular nix flake.
 
 ## Outputs of this flake
 
@@ -49,10 +49,9 @@ plugins](./nix-src/nu-libs-and-plugins.nix) are very much welcome.
 
 ## Limitations & important notes
 
-- Only plugins written in Rust can be passed to `plugins.source`, and they will
-  be built by [`crane`](https://github.com/ipetkov/crane). `plugins.nix` on the
-  other hand accepts any derivation that builds a proper plugin, ie. that builds
-  a `$out/bin/nu_plugin_*` executable which implements the [nu-plugin
-  protocol](https://www.nushell.sh/contributor-book/plugins.html). In both
-  cases, the plugin executable is automatically discovered by `nushellWith`.
-- Using `plugins.source` with `devenv` only works with `devenv >= v1.1`.
+Only plugins written in Rust can be passed to `plugins.source`, and they will
+be built by [`crane`](https://github.com/ipetkov/crane). `plugins.nix` on the
+other hand accepts any derivation that builds a proper plugin, ie. that builds
+a `$out/bin/nu_plugin_*` executable which implements the [nu-plugin
+protocol](https://www.nushell.sh/contributor-book/plugins.html). In both
+cases, the plugin executable is automatically discovered by `nushellWith`.

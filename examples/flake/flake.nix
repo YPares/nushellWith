@@ -13,7 +13,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     nushellWith = {
-      url = "../.."; # Replace by "github:YPares/nushellWith"
+      url = "github:YPares/nushellWith";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

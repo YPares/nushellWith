@@ -1,6 +1,6 @@
 builtins.fetchGit {
   url = "https://github.com/rust-lang/crates.io-index";
   ref = "master";
-  rev = "86bde512b95c8c05c62324e705a45e0b4858cdc7";
-  narHash = "sha256-19YtssgHUAE1oNxJdxRI/sCyW7zyoZdYj1ZQAZjEg78=";
+  rev = "0c120e515f6f0b0a122d65aa926a293d85afe25d";
+  narHash = "sha256-Eai8mOAF5iVQK0eLdyua3qziwLHv8CH14WGXkQDHiPQ=";
 }
