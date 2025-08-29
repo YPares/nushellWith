@@ -29,7 +29,7 @@ export def list-latest-plugin-versions [] {
           nu-plugin-dep: $nu_plugin_dep
         }
       }
-    } | transpose -rd
+    } | sort-by value.name | transpose -rd
 }
 
 const self = path self | path basename
