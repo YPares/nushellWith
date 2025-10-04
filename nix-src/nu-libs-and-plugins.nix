@@ -1,18 +1,19 @@
 # This flake exposes some existing nushell libraries (packaged with their dependencies)
 #
 # When adding a library/plugin here, don't forget to add its inputs to the main flake.nix
-{ self, pkgs, ... }@inputs:
-
+{
+  flake-inputs,
+  pkgs, # Overriden pkgs, with nushell & craneLib
+}:
 let
-
-  nu-libraries =
+  nushellLibraries =
     let # Shortcut to build a nu library without too much fuss:
       simpleNuLib =
         name: extraArgs:
-        self.lib.makeNuLibrary (
+        pkgs.nushell.makeNuLibrary (
           {
-            inherit pkgs name;
-            src = inputs."${name}-src";
+            inherit name;
+            src = flake-inputs."${name}-src";
           }
           // extraArgs
         );
@@ -28,10 +29,8 @@ let
       };
     };
 
-  nu-plugins =
+  nushellPlugins =
     let
-      craneLib = inputs.crane.mkLib pkgs;
-
       pluginsBaseBuildInputs =
         with pkgs;
         [ pkg-config ]
@@ -43,23 +42,23 @@ let
 
       pluginSysdeps = import ./plugin-sysdeps.nix pkgs;
 
-      nuPluginCrates = craneLib.buildDepsOnly {
+      nuPluginCrates = pkgs.craneLib.buildDepsOnly {
         src = ../dummy_plugin;
         pname = "dummy_plugin";
       };
 
       buildPluginFromCratesIo =
+        shortName:
         { name, ... }@nameVerCksum:
         let
-          src = craneLib.downloadCargoPackage (
+          src = pkgs.craneLib.downloadCargoPackage (
             nameVerCksum
             // {
               source = "registry+https://github.com/rust-lang/crates.io-index";
             }
           );
-          shortName = builtins.replaceStrings [ "nu_plugin_" ] [ "" ] name;
           buildInputs = pluginsBaseBuildInputs ++ (pluginSysdeps.${shortName} or [ ]);
-          cargoArtifacts = craneLib.mkCargoDerivation {
+          cargoArtifacts = pkgs.craneLib.mkCargoDerivation {
             inherit src buildInputs;
             cargoArtifacts = nuPluginCrates;
             buildPhaseCargoCommand = ''
@@ -72,17 +71,18 @@ let
             doInstallCargoArtifacts = true;
           };
         in
-        craneLib.buildPackage {
+        pkgs.craneLib.buildPackage {
           inherit src buildInputs cargoArtifacts;
           doCheck = false;
         };
 
     in
     # All the plugins from crates.io:
-    # (Each attr is of the form "nu_plugin_<name>")
-    builtins.mapAttrs (_: buildPluginFromCratesIo) (
+    builtins.mapAttrs (shortName: buildPluginFromCratesIo shortName) (
       builtins.fromTOML (builtins.readFile ../plugin-list.toml)
     );
 
 in
-nu-libraries // nu-plugins
+{
+  inherit nushellLibraries nushellPlugins;
+}

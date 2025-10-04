@@ -10,6 +10,12 @@
     crane.url = "github:ipetkov/crane";
     nixpkgs.url = "github:NixOS/nixpkgs/master";
 
+    # Latest Nushell stable version:
+    nushell-src = {
+      url = "github:nushell/nushell/0.107.0";
+      flake = false;
+    };
+
     # Nu libraries' sources:
     nu-batteries-src = {
       url = "github:nome/nu-batteries";
@@ -26,6 +32,7 @@
       self,
       crane,
       nixpkgs,
+      nushell-src,
       ...
     }@flake-inputs:
     let
@@ -43,86 +50,86 @@
       ];
     in
     {
-      lib = import ./nix-src/lib.nix flake-inputs;
+      lib = import ./nix-src/lib.nix crane;
 
       # Makes the flake directly usable as a function:
       __functor = _: self.lib.nushellWith;
 
+      overlays.default =
+        finalPkgs: prevPkgs:
+        let
+          craneLib = crane.mkLib prevPkgs;
+          nwLib = self.lib.mkLib finalPkgs;
+        in
+        nwLib
+        // {
+          inherit craneLib;
+          nushell = finalPkgs.callPackage ./nix-src/nushell.nix { inherit craneLib nushell-src; };
+          nushellWithStdPlugins = finalPkgs.nushellWith {
+            name = "nushell-with-std-plugins";
+            plugins.nix = with finalPkgs.nushellPlugins; [
+              formats
+              gstat
+              polars
+              query
+            ];
+          };
+        }
+        // import ./nix-src/nu-libs-and-plugins.nix {
+          inherit flake-inputs;
+          pkgs = finalPkgs;
+        };
+
       packages = nixpkgs.lib.genAttrs supported-systems (
         system:
         let
-          pkgs = import nixpkgs { inherit system; };
-
-          inputs-for-libs = {
-            inherit pkgs;
+          pkgs = import nixpkgs {
             inherit system;
-          }
-          // (builtins.removeAttrs flake-inputs [
-            "nixpkgs"
-            "flake-utils"
-          ]);
-
-          std-plugins = with pkgs.nushellPlugins; [
-            formats
-            gstat
-            polars
-            query
-          ];
-
-          nu-libs-and-plugins = import ./nix-src/nu-libs-and-plugins.nix inputs-for-libs;
-
-          nu-with =
-            name: libs: plugins:
-            self.lib.nushellWith {
-              inherit pkgs name;
-              libraries.source = libs;
-              plugins.nix = plugins;
-              config-nu = builtins.toFile "empty-config.nu" "# Just source the user config";
-              keep-path = true;
-              source-user-config = true;
-            };
+            overlays = [ self.overlays.default ];
+          };
         in
-        nu-libs-and-plugins
-        // (with nu-libs-and-plugins; {
-          nushellRaw = nu-with "nushell-raw" [ ] [ ];
-          nushellWithStdPlugins = nu-with "nushell-with-std-plugins" [ ] std-plugins;
-          nushellWithExtras = nu-with "nushell-with-extras" [ nu-batteries ] (
-            std-plugins
-            ++ [
-              nu_plugin_file
-            ]
-          );
-        })
+        {
+          inherit (pkgs) nushell nushellWithStdPlugins;
+        }
+        // pkgs.nushellLibraries
+        // nixpkgs.lib.mapAttrs' (name: value: {
+          name = "nu_plugin_" + name;
+          inherit value;
+        }) pkgs.nushellPlugins
       );
 
-      # For each plugin, check that it can be added to nushell without errors:
       checks = nixpkgs.lib.genAttrs supported-systems (
         system:
         let
-          pkgs = import nixpkgs { inherit system; };
-          all-plugin-names =
-            with builtins;
-            filter (name: pkgs.lib.strings.hasPrefix "nu_plugin_" name) (attrNames self.packages.${system});
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ self.overlays.default ];
+          };
         in
-        nixpkgs.lib.genAttrs all-plugin-names (
-          plugin-name:
+        {
+          allStdPlugins = pkgs.nushellWithStdPlugins.runNuCommand "check-all-std-plugins" { } ''
+            use std/assert
+            assert ((plugin list | length) == 4) "4 plugins should be found"
+            assert (plugin list | all {$in.status == "running"}) "All plugins should be running"
+            "OK" | save $env.out
+          '';
+        }
+        // nixpkgs.lib.mapAttrs (
+          # For each plugin, check that it can be added to nushell without errors
+          plugin-name: plugin-deriv:
           let
-            nu = self.lib.nushellWith {
-              inherit pkgs;
-              name = "nu-with-${plugin-name}";
-              plugins.nix = [ self.packages.${system}.${plugin-name} ];
+            nu = pkgs.nushellWith {
+              name = "nushell-with-${plugin-name}";
+              plugins.nix = [ plugin-deriv ];
             };
           in
-          pkgs.runCommand "check_${plugin-name}" { } ''
-            ${nu}/bin/nu -c '
-              if ((plugin list).status.0 == "running") {
-                touch $env.out
-              } else {
-                error make {msg: "${plugin-name} not running"}
-              }
-            '
+          nu.runNuCommand "check-${plugin-name}" { } ''
+            use std/assert
+            assert ((plugin list | length) == 1) "The plugin should be found"
+            assert ((plugin list).0.status == "running") "The plugin should be found"
+            "OK" | save $env.out
           ''
-        )
+        ) pkgs.nushellPlugins
       );
     };
 }

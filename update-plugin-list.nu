@@ -21,7 +21,7 @@ export def list-latest-plugin-versions [] {
         lines | last | from json
       let nu_plugin_dep = $latest.deps | where name == "nu-plugin" | get -o 0.req
       {
-        key: $crate.name
+        key: ($crate.name | str replace "nu_plugin_" "")
         value : {
           name: $crate.name
           version: $latest.vers
