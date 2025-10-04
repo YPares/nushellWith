@@ -6,5 +6,5 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-"nu-protocol" = "0.106.1"
-"nu-plugin" = "0.106.1"
+"nu-protocol" = "0.107.0"
+"nu-plugin" = "0.107.0"

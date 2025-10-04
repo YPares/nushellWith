@@ -2,9 +2,10 @@ let
   defcfg = ../default-config-files/config.nu;
   defenv = ../default-config-files/env.nu;
 in
-flake-inputs:
+crane:
 {
   # Obtained from `import nixpkgs {...}`
+  # Expected to contain a 'nushell' derivation
   pkgs,
   # How to name the produced derivation
   name ? "nushell-wrapper",
@@ -18,8 +19,6 @@ flake-inputs:
   # Whether to append to the PATH of the parent process
   # (for more hermeticity) or overwrite it
   keep-path ? false,
-  # Which nushell derivation to use
-  nushell ? pkgs.nushell,
   # Which config.nu file to set at build time
   config-nu ? defcfg,
   # Which env.nu file to set at build time
@@ -31,7 +30,7 @@ flake-inputs:
 }:
 with pkgs.lib;
 let
-  crane-builder = flake-inputs.crane.mkLib pkgs;
+  craneLib = crane.mkLib pkgs;
 
   plugins-with-defs = {
     nix = [ ];
@@ -45,17 +44,19 @@ let
   // libraries;
 
   # Build the plugins in plugins.source
-  crane-pkgs = map (src: crane-builder.buildPackage { inherit src; }) plugins-with-defs.source;
+  crane-pkgs = map (src: craneLib.buildPackage { inherit src; }) plugins-with-defs.source;
 
-  plugins-env = pkgs.buildEnv {
-    name = "${name}-plugins-env";
+  plugin-env = pkgs.buildEnv {
+    name = "${name}-plugin-env";
     paths = plugins-with-defs.nix ++ crane-pkgs;
     # Creating and saving the plugin list along with the env:
     postBuild = ''
-      ${nushell}/bin/nu -n --no-std-lib -c \
+      ${pkgs.nushell}/bin/nu -n --no-std-lib -c \
         "try {ls $out/bin} catch {[]} | where name =~ nu_plugin_ | get name | save $out/plugins.nuon"
     '';
   };
+
+  plugin-env-deriv-name = builtins.replaceStrings [ "/nix/store/" ] [ "" ] plugin-env.outPath;
 
   edited-config-nu = pkgs.writeText "${name}-config.nu" ''
     source ${config-nu}
@@ -76,6 +77,11 @@ let
     )
   '';
 
+  # Nushell needs to be able to write the plugin database (--plugin-config)
+  # somewhere, even if that dabase is meant to be readonly afterwards
+  #
+  # For now we store it in /tmp under the same hash than the
+  # plugin-env derivation in order to avoid conflicts
   wrapper-script = ''
     #!${pkgs.runtimeShell}
 
@@ -83,11 +89,14 @@ let
 
     ${if env-vars-file != null then "set -a; source ${env-vars-file}; set +a" else ""}
 
-    exec ${nushell}/bin/nu \
-      --plugin-config "${name}-plugins" \
-      --plugins "$(<${plugins-env}/plugins.nuon)" \
+    plugin_db_dir="/tmp/${plugin-env-deriv-name}"
+    mkdir -p "$plugin_db_dir"
+
+    exec ${pkgs.nushell}/bin/nu \
+      --plugins "$(<${plugin-env}/plugins.nuon)" \
+      --plugin-config "$plugin_db_dir/plugin-db" \
       --config "${edited-config-nu}" \
-      --env-config ${env-nu} \
+      --env-config "${env-nu}" \
       "$@"
   '';
 
@@ -99,4 +108,4 @@ let
   };
 
 in
-deriv // { inherit plugins-env; }
+deriv // { inherit plugin-env; }
