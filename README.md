@@ -90,15 +90,13 @@ This flake provides as Nix derivations some nushell libraries and plugins, so
 you don't have to write nix derivations for them and deal with their own
 dependencies. All plugins from crates.io (ie. every crate named `nu_plugin_*`)
 are procedurally packaged, but their system dependencies have to be added on a
-[case-by-case fashion](./nix-src/plugin-sysdeps.nix). Besides, plugins are
-tested to check that they can be loaded with the latest Nushell version
-(notably, some may build successfully but not be usable because they use too old
-a version of the `nu-plugin` or `nu-protocol` crates).
+[case-by-case fashion](./plugin-sysdeps.nix).
 
-See the [garnix build results](https://garnix.io/repo/YPares/nushellWith) to
-know which plugins failed to build or load, and
-[this list from `awesome-nu`](https://github.com/nushell/awesome-nu/blob/main/plugin_details.md)
-to check which plugins are based on an up-to-date version of the nu crates.
+The [plugin list](./plugin-list.toml) that is used to generate the plugin
+derivations is fetched from crates.io. To update it, run
+`nix run .#update-plugin-list` at the root of this repository. Plugins that
+require too old a version of the `nu-protocol` crate will be marked as `broken`
+and will neither be built nor checked.
 
 PRs to add new entries to the list of
 [packaged libraries & plugins](./nix-src/nu-libs-and-plugins.nix) are very much

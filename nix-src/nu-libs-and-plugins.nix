@@ -40,19 +40,21 @@ let
           darwin.apple_sdk.frameworks.Security
         ];
 
-      pluginSysdeps = import ./plugin-sysdeps.nix pkgs;
+      pluginSysdeps = import ../plugin-sysdeps.nix pkgs;
 
       nuPluginCrates = pkgs.craneLib.buildDepsOnly {
         src = ../dummy_plugin;
         pname = "dummy_plugin";
       };
 
+      knownBroken = import ../known-broken-plugins.nix;
+
       buildPluginFromCratesIo =
         shortName:
-        { name, ... }@nameVerCksum:
+        { name, broken, ... }@infoFromToml:
         let
           src = pkgs.craneLib.downloadCargoPackage (
-            nameVerCksum
+            infoFromToml
             // {
               source = "registry+https://github.com/rust-lang/crates.io-index";
             }
@@ -74,6 +76,9 @@ let
         pkgs.craneLib.buildPackage {
           inherit src buildInputs cargoArtifacts;
           doCheck = false;
+        }
+        // {
+          meta.broken = broken || builtins.elem shortName knownBroken;
         };
 
     in

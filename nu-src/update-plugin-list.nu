@@ -1,5 +1,7 @@
 #! /usr/bin/env -S nu -n
 
+const cur_nu_version = (version).version
+
 def search-crates-io-rec [qs] {
   let r = http get https://crates.io/api/v1/crates($qs)
   $r.crates | append (
@@ -27,6 +29,7 @@ export def list-latest-plugin-versions [] {
           version: $latest.vers
           checksum: $latest.cksum
           nu-plugin-dep: $nu_plugin_dep
+          broken: ($nu_plugin_dep != null and not ($cur_nu_version | semver match-req $nu_plugin_dep))
         }
       }
     } | sort-by value.name | transpose -rd

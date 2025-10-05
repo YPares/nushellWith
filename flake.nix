@@ -98,6 +98,28 @@
         }) pkgs.nushellPlugins
       );
 
+      apps = nixpkgs.lib.genAttrs supported-systems (
+        system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ self.overlays.default ];
+          };
+          nuWithSemver = pkgs.nushellWith {
+            plugins.nix = [ pkgs.nushellPlugins.semver ];
+          };
+          script = nuWithSemver.writeNuScriptBin "update-plugin-list" (
+            builtins.readFile ./nu-src/update-plugin-list.nu
+          );
+        in
+        {
+          update-plugin-list = {
+            type = "app";
+            program = pkgs.lib.getExe script;
+          };
+        }
+      );
+
       checks = nixpkgs.lib.genAttrs supported-systems (
         system:
         let
@@ -105,6 +127,7 @@
             inherit system;
             overlays = [ self.overlays.default ];
           };
+          nonBrokenPlugins = pkgs.lib.filterAttrs (_: deriv: !deriv.meta.broken) pkgs.nushellPlugins;
         in
         {
           allStdPlugins = pkgs.nushellWithStdPlugins.runNuCommand "check-all-std-plugins" { } ''
@@ -129,7 +152,7 @@
             assert ((plugin list).0.status == "running") "The plugin should be found"
             "OK" | save $env.out
           ''
-        ) pkgs.nushellPlugins
+        ) nonBrokenPlugins
       );
     };
 }
