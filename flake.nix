@@ -59,9 +59,8 @@
         finalPkgs: prevPkgs:
         let
           craneLib = crane.mkLib prevPkgs;
-          nwLib = self.lib.mkLib finalPkgs;
         in
-        nwLib
+        self.lib.mkLib finalPkgs
         // {
           inherit craneLib;
           nushell = finalPkgs.callPackage ./nix-src/nushell.nix { inherit craneLib nushell-src; };
@@ -90,6 +89,11 @@
         in
         {
           inherit (pkgs) nushell nushellWithStdPlugins;
+          # packages cannot export functions. So we hack around by providing
+          # a derivation that can be used like a function:
+          nushellWith = pkgs.nushellWithStdPlugins // {
+            __functor = _: pkgs.nushellWith;
+          };
         }
         // pkgs.nushellLibraries
         // nixpkgs.lib.mapAttrs' (name: value: {
