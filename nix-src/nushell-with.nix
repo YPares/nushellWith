@@ -18,13 +18,13 @@ crane:
   path ? [ ],
   # Whether to append to the PATH of the parent process
   # (for more hermeticity) or overwrite it
-  keep-path ? false,
+  keep-path ? true,
   # Which config.nu file to set at build time
   config-nu ? defcfg,
   # Which env.nu file to set at build time
   env-nu ? defenv,
   # Should we additionally source the default user's config.nu at runtime if it exists?
-  source-user-config ? false,
+  source-user-config ? true,
   # A sh script describing env vars to add to the nushell process
   env-vars-file ? null,
 }:
