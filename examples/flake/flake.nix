@@ -13,12 +13,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
 
-    nushellWith.url = "github:YPares/nushellWith";
+    nushellWith.url = "../.."; # Replace with "github:YPares/nushellWith";
     # It's preferable not to set nushellWith.inputs.nixpkgs.follows, because this would
     # quite likely invalidate the garnix cache and trigger a lot of rebuilds on your machine
-
-    # A repo that contains Nix-packaged Nu libraries:
-    monurepo.url = "github:YPares/monurepo";
   };
 
   outputs =
@@ -26,35 +23,39 @@
       nixpkgs,
       flake-utils,
       nushellWith,
-      monurepo,
       ...
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs { inherit system; };
-        nw_pkgs = nushellWith.packages.${system};
-        mr_pkgs = monurepo.packages.${system};
-        myNushell = nushellWith {
-          inherit pkgs;
-          plugins.nix = [ nw_pkgs.nu_plugin_file ];
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ nushellWith.overlays.default ];
+        };
+        myNushell = pkgs.nushellWith {
+          plugins.nix = with pkgs.nushellPlugins; [ semver ];
           libraries.source = [
-            mr_pkgs.enverlay
-            mr_pkgs.prowser
+            ./libs
           ];
           env-vars-file = ./env-vars;
         };
       in
       {
-        packages.myNushell = myNushell;
-        packages.default = pkgs.writeScriptBin "dummy-command" ''
-          #!${pkgs.lib.getExe myNushell}
+        packages.myNushellEnv = myNushell;
+        packages.default = myNushell.writeNuScriptBin "dummy-script" ''
+          use foo
 
-          use enverlay
-          use prowser
+          foo say_hello | print
+        '';
 
-          print $"RANDOM_ENV_VAR contains: ($env.RANDOM_ENV_VAR)"
-          prowser render | print
+        checks.default = myNushell.runNuCommand "dummy-check" { } ''
+          use foo
+
+          if (foo version | semver match-req $env.FOO_REQUIRED_VERSION) {
+            "OK" | save $env.out
+          } else {
+            error make {msg: "foo doesn't match expected version"}
+          }
         '';
       }
     );
