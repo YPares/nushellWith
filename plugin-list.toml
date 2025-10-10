@@ -1,4 +1,4 @@
-## THIS FILE IS GENERATED AUTOMATICALLY BY update-plugin-list
+## THIS FILE IS GENERATED AUTOMATICALLY BY update-plugin-list.nu
 ## DO NOT EDIT MANUALLY
 
 [audio_hook]
@@ -278,6 +278,13 @@ broken = false
 name = "nu_plugin_jwalk"
 version = "0.19.0"
 checksum = "ef68e250bb2d50a34dbab0ad7adf1d067814f1f3ddad4a50963779d7e13bc6bc"
+nu-plugin-dep = "^0.107.0"
+broken = false
+
+[ls_colorize]
+name = "nu_plugin_ls_colorize"
+version = "0.1.0"
+checksum = "fe064e2cac3a8859b6d4bc6873c8db37e6a35277bee93c2ff94b6f3a5ccf2a01"
 nu-plugin-dep = "^0.107.0"
 broken = false
 
