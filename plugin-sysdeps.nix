@@ -20,7 +20,7 @@ with pkgs; {
   polars = [ openssl ];
   post = [ openssl ];
   prometheus = [ openssl ];
-  query = [ openssl ];
+  query = [ openssl curl ];
   s3 = [ openssl ];
   twitch = [ openssl ];
   ws = [ openssl ];
