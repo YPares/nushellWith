@@ -34,10 +34,11 @@ let
       pluginsBaseBuildInputs =
         with pkgs;
         [ pkg-config ]
-        ++ lib.optionals (stdenv.hostPlatform.isDarwin) [
+        ;
+      nativeBuildInputs =
+        with pkgs;
+        lib.optionals (stdenv.hostPlatform.isDarwin) [
           iconv
-          darwin.apple_sdk.frameworks.IOKit
-          darwin.apple_sdk.frameworks.Security
         ];
 
       pluginSysdeps = import ../plugin-sysdeps.nix pkgs;
@@ -61,7 +62,7 @@ let
           );
           buildInputs = pluginsBaseBuildInputs ++ (pluginSysdeps.${shortName} or [ ]);
           cargoArtifacts = pkgs.craneLib.mkCargoDerivation {
-            inherit src buildInputs;
+            inherit src buildInputs nativeBuildInputs;
             cargoArtifacts = nuPluginCrates;
             buildPhaseCargoCommand = ''
               cargoWithProfile check --locked
@@ -74,7 +75,7 @@ let
           };
         in
         pkgs.craneLib.buildPackage {
-          inherit src buildInputs cargoArtifacts;
+          inherit src buildInputs cargoArtifacts nativeBuildInputs;
           doCheck = false;
         }
         // {
