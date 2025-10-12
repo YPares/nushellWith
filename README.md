@@ -6,7 +6,7 @@ Build an isolated [nushell](https://www.nushell.sh/) environment with a specific
 set of plugins (from either nixpkgs or built from source) and nu libraries (from
 source).
 
-The recommended way to use this flake is via the `nixpkgs` overlay it provides:
+The simplest way to use this flake is via the `nixpkgs` overlay it provides:
 
 ```nix
   let pkgs = import nixpkgs {
@@ -82,7 +82,7 @@ See also the [`examples`](./examples) folder.
   derivations as the `pkgs.nushell`, `pkgs.nushellWithStdPlugins`,
   `pkgs.nushellLibraries.*` and `pkgs.nushellPlugins.*` provided by the overlay,
   but all merged in the same attrset, and with an extra `nu_plugin_` prefix for
-  the attributes corresponding to plugins
+  the attributes corresponding to plugins.
 
 ## About the packaged nushell libraries & plugins
 
@@ -96,11 +96,32 @@ The [plugin list](./plugin-list.toml) that is used to generate the plugin
 derivations is fetched from crates.io. To update it, run
 `nix run .#update-plugin-list` at the root of this repository. Plugins that
 require too old a version of the `nu-protocol` crate will be marked as `broken`
-and will neither be built nor checked.
+and will neither be built nor checked. The Garnix CI which check that all the
+non-broken plugins can be built and loaded in latest Nushell on Linux x86_64.
+The CI will also build Nushell and the standard plugins on OSX ARM64.
 
 PRs to add new entries to the list of
 [packaged libraries & plugins](./nix-src/nu-libs-and-plugins.nix) are very much
 welcome.
+
+## About the binary cache
+
+Installing Nushell and plugins via the `packages` output is a bit less
+convenient because everything has to be mashed together under the `packages`
+attribute, but it can better exploit the cache provided by Garnix. To use it,
+add the following to your own `flake.nix`:
+
+```nix
+{
+  nixConfig = {
+    substituters = [ "https://cache.garnix.io" ];
+    trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
+  };
+
+  inputs = ... ;
+  outputs = ... ;
+}
+```
 
 ## Limitations & important notes
 
