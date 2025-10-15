@@ -104,7 +104,7 @@ name = "nu_plugin_dcm"
 version = "0.8.0"
 checksum = "361f557acb2082ce95ee63bdf83d9caeddfb87921cd1d0b0eefdca102fe66ff7"
 nu-plugin-dep = "^0.108.0"
-broken = false
+broken = true
 
 [desktop_notifications]
 name = "nu_plugin_desktop_notifications"
@@ -139,7 +139,7 @@ name = "nu_plugin_endecode"
 version = "0.108.0"
 checksum = "83c79709d31ccaca7c938b3d0fa67ab4b979d087271322d667bbf07d4b632f2f"
 nu-plugin-dep = "^0.108.0"
-broken = false
+broken = true
 
 [explore_ir]
 name = "nu_plugin_explore_ir"
@@ -251,14 +251,14 @@ name = "nu_plugin_hcl"
 version = "0.108.0"
 checksum = "75e0811c67c7c947a743fd84d450de35b7b9869ec28e23a8e90d3ae33a0aaeae"
 nu-plugin-dep = "^0.108.0"
-broken = false
+broken = true
 
 [highlight]
 name = "nu_plugin_highlight"
 version = "1.4.10+0.108.0"
 checksum = "77557ab87307df48d77718603dfc1e977644b1152cd86cea5a287b6f642e0d83"
 nu-plugin-dep = "^0.108.0"
-broken = false
+broken = true
 
 [hmac]
 name = "nu_plugin_hmac"
@@ -300,7 +300,7 @@ name = "nu_plugin_ls_colorize"
 version = "1.0.0+0.108.0"
 checksum = "a85876d56b38da3cb745e3c6cb297e16efcf69a309ed0dbf5a78fb7393a15d52"
 nu-plugin-dep = "^0.108.0"
-broken = false
+broken = true
 
 [match]
 name = "nu_plugin_match"
@@ -370,7 +370,7 @@ name = "nu_plugin_plotters"
 version = "0.2.3+0.108.0"
 checksum = "f5a42a4bf9dbce288be31655ada0353e99e228f050dddb188ad4319b39590693"
 nu-plugin-dep = "^0.108.0"
-broken = false
+broken = true
 
 [polars]
 name = "nu_plugin_polars"
@@ -510,7 +510,7 @@ name = "nu_plugin_semver"
 version = "0.11.8"
 checksum = "ff8522b26ede0da6b5c2a8b5c37d23e9681e2a4c353b2911c962db32e82c6590"
 nu-plugin-dep = "^0.108.0"
-broken = false
+broken = true
 
 [skim]
 name = "nu_plugin_skim"
@@ -573,7 +573,7 @@ name = "nu_plugin_template"
 version = "0.108.0"
 checksum = "a22d01eba099feea71e2c6ff46b60e5f72fa6c9ed240dbef631a62716a33018b"
 nu-plugin-dep = "^0.108.0"
-broken = false
+broken = true
 
 [textview]
 name = "nu_plugin_textview"
