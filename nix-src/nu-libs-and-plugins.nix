@@ -41,9 +41,7 @@ let
           iconv
         ];
 
-      pluginSysdeps = import ../plugin-sysdeps.nix pkgs;
-
-      knownBroken = import ../known-broken-plugins.nix;
+      pluginSpecifics = import ../plugin-specifics.nix;
 
       buildPluginFromCratesIo =
         shortName:
@@ -55,7 +53,7 @@ let
               source = "registry+https://github.com/rust-lang/crates.io-index";
             }
           );
-          buildInputs = pluginsBaseBuildInputs ++ (pluginSysdeps.${shortName} or [ ]);
+          buildInputs = pluginsBaseBuildInputs ++ ((pluginSpecifics.sysdeps pkgs).${shortName} or [ ]);
           cargoArtifacts = pkgs.craneLib.buildDepsOnly {
             inherit src buildInputs nativeBuildInputs;
             doCheck = false;
@@ -66,7 +64,7 @@ let
           doCheck = false;
         }
         // {
-          meta.broken = broken || builtins.elem shortName knownBroken;
+          meta.broken = broken || builtins.elem shortName pluginSpecifics.known-broken;
         };
 
     in

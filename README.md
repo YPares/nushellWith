@@ -90,7 +90,7 @@ This flake provides as Nix derivations some nushell libraries and plugins, so
 you don't have to write nix derivations for them and deal with their own
 dependencies. All plugins from crates.io (ie. every crate named `nu_plugin_*`)
 are procedurally packaged, but their system dependencies have to be added on a
-[case-by-case fashion](./plugin-sysdeps.nix).
+[case-by-case fashion](./plugin-specifics.nix).
 
 The [plugin list](./plugin-list.toml) that is used to generate the plugin
 derivations is fetched from crates.io. To update it, run
