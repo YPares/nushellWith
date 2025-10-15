@@ -43,11 +43,6 @@ let
 
       pluginSysdeps = import ../plugin-sysdeps.nix pkgs;
 
-      nuPluginCrates = pkgs.craneLib.buildDepsOnly {
-        src = ../dummy_plugin;
-        pname = "dummy_plugin";
-      };
-
       knownBroken = import ../known-broken-plugins.nix;
 
       buildPluginFromCratesIo =
@@ -61,21 +56,13 @@ let
             }
           );
           buildInputs = pluginsBaseBuildInputs ++ (pluginSysdeps.${shortName} or [ ]);
-          cargoArtifacts = pkgs.craneLib.mkCargoDerivation {
+          cargoArtifacts = pkgs.craneLib.buildDepsOnly {
             inherit src buildInputs nativeBuildInputs;
-            cargoArtifacts = nuPluginCrates;
-            buildPhaseCargoCommand = ''
-              cargoWithProfile check --locked
-              cargoWithProfile build --locked
-            '';
-            checkPhaseCargoCommand = ''
-              cargoWithProfile test --locked
-            '';
-            doInstallCargoArtifacts = true;
+            doCheck = false;
           };
         in
         pkgs.craneLib.buildPackage {
-          inherit src buildInputs cargoArtifacts nativeBuildInputs;
+          inherit src buildInputs nativeBuildInputs cargoArtifacts;
           doCheck = false;
         }
         // {

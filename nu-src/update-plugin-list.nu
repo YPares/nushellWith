@@ -46,7 +46,8 @@ const self = path self | path basename
 # Fetch from crates.io the list of packages named nu_plugin_*
 # and write their details (name, version, checksum) to a TOML file
 def main [out: path = "plugin-list.toml"] {
-  let wanted_nu_version = open ($self | path join .. dummy_plugin Cargo.toml) | get dependencies.nu-protocol
+  let wanted_nu_version = open -r ($self | path join .. flake.lock) |
+    from json | get nodes.nushell-src.original.ref
   print $"Updating plugin list from crates.io and finding latest versions compatible with Nu ($wanted_nu_version)..."
   [
     $"## THIS FILE IS GENERATED AUTOMATICALLY BY ($self)"
