@@ -1,17 +1,9 @@
 builds:
-  - branch: dev
-    include:
-      - 'packages.x86_64-linux.nushell'
-      - 'packages.x86_64-linux.nushellWith'
-      - 'packages.x86_64-linux.nushellWithStdPlugins'
-      - 'checks.x86_64-linux.*'
-      - 'packages.aarch64-darwin.nushellWithStdPlugins'
-  - branch: master
-    include:
-      - 'packages.x86_64-linux.nushell'
-      - 'packages.x86_64-linux.nushellWith'
-      - 'packages.x86_64-linux.nushellWithStdPlugins'
-      - 'checks.x86_64-linux.*'
-      - 'packages.aarch64-darwin.nushell'
-      - 'packages.aarch64-darwin.nushellWith'
-      - 'packages.aarch64-darwin.nushellWithStdPlugins'
+  include:
+    - 'packages.x86_64-linux.nushell'
+    - 'packages.x86_64-linux.nushellWith'
+    - 'packages.x86_64-linux.nushellWithStdPlugins'
+    - 'checks.x86_64-linux.*'
+    - 'packages.aarch64-darwin.nushell'
+    - 'packages.aarch64-darwin.nushellWith'
+    - 'packages.aarch64-darwin.nushellWithStdPlugins'

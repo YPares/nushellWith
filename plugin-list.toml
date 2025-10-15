@@ -57,6 +57,13 @@ checksum = "faa81d3fb6a142abb8077cf2b6c9327ecab57c19d41f1d0e5c8883620243db16"
 nu-plugin-dep = "^0.44.0"
 broken = true
 
+[chipa_touch]
+name = "nu_plugin_chipa_touch"
+version = "0.1.0"
+checksum = "6f51bfc04ffa40d1b81bdcd9f2ce25308b2fccd063043fba77dd7b6a5aad5cab"
+nu-plugin-dep = "^0.107.0"
+broken = false
+
 [clipboard]
 name = "nu_plugin_clipboard"
 version = "0.102.0"
@@ -185,10 +192,10 @@ broken = true
 
 [from_dhall]
 name = "nu_plugin_from_dhall"
-version = "0.1.0"
-checksum = "97d454825c5328da9e09b038d7c788dbed00cca787545584fe2d505f8e669632"
-nu-plugin-dep = "^0.100.0"
-broken = true
+version = "0.0.1"
+checksum = "b164dd796476b56187d1ad49ac38732e510ef06857917c38c48e2f4c306390eb"
+nu-plugin-dep = "~0"
+broken = false
 
 [from_mp4]
 name = "nu_plugin_from_mp4"
@@ -594,7 +601,7 @@ name = "nu_plugin_tracer"
 version = "0.3.0"
 checksum = "b4b2c5b6088c17b9976331631b4057229db580c7e7614d290b00cf6fa643227f"
 nu-plugin-dep = "<Nothing>"
-broken = false
+broken = true
 
 [tree]
 name = "nu_plugin_tree"

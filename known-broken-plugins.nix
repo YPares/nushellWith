@@ -1,4 +1,4 @@
 [
-  "tracer"
+  "from_dhall"
   "unzip"
 ]
