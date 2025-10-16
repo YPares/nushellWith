@@ -105,11 +105,11 @@
       apps = nixpkgs.lib.genAttrs supported-systems (
         system:
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ self.overlays.default ];
-          };
-          nuWithSemver = pkgs.nushellWith {
+          pkgs = import nixpkgs { inherit system; };
+          # We use nu & semver plugin straight from nixpkgs in order to avoid bootstrap problems
+          # The update-plugin-list.nu script is simple enough to work with any Nushell version >=0.106
+          nuWithSemver = self.lib.nushellWith {
+            inherit pkgs;
             plugins.nix = [ pkgs.nushellPlugins.semver ];
           };
           script = nuWithSemver.writeNuScriptBin "update-plugin-list" (
