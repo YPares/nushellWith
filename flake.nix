@@ -10,9 +10,9 @@
     crane.url = "github:ipetkov/crane";
     nixpkgs.url = "github:NixOS/nixpkgs/master";
 
-    # Latest Nushell stable version:
+    # Latest Nushell from nushell repo main branch
     nushell-src = {
-      url = "github:nushell/nushell/0.108.0";
+      url = "github:nushell/nushell";
       flake = false;
     };
 
