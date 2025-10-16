@@ -46,9 +46,13 @@ const self = path self | path basename
 # Fetch from crates.io the list of packages named nu_plugin_*
 # and write their details (name, version, checksum) to a TOML file
 def main [out: path = "plugin-list.toml"] {
-  let wanted_nu_version = open -r ($self | path join .. flake.lock) |
-    from json | get nodes.nushell-src.original.ref
-  print $"Updating plugin list from crates.io and finding latest versions compatible with Nu ($wanted_nu_version)..."
+  let locked_nu_ref = open -r ($self | path join .. flake.lock) |
+    from json | get -o nodes.nushell-src.original.ref | default "refs/heads/main"
+  let wanted_nu_version = (
+      http get $"https://raw.githubusercontent.com/nushell/nushell/($locked_nu_ref)/Cargo.toml" | get package.version
+  )
+
+  print $"Updating plugin list from crates.io and finding latest versions compatible with Nu ($wanted_nu_version) \(from nushell's github ref '($locked_nu_ref)')..."
   [
     $"## THIS FILE IS GENERATED AUTOMATICALLY BY ($self)"
     "## DO NOT EDIT MANUALLY"

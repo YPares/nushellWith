@@ -101,12 +101,22 @@ are procedurally packaged, but their system dependencies have to be added on a
 [case-by-case fashion](./plugin-specifics.nix).
 
 The [plugin list](./plugin-list.toml) that is used to generate the plugin
-derivations is fetched from crates.io. To update it, run
-`nix run .#update-plugin-list` at the root of this repository. Plugins that
-require too old a version of the `nu-protocol` crate will be marked as `broken`
-and will neither be built nor checked. The Garnix CI which check that all the
-non-broken plugins can be built and loaded in latest Nushell on Linux x86_64.
-The CI will also build Nushell and the standard plugins on OSX ARM64.
+derivations is fetched from crates.io. To update it, run:
+
+```sh
+nix run ".#update-plugin-list"
+```
+
+at the root of this repository. Plugins that require too old a version of the
+`nu-protocol` crate will be marked as `broken` and will neither be built nor
+checked. The Garnix CI which check that all the non-broken plugins can be built
+and loaded in latest Nushell on Linux x86_64. The CI will also build Nushell and
+the standard plugins on OSX ARM64.
+
+The `update-plugin-list` script will directly determine the wanted nushell
+version from the nushell branch referenced in the `flake.lock` file, so that
+plugin list is always constructed with respect to the currently locked nushell
+version.
 
 PRs to add new entries to the list of
 [packaged libraries & plugins](./nix-src/nu-libs-and-plugins.nix) are very much

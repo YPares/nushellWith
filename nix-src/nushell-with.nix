@@ -23,7 +23,7 @@ crane:
   # - source the $HOME/.config/nushell/{config,env}.nu files
   # - keep default locations in $NU_LIB_DIRS ($HOME/.config/nushell/scripts and $HOME/.local/share/nushell/completions)
   #
-  # If a config-nu has been given AND source-user-config is true, the former will be source BEFORE the latter.
+  # If a config-nu has been given AND source-user-config is true, the former will be sourced BEFORE the latter.
   source-user-config ? true,
   # Which env.nu file to set at build time (deprecated. Use config-nu for everything instead)
   env-nu ? null,
