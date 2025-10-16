@@ -16,6 +16,9 @@ crane:
   # Which nix paths to add to the PATH. Useful if you directly use libraries
   # downloaded from raw sources
   path ? [ ],
+  # Which Nu experimental options to activate/desactivate
+  # Each attr must be the name of a Nu experimental option, associated to a bool
+  experimental-options ? { },
   # Whether to append to the PATH of the parent process
   # (for more hermeticity) or overwrite it
   keep-path ? true,
@@ -77,6 +80,18 @@ let
     )
   '';
 
+  experimental-options-str = builtins.concatStringsSep "," (
+    builtins.attrValues (
+      builtins.mapAttrs (
+        name: value:
+        let
+          valueStr = if value then "true" else "false";
+        in
+        "${name}=${valueStr}"
+      ) experimental-options
+    )
+  );
+
   # Nushell needs to be able to write the plugin database (--plugin-config)
   # somewhere, even if that dabase is meant to be readonly afterwards
   #
@@ -92,6 +107,12 @@ let
     plugin_db_dir="/tmp/${plugin-env-deriv-name}"
     mkdir -p "$plugin_db_dir"
 
+    ${
+      if experimental-options != { } then
+        "export NU_EXPERIMENTAL_OPTIONS='${experimental-options-str}'"
+      else
+        ""
+    }
     exec ${pkgs.nushell}/bin/nu \
       --plugins "$(<${plugin-env}/plugins.nuon)" \
       --plugin-config "$plugin_db_dir/plugin-db" \

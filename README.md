@@ -6,6 +6,9 @@ Build an isolated [nushell](https://www.nushell.sh/) environment with a specific
 set of plugins (from either nixpkgs or built from source) and nu libraries (from
 source).
 
+Various Nushell versions (each with its own plugin set) are provided through
+different branches on this repository.
+
 The simplest way to use this flake is via the `nixpkgs` overlay it provides:
 
 ```nix
@@ -14,7 +17,8 @@ The simplest way to use this flake is via the `nixpkgs` overlay it provides:
     overlays = [ nushellWith.overlays.default ];
   };
   in {
-    # Get nushell built from latest stable version on GitHub:
+    # Get some stable Nushell version built from nushell's official GitHub repo
+    # (Nu version depends on which nushellWith branch you use):
     nu = pkgs.nushell;
 
     # A pre-made nushell environment that contains the plugins vendored by the Nushell team:
@@ -31,7 +35,7 @@ The simplest way to use this flake is via the `nixpkgs` overlay it provides:
     # Create a Nu environment with specific plugins and libs:
     myNushellEnv = pkgs.nushellWith {
       name = "my-nushell-wrapper";
-      # Choose ANY plugin from crates.io that works with current nushell version:
+      # Choose ANY plugin from crates.io that works with selected nushell version:
       plugins.nix = with pkgs.nushellPlugins; [
         formats polars semver skim ...
       ];
@@ -46,6 +50,10 @@ The simplest way to use this flake is via the `nixpkgs` overlay it provides:
         ./folder/containing/nu/modules/without/deps
         pkgs.nushellLibraries.nu-batteries
       ];
+      # Activate/deactivate some Nu experimental options:
+      experimental-options = {
+        pipefail = true;
+      }
       # For a more isolated env:
       config-nu = ./some/config.nu; # Use a fixed config.nu when nushell starts
       source-user-config = false; # Do not additionally read the user's ~/.config/nushell/config.nu
