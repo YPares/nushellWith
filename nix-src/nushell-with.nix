@@ -1,7 +1,3 @@
-let
-  defcfg = ../default-config-files/config.nu;
-  defenv = ../default-config-files/env.nu;
-in
 crane:
 {
   # Obtained from `import nixpkgs {...}`
@@ -13,21 +9,24 @@ crane:
   plugins ? { },
   # Which nushell libraries to use. Can contain a `source` attribute (a list)
   libraries ? { },
-  # Which nix paths to add to the PATH. Useful if you directly use libraries
-  # downloaded from raw sources
+  # Which nix paths to add to the PATH, so your shell can use to nix-provided executables
   path ? [ ],
   # Which Nu experimental options to activate/desactivate
   # Each attr must be the name of a Nu experimental option, associated to a bool
   experimental-options ? { },
-  # Whether to append to the PATH of the parent process
-  # (for more hermeticity) or overwrite it
+  # Whether to append to the PATH of the parent process or overwrite it for more hermeticity
   keep-path ? true,
-  # Which config.nu file to set at build time
-  config-nu ? defcfg,
-  # Which env.nu file to set at build time
-  env-nu ? defenv,
-  # Should we additionally source the default user's config.nu at runtime if it exists?
+  # A fixed config.nu file to read at startup
+  config-nu ? null,
+  # Should we additionally read the user's config at startup, ie:
+  #
+  # - source the $HOME/.config/nushell/{config,env}.nu files
+  # - keep default locations in $NU_LIB_DIRS ($HOME/.config/nushell/scripts and $HOME/.local/share/nushell/completions)
+  #
+  # If a config-nu has been given AND source-user-config is true, the former will be source BEFORE the latter.
   source-user-config ? true,
+  # Which env.nu file to set at build time (deprecated. Use config-nu for everything instead)
+  env-nu ? null,
   # A sh script describing env vars to add to the nushell process
   env-vars-file ? null,
 }:
@@ -62,7 +61,12 @@ let
   plugin-env-deriv-name = builtins.replaceStrings [ "/nix/store/" ] [ "" ] plugin-env.outPath;
 
   edited-config-nu = pkgs.writeText "${name}-config.nu" ''
-    source ${config-nu}
+    const NU_LIB_DIRS = (
+      ${if source-user-config then ''$NU_LIB_DIRS ++'' else ""}
+      [${concatStringsSep " " libs-with-defs.source}]
+    )
+
+    ${if config-nu != null then builtins.readFile config-nu else ""}
 
     ${
       if source-user-config then
@@ -73,11 +77,6 @@ let
       else
         ""
     }
-
-    const NU_LIB_DIRS = (
-      ${if source-user-config then ''$NU_LIB_DIRS ++'' else ""}
-      [${concatStringsSep " " libs-with-defs.source}]
-    )
   '';
 
   experimental-options-str = builtins.concatStringsSep "," (
@@ -113,11 +112,19 @@ let
       else
         ""
     }
+
     exec ${pkgs.nushell}/bin/nu \
       --plugins "$(<${plugin-env}/plugins.nuon)" \
       --plugin-config "$plugin_db_dir/plugin-db" \
       --config "${edited-config-nu}" \
-      --env-config "${env-nu}" \
+      ${
+        if env-nu != null then
+          "--env-config '${builtins.warn "nushellWith: usage of the `env-nu` parameter is deprecated" env-nu}'"
+        else if source-user-config then
+          ""
+        else
+          "--env-config /dev/null"
+      } \
       "$@"
   '';
 
