@@ -1,0 +1,34 @@
+name: nightly-updates
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-locks-and-plugins:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/determinate-nix-action@v3
+      - name: Set up jj
+        run: |
+          nix profile add nixpkgs#jujutsu
+          jj config set --user user.name "Nightly updater"
+          jj config set --user user.email "foo@bar.baz"
+          jj git init --colocate
+          jj git fetch --remote origin
+          jj bookmark track $(jj log --no-graph -r "remote_bookmarks(glob:'nu*')" -T "remote_bookmarks ++ ' '")
+      - name: Update branches
+        run: |
+          for b in $(jj log --no-graph -r "bookmarks(glob:'nu*')" -T "local_bookmarks ++ ' '"); do
+            jj new "$b" -m "Update $b branch"
+            jj bookmark move --from "$b" --to @
+            nix flake update nushell-src --accept-flake-config
+            nix run ".#update-plugin-list" --accept-flake-config
+          done
+      - name: Push branches with changes
+        run: |
+          jj git push -r 'remote_bookmarks().. ~ empty()'
