@@ -251,14 +251,14 @@ name = "nu_plugin_hcl"
 version = "0.108.0"
 checksum = "75e0811c67c7c947a743fd84d450de35b7b9869ec28e23a8e90d3ae33a0aaeae"
 nu-plugin-dep = "^0.108.0"
-broken = true
+broken = false
 
 [highlight]
 name = "nu_plugin_highlight"
 version = "1.4.10+0.108.0"
 checksum = "77557ab87307df48d77718603dfc1e977644b1152cd86cea5a287b6f642e0d83"
 nu-plugin-dep = "^0.108.0"
-broken = true
+broken = false
 
 [hmac]
 name = "nu_plugin_hmac"
@@ -300,7 +300,7 @@ name = "nu_plugin_ls_colorize"
 version = "1.0.0+0.108.0"
 checksum = "a85876d56b38da3cb745e3c6cb297e16efcf69a309ed0dbf5a78fb7393a15d52"
 nu-plugin-dep = "^0.108.0"
-broken = true
+broken = false
 
 [match]
 name = "nu_plugin_match"
@@ -510,7 +510,7 @@ name = "nu_plugin_semver"
 version = "0.11.8"
 checksum = "ff8522b26ede0da6b5c2a8b5c37d23e9681e2a4c353b2911c962db32e82c6590"
 nu-plugin-dep = "^0.108.0"
-broken = true
+broken = false
 
 [skim]
 name = "nu_plugin_skim"
