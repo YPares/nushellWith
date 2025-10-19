@@ -241,17 +241,17 @@ broken = true
 
 [hcl]
 name = "nu_plugin_hcl"
-version = "0.107.0"
-checksum = "81877ed075beb664b311a2895ae2d11974a2583836b3a253257e5fcf6b67ec32"
-nu-plugin-dep = "^0.107.0"
-broken = true
+version = "0.108.0"
+checksum = "75e0811c67c7c947a743fd84d450de35b7b9869ec28e23a8e90d3ae33a0aaeae"
+nu-plugin-dep = "^0.108.0"
+broken = false
 
 [highlight]
 name = "nu_plugin_highlight"
-version = "1.4.9+0.107.0"
-checksum = "e6c54ae5bfd1b7d9dbeb016459b418a1ffcd06e086151c133b8a21a8ae0d0121"
-nu-plugin-dep = "^0.107.0"
-broken = true
+version = "1.4.10+0.108.0"
+checksum = "77557ab87307df48d77718603dfc1e977644b1152cd86cea5a287b6f642e0d83"
+nu-plugin-dep = "^0.108.0"
+broken = false
 
 [hmac]
 name = "nu_plugin_hmac"
@@ -290,10 +290,10 @@ broken = false
 
 [ls_colorize]
 name = "nu_plugin_ls_colorize"
-version = "0.1.0"
-checksum = "fe064e2cac3a8859b6d4bc6873c8db37e6a35277bee93c2ff94b6f3a5ccf2a01"
-nu-plugin-dep = "^0.107.0"
-broken = true
+version = "1.0.0+0.108.0"
+checksum = "a85876d56b38da3cb745e3c6cb297e16efcf69a309ed0dbf5a78fb7393a15d52"
+nu-plugin-dep = "^0.108.0"
+broken = false
 
 [match]
 name = "nu_plugin_match"
@@ -500,10 +500,10 @@ broken = true
 
 [semver]
 name = "nu_plugin_semver"
-version = "0.11.7"
-checksum = "bb57ef82d16fa30d38921d30c944be04534ea6448ffe110e157f5fff488184fd"
-nu-plugin-dep = "^0.107.0"
-broken = true
+version = "0.11.8"
+checksum = "ff8522b26ede0da6b5c2a8b5c37d23e9681e2a4c353b2911c962db32e82c6590"
+nu-plugin-dep = "^0.108.0"
+broken = false
 
 [skim]
 name = "nu_plugin_skim"
