@@ -3,79 +3,88 @@
 # nushellWith
 
 Build an isolated [nushell](https://www.nushell.sh/) environment with a specific
-set of plugins (from either nixpkgs or built from source) and nu libraries (from
-source).
+set of plugins and nu libraries.
 
-Various Nushell versions (each with its own plugin set) are provided through
-different branches on this repository.
+Various Nushell versions and their own compatible plugin set are provided
+through different branches on this repository.
 
 The simplest way to use this flake is via the `nixpkgs` overlay it provides:
 
 ```nix
-  let pkgs = import nixpkgs {
-    system = ...;
-    overlays = [ nushellWith.overlays.default ];
+{
+  inputs = {
+    nushellWith.url = "github:YPares/nushellWith/nu0.108"; # Select which branch (nushell version) to track
+    # Activating nushellWith.inputs.nixpkgs.follows is *not* recommended
+
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
-  in {
-    # Get some stable Nushell version built from nushell's official GitHub repo
-    # (Nu version depends on which nushellWith branch you use):
-    nu = pkgs.nushell;
 
-    # A pre-made nushell environment that contains the plugins vendored by the Nushell team:
-    nuWithStd = pkgs.nushellWithStdPlugins;
-
-    # Create a derivation that packages a Nu library:
-    myNuLib = pkgs.makeNuLibrary {
-      name = "my-nu-lib";
-      src = ./path/to/folder/containing/lib;
-      dependencies = [other-nu-lib ...];
-      path = ["${pkgs.some-tool}/bin" ...];
+  outputs = {nushellWith, nixpkgs, ...}:
+    let pkgs = import nixpkgs {
+      system = ...;
+      overlays = [ nushellWith.overlays.default ];
     };
+    in {
+      # Get some stable Nushell version built from nushell's official GitHub repo
+      # (Nu version depends on which nushellWith branch you use):
+      nu = pkgs.nushell;
 
-    # Create a Nu environment with specific plugins and libs:
-    myNushellEnv = pkgs.nushellWith {
-      name = "my-nushell-wrapper";
-      # Choose ANY plugin from crates.io that works with selected nushell version:
-      plugins.nix = with pkgs.nushellPlugins; [
-        formats polars semver skim ...
-      ];
-      # ...or directly use a rust crate which will be built by Nix:
-      plugins.source = [
-        ./some-nu-plugin-crate-without-sysdeps
-      ];
-      # Use libraries packaged by makeNuLibrary, or just use a local folder that
-      # contains standalone nu modules:
-      libraries.source = [
-        myNuLib
-        ./folder/containing/nu/modules/without/deps
-        pkgs.nushellLibraries.nu-batteries
-      ];
-      # Activate/deactivate some Nu experimental options:
-      experimental-options = {
-        pipefail = true;
-      }
-      # For a more isolated env:
-      config-nu = ./some/config.nu; # Use a fixed config.nu when nushell starts
-      source-user-config = false; # Do not additionally read the user's ~/.config/nushell/config.nu
-      keep-path = false; # Do not expose the parent process' PATH 
+      # A pre-made nushell environment that contains the plugins vendored by the Nushell team:
+      nuWithStd = pkgs.nushellWithStdPlugins;
+
+      # Create a derivation that packages a Nu library:
+      myNuLib = pkgs.makeNuLibrary {
+        name = "my-nu-lib";
+        src = ./path/to/folder/containing/lib;
+        dependencies = [other-nu-lib ...];
+        path = ["${pkgs.some-tool}/bin" ...];
+      };
+
+      # Create a Nu environment with specific plugins and libs:
+      myNushellEnv = pkgs.nushellWith {
+        name = "my-nushell-wrapper";
+        # Choose ANY plugin from crates.io that works with selected nushell version:
+        plugins.nix = with pkgs.nushellPlugins; [
+          formats polars semver skim ...
+        ];
+        # ...or directly use a rust crate which will be built by Nix:
+        plugins.source = [
+          ./some-nu-plugin-crate-without-sysdeps
+        ];
+        # Use libraries packaged by makeNuLibrary, or just use a local folder that
+        # contains standalone nu modules:
+        libraries.source = [
+          myNuLib
+          ./folder/containing/nu/modules/without/deps
+          pkgs.nushellLibraries.nu-batteries
+        ];
+        # Activate/deactivate some Nu experimental options:
+        experimental-options = {
+          pipefail = true;
+        }
+        # For a more isolated env:
+        config-nu = ./some/config.nu; # Use a fixed config.nu when nushell starts
+        source-user-config = false; # Do not additionally read the user's ~/.config/nushell/config.nu
+        keep-path = false; # Do not expose the parent process' PATH 
+      };
+
+      # Make an executable out of a Nu script which runs in myNushellEnv:
+      someNuApp = myNushellEnv.writeNuScriptBin "foo" ''
+        # ...inlined Nu code that can use the above plugins and libraries...
+      '';
+      # ...or just in vanilla Nushell:
+      otherNuApp = pkgs.writeNuScriptBin "foo" ''
+        # ...Nu code...
+      '';
+
+      # Use Nu commands that need to access that new env to build derivations:
+      someDerivation = myNushellEnv.runNuCommand "foo" {} ''
+        # ...inlined nushell code that can use the above plugins and libraries
+        # and writes to $env.out...
+      '';
+      otherDerivation = myNushellEnv.runNuScript "bar" {} ./script-that-needs-plugins-and-libs.nu [scriptArg1 scriptArg2 ...];
     };
-
-    # Make an executable out of a Nu script which runs in myNushellEnv:
-    someNuApp = myNushellEnv.writeNuScriptBin "foo" ''
-      # ...inlined Nu code that can use the above plugins and libraries...
-    '';
-    # ...or just in vanilla Nushell:
-    otherNuApp = pkgs.writeNuScriptBin "foo" ''
-      # ...Nu code...
-    '';
-
-    # Use Nu commands that need to access that new env to build derivations:
-    someDerivation = myNushellEnv.runNuCommand "foo" {} ''
-      # ...inlined nushell code that can use the above plugins and libraries
-      # and writes to $env.out...
-    '';
-    otherDerivation = myNushellEnv.runNuScript "bar" {} ./script-that-needs-plugins-and-libs.nu [scriptArg1 scriptArg2 ...];
-  }
+}
 ```
 
 See also the [`examples`](./examples) folder.
