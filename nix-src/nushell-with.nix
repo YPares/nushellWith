@@ -29,6 +29,8 @@ crane:
   env-nu ? null,
   # A sh script describing env vars to add to the nushell process
   env-vars-file ? null,
+  # If true, the produced nu wrapper will put itself in the PATH, so that calling 'nu' within nushell will result in the same environment
+  self-in-path ? true,
 }:
 with pkgs.lib;
 let
@@ -99,7 +101,12 @@ let
   wrapper-script = ''
     #!${pkgs.runtimeShell}
 
-    export PATH=${concatStringsSep ":" ((if keep-path then [ "$PATH" ] else [ ]) ++ path)}
+    self="$(dirname "$(readlink -f "$0")")"
+    export PATH="${
+      concatStringsSep ":" (
+        path ++ (if self-in-path then [ "$self" ] else [ ]) ++ (if keep-path then [ "$PATH" ] else [ ])
+      )
+    }"
 
     ${if env-vars-file != null then "set -a; source ${env-vars-file}; set +a" else ""}
 
