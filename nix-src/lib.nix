@@ -4,12 +4,16 @@ let
     nushellWith =
       { pkgs, ... }@args:
       let
-        nushell = import ./nushell-with.nix crane args;
-        lib' = lib.mkLib (pkgs // { inherit nushell; });
+        nushellEnv = import ./nushell-with.nix crane args;
       in
-      nushell
+      nushellEnv
       // {
-        inherit (lib') runNuCommand runNuScript writeNuScriptBin;
+        inherit (lib.mkLib (pkgs // { nushell = nushellEnv; }))
+          runNuCommand
+          runNuScript
+          writeNuScriptBin
+          writeNushellApplication
+          ;
       };
 
     # A nushell version of pkgs.runCommand
@@ -35,6 +39,8 @@ let
         ${pkgs.nushell}/bin/nu ${scriptPath} ${pkgs.lib.escapeShellArgs args}
       '';
 
+    # A nushell version of pkgs.writeScriptBin
+    #
     # Build a derivation that executes the given inlined nushell script
     writeNuScriptBin =
       pkgs: name: contents:
@@ -44,6 +50,8 @@ let
         ${contents}
       '';
 
+    # A nushell version of pkgs.writeShellApplication
+    #
     # Build a derivation that executes the given inlined nushell script,
     # and can add runtimeInputs that this script can use
     writeNushellApplication =
