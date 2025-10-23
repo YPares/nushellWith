@@ -8,7 +8,7 @@
 
   inputs = {
     crane.url = "github:ipetkov/crane";
-    nixpkgs.url = "github:NixOS/nixpkgs/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     # Latest Nushell stable version:
     nushell-src = {
