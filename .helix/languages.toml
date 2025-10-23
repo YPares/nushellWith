@@ -2,3 +2,8 @@
 name = "nix"
 auto-format = true
 formatter.command = "nixfmt"
+
+# Do not use user's nushell config when starting nu as an LSP server
+[language-server.nu-lsp]
+command = "nu"
+args = ["-n", "--lsp"]
