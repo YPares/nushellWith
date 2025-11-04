@@ -139,7 +139,7 @@ name = "nu_plugin_endecode"
 version = "0.108.0"
 checksum = "83c79709d31ccaca7c938b3d0fa67ab4b979d087271322d667bbf07d4b632f2f"
 nu-plugin-dep = "^0.108.0"
-broken = true
+broken = false
 
 [explore_ir]
 name = "nu_plugin_explore_ir"
@@ -573,7 +573,7 @@ name = "nu_plugin_template"
 version = "0.108.0"
 checksum = "a22d01eba099feea71e2c6ff46b60e5f72fa6c9ed240dbef631a62716a33018b"
 nu-plugin-dep = "^0.108.0"
-broken = true
+broken = false
 
 [textview]
 name = "nu_plugin_textview"
