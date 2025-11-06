@@ -370,7 +370,7 @@ name = "nu_plugin_plotters"
 version = "0.2.3+0.108.0"
 checksum = "f5a42a4bf9dbce288be31655ada0353e99e228f050dddb188ad4319b39590693"
 nu-plugin-dep = "^0.108.0"
-broken = true
+broken = false
 
 [polars]
 name = "nu_plugin_polars"
