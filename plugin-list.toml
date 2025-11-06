@@ -360,10 +360,10 @@ broken = true
 
 [plotters]
 name = "nu_plugin_plotters"
-version = "0.2.2+0.107.0"
-checksum = "04573b2a46cc47c80622d8d6bae9c2db20307cabe1edef8017f849674daeb621"
-nu-plugin-dep = "^0.107.0"
-broken = true
+version = "0.2.3+0.108.0"
+checksum = "f5a42a4bf9dbce288be31655ada0353e99e228f050dddb188ad4319b39590693"
+nu-plugin-dep = "^0.108.0"
+broken = false
 
 [polars]
 name = "nu_plugin_polars"
