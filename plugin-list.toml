@@ -36,6 +36,13 @@ checksum = "ac0588919e944534a6931e485d721215636b6c6775762312c7efb4d988ffae16"
 nu-plugin-dep = "^0.85.0"
 broken = true
 
+[browse]
+name = "nu_plugin_browse"
+version = "0.1.0"
+checksum = "0cb86687a350a51191778b64b2277d6c1f47828a2599193375b4642604b53d80"
+nu-plugin-dep = "^0.108.0"
+broken = false
+
 [cassandra_query]
 name = "nu_plugin_cassandra_query"
 version = "0.3.0"
