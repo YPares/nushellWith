@@ -104,7 +104,7 @@ name = "nu_plugin_dcm"
 version = "0.8.0"
 checksum = "361f557acb2082ce95ee63bdf83d9caeddfb87921cd1d0b0eefdca102fe66ff7"
 nu-plugin-dep = "^0.108.0"
-broken = true
+broken = false
 
 [desktop_notifications]
 name = "nu_plugin_desktop_notifications"
