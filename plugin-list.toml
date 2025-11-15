@@ -101,10 +101,10 @@ broken = true
 
 [dcm]
 name = "nu_plugin_dcm"
-version = "0.5.0"
-checksum = "e06c7262c4010025d2823fca9bee7e5c2139e4a89c3ee81135368e1b0111ea93"
-nu-plugin-dep = "^0.107.0"
-broken = true
+version = "0.8.0"
+checksum = "361f557acb2082ce95ee63bdf83d9caeddfb87921cd1d0b0eefdca102fe66ff7"
+nu-plugin-dep = "^0.108.0"
+broken = false
 
 [desktop_notifications]
 name = "nu_plugin_desktop_notifications"
