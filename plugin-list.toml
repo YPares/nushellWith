@@ -36,6 +36,13 @@ checksum = "ac0588919e944534a6931e485d721215636b6c6775762312c7efb4d988ffae16"
 nu-plugin-dep = "^0.85.0"
 broken = true
 
+[browse]
+name = "nu_plugin_browse"
+version = "0.1.0"
+checksum = "0cb86687a350a51191778b64b2277d6c1f47828a2599193375b4642604b53d80"
+nu-plugin-dep = "^0.108.0"
+broken = true
+
 [cassandra_query]
 name = "nu_plugin_cassandra_query"
 version = "0.3.0"
@@ -80,9 +87,9 @@ broken = true
 
 [compress]
 name = "nu_plugin_compress"
-version = "0.2.7"
-checksum = "9444f60f3ffc911467b8a1091b79558eba3359acbf9b252f225b308ddbc0f507"
-nu-plugin-dep = "^0.105.1"
+version = "0.2.9"
+checksum = "5d1135d8a9aa606399c6ff9fe7578dd39cdae678b04925525a4ccdf7b4b78191"
+nu-plugin-dep = "^0.108.0"
 broken = true
 
 [dbus]
@@ -458,9 +465,9 @@ broken = false
 
 [roaring]
 name = "nu_plugin_roaring"
-version = "0.1.5"
-checksum = "a71e08fdb0b91aecc774510c6f3d5eb3b6d7177edf3e20f4e61c97b36fecedbc"
-nu-plugin-dep = "^0.105.1"
+version = "0.1.6"
+checksum = "8f87745fdb0d92342e695e4318ba639c0355cf3830b679baab6cb4e80dacd243"
+nu-plugin-dep = "^0.108.0"
 broken = true
 
 [ron]
@@ -472,9 +479,9 @@ broken = true
 
 [rpm]
 name = "nu_plugin_rpm"
-version = "0.3.5"
-checksum = "683a648f3a41b7490b3dbcea221f2ecd3f7b936a1df52b97990a8ea8567cfc8f"
-nu-plugin-dep = "^0.105.1"
+version = "0.3.6"
+checksum = "4c97d6a0d8199d783e9fd05d17f0417344b2dc066576d67477934104fbfa25ec"
+nu-plugin-dep = "^0.108.0"
 broken = true
 
 [s3]
@@ -654,9 +661,9 @@ broken = false
 
 [x509]
 name = "nu_plugin_x509"
-version = "0.1.6"
-checksum = "2e0836b507c493994bd26f97f663ad6632b5944583d3155d54296b32332d0d11"
-nu-plugin-dep = "^0.105.1"
+version = "0.1.7"
+checksum = "884c6a58ab4246331590d96c0f942406ef60965fbdd7a50b56cebe52d64782d1"
+nu-plugin-dep = "^0.108.0"
 broken = true
 
 [xpath]
