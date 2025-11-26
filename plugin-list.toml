@@ -626,8 +626,8 @@ broken = true
 
 [ulid]
 name = "nu_plugin_ulid"
-version = "0.17.0"
-checksum = "30c191200b8ab40e64a7206c920cc634bc19fd575ced0de7099a6e11b00f610e"
+version = "0.17.1"
+checksum = "5556f75990b1c3c7b59dd91cf1b094accf94786ae71a5de9311f542b37b5262c"
 nu-plugin-dep = "^0.108.0"
 broken = false
 
