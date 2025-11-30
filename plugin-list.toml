@@ -38,9 +38,9 @@ broken = true
 
 [browse]
 name = "nu_plugin_browse"
-version = "0.1.0"
-checksum = "0cb86687a350a51191778b64b2277d6c1f47828a2599193375b4642604b53d80"
-nu-plugin-dep = "^0.108.0"
+version = "0.2.0"
+checksum = "45618d32699b5efc2b570f63addcf082bbde4d5ce8c6d4eace2cae270f20258c"
+nu-plugin-dep = "^0.109.0"
 broken = true
 
 [cassandra_query]
