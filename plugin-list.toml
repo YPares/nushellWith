@@ -87,9 +87,9 @@ broken = true
 
 [compress]
 name = "nu_plugin_compress"
-version = "0.2.9"
-checksum = "5d1135d8a9aa606399c6ff9fe7578dd39cdae678b04925525a4ccdf7b4b78191"
-nu-plugin-dep = "^0.108.0"
+version = "0.2.10"
+checksum = "36eb8c44aa416df0cecb52f61b5afe9f5e38bf0324772b2ea05072a895405b0a"
+nu-plugin-dep = "^0.109.0"
 broken = true
 
 [dbus]
@@ -661,9 +661,9 @@ broken = false
 
 [x509]
 name = "nu_plugin_x509"
-version = "0.1.7"
-checksum = "884c6a58ab4246331590d96c0f942406ef60965fbdd7a50b56cebe52d64782d1"
-nu-plugin-dep = "^0.108.0"
+version = "0.1.8"
+checksum = "31acfab6f497a774ae6e359f63ee8a453ad2619118c610b5886fbaa99593a196"
+nu-plugin-dep = "^0.109.0"
 broken = true
 
 [xpath]
