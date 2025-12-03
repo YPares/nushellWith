@@ -31,10 +31,21 @@ crane:
   env-vars-file ? null,
   # If true, the produced nu wrapper will put itself in the PATH, so that calling 'nu' within nushell will result in the same environment
   self-in-path ? true,
+  # Extra features to enable for nushell build (in addition to defaults, unless noDefaultFeatures is true)
+  features ? [],
+  # Whether to disable default features when building nushell
+  noDefaultFeatures ? false,
 }:
 with pkgs.lib;
 let
   craneLib = crane.mkLib pkgs;
+
+  # Build a custom nushell with specific features if requested, otherwise use pkgs.nushell
+  nushell =
+    if features != [] || noDefaultFeatures then
+      pkgs.nushell.override { inherit features noDefaultFeatures; }
+    else
+      pkgs.nushell;
 
   plugins-with-defs = {
     nix = [ ];
@@ -55,7 +66,7 @@ let
     paths = plugins-with-defs.nix ++ crane-pkgs;
     # Creating and saving the plugin list along with the env:
     postBuild = ''
-      ${pkgs.nushell}/bin/nu -n --no-std-lib -c \
+      ${nushell}/bin/nu -n --no-std-lib -c \
         "try {ls $out/bin} catch {[]} | where name =~ nu_plugin_ | get name | save $out/plugins.nuon"
     '';
   };
@@ -120,7 +131,7 @@ let
         ""
     }
 
-    exec ${pkgs.nushell}/bin/nu \
+    exec ${nushell}/bin/nu \
       --plugins "$(<${plugin-env}/plugins.nuon)" \
       --plugin-config "$plugin_db_dir/plugin-db" \
       --config "${edited-config-nu}" \

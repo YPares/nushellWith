@@ -73,6 +73,10 @@
               query
             ];
           };
+          nushellMCP = finalPkgs.nushellWith {
+            name = "nushell-mcp";
+            features = [ "mcp" ];
+          };
         }
         // import ./nix-src/nu-libs-and-plugins.nix {
           inherit flake-inputs;
@@ -88,7 +92,7 @@
           };
         in
         {
-          inherit (pkgs) nushell nushellWithStdPlugins;
+          inherit (pkgs) nushell nushellWithStdPlugins nushellMCP;
           # packages cannot export functions. So we hack around by providing
           # a derivation that can be used like a function:
           nushellWith = pkgs.nushellWithStdPlugins // {
