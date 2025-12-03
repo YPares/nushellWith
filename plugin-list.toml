@@ -171,9 +171,9 @@ broken = false
 
 [formats]
 name = "nu_plugin_formats"
-version = "0.109.0"
-checksum = "893e97438ae0cf7f1895330940c000eb426525a0de043c5ddeaf30f16f064f12"
-nu-plugin-dep = "^0.109.0"
+version = "0.109.1"
+checksum = "0e0e9edbe71ca726936dee2c551b4792332ef05da40017a9c364ab20e2608c71"
+nu-plugin-dep = "^0.109.1"
 broken = false
 
 [from_beancount]
@@ -234,9 +234,9 @@ broken = true
 
 [gstat]
 name = "nu_plugin_gstat"
-version = "0.109.0"
-checksum = "fdb114b906ddbd388089d23f0b90b638acc29228b4ee4bc5ad18290553041628"
-nu-plugin-dep = "^0.109.0"
+version = "0.109.1"
+checksum = "f8a5a56b6edfa7d8aee746797fcdfc17d3ce514a91928de3b54549a2c6e3ab80"
+nu-plugin-dep = "^0.109.1"
 broken = false
 
 [hashes]
@@ -248,10 +248,10 @@ broken = true
 
 [hcl]
 name = "nu_plugin_hcl"
-version = "0.108.0"
-checksum = "75e0811c67c7c947a743fd84d450de35b7b9869ec28e23a8e90d3ae33a0aaeae"
-nu-plugin-dep = "^0.108.0"
-broken = true
+version = "0.109.0"
+checksum = "68ae2ea92b6971fba74976e70f7f51ea5f28d32fd64b1b6286571d5edcd197cb"
+nu-plugin-dep = "^0.109.0"
+broken = false
 
 [highlight]
 name = "nu_plugin_highlight"
@@ -276,9 +276,9 @@ broken = true
 
 [inc]
 name = "nu_plugin_inc"
-version = "0.109.0"
-checksum = "98b5d428aeb693b02e002870514673e50d37530605f21f033345784e92851fe2"
-nu-plugin-dep = "^0.109.0"
+version = "0.109.1"
+checksum = "a88e181bb12a75bd7bb6bdffc46c6855b2e6d41e68ab6234b42e47fe68e566f6"
+nu-plugin-dep = "^0.109.1"
 broken = false
 
 [json_path]
@@ -374,9 +374,9 @@ broken = true
 
 [polars]
 name = "nu_plugin_polars"
-version = "0.109.0"
-checksum = "47b401e87bc45c68cf98c671aa6799e0f4e3db2d917b4e86390d7a13e2c975c3"
-nu-plugin-dep = "^0.109.0"
+version = "0.109.1"
+checksum = "54e9ec17bc6ac82dd474163b10ea894ecd95e522f4ff8dc137bdfe26db565160"
+nu-plugin-dep = "^0.109.1"
 broken = false
 
 [port_extension]
@@ -437,9 +437,9 @@ broken = true
 
 [query]
 name = "nu_plugin_query"
-version = "0.109.0"
-checksum = "f1f46685d0d67974513f721b2d301dc8997c7b240281c92d5b3fb655657ebd64"
-nu-plugin-dep = "^0.109.0"
+version = "0.109.1"
+checksum = "249db0f93503d5752c0a7ba5191537a2c737a5563ddc420cd4b7d9b74f87b21c"
+nu-plugin-dep = "^0.109.1"
 broken = false
 
 [query_git]
