@@ -26,7 +26,7 @@ jobs:
           for b in $(jj log --no-graph -r "bookmarks(glob:'nu*')" -T "local_bookmarks ++ ' '"); do
             jj new "$b" -m "Update $b branch"
             jj bookmark move --from "$b" --to @
-            nix flake update nushell-src --accept-flake-config
+            nix flake update --accept-flake-config
             nix run ".#update-plugin-list" --accept-flake-config
           done
       - name: Push branches with changes
