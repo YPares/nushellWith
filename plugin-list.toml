@@ -526,6 +526,13 @@ checksum = "182fe6e6cf0acf8b0db82d5440e2db7884667981c206fee04c49a2e037569bd2"
 nu-plugin-dep = "^0.104.0"
 broken = true
 
+[socket]
+name = "nu_plugin_socket"
+version = "0.1.0"
+checksum = "6d3bed2701acd81cc7789e1e1674fd1910d9920b163248938eaf1ba68dc6abdf"
+nu-plugin-dep = "^0.108.0"
+broken = true
+
 [start]
 name = "nu_plugin_start"
 version = "0.44.0"
