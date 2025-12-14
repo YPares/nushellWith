@@ -311,10 +311,10 @@ broken = true
 
 [mongo]
 name = "nu_plugin_mongo"
-version = "0.1.8"
-checksum = "2ee0ee725f6ff9d53939efee24232f7f802a01673e7e25d4fb8969ffee8ed461"
-nu-plugin-dep = "^0.107"
-broken = true
+version = "0.1.9"
+checksum = "06fbf6edf19cf77538799b6a390d5805737cabe14d9079ea2357e40a554b47d9"
+nu-plugin-dep = "^0.109"
+broken = false
 
 [net]
 name = "nu_plugin_net"
