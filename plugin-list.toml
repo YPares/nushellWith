@@ -332,10 +332,10 @@ broken = true
 
 [nw_ulid]
 name = "nu_plugin_nw_ulid"
-version = "0.1.1"
-checksum = "f71fc6cd1114345e2daaedc610e7f448f3bf8099cab92c02b1897dc9de16dba7"
-nu-plugin-dep = "^0.106.1"
-broken = true
+version = "0.1.2"
+checksum = "ebaf856961c242b136f0d5185e3c6281f8aceb86b54fff86ef622b4d19229090"
+nu-plugin-dep = "^0.109.1"
+broken = false
 
 [parquet]
 name = "nu_plugin_parquet"
