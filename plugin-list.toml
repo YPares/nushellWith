@@ -493,10 +493,10 @@ broken = true
 
 [secret]
 name = "nu_plugin_secret"
-version = "0.4.0"
-checksum = "585e49293c7ac4856907a1b31fbd71a772ad9b4128b1c7c76b27c2f7a187b2cd"
-nu-plugin-dep = "^0.106.1"
-broken = true
+version = "0.5.0"
+checksum = "142ff2bd6581adb68cd3cc3a62547bb602d2df6b78a8bf60c68c48cc04bbc049"
+nu-plugin-dep = "^0.109.1"
+broken = false
 
 [selector]
 name = "nu_plugin_selector"
