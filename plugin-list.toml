@@ -582,6 +582,13 @@ checksum = "3d846fa24b44213641cfa986b83830a36b3a731937d331b09bc4308675856dbf"
 nu-plugin-dep = "^0.109.0"
 broken = false
 
+[terminal_qr]
+name = "nu_plugin_terminal_qr"
+version = "1.1.1"
+checksum = "d070600e5251329a56fdffb53f09f8e01b851374a8c3952090d3fc8ed8ae6a24"
+nu-plugin-dep = "^0.109.1"
+broken = false
+
 [textview]
 name = "nu_plugin_textview"
 version = "0.44.0"
