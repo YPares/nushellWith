@@ -20,13 +20,6 @@ let
     in
     {
       nu-batteries = simpleNuLib "nu-batteries" { };
-
-      webserver-nu = simpleNuLib "webserver-nu" {
-        path = with pkgs; [
-          "${netcat}/bin"
-          "${coreutils}/bin"
-        ];
-      };
     };
 
   nushellPlugins =
@@ -45,7 +38,7 @@ let
 
       buildPluginFromCratesIo =
         shortName:
-        { name, broken, ... }@infoFromToml:
+        { broken, ... }@infoFromToml:
         let
           src = pkgs.craneLib.downloadCargoPackage (
             infoFromToml
@@ -70,7 +63,7 @@ let
     in
     # All the plugins from crates.io:
     builtins.mapAttrs (shortName: buildPluginFromCratesIo shortName) (
-      builtins.fromTOML (builtins.readFile ../plugin-list.toml)
+      fromTOML (builtins.readFile ../plugin-list.toml)
     );
 
 in

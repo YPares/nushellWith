@@ -2,11 +2,11 @@
   "nodes": {
     "crane": {
       "locked": {
-        "lastModified": 1766774972,
-        "narHash": "sha256-8qxEFpj4dVmIuPn9j9z6NTbU+hrcGjBOvaxTzre5HmM=",
+        "lastModified": 1769287525,
+        "narHash": "sha256-gABuYA6BzoRMLuPaeO5p7SLrpd4qExgkwEmYaYQY4bM=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "01bc1d404a51a0a07e9d8759cd50a7903e218c82",
+        "rev": "0314e365877a85c9e5758f9ea77a9972afbb4c21",
         "type": "github"
       },
       "original": {
@@ -69,24 +69,7 @@
         "crane": "crane",
         "nixpkgs": "nixpkgs",
         "nu-batteries-src": "nu-batteries-src",
-        "nushell-src": "nushell-src",
-        "webserver-nu-src": "webserver-nu-src"
-      }
-    },
-    "webserver-nu-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1763371940,
-        "narHash": "sha256-/0O/uKJaecIEAO2B/fThNzn0WeD+zX4j+23HIlqA71s=",
-        "owner": "Jan9103",
-        "repo": "webserver.nu",
-        "rev": "0827c216101a541e73f2102603ea7f02c4d3e5c5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Jan9103",
-        "repo": "webserver.nu",
-        "type": "github"
+        "nushell-src": "nushell-src"
       }
     }
   },

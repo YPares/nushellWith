@@ -21,10 +21,6 @@
       url = "github:nome/nu-batteries";
       flake = false;
     };
-    webserver-nu-src = {
-      url = "github:Jan9103/webserver.nu";
-      flake = false;
-    };
   };
 
   outputs =
@@ -56,31 +52,31 @@
       __functor = _: self.lib.nushellWith;
 
       overlays.default =
-        finalPkgs: prevPkgs:
+        final: prev:
         let
-          craneLib = crane.mkLib prevPkgs;
+          craneLib = crane.mkLib prev;
         in
-        self.lib.mkLib finalPkgs
+        self.lib.mkLib final
         // {
           inherit craneLib;
-          nushell = finalPkgs.callPackage ./nix-src/nushell.nix { inherit craneLib nushell-src; };
-          nushellWithStdPlugins = finalPkgs.nushellWith {
+          nushell = final.callPackage ./nix-src/nushell.nix { inherit craneLib nushell-src; };
+          nushellWithStdPlugins = final.nushellWith {
             name = "nushell-with-std-plugins";
-            plugins.nix = with finalPkgs.nushellPlugins; [
+            plugins.nix = with final.nushellPlugins; [
               formats
               gstat
               polars
               query
             ];
           };
-          nushellMCP = finalPkgs.nushellWith {
+          nushellMCP = final.nushellWith {
             name = "nushell-mcp";
             features = [ "mcp" ];
           };
         }
         // import ./nix-src/nu-libs-and-plugins.nix {
           inherit flake-inputs;
-          pkgs = finalPkgs;
+          pkgs = final;
         };
 
       packages = nixpkgs.lib.genAttrs supported-systems (
