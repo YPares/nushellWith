@@ -10,7 +10,7 @@ let
     let # Shortcut to build a nu library without too much fuss:
       simpleNuLib =
         name: extraArgs:
-        pkgs.nushell.makeNuLibrary (
+        pkgs.makeNuLibrary (
           {
             inherit name;
             src = flake-inputs."${name}-src";
