@@ -80,10 +80,10 @@ broken = true
 
 [cloud]
 name = "nu_plugin_cloud"
-version = "0.2.9"
-checksum = "b3c3ea03f6bd8049c79dfed228b6a8d101694fe585c5116c223183e6b72e9cff"
-nu-plugin-dep = "^0.106"
-broken = true
+version = "0.2.10+0.109.0"
+checksum = "3fb749cf8803a89d88d63d68aee1bf3126efa9cf1e7c3d74f7df776023740798"
+nu-plugin-dep = "^0.109"
+broken = false
 
 [compress]
 name = "nu_plugin_compress"
@@ -255,10 +255,10 @@ broken = false
 
 [highlight]
 name = "nu_plugin_highlight"
-version = "1.4.10+0.108.0"
-checksum = "77557ab87307df48d77718603dfc1e977644b1152cd86cea5a287b6f642e0d83"
-nu-plugin-dep = "^0.108.0"
-broken = true
+version = "1.4.11+0.109.1"
+checksum = "060ab57a5785b3fa59b9071d8c44ea348359ece56c807100a1f9378bc4a5b093"
+nu-plugin-dep = "^0.109.1"
+broken = false
 
 [hmac]
 name = "nu_plugin_hmac"
@@ -295,12 +295,19 @@ checksum = "ca4b80efc95db8303a7c1dfd8f56d3fbb07ad7984220bf305e2d2e39d24bbf5e"
 nu-plugin-dep = "^0.109.0"
 broken = false
 
+[ldap]
+name = "nu_plugin_ldap"
+version = "0.1.0"
+checksum = "48db2b89ba232c4fb4066dfa9e6849f1c287b60fd7bbe340f9a9f67310346259"
+nu-plugin-dep = "^0.110.0"
+broken = true
+
 [ls_colorize]
 name = "nu_plugin_ls_colorize"
-version = "1.0.0+0.108.0"
-checksum = "a85876d56b38da3cb745e3c6cb297e16efcf69a309ed0dbf5a78fb7393a15d52"
-nu-plugin-dep = "^0.108.0"
-broken = true
+version = "1.0.1+0.109.1"
+checksum = "0bd747f4aa8535bffe5ae905d0968c3fe66911f5cb93ba257449ac1b7b36e3d8"
+nu-plugin-dep = "^0.109.1"
+broken = false
 
 [match]
 name = "nu_plugin_match"
@@ -409,10 +416,10 @@ broken = true
 
 [prometheus]
 name = "nu_plugin_prometheus"
-version = "0.9.0"
-checksum = "de9bb8d552d67df18934bb33fee801553abd55f7fbb1fa6e75006dba8c345b23"
-nu-plugin-dep = "^0.104.0"
-broken = true
+version = "0.10.0"
+checksum = "f44a66b0c92b6752575459c687a3b5cbba724a3263a5e831f66d1a3caa9459b8"
+nu-plugin-dep = "^0.109.1"
+broken = false
 
 [ps]
 name = "nu_plugin_ps"
