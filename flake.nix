@@ -12,7 +12,7 @@
 
     # Latest Nushell stable version:
     nushell-src = {
-      url = "github:nushell/nushell/0.109.1";
+      url = "github:nushell/nushell/0.107.0";
       flake = false;
     };
 
@@ -69,10 +69,6 @@
               query
             ];
           };
-          nushellMCP = final.nushellWith {
-            name = "nushell-mcp";
-            features = [ "mcp" ];
-          };
         }
         // import ./nix-src/nu-libs-and-plugins.nix {
           inherit flake-inputs;
@@ -88,7 +84,7 @@
           };
         in
         {
-          inherit (pkgs) nushell nushellWithStdPlugins nushellMCP;
+          inherit (pkgs) nushell nushellWithStdPlugins;
           # packages cannot export functions. So we hack around by providing
           # a derivation that can be used like a function:
           nushellWith = pkgs.nushellWithStdPlugins // {

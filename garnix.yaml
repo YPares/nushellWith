@@ -1,7 +1,6 @@
 builds:
   include:
     - 'packages.x86_64-linux.nushell'
-    - 'packages.x86_64-linux.nushellMCP'
     - 'packages.x86_64-linux.nushellWith'
     - 'packages.x86_64-linux.nushellWithStdPlugins'
     - 'checks.x86_64-linux.*'

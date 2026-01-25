@@ -38,10 +38,10 @@ broken = true
 
 [browse]
 name = "nu_plugin_browse"
-version = "0.2.0"
-checksum = "45618d32699b5efc2b570f63addcf082bbde4d5ce8c6d4eace2cae270f20258c"
-nu-plugin-dep = "^0.109.0"
-broken = false
+version = "0.3.0"
+checksum = "59a45244f98f7cde870adc64579573320fc6055f455e435faa61af81d941b4bf"
+nu-plugin-dep = "^0.110.0"
+broken = true
 
 [cassandra_query]
 name = "nu_plugin_cassandra_query"
@@ -69,7 +69,7 @@ name = "nu_plugin_chipa_touch"
 version = "0.1.0"
 checksum = "6f51bfc04ffa40d1b81bdcd9f2ce25308b2fccd063043fba77dd7b6a5aad5cab"
 nu-plugin-dep = "^0.107.0"
-broken = true
+broken = false
 
 [clipboard]
 name = "nu_plugin_clipboard"
@@ -80,17 +80,17 @@ broken = true
 
 [cloud]
 name = "nu_plugin_cloud"
-version = "0.2.10+0.109.0"
-checksum = "3fb749cf8803a89d88d63d68aee1bf3126efa9cf1e7c3d74f7df776023740798"
-nu-plugin-dep = "^0.109"
-broken = false
+version = "0.2.11+0.110.0"
+checksum = "5647454e7645a6e75e5a1dae49aee15ba5f3eb05805c9e02f5e0be4849739200"
+nu-plugin-dep = "^0.110"
+broken = true
 
 [compress]
 name = "nu_plugin_compress"
 version = "0.2.10"
 checksum = "36eb8c44aa416df0cecb52f61b5afe9f5e38bf0324772b2ea05072a895405b0a"
 nu-plugin-dep = "^0.109.0"
-broken = false
+broken = true
 
 [dbus]
 name = "nu_plugin_dbus"
@@ -101,10 +101,10 @@ broken = true
 
 [dcm]
 name = "nu_plugin_dcm"
-version = "0.8.0"
-checksum = "361f557acb2082ce95ee63bdf83d9caeddfb87921cd1d0b0eefdca102fe66ff7"
-nu-plugin-dep = "^0.108.0"
-broken = true
+version = "0.5.0"
+checksum = "e06c7262c4010025d2823fca9bee7e5c2139e4a89c3ee81135368e1b0111ea93"
+nu-plugin-dep = "^0.107.0"
+broken = false
 
 [desktop_notifications]
 name = "nu_plugin_desktop_notifications"
@@ -122,23 +122,23 @@ broken = true
 
 [dns]
 name = "nu_plugin_dns"
-version = "4.0.6"
-checksum = "5cf9a086f731e9953bf44b7f9e27298ef8e3fb5660499e1a51c093f0784a6576"
-nu-plugin-dep = "^0.109.0"
+version = "4.0.4"
+checksum = "b5f14b1713a8a5fb6921bd8f68ca24a57855193f510845c58019df8655050d79"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [emoji]
 name = "nu_plugin_emoji"
-version = "0.18.0"
-checksum = "10d38ffddd6c4482c7c58491587b68c8a4dc3d64e0cb536be7a4790f1c1de9f4"
-nu-plugin-dep = "^0.109.0"
+version = "0.16.0"
+checksum = "53ffd2bb38084eb5d5d132237f8928a9b3db38137a6b2557f91172895c6ddd49"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [endecode]
 name = "nu_plugin_endecode"
-version = "0.109.0"
-checksum = "99659737bfc8f60c4ba19ab24cc789e93ae5466d0fde19c03e81992c35a07ea6"
-nu-plugin-dep = "^0.109.0"
+version = "0.107.0"
+checksum = "cc8882a63771f5d9396a495ed18d7ebe0cffb44223af5516dc32999c68b4fb19"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [explore_ir]
@@ -157,23 +157,23 @@ broken = true
 
 [file]
 name = "nu_plugin_file"
-version = "0.20.0"
-checksum = "f52ee89f4293394e357f803b7930935c4f51da08e2b4bfe314f989d6cbf5fda9"
-nu-plugin-dep = "^0.109.0"
+version = "0.18.0"
+checksum = "60de425ae1ec4a8d85b1768da78b5fa3d4403c0a32d68c2cb6f32b26879161ec"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [file_dialog]
 name = "nu_plugin_file_dialog"
-version = "0.19.0"
-checksum = "0c2908d0b70f2048b1394465566cb18dea6e857c97e52cb52c7da93be9520a4c"
-nu-plugin-dep = "^0.109.0"
+version = "0.17.0"
+checksum = "95fed07880c04a1ec30701c85e38ed4249d830f0c335948258a37f45ec49e40f"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [formats]
 name = "nu_plugin_formats"
-version = "0.109.1"
-checksum = "0e0e9edbe71ca726936dee2c551b4792332ef05da40017a9c364ab20e2608c71"
-nu-plugin-dep = "^0.109.1"
+version = "0.107.0"
+checksum = "babe574bdee5323109f80acfd67d96c374f870e172319e009443c1c7f5f1fe0b"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [from_beancount]
@@ -234,9 +234,9 @@ broken = true
 
 [gstat]
 name = "nu_plugin_gstat"
-version = "0.109.1"
-checksum = "f8a5a56b6edfa7d8aee746797fcdfc17d3ce514a91928de3b54549a2c6e3ab80"
-nu-plugin-dep = "^0.109.1"
+version = "0.107.0"
+checksum = "3a33f83aec1137441dd96039f503458c20515a2cbce882c3e37d65c31ad0f9ae"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [hashes]
@@ -244,27 +244,27 @@ name = "nu_plugin_hashes"
 version = "0.1.9"
 checksum = "fe043e6186196ae6c75f2d016457e4e359ad6dcb586bccd919b8a30b87a9248c"
 nu-plugin-dep = "^0.107.0"
-broken = true
+broken = false
 
 [hcl]
 name = "nu_plugin_hcl"
-version = "0.109.1"
-checksum = "c987bf73adbaa420e97eccf366e45d6cf144321d197c3f0b22e1ca42c6ed6dfa"
-nu-plugin-dep = "^0.109.1"
+version = "0.107.0"
+checksum = "81877ed075beb664b311a2895ae2d11974a2583836b3a253257e5fcf6b67ec32"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [highlight]
 name = "nu_plugin_highlight"
-version = "1.4.11+0.109.1"
-checksum = "060ab57a5785b3fa59b9071d8c44ea348359ece56c807100a1f9378bc4a5b093"
-nu-plugin-dep = "^0.109.1"
+version = "1.4.9+0.107.0"
+checksum = "e6c54ae5bfd1b7d9dbeb016459b418a1ffcd06e086151c133b8a21a8ae0d0121"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [hmac]
 name = "nu_plugin_hmac"
-version = "0.23.0"
-checksum = "ef16d8577cbcf2c685df647fc2f83afff19a3f4c5cc5fd656d1f6a9314f484c4"
-nu-plugin-dep = "^0.109.0"
+version = "0.21.0"
+checksum = "7b5e0d5054c234cc15954e5220627f7b31282220648a28ebff34826b49f05d04"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [id3]
@@ -276,23 +276,23 @@ broken = true
 
 [inc]
 name = "nu_plugin_inc"
-version = "0.109.1"
-checksum = "a88e181bb12a75bd7bb6bdffc46c6855b2e6d41e68ab6234b42e47fe68e566f6"
-nu-plugin-dep = "^0.109.1"
+version = "0.107.0"
+checksum = "07c7d787294c23eb918f68b7c25946d37ff02c1bebee2263e7f01a8cf5bab125"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [json_path]
 name = "nu_plugin_json_path"
-version = "0.19.0"
-checksum = "cbb91f1f6dfa82fbcc6c2aeb6ab0cb214cc1727725c445c3321c26fd7283149d"
-nu-plugin-dep = "^0.109.0"
+version = "0.17.1"
+checksum = "43946bf404bb6efda4216585bc02e6e88f776091f05459ef32dc7206363d23a9"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [jwalk]
 name = "nu_plugin_jwalk"
-version = "0.21.0"
-checksum = "ca4b80efc95db8303a7c1dfd8f56d3fbb07ad7984220bf305e2d2e39d24bbf5e"
-nu-plugin-dep = "^0.109.0"
+version = "0.19.0"
+checksum = "ef68e250bb2d50a34dbab0ad7adf1d067814f1f3ddad4a50963779d7e13bc6bc"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [ldap]
@@ -304,9 +304,9 @@ broken = true
 
 [ls_colorize]
 name = "nu_plugin_ls_colorize"
-version = "1.0.1+0.109.1"
-checksum = "0bd747f4aa8535bffe5ae905d0968c3fe66911f5cb93ba257449ac1b7b36e3d8"
-nu-plugin-dep = "^0.109.1"
+version = "0.1.0"
+checksum = "fe064e2cac3a8859b6d4bc6873c8db37e6a35277bee93c2ff94b6f3a5ccf2a01"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [match]
@@ -318,9 +318,9 @@ broken = true
 
 [mongo]
 name = "nu_plugin_mongo"
-version = "0.1.9"
-checksum = "06fbf6edf19cf77538799b6a390d5805737cabe14d9079ea2357e40a554b47d9"
-nu-plugin-dep = "^0.109"
+version = "0.1.8"
+checksum = "2ee0ee725f6ff9d53939efee24232f7f802a01673e7e25d4fb8969ffee8ed461"
+nu-plugin-dep = "^0.107"
 broken = false
 
 [net]
@@ -342,13 +342,13 @@ name = "nu_plugin_nw_ulid"
 version = "0.1.2"
 checksum = "ebaf856961c242b136f0d5185e3c6281f8aceb86b54fff86ef622b4d19229090"
 nu-plugin-dep = "^0.109.1"
-broken = false
+broken = true
 
 [parquet]
 name = "nu_plugin_parquet"
-version = "0.19.0"
-checksum = "9c0bf796917a65459b977d9b8e3edbcd87b8960e04293db307fbe2fd7dbba235"
-nu-plugin-dep = "^0.109.0"
+version = "0.17.0"
+checksum = "492381373ab3a60a333f4c118f9907edcca88394fa9503cc90fa33c191502d44"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [periodic_table]
@@ -374,16 +374,16 @@ broken = true
 
 [plotters]
 name = "nu_plugin_plotters"
-version = "0.2.3+0.108.0"
-checksum = "f5a42a4bf9dbce288be31655ada0353e99e228f050dddb188ad4319b39590693"
-nu-plugin-dep = "^0.108.0"
-broken = true
+version = "0.2.2+0.107.0"
+checksum = "04573b2a46cc47c80622d8d6bae9c2db20307cabe1edef8017f849674daeb621"
+nu-plugin-dep = "^0.107.0"
+broken = false
 
 [polars]
 name = "nu_plugin_polars"
-version = "0.109.1"
-checksum = "54e9ec17bc6ac82dd474163b10ea894ecd95e522f4ff8dc137bdfe26db565160"
-nu-plugin-dep = "^0.109.1"
+version = "0.107.0"
+checksum = "dd79f86f46a7d3fea6bcf9fdc1f7c97676c72924b72bdc9091cf452c7bc19b78"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [port_extension]
@@ -416,10 +416,10 @@ broken = true
 
 [prometheus]
 name = "nu_plugin_prometheus"
-version = "0.10.0"
-checksum = "f44a66b0c92b6752575459c687a3b5cbba724a3263a5e831f66d1a3caa9459b8"
-nu-plugin-dep = "^0.109.1"
-broken = false
+version = "0.11.0"
+checksum = "c546efe33277c76f5b77860cc6e1130e14099e9bd404fee4610e176cf3ac8c44"
+nu-plugin-dep = "^0.110.0"
+broken = true
 
 [ps]
 name = "nu_plugin_ps"
@@ -444,16 +444,16 @@ broken = true
 
 [query]
 name = "nu_plugin_query"
-version = "0.109.1"
-checksum = "249db0f93503d5752c0a7ba5191537a2c737a5563ddc420cd4b7d9b74f87b21c"
-nu-plugin-dep = "^0.109.1"
+version = "0.107.0"
+checksum = "d4dc37a39526ec83a27a73bc596642ffc4ece1c52b8189675ce0976d4a43a269"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [query_git]
 name = "nu_plugin_query_git"
-version = "0.18.0"
-checksum = "0ad2f77516329f7f928e7721b8ebcba360c68fdc907e3dd9ffb6e1554b56df38"
-nu-plugin-dep = "^0.109.0"
+version = "0.16.0"
+checksum = "21a880c556594950b0b8ddda928bc5a485b2bad0baf17ad637550e2dc5b3483a"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [query_json]
@@ -465,9 +465,9 @@ broken = true
 
 [regex]
 name = "nu_plugin_regex"
-version = "0.18.0"
-checksum = "73793429a22b79a0b4921411b0127f7780166b54f5c107787d04b566f226f656"
-nu-plugin-dep = "^0.109.0"
+version = "0.16.0"
+checksum = "017649ae2ee9e07fe13f54ad3c6947289575da6757b12e435a25579c7c8e5676"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [roaring]
@@ -503,7 +503,7 @@ name = "nu_plugin_secret"
 version = "0.5.0"
 checksum = "142ff2bd6581adb68cd3cc3a62547bb602d2df6b78a8bf60c68c48cc04bbc049"
 nu-plugin-dep = "^0.109.1"
-broken = false
+broken = true
 
 [selector]
 name = "nu_plugin_selector"
@@ -514,16 +514,16 @@ broken = true
 
 [semver]
 name = "nu_plugin_semver"
-version = "0.11.9"
-checksum = "afcb781a023a0852b6c69a2ddb2d2a21ae9a364f13aa0d3b4dfe6fbfbae67fc8"
-nu-plugin-dep = "^0.109.0"
+version = "0.11.7"
+checksum = "bb57ef82d16fa30d38921d30c944be04534ea6448ffe110e157f5fff488184fd"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [skim]
 name = "nu_plugin_skim"
-version = "0.21.0"
-checksum = "137e0b4aeb5fe513ad5e22289481c262e436b82d301b7f2a14dd6b995000effd"
-nu-plugin-dep = "^0.109"
+version = "0.19.0"
+checksum = "971d17ff344fa7797263e0516a7028d615d46fe66b03fcc6837f24e3065f171a"
+nu-plugin-dep = "^0.107"
 broken = false
 
 [sled]
@@ -563,9 +563,9 @@ broken = true
 
 [strutils]
 name = "nu_plugin_strutils"
-version = "0.17.0"
-checksum = "59e91e1e843345320d6ace702c3fe7c33963ba55e8ff4dce295c5409bf6171fa"
-nu-plugin-dep = "^0.109.0"
+version = "0.15.0"
+checksum = "6e1d4757dc343e621bfae1f1bd61a72c023317479ab27540d5f48c91096d718e"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [sum]
@@ -584,9 +584,9 @@ broken = true
 
 [template]
 name = "nu_plugin_template"
-version = "0.109.0"
-checksum = "3d846fa24b44213641cfa986b83830a36b3a731937d331b09bc4308675856dbf"
-nu-plugin-dep = "^0.109.0"
+version = "0.107.0"
+checksum = "c88d17c21e8261aab9ce8be5974a9850ed1eb335196c8f833f3386d0e19723b7"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [terminal_qr]
@@ -594,7 +594,7 @@ name = "nu_plugin_terminal_qr"
 version = "1.1.1"
 checksum = "d070600e5251329a56fdffb53f09f8e01b851374a8c3952090d3fc8ed8ae6a24"
 nu-plugin-dep = "^0.109.1"
-broken = false
+broken = true
 
 [textview]
 name = "nu_plugin_textview"
@@ -647,9 +647,9 @@ broken = true
 
 [ulid]
 name = "nu_plugin_ulid"
-version = "0.18.0"
-checksum = "5dffbbe224dc2df3e419358bfb8c5e177042954e778aed6c14ddcd34cdfc1054"
-nu-plugin-dep = "^0.109.0"
+version = "0.16.0"
+checksum = "9394f51342d04fb2620c4f32fe2f3a2f595501de8ff494eebc1d1359f8ae54b0"
+nu-plugin-dep = "^0.107.0"
 broken = false
 
 [units]
@@ -678,14 +678,14 @@ name = "nu_plugin_ws"
 version = "1.0.6"
 checksum = "68326861e0151db6fe02e6c8a511848993f83a661163015a20e0b639b4a273d4"
 nu-plugin-dep = "^0.107.0"
-broken = true
+broken = false
 
 [x509]
 name = "nu_plugin_x509"
 version = "0.1.8"
 checksum = "31acfab6f497a774ae6e359f63ee8a453ad2619118c610b5886fbaa99593a196"
 nu-plugin-dep = "^0.109.0"
-broken = false
+broken = true
 
 [xpath]
 name = "nu_plugin_xpath"
