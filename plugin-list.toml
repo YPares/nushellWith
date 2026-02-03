@@ -281,6 +281,13 @@ checksum = "9e9fd02b6e0f4a9b3226edf30bf42d5611e69e6e0891368e0f178be085eb0e81"
 nu-plugin-dep = "^0.110.0"
 broken = false
 
+[input_global_listen]
+name = "nu_plugin_input_global_listen"
+version = "0.1.0"
+checksum = "ef6e8431cef9258b2ec823eb13bce4413a8bdc57670e1c0b1b4de719d6e84d71"
+nu-plugin-dep = "^0.110.0"
+broken = false
+
 [json_path]
 name = "nu_plugin_json_path"
 version = "0.20.0"
@@ -374,10 +381,10 @@ broken = true
 
 [plotters]
 name = "nu_plugin_plotters"
-version = "0.2.3+0.108.0"
-checksum = "f5a42a4bf9dbce288be31655ada0353e99e228f050dddb188ad4319b39590693"
-nu-plugin-dep = "^0.108.0"
-broken = true
+version = "0.2.4+0.110.0"
+checksum = "cf671843d75f78fa7eb7efdb46d153a1613e5af2352fb78b6ac9b0f6d75fba52"
+nu-plugin-dep = "^0.110.0"
+broken = false
 
 [polars]
 name = "nu_plugin_polars"
@@ -514,15 +521,15 @@ broken = true
 
 [semver]
 name = "nu_plugin_semver"
-version = "0.11.10"
-checksum = "9ce833e2890e3f11940db7085310c3a509471cb8463b42f86f2d95041398bcf2"
+version = "0.11.14"
+checksum = "8bb9f250c84dc2606b2bdccbeaf8f39bdbf7791efd0bc41c5753011632fb8f7c"
 nu-plugin-dep = "^0.110.0"
 broken = false
 
 [skim]
 name = "nu_plugin_skim"
-version = "0.22.0"
-checksum = "169fa9c0971a4a6561af3fd067d1098119b82a2a24e903584966e9d64e1dbe40"
+version = "0.23.1"
+checksum = "7810d3f4cb0e27d09e4595022fb631f3f1422c2ed513baff63718eaad39946b1"
 nu-plugin-dep = "^0.110"
 broken = false
 
@@ -647,10 +654,10 @@ broken = true
 
 [ulid]
 name = "nu_plugin_ulid"
-version = "0.18.0"
-checksum = "5dffbbe224dc2df3e419358bfb8c5e177042954e778aed6c14ddcd34cdfc1054"
-nu-plugin-dep = "^0.109.0"
-broken = true
+version = "0.19.0"
+checksum = "67f06acfefa3646af70bc5cd3ee5f06df4500e9c7df9de7e8070d52df4a3779c"
+nu-plugin-dep = "^0.110.0"
+broken = false
 
 [units]
 name = "nu_plugin_units"
