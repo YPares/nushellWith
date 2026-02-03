@@ -281,6 +281,13 @@ checksum = "1b9ca399cdd72de82f23ace3bc970a27bc61ff8393c108c30cff796f86d74bf3"
 nu-plugin-dep = "^0.108.0"
 broken = false
 
+[input_global_listen]
+name = "nu_plugin_input_global_listen"
+version = "0.1.0"
+checksum = "ef6e8431cef9258b2ec823eb13bce4413a8bdc57670e1c0b1b4de719d6e84d71"
+nu-plugin-dep = "^0.110.0"
+broken = true
+
 [json_path]
 name = "nu_plugin_json_path"
 version = "0.18.0"
