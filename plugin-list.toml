@@ -311,10 +311,10 @@ broken = false
 
 [ls_colorize]
 name = "nu_plugin_ls_colorize"
-version = "1.0.1+0.109.1"
-checksum = "0bd747f4aa8535bffe5ae905d0968c3fe66911f5cb93ba257449ac1b7b36e3d8"
-nu-plugin-dep = "^0.109.1"
-broken = true
+version = "1.0.2+0.110.0"
+checksum = "66be80393c8c7cd23553008c19e43950ceb8fd77d5bb544edae2bb7668efded6"
+nu-plugin-dep = "^0.110.0"
+broken = false
 
 [match]
 name = "nu_plugin_match"
