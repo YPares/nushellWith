@@ -626,9 +626,9 @@ broken = true
 
 [to_xlsx]
 name = "nu_plugin_to_xlsx"
-version = "0.3.0"
-checksum = "ba5730101e0ad9317454612601a7ac37e20bc67646ec85e97dca0f075924816d"
-nu-plugin-dep = "^0.106.1"
+version = "0.5.0"
+checksum = "17d24a954193945c59bd071bf161f79f226db676a1513fe8cf71efe01244ac73"
+nu-plugin-dep = "^0.110.0"
 broken = true
 
 [tracer]
