@@ -136,10 +136,10 @@ broken = false
 
 [endecode]
 name = "nu_plugin_endecode"
-version = "0.109.0"
-checksum = "99659737bfc8f60c4ba19ab24cc789e93ae5466d0fde19c03e81992c35a07ea6"
-nu-plugin-dep = "^0.109.0"
-broken = true
+version = "0.110.0"
+checksum = "3620408061cd5a228f166aeadc49e261feaf6ed5eb630628f0fb4fd003fd2370"
+nu-plugin-dep = "^0.110.0"
+broken = false
 
 [explore_ir]
 name = "nu_plugin_explore_ir"
@@ -591,10 +591,10 @@ broken = true
 
 [template]
 name = "nu_plugin_template"
-version = "0.109.0"
-checksum = "3d846fa24b44213641cfa986b83830a36b3a731937d331b09bc4308675856dbf"
-nu-plugin-dep = "^0.109.0"
-broken = true
+version = "0.110.0"
+checksum = "27ddb21bb211ca5a2124bd43b178fc6fa38007442d31ab511d33b5c4534b2937"
+nu-plugin-dep = "^0.110.0"
+broken = false
 
 [terminal_qr]
 name = "nu_plugin_terminal_qr"
@@ -626,10 +626,10 @@ broken = true
 
 [to_xlsx]
 name = "nu_plugin_to_xlsx"
-version = "0.3.0"
-checksum = "ba5730101e0ad9317454612601a7ac37e20bc67646ec85e97dca0f075924816d"
-nu-plugin-dep = "^0.106.1"
-broken = true
+version = "0.5.0"
+checksum = "17d24a954193945c59bd071bf161f79f226db676a1513fe8cf71efe01244ac73"
+nu-plugin-dep = "^0.110.0"
+broken = false
 
 [tracer]
 name = "nu_plugin_tracer"
