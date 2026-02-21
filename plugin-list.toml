@@ -92,6 +92,13 @@ checksum = "36eb8c44aa416df0cecb52f61b5afe9f5e38bf0324772b2ea05072a895405b0a"
 nu-plugin-dep = "^0.109.0"
 broken = true
 
+[connectorx]
+name = "nu_plugin_connectorx"
+version = "0.1.0"
+checksum = "7a740744189c049ebd9d71337ddf89f5e6081232fb4222b9293b5aab867d92c1"
+nu-plugin-dep = "^0.110.0"
+broken = true
+
 [dbus]
 name = "nu_plugin_dbus"
 version = "0.14.0"
