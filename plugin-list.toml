@@ -22,6 +22,13 @@ checksum = "ac25af8113d1aad5ca5a6f479c0350c1e09949259022b711043685e42405cb4c"
 nu-plugin-dep = "^0.100.0"
 broken = true
 
+[bigquery]
+name = "nu_plugin_bigquery"
+version = "0.1.0"
+checksum = "dfba2bdbc8fd6279325984c9b9aa440d39a10a08e34984f773d2c74cc83dbdbf"
+nu-plugin-dep = "^0.110.0"
+broken = true
+
 [binaryview]
 name = "nu_plugin_binaryview"
 version = "0.44.0"
@@ -91,6 +98,13 @@ version = "0.2.10"
 checksum = "36eb8c44aa416df0cecb52f61b5afe9f5e38bf0324772b2ea05072a895405b0a"
 nu-plugin-dep = "^0.109.0"
 broken = false
+
+[connectorx]
+name = "nu_plugin_connectorx"
+version = "0.1.0"
+checksum = "7a740744189c049ebd9d71337ddf89f5e6081232fb4222b9293b5aab867d92c1"
+nu-plugin-dep = "^0.110.0"
+broken = true
 
 [dbus]
 name = "nu_plugin_dbus"
@@ -281,6 +295,13 @@ checksum = "a88e181bb12a75bd7bb6bdffc46c6855b2e6d41e68ab6234b42e47fe68e566f6"
 nu-plugin-dep = "^0.109.1"
 broken = false
 
+[input_global_listen]
+name = "nu_plugin_input_global_listen"
+version = "0.1.0"
+checksum = "ef6e8431cef9258b2ec823eb13bce4413a8bdc57670e1c0b1b4de719d6e84d71"
+nu-plugin-dep = "^0.110.0"
+broken = true
+
 [json_path]
 name = "nu_plugin_json_path"
 version = "0.19.0"
@@ -374,9 +395,9 @@ broken = true
 
 [plotters]
 name = "nu_plugin_plotters"
-version = "0.2.3+0.108.0"
-checksum = "f5a42a4bf9dbce288be31655ada0353e99e228f050dddb188ad4319b39590693"
-nu-plugin-dep = "^0.108.0"
+version = "0.2.4+0.110.0"
+checksum = "cf671843d75f78fa7eb7efdb46d153a1613e5af2352fb78b6ac9b0f6d75fba52"
+nu-plugin-dep = "^0.110.0"
 broken = true
 
 [polars]
@@ -619,9 +640,9 @@ broken = true
 
 [to_xlsx]
 name = "nu_plugin_to_xlsx"
-version = "0.3.0"
-checksum = "ba5730101e0ad9317454612601a7ac37e20bc67646ec85e97dca0f075924816d"
-nu-plugin-dep = "^0.106.1"
+version = "0.5.0"
+checksum = "17d24a954193945c59bd071bf161f79f226db676a1513fe8cf71efe01244ac73"
+nu-plugin-dep = "^0.110.0"
 broken = true
 
 [tracer]
