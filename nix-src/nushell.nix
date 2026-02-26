@@ -5,7 +5,7 @@
   python3,
   rustPlatform,
   zlib,
-  xorg,
+  libX11,
   nghttp2,
   libgit2,
   stdenv,
@@ -27,7 +27,7 @@ let
     zstd
   ]
   ++ lib.optionals stdenv.hostPlatform.isDarwin [ zlib ]
-  ++ lib.optionals (stdenv.hostPlatform.isLinux) [ xorg.libX11 ]
+  ++ lib.optionals (stdenv.hostPlatform.isLinux) [ libX11 ]
   ++ lib.optionals (stdenv.hostPlatform.isDarwin) [
     nghttp2
     libgit2

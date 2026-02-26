@@ -6,7 +6,7 @@
     # Deps are to be added here on a case-by-case fashion
     with pkgs; {
       audio_hook = [ alsa-lib ];
-      binaryview = [ xorg.libX11 ];
+      binaryview = [ libX11 ];
       cassandra_query = [
         cassandra-cpp-driver
         cryptodev
