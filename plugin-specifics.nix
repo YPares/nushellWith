@@ -6,6 +6,7 @@
     # Deps are to be added here on a case-by-case fashion
     with pkgs; {
       audio_hook = [ alsa-lib ];
+      bigquery = [ openssl ];
       binaryview = [ libX11 ];
       cassandra_query = [
         cassandra-cpp-driver
@@ -14,10 +15,12 @@
         libuv
       ];
       cloud = [ openssl ];
+      connectorx = [ perl ];
       dbus = [ dbus ];
       fetch = [ openssl ];
       from_dhall = [ openssl ];
       gstat = [ openssl ];
+      input_global_listen = [ libX11 ];
       plotters = [ fontconfig ];
       polars = [ openssl ];
       post = [ openssl ];
