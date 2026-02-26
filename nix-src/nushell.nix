@@ -41,7 +41,6 @@ let
     inherit nativeBuildInputs buildInputs;
     src = nushell-src;
     pname = "nushell";
-    version = "0.107.0";
     doCheck = false;
   } // lib.optionalAttrs (featureArgs != "") {
     cargoExtraArgs = featureArgs;
