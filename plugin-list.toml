@@ -542,8 +542,8 @@ broken = false
 
 [skim]
 name = "nu_plugin_skim"
-version = "0.23.1"
-checksum = "7810d3f4cb0e27d09e4595022fb631f3f1422c2ed513baff63718eaad39946b1"
+version = "0.24.1"
+checksum = "f0db3992bda03c0a8812b4cc4de30761b1e11e8912cf30f9f42945a6ec9c0df4"
 nu-plugin-dep = "^0.110"
 broken = false
 
