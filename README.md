@@ -8,13 +8,15 @@ set of plugins and nu libraries.
 Various Nushell versions and their own compatible plugin set are provided
 through different branches on this repository.
 
+The `master` branch provides the Nushell from current `nixpkgs-unstable` (updated nightly).
+
 The simplest way to use this flake is via the `nixpkgs` overlay it provides:
 
 ```nix
 {
   inputs = {
-    nushellWith.url = "github:YPares/nushellWith/nu0.110"; # Select which branch (nushell version) to track
-    # Activating nushellWith.inputs.nixpkgs.follows is *not* recommended
+    nushellWith.url = "github:YPares/nushellWith/nu0.109";
+      # Alternatively, select another branch for a specific Nushell version (built by nushellWith)
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
