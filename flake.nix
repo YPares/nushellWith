@@ -10,12 +10,6 @@
     crane.url = "github:ipetkov/crane";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    # Latest Nushell stable version:
-    nushell-src = {
-      url = "github:nushell/nushell/0.109.1";
-      flake = false;
-    };
-
     # Nu libraries' sources:
     nu-batteries-src = {
       url = "github:nome/nu-batteries";
@@ -28,7 +22,6 @@
       self,
       crane,
       nixpkgs,
-      nushell-src,
       ...
     }@flake-inputs:
     let
@@ -59,7 +52,6 @@
         self.lib.mkLib final
         // {
           inherit craneLib;
-          nushell = final.callPackage ./nix-src/nushell.nix { inherit craneLib nushell-src; };
           nushellWithStdPlugins = final.nushellWith {
             name = "nushell-with-std-plugins";
             plugins.nix = with final.nushellPlugins; [
@@ -69,10 +61,8 @@
               query
             ];
           };
-          nushellMCP = final.nushellWith {
-            name = "nushell-mcp";
-            features = [ "mcp" ];
-          };
+          # nushell packaged in nixpkgs is already built with the MCP feature
+          nushellMCP = final.nushell;
         }
         // import ./nix-src/nu-libs-and-plugins.nix {
           inherit flake-inputs;

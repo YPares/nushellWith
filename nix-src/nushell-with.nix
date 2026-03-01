@@ -43,7 +43,8 @@ let
   # Build a custom nushell with specific features if requested, otherwise use pkgs.nushell
   nushell =
     if features != [] || noDefaultFeatures then
-      pkgs.nushell.override { inherit features noDefaultFeatures; }
+      throw "Custom features not supported on nushellWith master branch"
+      # pkgs.nushell.override { inherit features noDefaultFeatures; }
     else
       pkgs.nushell;
 
