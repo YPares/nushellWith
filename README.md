@@ -1,4 +1,4 @@
-[![built with garnix](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2FYPares%2FnushellWith%3Fbranch%3Dnu0.109)](https://garnix.io/repo/YPares/nushellWith)
+[![built with garnix](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2FYPares%2FnushellWith%3Fbranch%3Dmaster)](https://garnix.io/repo/YPares/nushellWith)
 
 # nushellWith
 
@@ -15,7 +15,7 @@ The simplest way to use this flake is via the `nixpkgs` overlay it provides:
 ```nix
 {
   inputs = {
-    nushellWith.url = "github:YPares/nushellWith/nu0.109";
+    nushellWith.url = "github:YPares/nushellWith/master";
       # Alternatively, select another branch for a specific Nushell version (built by nushellWith)
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -27,8 +27,7 @@ The simplest way to use this flake is via the `nixpkgs` overlay it provides:
       overlays = [ nushellWith.overlays.default ];
     };
     in {
-      # Get some stable Nushell version built from nushell's official GitHub repo
-      # (Nu version depends on which nushellWith branch you use):
+      # Get standard Nushell from nixpkgs
       nu = pkgs.nushell;
 
       # A pre-made nushell environment that contains the plugins vendored by the Nushell team:
