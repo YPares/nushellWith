@@ -121,7 +121,6 @@
             inherit system;
             overlays = [ self.overlays.default ];
           };
-          nonBrokenPlugins = pkgs.lib.filterAttrs (_: deriv: !deriv.meta.broken) pkgs.nushellPlugins;
         in
         {
           allStdPlugins = pkgs.nushellWithStdPlugins.runNuCommand "check-all-std-plugins" { } ''
@@ -131,7 +130,18 @@
             "OK" | save $env.out
           '';
         }
-        // nixpkgs.lib.mapAttrs (
+      );
+
+      extendedChecks = nixpkgs.lib.genAttrs supported-systems (
+        system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ self.overlays.default ];
+          };
+          nonBrokenPlugins = pkgs.lib.filterAttrs (_: deriv: !deriv.meta.broken) pkgs.nushellPlugins;
+        in
+        nixpkgs.lib.mapAttrs (
           # For each plugin, check that it can be added to nushell without errors
           plugin-name: plugin-deriv:
           let
