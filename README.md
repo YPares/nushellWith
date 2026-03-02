@@ -1,4 +1,4 @@
-[![built with garnix](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2FYPares%2FnushellWith%3Fbranch%3Dnu0.109)](https://garnix.io/repo/YPares/nushellWith)
+[![built with garnix](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2FYPares%2FnushellWith%3Fbranch%3Dnu0.111)](https://garnix.io/repo/YPares/nushellWith)
 
 # nushellWith
 
@@ -15,7 +15,7 @@ The simplest way to use this flake is via the `nixpkgs` overlay it provides:
 ```nix
 {
   inputs = {
-    nushellWith.url = "github:YPares/nushellWith/nu0.109";
+    nushellWith.url = "github:YPares/nushellWith/nu0.111";
       # Alternatively, select another branch for a specific Nushell version (built by nushellWith)
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
