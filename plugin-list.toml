@@ -136,10 +136,10 @@ broken = true
 
 [dns]
 name = "nu_plugin_dns"
-version = "4.0.7"
-checksum = "dfa2ae2f6f1af589f75e1a5204cf231ad05c739a72fc6f7c72940d553ed5c30f"
-nu-plugin-dep = "^0.110.0"
-broken = true
+version = "4.0.8"
+checksum = "d3dce81ec3316710c1618f967bd831af9ad464d39cf533933ca2b181b7b269f2"
+nu-plugin-dep = "^0.111.0"
+broken = false
 
 [emoji]
 name = "nu_plugin_emoji"
@@ -262,10 +262,10 @@ broken = true
 
 [hcl]
 name = "nu_plugin_hcl"
-version = "0.110.0"
-checksum = "da6281df66e67a2374fafa81e77a82a6ed4cbd1d632554757aba0a54e8a1b19a"
-nu-plugin-dep = "^0.110.0"
-broken = true
+version = "0.111.0"
+checksum = "fb1fd246a74578bcc8e65242726e8ad20830bff10055b3596c113ef296dc85bd"
+nu-plugin-dep = "^0.111.0"
+broken = false
 
 [highlight]
 name = "nu_plugin_highlight"
@@ -535,10 +535,10 @@ broken = true
 
 [semver]
 name = "nu_plugin_semver"
-version = "0.11.14"
-checksum = "8bb9f250c84dc2606b2bdccbeaf8f39bdbf7791efd0bc41c5753011632fb8f7c"
-nu-plugin-dep = "^0.110.0"
-broken = true
+version = "0.11.15"
+checksum = "b87656e5068dd3e515646c5d93c2ed89450a2c40155e5b0e06318304b0e1f70a"
+nu-plugin-dep = "^0.111.0"
+broken = false
 
 [skim]
 name = "nu_plugin_skim"
