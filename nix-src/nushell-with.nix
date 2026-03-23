@@ -59,23 +59,20 @@ let
   // libraries;
 
   # Build the plugins in plugins.source
-  crane-pkgs = map (src: craneLib.buildPackage { inherit src; }) plugins-with-defs.source;
+  built-plugins =
+    plugins-with-defs.nix
+    ++ (map (src: craneLib.buildPackage { inherit src; }) plugins-with-defs.source);
 
   plugin-env = pkgs.buildEnv {
     name = "${name}-plugin-env";
-    paths = plugins-with-defs.nix ++ crane-pkgs;
-    # Creating and saving the plugin list along with the env:
-    postBuild = ''
-      ${nushell}/bin/nu -n --no-std-lib -c \
-        "try {ls $out/bin} catch {[]} | where name =~ nu_plugin_ | get name | save $out/plugins.nuon"
-    '';
+    paths = built-plugins;
   };
 
   plugin-env-deriv-name = builtins.replaceStrings [ "/nix/store/" ] [ "" ] plugin-env.outPath;
 
   edited-config-nu = pkgs.writeText "${name}-config.nu" ''
     const NU_LIB_DIRS = (
-      ${if source-user-config then ''$NU_LIB_DIRS ++'' else ""}
+      ${if source-user-config then "$NU_LIB_DIRS ++" else ""}
       [${concatStringsSep " " libs-with-defs.source}]
     )
 
@@ -132,7 +129,7 @@ let
     }
 
     exec ${nushell}/bin/nu \
-      --plugins "$(<${plugin-env}/plugins.nuon)" \
+      --plugins ${pkgs.lib.strings.escapeShellArgs (map pkgs.lib.getExe built-plugins)} \
       --plugin-config "$plugin_db_dir/plugin-db" \
       --config "${edited-config-nu}" \
       ${
