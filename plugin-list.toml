@@ -1,6 +1,13 @@
 ## THIS FILE IS GENERATED AUTOMATICALLY BY update-plugin-list
 ## DO NOT EDIT MANUALLY
 
+[audio]
+name = "nu_plugin_audio"
+version = "0.2.4"
+checksum = "89a61d4f1145b8e4c26e0c122e7abb54e927bc302712dfa579a4210f30f9d717"
+nu-plugin-dep = "^0.111.0"
+broken = false
+
 [audio_hook]
 name = "nu_plugin_audio_hook"
 version = "0.105.1"
@@ -24,10 +31,10 @@ broken = true
 
 [bigquery]
 name = "nu_plugin_bigquery"
-version = "0.1.0"
-checksum = "dfba2bdbc8fd6279325984c9b9aa440d39a10a08e34984f773d2c74cc83dbdbf"
-nu-plugin-dep = "^0.110.0"
-broken = true
+version = "0.1.1"
+checksum = "d2a6e5f508ebff10b3f0bfab788fb861e46997ddf26758667acb27750bc187e9"
+nu-plugin-dep = "^0.111.0"
+broken = false
 
 [binaryview]
 name = "nu_plugin_binaryview"
@@ -101,10 +108,10 @@ broken = true
 
 [connectorx]
 name = "nu_plugin_connectorx"
-version = "0.1.0"
-checksum = "7a740744189c049ebd9d71337ddf89f5e6081232fb4222b9293b5aab867d92c1"
-nu-plugin-dep = "^0.110.0"
-broken = true
+version = "0.2.0"
+checksum = "3055c03815e4ec053f30924b527ced44603774252510b4974830984a8e6ca4ba"
+nu-plugin-dep = "^0.111.0"
+broken = false
 
 [dbus]
 name = "nu_plugin_dbus"
@@ -269,10 +276,10 @@ broken = false
 
 [highlight]
 name = "nu_plugin_highlight"
-version = "1.4.12+0.110.0"
-checksum = "b46be92d5388bc75f3c632c7aca05ee9ed387d2022e538624fba9b2c2d2f86e7"
-nu-plugin-dep = "^0.110.0"
-broken = true
+version = "1.4.13+0.111.0"
+checksum = "8e8a7fea1f5d0566174ac617931dff64bc64bbede8cd11aaa224ab636d6967e6"
+nu-plugin-dep = "^0.111.0"
+broken = false
 
 [hmac]
 name = "nu_plugin_hmac"
@@ -323,12 +330,19 @@ checksum = "48db2b89ba232c4fb4066dfa9e6849f1c287b60fd7bbe340f9a9f67310346259"
 nu-plugin-dep = "^0.110.0"
 broken = true
 
+[logic]
+name = "nu_plugin_logic"
+version = "0.1.1"
+checksum = "a28be56f1463f89809002d44c8c5cf248d99e003859ff672d6b13f721d8ad7fc"
+nu-plugin-dep = "^0.111.0"
+broken = false
+
 [ls_colorize]
 name = "nu_plugin_ls_colorize"
-version = "1.0.2+0.110.0"
-checksum = "66be80393c8c7cd23553008c19e43950ceb8fd77d5bb544edae2bb7668efded6"
-nu-plugin-dep = "^0.110.0"
-broken = true
+version = "1.0.3+0.111.0"
+checksum = "e27ad1a159d36413bb222c5d0711712f6038e97e77f52c96635366e9757af43e"
+nu-plugin-dep = "^0.111.0"
+broken = false
 
 [match]
 name = "nu_plugin_match"
@@ -395,10 +409,10 @@ broken = true
 
 [plotters]
 name = "nu_plugin_plotters"
-version = "0.2.4+0.110.0"
-checksum = "cf671843d75f78fa7eb7efdb46d153a1613e5af2352fb78b6ac9b0f6d75fba52"
-nu-plugin-dep = "^0.110.0"
-broken = true
+version = "0.2.5+0.111.0"
+checksum = "13b184933c5c96a6ebbd52ad08af3fea94480d35ced21fcce96a780ee19b896a"
+nu-plugin-dep = "^0.111.0"
+broken = false
 
 [polars]
 name = "nu_plugin_polars"
@@ -668,10 +682,10 @@ broken = true
 
 [ulid]
 name = "nu_plugin_ulid"
-version = "0.19.0"
-checksum = "67f06acfefa3646af70bc5cd3ee5f06df4500e9c7df9de7e8070d52df4a3779c"
-nu-plugin-dep = "^0.110.0"
-broken = true
+version = "0.20.0"
+checksum = "98cb403ed89b284894dee44a2f3612dfea0efbd3bb6eae120f13c2d522addf5d"
+nu-plugin-dep = "^0.111.0"
+broken = false
 
 [units]
 name = "nu_plugin_units"
