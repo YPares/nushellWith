@@ -1,4 +1,4 @@
-name: "nix flake check"
+name: "nix build nushellWithStdPlugins"
 on:
   push:
   pull_request:
@@ -10,4 +10,4 @@ jobs:
     - uses: DeterminateSystems/nix-installer-action@main
     - uses: DeterminateSystems/magic-nix-cache-action@main
     - uses: DeterminateSystems/flake-checker-action@main
-    - run: nix flake check
+    - run: nix build .#nushellWithStdPlugins
