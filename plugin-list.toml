@@ -1,5 +1,12 @@
-## THIS FILE IS GENERATED AUTOMATICALLY BY update-plugin-list
+## THIS FILE IS GENERATED AUTOMATICALLY
 ## DO NOT EDIT MANUALLY
+
+[audio]
+name = "nu_plugin_audio"
+version = "0.2.7"
+checksum = "25cd79eb5f5fea13afc60f60a36d0e837ee13428ee5e7dd16436942d966d9198"
+nu-plugin-dep = "^0.112.0"
+broken = true
 
 [audio_hook]
 name = "nu_plugin_audio_hook"
@@ -24,9 +31,9 @@ broken = true
 
 [bigquery]
 name = "nu_plugin_bigquery"
-version = "0.1.0"
-checksum = "dfba2bdbc8fd6279325984c9b9aa440d39a10a08e34984f773d2c74cc83dbdbf"
-nu-plugin-dep = "^0.110.0"
+version = "0.1.2"
+checksum = "16026e1b57c7410dbaf52ea5e60155e7060617f496356d90967c61164250e6d0"
+nu-plugin-dep = "^0.112.1"
 broken = true
 
 [binaryview]
@@ -101,9 +108,9 @@ broken = false
 
 [connectorx]
 name = "nu_plugin_connectorx"
-version = "0.1.0"
-checksum = "7a740744189c049ebd9d71337ddf89f5e6081232fb4222b9293b5aab867d92c1"
-nu-plugin-dep = "^0.110.0"
+version = "0.2.0"
+checksum = "3055c03815e4ec053f30924b527ced44603774252510b4974830984a8e6ca4ba"
+nu-plugin-dep = "^0.111.0"
 broken = true
 
 [dbus]
@@ -323,6 +330,13 @@ checksum = "48db2b89ba232c4fb4066dfa9e6849f1c287b60fd7bbe340f9a9f67310346259"
 nu-plugin-dep = "^0.110.0"
 broken = true
 
+[logic]
+name = "nu_plugin_logic"
+version = "0.1.1"
+checksum = "a28be56f1463f89809002d44c8c5cf248d99e003859ff672d6b13f721d8ad7fc"
+nu-plugin-dep = "^0.111.0"
+broken = true
+
 [ls_colorize]
 name = "nu_plugin_ls_colorize"
 version = "1.0.1+0.109.1"
@@ -395,9 +409,9 @@ broken = true
 
 [plotters]
 name = "nu_plugin_plotters"
-version = "0.2.4+0.110.0"
-checksum = "cf671843d75f78fa7eb7efdb46d153a1613e5af2352fb78b6ac9b0f6d75fba52"
-nu-plugin-dep = "^0.110.0"
+version = "0.2.5+0.111.0"
+checksum = "13b184933c5c96a6ebbd52ad08af3fea94480d35ced21fcce96a780ee19b896a"
+nu-plugin-dep = "^0.111.0"
 broken = true
 
 [polars]
@@ -707,6 +721,13 @@ version = "0.1.8"
 checksum = "31acfab6f497a774ae6e359f63ee8a453ad2619118c610b5886fbaa99593a196"
 nu-plugin-dep = "^0.109.0"
 broken = false
+
+[xlsx]
+name = "nu_plugin_xlsx"
+version = "0.1.0"
+checksum = "9ecc61dfeebf3f62cd1a844030a119c74fd75f16ac42e443b3de2c2d1d3d4ef8"
+nu-plugin-dep = "^0.112.1"
+broken = true
 
 [xpath]
 name = "nu_plugin_xpath"
