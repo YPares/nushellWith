@@ -1,5 +1,3 @@
-#! /usr/bin/env -S nu -n
-
 use std/formats "from jsonl"
 
 def search-crates-io-rec [qs] {
@@ -12,6 +10,10 @@ def search-crates-io-rec [qs] {
       }
     }
   )
+}
+
+def semver-match-req [version: string, req: string] {
+  (do { ^semcheck $version $req } | complete).exit_code == 0
 }
 
 export def list-latest-compatible-versions [wanted_nu_version] {
@@ -30,7 +32,7 @@ export def list-latest-compatible-versions [wanted_nu_version] {
               version: $ver.vers
               checksum: $ver.cksum
               nu-plugin-dep: $nu_plugin_dep
-              broken: ($nu_plugin_dep == null or not ($wanted_nu_version | semver match-req $nu_plugin_dep))
+              broken: ($nu_plugin_dep == null or not (semver-match-req $wanted_nu_version $nu_plugin_dep))
             }
           }
         }
@@ -61,7 +63,7 @@ def main [out: path = "plugin-list.toml"] {
 
   print $"Updating plugin list from crates.io and finding latest versions compatible with Nu ($wanted_nu_version) \(from nushell's github ref '($locked_nu_ref)')..."
   [
-    $"## THIS FILE IS GENERATED AUTOMATICALLY BY ($self)"
+    $"## THIS FILE IS GENERATED AUTOMATICALLY"
     "## DO NOT EDIT MANUALLY"
     ""
     ...(list-latest-compatible-versions $wanted_nu_version | to toml | lines)

@@ -89,6 +89,11 @@
         in
         {
           inherit (pkgs) nushell nushellWithStdPlugins nushellMCP;
+          semcheck = pkgs.craneLib.buildPackage {
+            src = pkgs.craneLib.cleanCargoSource ./semcheck;
+            strictDeps = true;
+            doCheck = false;
+          };
           # packages cannot export functions. So we hack around by providing
           # a derivation that can be used like a function:
           nushellWith = pkgs.nushellWithStdPlugins // {
@@ -106,20 +111,18 @@
         system:
         let
           pkgs = import nixpkgs { inherit system; };
-          # We use nu & semver plugin straight from nixpkgs in order to avoid bootstrap problems
-          # The update-plugin-list.nu script is simple enough to work with any Nushell version >=0.106
-          nuWithSemver = self.lib.nushellWith {
-            inherit pkgs;
-            plugins.nix = [ pkgs.nushellPlugins.semver ];
-          };
-          script = nuWithSemver.writeNuScriptBin "update-plugin-list" (
-            builtins.readFile ./nu-src/update-plugin-list.nu
-          );
+          semcheck = self.packages.${system}.semcheck;
         in
         {
           update-plugin-list = {
             type = "app";
-            program = pkgs.lib.getExe script;
+            program = pkgs.lib.getExe (pkgs.writeShellApplication {
+              name = "update-plugin-list";
+              runtimeInputs = [ pkgs.nushell semcheck ];
+              text = ''
+                exec nu ${./nu-src/update-plugin-list.nu} "$@"
+              '';
+            });
           };
         }
       );
