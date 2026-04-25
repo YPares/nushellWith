@@ -5,6 +5,7 @@
     #
     # Deps are to be added here on a case-by-case fashion
     with pkgs; {
+      audio = [ alsa-lib ];
       audio_hook = [ alsa-lib ];
       bigquery = [ openssl ];
       binaryview = [ libX11 ];
@@ -14,6 +15,7 @@
         openssl
         libuv
       ];
+      file = [ openssl ];
       cloud = [ openssl ];
       connectorx = [ perl ];
       dbus = [ dbus ];
