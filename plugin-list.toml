@@ -325,9 +325,9 @@ broken = false
 
 [ldap]
 name = "nu_plugin_ldap"
-version = "0.1.0"
-checksum = "48db2b89ba232c4fb4066dfa9e6849f1c287b60fd7bbe340f9a9f67310346259"
-nu-plugin-dep = "^0.110.0"
+version = "0.1.1"
+checksum = "12a59f068d260ed53711da9e857060a7c45c662eda75c7668b192d33c61f1e55"
+nu-plugin-dep = "^0.112.2"
 broken = true
 
 [logic]
