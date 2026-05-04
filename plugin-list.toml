@@ -549,10 +549,10 @@ broken = true
 
 [semver]
 name = "nu_plugin_semver"
-version = "0.11.15"
-checksum = "b87656e5068dd3e515646c5d93c2ed89450a2c40155e5b0e06318304b0e1f70a"
-nu-plugin-dep = "^0.111.0"
-broken = true
+version = "0.11.16"
+checksum = "5f0532d4a6ec936d22be85b810cc16c0327664a78582fb5ccacd58ed1af7c84c"
+nu-plugin-dep = "^0.112.2"
+broken = false
 
 [skim]
 name = "nu_plugin_skim"
