@@ -31,9 +31,9 @@ broken = true
 
 [bigquery]
 name = "nu_plugin_bigquery"
-version = "0.1.2"
-checksum = "16026e1b57c7410dbaf52ea5e60155e7060617f496356d90967c61164250e6d0"
-nu-plugin-dep = "^0.112.1"
+version = "0.2.0"
+checksum = "0092c6ffcf819352826fa0ca5e34dd839a30e55ebef0052b113c703a863a9a22"
+nu-plugin-dep = "^0.112.2"
 broken = false
 
 [binaryview]
