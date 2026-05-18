@@ -2,11 +2,11 @@
   "nodes": {
     "crane": {
       "locked": {
-        "lastModified": 1778106249,
-        "narHash": "sha256-cM/AuKy5tMhwOOQIbha8ZRRMHVfNf7cv2aljIw+qoCg=",
+        "lastModified": 1779041105,
+        "narHash": "sha256-nnGD2f8OlAZT2i5OfwikJsw+ifWfiA4d6A8BWlgOXV0=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "6d015ea29630b7ad2402841386da2cb617a470a7",
+        "rev": "10e6e3cb966f7cfcc789fe5eee7a85f3188ce08b",
         "type": "github"
       },
       "original": {
@@ -50,11 +50,11 @@
     "nushell-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1778946496,
-        "narHash": "sha256-Yla0ed5VIyHgAY3mUUyRVW4FQGc3v47R2McpN2OgOzs=",
+        "lastModified": 1779058108,
+        "narHash": "sha256-Jqc32FeK5nQR0getyyvAra9Bm5RPrPhsCXUA7PnTFY0=",
         "owner": "nushell",
         "repo": "nushell",
-        "rev": "506d87dfde36305044dcbbab82121b1f776f22e8",
+        "rev": "728b88abf0ec0b0c5961234add55b36f32e9548d",
         "type": "github"
       },
       "original": {

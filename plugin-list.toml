@@ -108,8 +108,8 @@ broken = true
 
 [connectorx]
 name = "nu_plugin_connectorx"
-version = "0.3.0"
-checksum = "3f51b01cd6b2dc797f7041fd8742f0252e55f139350fde71d22ea978361aadc3"
+version = "0.3.1"
+checksum = "67e4b44b2164dd0998cfa6c94bc6989cd03fdec735874655d123c8991bfc4168"
 nu-plugin-dep = "^0.112.2"
 broken = false
 
