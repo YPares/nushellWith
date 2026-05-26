@@ -283,10 +283,10 @@ broken = true
 
 [hmac]
 name = "nu_plugin_hmac"
-version = "0.26.0"
-checksum = "62d81161418a987d334c88ede9d30114c8eca76e5c03192b6878325160114a57"
-nu-plugin-dep = "^0.112.1"
-broken = true
+version = "0.27.0"
+checksum = "6dd6492514342c630325ae46d59e11c0c34ea21b2e26d7ee5d53676421a97784"
+nu-plugin-dep = "^0.113.0"
+broken = false
 
 [id3]
 name = "nu_plugin_id3"
@@ -724,10 +724,10 @@ broken = true
 
 [xlsx]
 name = "nu_plugin_xlsx"
-version = "0.1.0"
-checksum = "9ecc61dfeebf3f62cd1a844030a119c74fd75f16ac42e443b3de2c2d1d3d4ef8"
-nu-plugin-dep = "^0.112.1"
-broken = true
+version = "0.2.0"
+checksum = "28132e6a44f82b60b73cc87d25be5296bb3663d1df2326a0631e71eb125374f8"
+nu-plugin-dep = "^0.113.0"
+broken = false
 
 [xpath]
 name = "nu_plugin_xpath"
