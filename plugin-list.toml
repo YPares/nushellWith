@@ -269,10 +269,10 @@ broken = true
 
 [hcl]
 name = "nu_plugin_hcl"
-version = "0.112.2"
-checksum = "91dfe628cc34d47f96de263d156c896c8d3f47a8135fefcb75901aa3839c2718"
-nu-plugin-dep = "^0.112.2"
-broken = true
+version = "0.113.0"
+checksum = "758594b780bd824945d4456ffc674918d03d72c9f637fd847a52b31a1390eee4"
+nu-plugin-dep = "^0.113.0"
+broken = false
 
 [highlight]
 name = "nu_plugin_highlight"
@@ -549,10 +549,10 @@ broken = true
 
 [semver]
 name = "nu_plugin_semver"
-version = "0.11.16"
-checksum = "5f0532d4a6ec936d22be85b810cc16c0327664a78582fb5ccacd58ed1af7c84c"
-nu-plugin-dep = "^0.112.2"
-broken = true
+version = "0.11.17"
+checksum = "53b3d58fc7454de8715611618651b8a945bb9cc2db3ab24b7540649d66adcc74"
+nu-plugin-dep = "^0.113.0"
+broken = false
 
 [skim]
 name = "nu_plugin_skim"
