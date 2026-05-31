@@ -58,7 +58,7 @@ def main [out: path = "plugin-list.toml"] {
     (version).version
   }
   let wanted_nu_version = (
-    http get $"https://raw.githubusercontent.com/nushell/nushell/($locked_nu_ref)/Cargo.toml" | get package.version
+    http get $"https://raw.githubusercontent.com/nushell/nushell/($locked_nu_ref)/Cargo.toml" | get workspace.package.version
   )
 
   print $"Updating plugin list from crates.io and finding latest versions compatible with Nu ($wanted_nu_version) \(from nushell's github ref '($locked_nu_ref)')..."
