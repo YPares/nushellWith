@@ -52,8 +52,8 @@ broken = true
 
 [browse]
 name = "nu_plugin_browse"
-version = "0.6.0"
-checksum = "369b8a865cfdf9c590d7e676890a1b9cf0ef83aac224331cce4d6aa72fd1f70b"
+version = "0.7.0"
+checksum = "390ceee3ead5a131cb3b14b46c393635d08a29db18e99151bcd69e42b0f62d96"
 nu-plugin-dep = "^0.113.0"
 broken = false
 
@@ -143,10 +143,10 @@ broken = true
 
 [dns]
 name = "nu_plugin_dns"
-version = "4.0.9"
-checksum = "7f7ff4ce252255aa414a12bd3501a2db2ae703c4f903e40c55d4c0efa923c549"
-nu-plugin-dep = "^0.112.2"
-broken = true
+version = "4.0.10"
+checksum = "6b4e18a6736c75ce8ab503bd44bda10c2151a56cde6123a87b58d0f4d1c625c2"
+nu-plugin-dep = "^0.113.0"
+broken = false
 
 [emoji]
 name = "nu_plugin_emoji"
@@ -157,9 +157,9 @@ broken = false
 
 [endecode]
 name = "nu_plugin_endecode"
-version = "0.110.0"
-checksum = "3620408061cd5a228f166aeadc49e261feaf6ed5eb630628f0fb4fd003fd2370"
-nu-plugin-dep = "^0.110.0"
+version = "0.113.1"
+checksum = "a5ca9e6b29f297c926a86474ecead87bed90f885d27c21492766664952c64b42"
+nu-plugin-dep = "^0.113.1"
 broken = true
 
 [explore_ir]
@@ -556,10 +556,10 @@ broken = false
 
 [skim]
 name = "nu_plugin_skim"
-version = "0.27.0"
-checksum = "76c27c1ded43f774d54eea50c1df1abc74f6d4d8665017833719d101c0a9076d"
-nu-plugin-dep = "^0.112"
-broken = true
+version = "0.28.0"
+checksum = "13fe82c5679fd71eecaf9956c03507d6e6c86c4a7b79cf9fb4dda5fc753d57f7"
+nu-plugin-dep = "^0.113"
+broken = false
 
 [sled]
 name = "nu_plugin_sled"
@@ -619,9 +619,9 @@ broken = true
 
 [template]
 name = "nu_plugin_template"
-version = "0.110.0"
-checksum = "27ddb21bb211ca5a2124bd43b178fc6fa38007442d31ab511d33b5c4534b2937"
-nu-plugin-dep = "^0.110.0"
+version = "0.113.1"
+checksum = "c4686aa1b1fb0257f45e42513ee9b5b3a1714d124227bf79af1eccd9ca40fa98"
+nu-plugin-dep = "^0.113.1"
 broken = true
 
 [terminal_qr]
