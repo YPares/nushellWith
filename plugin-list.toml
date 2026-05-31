@@ -157,9 +157,9 @@ broken = false
 
 [endecode]
 name = "nu_plugin_endecode"
-version = "0.110.0"
-checksum = "3620408061cd5a228f166aeadc49e261feaf6ed5eb630628f0fb4fd003fd2370"
-nu-plugin-dep = "^0.110.0"
+version = "0.113.1"
+checksum = "a5ca9e6b29f297c926a86474ecead87bed90f885d27c21492766664952c64b42"
+nu-plugin-dep = "^0.113.1"
 broken = true
 
 [explore_ir]
@@ -619,9 +619,9 @@ broken = true
 
 [template]
 name = "nu_plugin_template"
-version = "0.110.0"
-checksum = "27ddb21bb211ca5a2124bd43b178fc6fa38007442d31ab511d33b5c4534b2937"
-nu-plugin-dep = "^0.110.0"
+version = "0.113.1"
+checksum = "c4686aa1b1fb0257f45e42513ee9b5b3a1714d124227bf79af1eccd9ca40fa98"
+nu-plugin-dep = "^0.113.1"
 broken = true
 
 [terminal_qr]
