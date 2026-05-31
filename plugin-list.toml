@@ -160,7 +160,7 @@ name = "nu_plugin_endecode"
 version = "0.113.1"
 checksum = "a5ca9e6b29f297c926a86474ecead87bed90f885d27c21492766664952c64b42"
 nu-plugin-dep = "^0.113.1"
-broken = true
+broken = false
 
 [explore_ir]
 name = "nu_plugin_explore_ir"
@@ -192,9 +192,9 @@ broken = false
 
 [formats]
 name = "nu_plugin_formats"
-version = "0.113.0"
-checksum = "50acad846de1c80ad038dc7d615c83b32aa6cdcae7f9b8ef7bf72ac6332207de"
-nu-plugin-dep = "^0.113.0"
+version = "0.113.1"
+checksum = "af50ba5ac928dfbe9195ca4e09872ab9516619ea3ebc77940ad28be2dfed7d26"
+nu-plugin-dep = "^0.113.1"
 broken = false
 
 [from_beancount]
@@ -255,9 +255,9 @@ broken = true
 
 [gstat]
 name = "nu_plugin_gstat"
-version = "0.113.0"
-checksum = "de613a2fdc59f51ac56ca86ad92a274caa5988e5e28021da35162bf4eb8ab815"
-nu-plugin-dep = "^0.113.0"
+version = "0.113.1"
+checksum = "7a3bcc2b2a33dfb36ff46ce0edbf3c2a892698d70a800150f400cb9d0e5fafe2"
+nu-plugin-dep = "^0.113.1"
 broken = false
 
 [hashes]
@@ -297,9 +297,9 @@ broken = true
 
 [inc]
 name = "nu_plugin_inc"
-version = "0.113.0"
-checksum = "a4d61fbb27651a90feb977b5124731310a06c023989fd550e274029c426f220d"
-nu-plugin-dep = "^0.113.0"
+version = "0.113.1"
+checksum = "faaafa5169b489d524d987a5952e7f72572dc33982ebadd653c6f7790d63dcd1"
+nu-plugin-dep = "^0.113.1"
 broken = false
 
 [input_global_listen]
@@ -416,9 +416,9 @@ broken = true
 
 [polars]
 name = "nu_plugin_polars"
-version = "0.113.0"
-checksum = "91138c939f7c318b30d4bd1b44f4166588d625136d03736f1021a7c9c31dd13e"
-nu-plugin-dep = "^0.113.0"
+version = "0.113.1"
+checksum = "a8ddb882d53b93f42fe55510dd31afbb5741e5d7fe1b5ac4c53caa3287ce3dbb"
+nu-plugin-dep = "^0.113.1"
 broken = false
 
 [port_extension]
@@ -479,9 +479,9 @@ broken = true
 
 [query]
 name = "nu_plugin_query"
-version = "0.113.0"
-checksum = "c2890cbe3d6a13a9cdfebb41d2c18dd638015e32df9c87e787b140084b38d6df"
-nu-plugin-dep = "^0.113.0"
+version = "0.113.1"
+checksum = "72c6207282c5b61ff2878e253db58db49d44dd42ad9dde37284fefd57754a2bd"
+nu-plugin-dep = "^0.113.1"
 broken = false
 
 [query_git]
@@ -622,7 +622,7 @@ name = "nu_plugin_template"
 version = "0.113.1"
 checksum = "c4686aa1b1fb0257f45e42513ee9b5b3a1714d124227bf79af1eccd9ca40fa98"
 nu-plugin-dep = "^0.113.1"
-broken = true
+broken = false
 
 [terminal_qr]
 name = "nu_plugin_terminal_qr"
