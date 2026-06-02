@@ -276,10 +276,10 @@ broken = false
 
 [highlight]
 name = "nu_plugin_highlight"
-version = "1.4.14+0.112.2"
-checksum = "1d26f2039dd2bf2848c6826362849d17e35c1b02b395c62d1b59fdc013fcf8ce"
-nu-plugin-dep = "^0.112.2"
-broken = true
+version = "1.4.15+0.113.1"
+checksum = "74c04ffdafb47e79c0f63d0f29284b8005b4f8ed87b848e0a38326dd3ed1253c"
+nu-plugin-dep = "^0.113.1"
+broken = false
 
 [hmac]
 name = "nu_plugin_hmac"
