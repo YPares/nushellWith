@@ -269,17 +269,17 @@ broken = true
 
 [hcl]
 name = "nu_plugin_hcl"
-version = "0.113.0"
-checksum = "758594b780bd824945d4456ffc674918d03d72c9f637fd847a52b31a1390eee4"
-nu-plugin-dep = "^0.113.0"
+version = "0.113.1"
+checksum = "6e7f75c50968de9dccb76262c9c8a96e6cae3baf9aaae3242256cdd50c2fee8d"
+nu-plugin-dep = "^0.113.1"
 broken = false
 
 [highlight]
 name = "nu_plugin_highlight"
-version = "1.4.14+0.112.2"
-checksum = "1d26f2039dd2bf2848c6826362849d17e35c1b02b395c62d1b59fdc013fcf8ce"
-nu-plugin-dep = "^0.112.2"
-broken = true
+version = "1.4.15+0.113.1"
+checksum = "74c04ffdafb47e79c0f63d0f29284b8005b4f8ed87b848e0a38326dd3ed1253c"
+nu-plugin-dep = "^0.113.1"
+broken = false
 
 [hmac]
 name = "nu_plugin_hmac"
