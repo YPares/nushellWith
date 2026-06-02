@@ -20,10 +20,10 @@ jobs:
           jj config set --user user.email "foo@bar.baz"
           jj git init --colocate
           jj git fetch --remote origin
-          jj bookmark track $(jj log --no-graph -r "remote_bookmarks(glob:'nu*')" -T "remote_bookmarks ++ ' '")
+          jj bookmark track $(jj log --no-graph -r "remote_bookmarks(glob:'nu*') | remote_bookmarks(exact:'master')" -T "remote_bookmarks ++ ' '")
       - name: Update branches
         run: |
-          for b in $(jj log --no-graph -r "bookmarks(glob:'nu*')" -T "local_bookmarks ++ ' '"); do
+          for b in $(jj log --no-graph -r "bookmarks(glob:'nu*') | bookmarks(exact:'master')" -T "local_bookmarks ++ ' '"); do
             jj new "$b" -m "Update $b branch"
             jj bookmark move --from "$b" --to @
             nix flake update --accept-flake-config
