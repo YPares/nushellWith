@@ -6,29 +6,54 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-locks-and-plugins:
+  discover-branches:
     runs-on: ubuntu-latest
+    outputs:
+      branches: ${{ steps.set-branches.outputs.branches }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: set-branches
+        run: |
+          echo "branches=$( \
+            git ls-remote --heads origin | \
+            cut -d/ -f3 | \
+            jq -c -R -s '
+              split("\n") |
+              map(
+                select(
+                  length > 0 and (startswith("nu") or . == "master")
+                )
+              )
+            '
+          )" >> $GITHUB_OUTPUT
+
+  update-branch:
+    needs: discover-branches
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch: ${{ fromJson(needs.discover-branches.outputs.branches) }}
+      fail-fast: false
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+          fetch-depth: 0
       - uses: DeterminateSystems/determinate-nix-action@v3
-      - name: Set up jj
+      - name: Update branch
         run: |
-          nix profile add nixpkgs#jujutsu
-          jj config set --user user.name "Nightly updater"
-          jj config set --user user.email "foo@bar.baz"
-          jj git init --colocate
-          jj git fetch --remote origin
-          jj bookmark track $(jj log --no-graph -r "remote_bookmarks(glob:'nu*') | remote_bookmarks(exact:'master')" -T "remote_bookmarks ++ ' '")
-      - name: Update branches
-        run: |
-          for b in $(jj log --no-graph -r "bookmarks(glob:'nu*') | bookmarks(exact:'master')" -T "local_bookmarks ++ ' '"); do
-            jj new "$b" -m "Update $b branch"
-            jj bookmark move --from "$b" --to @
-            nix flake update --accept-flake-config
-            nix run ".#update-plugin-list" --accept-flake-config
-          done
-      - name: Push branches with changes
-        run: |
-          jj git push -r 'remote_bookmarks().. ~ empty()'
+          git config user.name "Nightly updater"
+          git config user.email "foo@bar.baz"
+          nix flake update --accept-flake-config
+          nix run ".#update-plugin-list" --accept-flake-config
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "Update ${{ matrix.branch }} branch"
+            git push origin HEAD:${{ matrix.branch }}
+          else
+            echo "No changes on ${{ matrix.branch }}"
+          fi
