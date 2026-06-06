@@ -339,9 +339,9 @@ broken = true
 
 [ls_colorize]
 name = "nu_plugin_ls_colorize"
-version = "1.0.5+0.112.2"
-checksum = "186fb059ee5c6a994a214656e322862e7fc258289036914b02c57a653d0945f9"
-nu-plugin-dep = "^0.112.2"
+version = "1.0.6+0.113.1"
+checksum = "7bab8e6d0fd7147abd0eaa4277fb0cbbe255404e02ce15af9f59cede0822a78c"
+nu-plugin-dep = "^0.113.1"
 broken = true
 
 [match]
