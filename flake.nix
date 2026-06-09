@@ -66,7 +66,8 @@
         }
         // import ./nix-src/nu-libs-and-plugins.nix {
           inherit flake-inputs;
-          pkgs = final;
+          prev-pkgs = prev;
+          final-pkgs = final;
         };
 
       packages = nixpkgs.lib.genAttrs supported-systems (

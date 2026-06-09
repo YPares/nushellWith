@@ -3,14 +3,15 @@
 # When adding a library/plugin here, don't forget to add its inputs to the main flake.nix
 {
   flake-inputs,
-  pkgs, # Overriden pkgs, with nushell & craneLib
+  prev-pkgs,
+  final-pkgs, # Overriden pkgs, with nushell & craneLib
 }:
 let
   nushellLibraries =
     let # Shortcut to build a nu library without too much fuss:
       simpleNuLib =
         name: extraArgs:
-        pkgs.makeNuLibrary (
+        final-pkgs.makeNuLibrary (
           {
             inherit name;
             src = flake-inputs."${name}-src";
@@ -24,12 +25,9 @@ let
 
   nushellPlugins =
     let
-      pluginsBaseBuildInputs =
-        with pkgs;
-        [ pkg-config ]
-        ;
+      pluginsBaseBuildInputs = with final-pkgs; [ pkg-config ];
       nativeBuildInputs =
-        with pkgs;
+        with final-pkgs;
         lib.optionals (stdenv.hostPlatform.isDarwin) [
           iconv
         ];
@@ -40,20 +38,25 @@ let
         shortName:
         { broken, ... }@infoFromToml:
         let
-          src = pkgs.craneLib.downloadCargoPackage (
+          src = final-pkgs.craneLib.downloadCargoPackage (
             infoFromToml
             // {
               source = "registry+https://github.com/rust-lang/crates.io-index";
             }
           );
-          buildInputs = pluginsBaseBuildInputs ++ ((pluginSpecifics.sysdeps pkgs).${shortName} or [ ]);
-          cargoArtifacts = pkgs.craneLib.buildDepsOnly {
+          buildInputs = pluginsBaseBuildInputs ++ ((pluginSpecifics.sysdeps final-pkgs).${shortName} or [ ]);
+          cargoArtifacts = final-pkgs.craneLib.buildDepsOnly {
             inherit src buildInputs nativeBuildInputs;
             doCheck = false;
           };
         in
-        pkgs.craneLib.buildPackage {
-          inherit src buildInputs nativeBuildInputs cargoArtifacts;
+        final-pkgs.craneLib.buildPackage {
+          inherit
+            src
+            buildInputs
+            nativeBuildInputs
+            cargoArtifacts
+            ;
           doCheck = false;
         }
         // {
@@ -61,11 +64,17 @@ let
         };
 
     in
-    # All the plugins from crates.io:
-    builtins.mapAttrs (shortName: buildPluginFromCratesIo shortName) (
-      fromTOML (builtins.readFile ../plugin-list.toml)
-    );
-
+    with final-pkgs.lib;
+    # all plugins from crates.io:
+    mapAttrs buildPluginFromCratesIo (fromTOML (readFile ../plugin-list.toml))
+    //
+      # plugins to be passed-through from nixpkgs:
+      listToAttrs (
+        map (name: {
+          inherit name;
+          value = prev-pkgs.nushellPlugins.${name};
+        }) pluginSpecifics.passthrough
+      );
 in
 {
   inherit nushellLibraries nushellPlugins;
