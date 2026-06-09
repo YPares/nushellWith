@@ -36,9 +36,20 @@
       ws = [ openssl ];
     };
 
-  # These plugins won't be built:
+  # These plugins will be flagged as broken:
   known-broken = [
     "from_dhall"
     "unzip"
+  ];
+
+  # These plugins will be taken directly from nixpkgs:
+  passthrough = [
+    # On the master branch, we directly track nushell from nixpkgs,
+    # and the official plugins are already provided in nixpkgs and in sync with nushell's version,
+    # so we need not rebuild and shadow them
+    "formats"
+    "gstat"
+    "polars"
+    "query"
   ];
 }
