@@ -393,6 +393,13 @@ checksum = "31db4cb69156bc7eb84653b36c06384833835da40842ed8677709ca220783ff4"
 nu-plugin-dep = "^0.106.1"
 broken = true
 
+[pipe]
+name = "nu_plugin_pipe"
+version = "0.0.1+0.113.1"
+checksum = "a2689ed6f8430e931c02bbf2c94cbf94afe473c95710d52598dcc2d17a2f001a"
+nu-plugin-dep = "^0.113.1"
+broken = true
+
 [plist]
 name = "nu_plugin_plist"
 version = "0.96.0"
