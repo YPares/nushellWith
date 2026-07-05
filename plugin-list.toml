@@ -3,9 +3,9 @@
 
 [audio]
 name = "nu_plugin_audio"
-version = "0.2.7"
-checksum = "25cd79eb5f5fea13afc60f60a36d0e837ee13428ee5e7dd16436942d966d9198"
-nu-plugin-dep = "^0.112.0"
+version = "0.2.8"
+checksum = "aef3150ce825a917d68fe961b6f63bc293bf1db64c809ecec7d00f72ef312083"
+nu-plugin-dep = "^0.113.1"
 broken = true
 
 [audio_hook]
