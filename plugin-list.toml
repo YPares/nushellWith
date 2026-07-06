@@ -269,10 +269,10 @@ broken = true
 
 [hcl]
 name = "nu_plugin_hcl"
-version = "0.113.1"
-checksum = "6e7f75c50968de9dccb76262c9c8a96e6cae3baf9aaae3242256cdd50c2fee8d"
-nu-plugin-dep = "^0.113.1"
-broken = true
+version = "0.114.0"
+checksum = "56008ea41b115ee9b5a43acf8932fdd6665ee37132783725467a71358695ba01"
+nu-plugin-dep = "^0.114.0"
+broken = false
 
 [highlight]
 name = "nu_plugin_highlight"
@@ -563,10 +563,10 @@ broken = true
 
 [skim]
 name = "nu_plugin_skim"
-version = "0.28.0"
-checksum = "13fe82c5679fd71eecaf9956c03507d6e6c86c4a7b79cf9fb4dda5fc753d57f7"
-nu-plugin-dep = "^0.113"
-broken = true
+version = "0.29.0"
+checksum = "ae3a125ff04becf2fd18f171a2ae7dace69cc0e8ff2b12ce1977fd5a2acb8b51"
+nu-plugin-dep = "^0.114"
+broken = false
 
 [sled]
 name = "nu_plugin_sled"
