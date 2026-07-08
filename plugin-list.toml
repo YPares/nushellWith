@@ -3,10 +3,10 @@
 
 [audio]
 name = "nu_plugin_audio"
-version = "0.2.8"
-checksum = "aef3150ce825a917d68fe961b6f63bc293bf1db64c809ecec7d00f72ef312083"
-nu-plugin-dep = "^0.113.1"
-broken = true
+version = "0.2.9"
+checksum = "e89a51111294d1603e39ef19fc434e2db00f2ffd367d64cd4f2ac84271a6e009"
+nu-plugin-dep = "^0.114.0"
+broken = false
 
 [audio_hook]
 name = "nu_plugin_audio_hook"
@@ -563,8 +563,8 @@ broken = true
 
 [skim]
 name = "nu_plugin_skim"
-version = "0.29.0"
-checksum = "ae3a125ff04becf2fd18f171a2ae7dace69cc0e8ff2b12ce1977fd5a2acb8b51"
+version = "0.29.1"
+checksum = "37765d6b2df3fa7f11b52e1ef2b857dcc68743d8f16d9faaa21b30d28adbd823"
 nu-plugin-dep = "^0.114"
 broken = false
 
@@ -689,10 +689,10 @@ broken = true
 
 [ulid]
 name = "nu_plugin_ulid"
-version = "0.22.0"
-checksum = "5a99a1dff39e442ec35e37e4f041353b475ead65b354bab469081a8d7f92e523"
-nu-plugin-dep = "^0.113.0"
-broken = true
+version = "0.23.0"
+checksum = "86b1443a73f25b56dafa81b1fa7396070bffc0fcb85b2ef7e725246226d5ed6a"
+nu-plugin-dep = "^0.114.0"
+broken = false
 
 [units]
 name = "nu_plugin_units"
