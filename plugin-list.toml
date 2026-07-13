@@ -260,6 +260,13 @@ checksum = "7a3bcc2b2a33dfb36ff46ce0edbf3c2a892698d70a800150f400cb9d0e5fafe2"
 nu-plugin-dep = "^0.113.1"
 broken = false
 
+[handlebars]
+name = "nu_plugin_handlebars"
+version = "0.1.0"
+checksum = "c9ce3a99636d368ce5e656fb03fa96dfdbd7aff6e4a369dcd9833ea71336b30d"
+nu-plugin-dep = "^0.114.0"
+broken = true
+
 [hashes]
 name = "nu_plugin_hashes"
 version = "0.1.9"
@@ -458,9 +465,9 @@ broken = true
 
 [prometheus]
 name = "nu_plugin_prometheus"
-version = "0.11.0"
-checksum = "c546efe33277c76f5b77860cc6e1130e14099e9bd404fee4610e176cf3ac8c44"
-nu-plugin-dep = "^0.110.0"
+version = "0.12.0"
+checksum = "cd04de0002b35a0454d2910007665ba6990edbcfd920ead2b6e83f3a13ace817"
+nu-plugin-dep = "^0.114.1"
 broken = true
 
 [ps]
