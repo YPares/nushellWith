@@ -260,6 +260,13 @@ checksum = "2adecc9bf0434cae221f6a4df2023b2d4bf91acd95fc3bb9578931304b02e8fa"
 nu-plugin-dep = "^0.110.0"
 broken = false
 
+[handlebars]
+name = "nu_plugin_handlebars"
+version = "0.1.0"
+checksum = "c9ce3a99636d368ce5e656fb03fa96dfdbd7aff6e4a369dcd9833ea71336b30d"
+nu-plugin-dep = "^0.114.0"
+broken = true
+
 [hashes]
 name = "nu_plugin_hashes"
 version = "0.1.9"
