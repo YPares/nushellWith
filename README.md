@@ -120,9 +120,8 @@ nix run ".#update-plugin-list"
 
 at the root of this repository. Plugins that require too old a version of the
 `nu-protocol` crate will be marked as `broken` and will neither be built nor
-checked. The Garnix CI which check that all the non-broken plugins can be built
-and loaded in latest Nushell on Linux x86_64. The CI will also build Nushell and
-the standard plugins on OSX ARM64.
+checked. The CI will check that all the non-broken plugins can be built
+and loaded in latest Nushell on Linux x86_64.
 
 The `update-plugin-list` script will directly determine the wanted nushell
 version from the nushell branch referenced in the `flake.lock` file, so that
@@ -132,25 +131,6 @@ version.
 PRs to add new entries to the list of
 [packaged libraries & plugins](./nix-src/nu-libs-and-plugins.nix) are very much
 welcome.
-
-## About the binary cache
-
-Installing Nushell and plugins via the `packages` output is a bit less
-convenient because everything has to be mashed together under the `packages`
-attribute, but it can better exploit the cache provided by Garnix. To use it,
-add the following to your own `flake.nix`:
-
-```nix
-{
-  nixConfig = {
-    extra-substituters = [ "https://cache.garnix.io" ];
-    extra-trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
-  };
-
-  inputs = ... ;
-  outputs = ... ;
-}
-```
 
 ## Limitations & important notes
 
