@@ -129,7 +129,7 @@ let
     }
 
     exec ${nushell}/bin/nu \
-      --plugins ${pkgs.lib.strings.escapeShellArgs (map pkgs.lib.getExe built-plugins)} \
+      --plugins "[${builtins.concatStringsSep ", " (map pkgs.lib.getExe built-plugins)}]" \
       --plugin-config "$plugin_db_dir/plugin-db" \
       --config "${edited-config-nu}" \
       ${
