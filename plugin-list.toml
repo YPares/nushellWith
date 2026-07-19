@@ -276,9 +276,9 @@ broken = true
 
 [hcl]
 name = "nu_plugin_hcl"
-version = "0.114.0"
-checksum = "56008ea41b115ee9b5a43acf8932fdd6665ee37132783725467a71358695ba01"
-nu-plugin-dep = "^0.114.0"
+version = "0.114.1"
+checksum = "23ab6bb6a9f8301f5d53337c3794c801a072cecb6282fd08ee71e8eaef36d802"
+nu-plugin-dep = "^0.114.1"
 broken = false
 
 [highlight]
