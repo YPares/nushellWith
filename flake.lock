@@ -17,11 +17,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1784364478,
-        "narHash": "sha256-CdItYNdYUlm7NxqMVyQKqT2IxTwvapiPuRLWOyHTrbY=",
+        "lastModified": 1784453100,
+        "narHash": "sha256-zpGZb8FYui+i8KLtC0nlcmb0voR2zB80Qn8pe7lzIbk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "20535e48e12c86043b577b8518234ff5dbb26957",
+        "rev": "b471514bed69eff5255c8e63c1f80e5fe56c616f",
         "type": "github"
       },
       "original": {
@@ -50,11 +50,11 @@
     "nushell-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1784413131,
-        "narHash": "sha256-dT+8Pp9oXPIR0TH1EZ2YsbHA6C5ijS65Iya01t2/OoE=",
+        "lastModified": 1784505954,
+        "narHash": "sha256-4897JWSDCdpf+yZ2rmNnKy1kXB7pRWYucEXgu/CDRcg=",
         "owner": "nushell",
         "repo": "nushell",
-        "rev": "4a61309a6d081225af34fdfd312fb547f50be759",
+        "rev": "c03187439349ab4add3fea65c4b822348b0e587f",
         "type": "github"
       },
       "original": {
