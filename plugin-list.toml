@@ -360,9 +360,9 @@ broken = true
 
 [mongo]
 name = "nu_plugin_mongo"
-version = "0.1.13"
-checksum = "8ae0b03f271f31044315a59a0caa8d7a5529f018483949fb6bb9c9bb64253377"
-nu-plugin-dep = "^0.113"
+version = "0.1.14"
+checksum = "2e34443357468d58db4bdf1876c08012e5104655aab7b476df0df5fd23448be7"
+nu-plugin-dep = "^0.114"
 broken = true
 
 [net]
