@@ -143,10 +143,10 @@ broken = true
 
 [dns]
 name = "nu_plugin_dns"
-version = "4.0.10"
-checksum = "6b4e18a6736c75ce8ab503bd44bda10c2151a56cde6123a87b58d0f4d1c625c2"
-nu-plugin-dep = "^0.113.0"
-broken = true
+version = "4.0.11"
+checksum = "154c585b716c8fa78341c50bdd9c9ee151094a1082eb6c8fccb60a05c7e83de2"
+nu-plugin-dep = "^0.114.1"
+broken = false
 
 [emoji]
 name = "nu_plugin_emoji"
