@@ -262,10 +262,10 @@ broken = false
 
 [handlebars]
 name = "nu_plugin_handlebars"
-version = "0.1.0"
-checksum = "c9ce3a99636d368ce5e656fb03fa96dfdbd7aff6e4a369dcd9833ea71336b30d"
-nu-plugin-dep = "^0.114.0"
-broken = true
+version = "0.2.0"
+checksum = "e31c44d8d7e395df4373c2e9183ad47d136bf8f5a1f99274504ed3fb3c96646c"
+nu-plugin-dep = "^0.115.0"
+broken = false
 
 [hashes]
 name = "nu_plugin_hashes"
@@ -276,10 +276,10 @@ broken = true
 
 [hcl]
 name = "nu_plugin_hcl"
-version = "0.114.1"
-checksum = "23ab6bb6a9f8301f5d53337c3794c801a072cecb6282fd08ee71e8eaef36d802"
-nu-plugin-dep = "^0.114.1"
-broken = true
+version = "0.115.0"
+checksum = "4e79abc54fe44cd08e0d0a44f85c80301b8742cb8e44b52452e0ee5ab18aca79"
+nu-plugin-dep = "^0.115.0"
+broken = false
 
 [highlight]
 name = "nu_plugin_highlight"
@@ -570,10 +570,10 @@ broken = true
 
 [skim]
 name = "nu_plugin_skim"
-version = "0.29.1"
-checksum = "37765d6b2df3fa7f11b52e1ef2b857dcc68743d8f16d9faaa21b30d28adbd823"
-nu-plugin-dep = "^0.114"
-broken = true
+version = "0.30.0"
+checksum = "1a0f529176986e2bf65e0beda67d8ae402246ebcf780817cfb7aa25f59b5994c"
+nu-plugin-dep = "^0.115"
+broken = false
 
 [sled]
 name = "nu_plugin_sled"
