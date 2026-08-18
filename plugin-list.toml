@@ -262,9 +262,9 @@ broken = false
 
 [handlebars]
 name = "nu_plugin_handlebars"
-version = "0.1.0"
-checksum = "c9ce3a99636d368ce5e656fb03fa96dfdbd7aff6e4a369dcd9833ea71336b30d"
-nu-plugin-dep = "^0.114.0"
+version = "0.2.0"
+checksum = "e31c44d8d7e395df4373c2e9183ad47d136bf8f5a1f99274504ed3fb3c96646c"
+nu-plugin-dep = "^0.115.0"
 broken = true
 
 [hashes]
