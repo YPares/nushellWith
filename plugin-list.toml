@@ -6,7 +6,7 @@ name = "nu_plugin_audio"
 version = "0.2.10"
 checksum = "289324049bb9e40b4d3496a362fe041dee19fee984b357efcbc0d589d7298277"
 nu-plugin-dep = "^0.114.1"
-broken = false
+broken = true
 
 [audio_hook]
 name = "nu_plugin_audio_hook"
@@ -34,7 +34,7 @@ name = "nu_plugin_bigquery"
 version = "0.3.0"
 checksum = "c63790547d2804b851dcefc9331bdc2535b8cf0273c1e3475a84754f0f3ffc55"
 nu-plugin-dep = "^0.114.1"
-broken = false
+broken = true
 
 [binaryview]
 name = "nu_plugin_binaryview"
@@ -52,9 +52,9 @@ broken = true
 
 [browse]
 name = "nu_plugin_browse"
-version = "0.8.0"
-checksum = "b839567b27c94d1b5fda5c8d848025cf9605d27aa9cc185ed077d920975eb88a"
-nu-plugin-dep = "^0.114.0"
+version = "0.9.0"
+checksum = "6f676906f162627b970402a03ba3eefb64145c28a7f5be8eb858c18ec9e9fef8"
+nu-plugin-dep = "^0.115.0"
 broken = false
 
 [cassandra_query]
@@ -146,21 +146,21 @@ name = "nu_plugin_dns"
 version = "4.0.11"
 checksum = "154c585b716c8fa78341c50bdd9c9ee151094a1082eb6c8fccb60a05c7e83de2"
 nu-plugin-dep = "^0.114.1"
-broken = false
+broken = true
 
 [emoji]
 name = "nu_plugin_emoji"
 version = "0.23.0"
 checksum = "88aaa4dfa9659987da4287c76a682a25678dafbcd3d768cac15feca3968aa0f1"
 nu-plugin-dep = "^0.114.0"
-broken = false
+broken = true
 
 [endecode]
 name = "nu_plugin_endecode"
 version = "0.114.1"
 checksum = "835b097ff905e86592fc87fc744ece601116fe7e6c5b5a2418a2b59693823d4f"
 nu-plugin-dep = "^0.114.1"
-broken = false
+broken = true
 
 [explore_ir]
 name = "nu_plugin_explore_ir"
@@ -181,20 +181,20 @@ name = "nu_plugin_file"
 version = "0.26.0"
 checksum = "57fcfebf491ada7e9760d46858bf805db65ab2f442ecbaeeb3b808f396b128d5"
 nu-plugin-dep = "^0.114.0"
-broken = false
+broken = true
 
 [file_dialog]
 name = "nu_plugin_file_dialog"
-version = "0.24.0"
-checksum = "12104d73d01f9874c810be612777087b98c5701333fb1556ac5018d41637c860"
-nu-plugin-dep = "^0.114.0"
+version = "0.25.0"
+checksum = "9ea1cca9b7e73c6e02bbc736c071046a46ce40d46a0f29c67b3b276bfa268c1a"
+nu-plugin-dep = "^0.115.0"
 broken = false
 
 [formats]
 name = "nu_plugin_formats"
-version = "0.114.1"
-checksum = "4639f82cb5e9ae9e8949a1e10082c61dc57424b991dde5a828a0a243b1dca7bf"
-nu-plugin-dep = "^0.114.1"
+version = "0.115.0"
+checksum = "2db1ba7718404eb82cc91048766f20a165b25e9d8672c5547348609e00f5d50d"
+nu-plugin-dep = "^0.115.0"
 broken = false
 
 [from_beancount]
@@ -255,16 +255,16 @@ broken = true
 
 [gstat]
 name = "nu_plugin_gstat"
-version = "0.114.1"
-checksum = "494a44890c4a4d421db5c212f2c121f8e81d6b26cbcea2f5bfb03ea8d343659f"
-nu-plugin-dep = "^0.114.1"
+version = "0.115.0"
+checksum = "ac8d1cfda28022cbf388be990ed309a51e589f0173d162932fbe53ac73732ebe"
+nu-plugin-dep = "^0.115.0"
 broken = false
 
 [handlebars]
 name = "nu_plugin_handlebars"
-version = "0.1.0"
-checksum = "c9ce3a99636d368ce5e656fb03fa96dfdbd7aff6e4a369dcd9833ea71336b30d"
-nu-plugin-dep = "^0.114.0"
+version = "0.2.0"
+checksum = "e31c44d8d7e395df4373c2e9183ad47d136bf8f5a1f99274504ed3fb3c96646c"
+nu-plugin-dep = "^0.115.0"
 broken = false
 
 [hashes]
@@ -276,9 +276,9 @@ broken = true
 
 [hcl]
 name = "nu_plugin_hcl"
-version = "0.114.1"
-checksum = "23ab6bb6a9f8301f5d53337c3794c801a072cecb6282fd08ee71e8eaef36d802"
-nu-plugin-dep = "^0.114.1"
+version = "0.115.0"
+checksum = "4e79abc54fe44cd08e0d0a44f85c80301b8742cb8e44b52452e0ee5ab18aca79"
+nu-plugin-dep = "^0.115.0"
 broken = false
 
 [highlight]
@@ -286,7 +286,7 @@ name = "nu_plugin_highlight"
 version = "1.4.16+0.114.1"
 checksum = "9773358f1fe3c4530892c1e2a3aa462cdf441513f885ca5c5d56808c0800736c"
 nu-plugin-dep = "^0.114.1"
-broken = false
+broken = true
 
 [hmac]
 name = "nu_plugin_hmac"
@@ -304,9 +304,9 @@ broken = true
 
 [inc]
 name = "nu_plugin_inc"
-version = "0.114.1"
-checksum = "f25b7d36fe399f82699f53f4015fe71bd4612a095013f3a6b67e24d3fd36295d"
-nu-plugin-dep = "^0.114.1"
+version = "0.115.0"
+checksum = "609a204158d287a673d4866587d92e561d31aca3c2ec031c04379a2bd9c784f7"
+nu-plugin-dep = "^0.115.0"
 broken = false
 
 [input_global_listen]
@@ -321,14 +321,14 @@ name = "nu_plugin_json_path"
 version = "0.24.0"
 checksum = "0cee6a121db86e2c85317eaa66df92a39b3746b71a0425ea8a057b683b3b287d"
 nu-plugin-dep = "^0.114.0"
-broken = false
+broken = true
 
 [jwalk]
 name = "nu_plugin_jwalk"
 version = "0.26.0"
 checksum = "a564f34fd45451da9dc9a7e7c9ad1d31413d504c7525b9ca5893da4b9544e62e"
 nu-plugin-dep = "^0.114.0"
-broken = false
+broken = true
 
 [ldap]
 name = "nu_plugin_ldap"
@@ -349,7 +349,7 @@ name = "nu_plugin_ls_colorize"
 version = "1.0.7+0.114.1"
 checksum = "9297df3ddb385b58ac96ae2052cd0be26abab4764d5f9a992a58bd1e189a8f05"
 nu-plugin-dep = "^0.114.1"
-broken = false
+broken = true
 
 [match]
 name = "nu_plugin_match"
@@ -363,7 +363,7 @@ name = "nu_plugin_mongo"
 version = "0.1.14"
 checksum = "2e34443357468d58db4bdf1876c08012e5104655aab7b476df0df5fd23448be7"
 nu-plugin-dep = "^0.114"
-broken = false
+broken = true
 
 [net]
 name = "nu_plugin_net"
@@ -391,7 +391,7 @@ name = "nu_plugin_parquet"
 version = "0.24.0"
 checksum = "e293a1bdb598e1989336e1c959e524065d2602c3d7a83f4cdee3ca86c93639e8"
 nu-plugin-dep = "^0.114.0"
-broken = false
+broken = true
 
 [periodic_table]
 name = "nu_plugin_periodic_table"
@@ -430,9 +430,9 @@ broken = true
 
 [polars]
 name = "nu_plugin_polars"
-version = "0.114.1"
-checksum = "370eb797ba38b75416cf99a3846e63669e11d6745ae0cc58062b11b6eb90848c"
-nu-plugin-dep = "^0.114.1"
+version = "0.115.0"
+checksum = "b113148613eac74e9656292d186aaf0aa7922b32d208f640403af541b3711775"
+nu-plugin-dep = "^0.115.0"
 broken = false
 
 [port_extension]
@@ -465,9 +465,9 @@ broken = true
 
 [prometheus]
 name = "nu_plugin_prometheus"
-version = "0.12.0"
-checksum = "cd04de0002b35a0454d2910007665ba6990edbcfd920ead2b6e83f3a13ace817"
-nu-plugin-dep = "^0.114.1"
+version = "0.14.0"
+checksum = "66df4b34010c24ce6335483cb1b71a9e18c63725cd2e562f4e683f0a706d3135"
+nu-plugin-dep = "^0.115"
 broken = false
 
 [ps]
@@ -493,9 +493,9 @@ broken = true
 
 [query]
 name = "nu_plugin_query"
-version = "0.114.1"
-checksum = "07c3c79c157d587406759d60d04d27db7186adbc9e977e892ac2be43db0694b8"
-nu-plugin-dep = "^0.114.1"
+version = "0.115.0"
+checksum = "f245091c33ad18b3033b1b419de412ee610184b49929379c4c967379fbb7b2db"
+nu-plugin-dep = "^0.115.0"
 broken = false
 
 [query_git]
@@ -503,7 +503,7 @@ name = "nu_plugin_query_git"
 version = "0.24.0"
 checksum = "ac185cd40acfa90e694b27d9d511a09558e8f31683d2ea88c5a5924f839e3aea"
 nu-plugin-dep = "^0.114.0"
-broken = false
+broken = true
 
 [query_json]
 name = "nu_plugin_query_json"
@@ -517,7 +517,7 @@ name = "nu_plugin_regex"
 version = "0.23.0"
 checksum = "857e11fb1f235693f306e4c7e7bbaaf585f5eba4ac7a664c939234ba7f7f2c49"
 nu-plugin-dep = "^0.114.0"
-broken = false
+broken = true
 
 [roaring]
 name = "nu_plugin_roaring"
@@ -570,9 +570,9 @@ broken = true
 
 [skim]
 name = "nu_plugin_skim"
-version = "0.29.1"
-checksum = "37765d6b2df3fa7f11b52e1ef2b857dcc68743d8f16d9faaa21b30d28adbd823"
-nu-plugin-dep = "^0.114"
+version = "0.30.0"
+checksum = "1a0f529176986e2bf65e0beda67d8ae402246ebcf780817cfb7aa25f59b5994c"
+nu-plugin-dep = "^0.115"
 broken = false
 
 [sled]
@@ -615,7 +615,7 @@ name = "nu_plugin_strutils"
 version = "0.22.0"
 checksum = "36022cda41f703f52db1d0b198112ebc6287f46e67765535e9c2c2f0366b061a"
 nu-plugin-dep = "^0.114.0"
-broken = false
+broken = true
 
 [sum]
 name = "nu_plugin_sum"
@@ -636,7 +636,7 @@ name = "nu_plugin_template"
 version = "0.114.1"
 checksum = "66e8c188beb0fe8095897a61b08a656500dbc12c999734f5c1e541c590bbda4d"
 nu-plugin-dep = "^0.114.1"
-broken = false
+broken = true
 
 [terminal_qr]
 name = "nu_plugin_terminal_qr"
@@ -699,7 +699,7 @@ name = "nu_plugin_ulid"
 version = "0.23.0"
 checksum = "86b1443a73f25b56dafa81b1fa7396070bffc0fcb85b2ef7e725246226d5ed6a"
 nu-plugin-dep = "^0.114.0"
-broken = false
+broken = true
 
 [units]
 name = "nu_plugin_units"
