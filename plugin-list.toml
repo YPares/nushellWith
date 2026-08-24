@@ -192,9 +192,9 @@ broken = false
 
 [formats]
 name = "nu_plugin_formats"
-version = "0.115.0"
-checksum = "2db1ba7718404eb82cc91048766f20a165b25e9d8672c5547348609e00f5d50d"
-nu-plugin-dep = "^0.115.0"
+version = "0.115.1"
+checksum = "0ee304ade49c16d7f6dd6a4cfc0328881691d4632a712f5212e59dec35f2ed62"
+nu-plugin-dep = "^0.115.1"
 broken = false
 
 [from_beancount]
@@ -255,9 +255,9 @@ broken = true
 
 [gstat]
 name = "nu_plugin_gstat"
-version = "0.115.0"
-checksum = "ac8d1cfda28022cbf388be990ed309a51e589f0173d162932fbe53ac73732ebe"
-nu-plugin-dep = "^0.115.0"
+version = "0.115.1"
+checksum = "cce997b95876fcda9508c1f644546a792ec4d72e0556409971204c758f7687fc"
+nu-plugin-dep = "^0.115.1"
 broken = false
 
 [handlebars]
@@ -304,9 +304,9 @@ broken = true
 
 [inc]
 name = "nu_plugin_inc"
-version = "0.115.0"
-checksum = "609a204158d287a673d4866587d92e561d31aca3c2ec031c04379a2bd9c784f7"
-nu-plugin-dep = "^0.115.0"
+version = "0.115.1"
+checksum = "5cedba47fd381c8ec70df45a9588765f756083c60050cc41700d8460d9be081f"
+nu-plugin-dep = "^0.115.1"
 broken = false
 
 [input_global_listen]
@@ -430,9 +430,9 @@ broken = true
 
 [polars]
 name = "nu_plugin_polars"
-version = "0.115.0"
-checksum = "b113148613eac74e9656292d186aaf0aa7922b32d208f640403af541b3711775"
-nu-plugin-dep = "^0.115.0"
+version = "0.115.1"
+checksum = "9ad8eb52eb8a64cc82b50dd9e239bb203888c3bdc7314e86511ed565318af885"
+nu-plugin-dep = "^0.115.1"
 broken = false
 
 [port_extension]
@@ -493,9 +493,9 @@ broken = true
 
 [query]
 name = "nu_plugin_query"
-version = "0.115.0"
-checksum = "f245091c33ad18b3033b1b419de412ee610184b49929379c4c967379fbb7b2db"
-nu-plugin-dep = "^0.115.0"
+version = "0.115.1"
+checksum = "509a930f0738ed9d618acfd4c45f5043434521c6111b2e79832341911a7bcfa6"
+nu-plugin-dep = "^0.115.1"
 broken = false
 
 [query_git]
