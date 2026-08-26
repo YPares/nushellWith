@@ -3,10 +3,10 @@
 
 [audio]
 name = "nu_plugin_audio"
-version = "0.2.10"
-checksum = "289324049bb9e40b4d3496a362fe041dee19fee984b357efcbc0d589d7298277"
-nu-plugin-dep = "^0.114.1"
-broken = true
+version = "0.2.11"
+checksum = "48e1d2107c5c26b88357b09fe90454a74a485cf0ec5256e6d583d90d258b40e8"
+nu-plugin-dep = "^0.115.1"
+broken = false
 
 [audio_hook]
 name = "nu_plugin_audio_hook"
