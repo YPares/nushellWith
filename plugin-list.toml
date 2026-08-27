@@ -749,3 +749,10 @@ version = "0.44.0"
 checksum = "b089d09367b7282db1c9425560eae5b4ba507478627f4ca385e9df6457840ba3"
 nu-plugin-dep = "^0.44.0"
 broken = true
+
+[zstdsep]
+name = "nu_plugin_zstdsep"
+version = "0.1.1"
+checksum = "0548dc4f681e7bb02417b465d623b28f834b6fd79ac13f6ca5754ca0eee44a11"
+nu-plugin-dep = "^0.115"
+broken = false
