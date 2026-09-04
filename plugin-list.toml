@@ -752,7 +752,7 @@ broken = true
 
 [zstdsep]
 name = "nu_plugin_zstdsep"
-version = "0.3.1"
-checksum = "36ba803eb922984775566147f66752a734ea485bb102da406698a39f5cc9af55"
+version = "0.3.3"
+checksum = "83eb153e601982667aea9b4ed748fe90addbd362af03aecdda2a94a932aa12eb"
 nu-plugin-dep = "^0.115"
 broken = false
