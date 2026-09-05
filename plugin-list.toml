@@ -31,10 +31,10 @@ broken = true
 
 [bigquery]
 name = "nu_plugin_bigquery"
-version = "0.3.0"
-checksum = "c63790547d2804b851dcefc9331bdc2535b8cf0273c1e3475a84754f0f3ffc55"
-nu-plugin-dep = "^0.114.1"
-broken = true
+version = "0.4.0"
+checksum = "2ec8e0d64107382894bc29aefa1d49fec2d23d55d543bdc89d72abc357eb1754"
+nu-plugin-dep = "^0.115.1"
+broken = false
 
 [binaryview]
 name = "nu_plugin_binaryview"
