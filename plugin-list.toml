@@ -190,6 +190,13 @@ checksum = "be6ddd950819acc75c8b1d1d7d96fca759c7d5721383284f71ce6e243c668bdb"
 nu-plugin-dep = "^0.111.0"
 broken = false
 
+[flatbuffers]
+name = "nu_plugin_flatbuffers"
+version = "0.1.0"
+checksum = "1b3a5aa093341d3b8a8eff9ad8dc37f41a47215904de64f54fad389d799d4368"
+nu-plugin-dep = "^0.114"
+broken = true
+
 [formats]
 name = "nu_plugin_formats"
 version = "0.111.0"
@@ -752,7 +759,7 @@ broken = true
 
 [zstdsep]
 name = "nu_plugin_zstdsep"
-version = "0.4.0"
-checksum = "2044b556219ce80ca47d8460c7d4b05408aa94b65b0e2286430bab5a73c7caa5"
+version = "0.5.0"
+checksum = "e76f17997872f75287b38151f11847c9d493b73d00c07eb82b174d0276214a41"
 nu-plugin-dep = "^0.114"
 broken = true
