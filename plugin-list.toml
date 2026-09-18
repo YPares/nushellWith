@@ -542,10 +542,10 @@ broken = true
 
 [rpm]
 name = "nu_plugin_rpm"
-version = "0.3.6"
-checksum = "4c97d6a0d8199d783e9fd05d17f0417344b2dc066576d67477934104fbfa25ec"
-nu-plugin-dep = "^0.108.0"
-broken = true
+version = "0.3.7"
+checksum = "675cd597306d600009197b982bffafeb496fd6248688e89395fdaffecb5aec24"
+nu-plugin-dep = "^0.115.1"
+broken = false
 
 [s3]
 name = "nu_plugin_s3"
@@ -759,7 +759,7 @@ broken = true
 
 [zstdsep]
 name = "nu_plugin_zstdsep"
-version = "0.5.1"
-checksum = "3efa71805498f4f10eab45002d0a74ced07f84c09c864135dcd1ecb5ddf50ac2"
+version = "0.6.1"
+checksum = "5ec3a2ffc60fd3e997db68dc44751f0dbc31c72e05ca7696042a5fd6f67f0ea1"
 nu-plugin-dep = "^0.115"
 broken = false
