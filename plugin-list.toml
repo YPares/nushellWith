@@ -101,9 +101,9 @@ broken = false
 
 [compress]
 name = "nu_plugin_compress"
-version = "0.2.10"
-checksum = "36eb8c44aa416df0cecb52f61b5afe9f5e38bf0324772b2ea05072a895405b0a"
-nu-plugin-dep = "^0.109.0"
+version = "0.2.11"
+checksum = "52f44051185ba554797e79c3472808bbd04026d82b83d6684e0c4f0f26925bec"
+nu-plugin-dep = "^0.115.1"
 broken = true
 
 [connectorx]
