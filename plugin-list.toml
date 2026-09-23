@@ -143,8 +143,8 @@ broken = true
 
 [dns]
 name = "nu_plugin_dns"
-version = "4.0.12"
-checksum = "91c59e7e06e0d2b12c1123e4424fc38db0b608c8eea406c97cd9f2774d900a86"
+version = "4.0.13"
+checksum = "68aa6bb36f3c1b0e26cd74514dd6bae18172116c609ab024c2b39074fbf3af0e"
 nu-plugin-dep = "^0.115.1"
 broken = false
 
@@ -759,7 +759,7 @@ broken = true
 
 [zstdsep]
 name = "nu_plugin_zstdsep"
-version = "0.7.9"
-checksum = "4f78e03d77bd36d3f7a82856cab82c625014c27fb39edf0d7736a119e47e9016"
+version = "0.7.11"
+checksum = "a6ca21e8acaddb4f52837a49c57f8a339cd22d02acee3b7a5a5734676dd0ab0f"
 nu-plugin-dep = "^0.115"
 broken = false
