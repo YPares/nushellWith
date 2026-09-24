@@ -409,9 +409,9 @@ broken = true
 
 [pipe]
 name = "nu_plugin_pipe"
-version = "0.0.1+0.113.1"
-checksum = "a2689ed6f8430e931c02bbf2c94cbf94afe473c95710d52598dcc2d17a2f001a"
-nu-plugin-dep = "^0.113.1"
+version = "0.1.1+0.115.1"
+checksum = "a79ac0305ec2e6b9946d3b143839745d8f152afeac22ae5dc4758daa195de14f"
+nu-plugin-dep = "^0.115.1"
 broken = true
 
 [plist]
@@ -759,7 +759,7 @@ broken = true
 
 [zstdsep]
 name = "nu_plugin_zstdsep"
-version = "0.7.10"
-checksum = "7a4335954bcc487dd08baff6096703dc1eee4e94fc7ac9d517168bc7e4d0b190"
+version = "0.7.12"
+checksum = "a08b178f25785658bd11486397815ef33efb8911adb8efbd304193d17249f7e1"
 nu-plugin-dep = "^0.114"
 broken = true
