@@ -402,9 +402,9 @@ broken = false
 
 [periodic_table]
 name = "nu_plugin_periodic_table"
-version = "0.2.12"
-checksum = "31db4cb69156bc7eb84653b36c06384833835da40842ed8677709ca220783ff4"
-nu-plugin-dep = "^0.106.1"
+version = "0.2.13"
+checksum = "55b56ed9cc2e457cdeedc39a1efd45023a98b940dfabea09b5e536c2f157a754"
+nu-plugin-dep = "^0.116.0"
 broken = true
 
 [pipe]
@@ -710,9 +710,9 @@ broken = false
 
 [units]
 name = "nu_plugin_units"
-version = "0.1.8"
-checksum = "11a9082524998583048bc119bebd9fc00e92074bfa8ddaf71bbf0a2c702e0fe0"
-nu-plugin-dep = "^0.106.1"
+version = "0.1.9"
+checksum = "5bde056ba5b14e99604791285b36405619db8efc1a070b6136c49987f1a9413e"
+nu-plugin-dep = "^0.116.0"
 broken = true
 
 [unzip]
