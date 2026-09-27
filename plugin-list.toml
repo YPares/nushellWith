@@ -269,9 +269,9 @@ broken = false
 
 [handlebars]
 name = "nu_plugin_handlebars"
-version = "0.2.0"
-checksum = "e31c44d8d7e395df4373c2e9183ad47d136bf8f5a1f99274504ed3fb3c96646c"
-nu-plugin-dep = "^0.115.0"
+version = "0.3.0"
+checksum = "5d9ac7dd10002438c1e078b1b48826d2217ad0e36e9c5d6ee8c8aca7e05a6f18"
+nu-plugin-dep = "^0.116.0"
 broken = true
 
 [hashes]
@@ -402,9 +402,9 @@ broken = false
 
 [periodic_table]
 name = "nu_plugin_periodic_table"
-version = "0.2.12"
-checksum = "31db4cb69156bc7eb84653b36c06384833835da40842ed8677709ca220783ff4"
-nu-plugin-dep = "^0.106.1"
+version = "0.2.13"
+checksum = "55b56ed9cc2e457cdeedc39a1efd45023a98b940dfabea09b5e536c2f157a754"
+nu-plugin-dep = "^0.116.0"
 broken = true
 
 [pipe]
@@ -710,9 +710,9 @@ broken = false
 
 [units]
 name = "nu_plugin_units"
-version = "0.1.8"
-checksum = "11a9082524998583048bc119bebd9fc00e92074bfa8ddaf71bbf0a2c702e0fe0"
-nu-plugin-dep = "^0.106.1"
+version = "0.1.9"
+checksum = "5bde056ba5b14e99604791285b36405619db8efc1a070b6136c49987f1a9413e"
+nu-plugin-dep = "^0.116.0"
 broken = true
 
 [unzip]
@@ -759,7 +759,7 @@ broken = true
 
 [zstdsep]
 name = "nu_plugin_zstdsep"
-version = "0.7.14"
-checksum = "83afc162fc36586ae963e1217f12905e1b61de20c951e68ca30fa4a68c2e3a88"
-nu-plugin-dep = "^0.114"
+version = "0.7.16"
+checksum = "d196d1efe66fec1849a66eedc364fff557d0ccbc6aa9a602e5bf0b57fdaf2583"
+nu-plugin-dep = "^0.116"
 broken = true
