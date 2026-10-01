@@ -143,10 +143,10 @@ broken = true
 
 [dns]
 name = "nu_plugin_dns"
-version = "4.0.13"
-checksum = "68aa6bb36f3c1b0e26cd74514dd6bae18172116c609ab024c2b39074fbf3af0e"
-nu-plugin-dep = "^0.115.1"
-broken = true
+version = "4.0.14"
+checksum = "7883edd5e8e8aa4885622b6900cbf26eb97738508fae55bb32ad5ff39202ae65"
+nu-plugin-dep = "^0.116.0"
+broken = false
 
 [emoji]
 name = "nu_plugin_emoji"
@@ -703,10 +703,10 @@ broken = true
 
 [ulid]
 name = "nu_plugin_ulid"
-version = "0.24.0"
-checksum = "e31766b3f3d469e354cfa6698572422220e81e73442b288509861b00f1dd6db8"
-nu-plugin-dep = "^0.115.0"
-broken = true
+version = "0.25.0"
+checksum = "e1716698ddcce04851368c247680f4b324839b9c56c5699d3291969106cd3496"
+nu-plugin-dep = "^0.116.0"
+broken = false
 
 [units]
 name = "nu_plugin_units"
