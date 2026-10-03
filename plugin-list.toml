@@ -330,6 +330,13 @@ checksum = "ef6e8431cef9258b2ec823eb13bce4413a8bdc57670e1c0b1b4de719d6e84d71"
 nu-plugin-dep = "^0.110.0"
 broken = true
 
+[jev]
+name = "nu_plugin_jev"
+version = "0.1.1"
+checksum = "b11865f3ef2b8bc0aac093d090fdf7f860a0c300159dde2d745f66ec9550aa58"
+nu-plugin-dep = "=0.116"
+broken = false
+
 [json_path]
 name = "nu_plugin_json_path"
 version = "0.25.0"
