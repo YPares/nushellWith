@@ -80,8 +80,8 @@ broken = true
 
 [charton]
 name = "nu_plugin_charton"
-version = "0.8.0"
-checksum = "0251a68c9106dde94c88ed4f6b2d0e1c86dc6f880b3d51834ebc9d87a7671f70"
+version = "0.8.2"
+checksum = "deef94aa1c147f095081be378d70ae91b77defd4861ed759b80ead4d178b9dd0"
 nu-plugin-dep = "=0.116"
 broken = true
 
