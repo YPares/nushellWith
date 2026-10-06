@@ -80,8 +80,8 @@ broken = true
 
 [charton]
 name = "nu_plugin_charton"
-version = "0.8.0"
-checksum = "0251a68c9106dde94c88ed4f6b2d0e1c86dc6f880b3d51834ebc9d87a7671f70"
+version = "0.8.2"
+checksum = "deef94aa1c147f095081be378d70ae91b77defd4861ed759b80ead4d178b9dd0"
 nu-plugin-dep = "=0.116"
 broken = true
 
@@ -773,7 +773,7 @@ broken = true
 
 [zstdsep]
 name = "nu_plugin_zstdsep"
-version = "0.7.16"
-checksum = "d196d1efe66fec1849a66eedc364fff557d0ccbc6aa9a602e5bf0b57fdaf2583"
-nu-plugin-dep = "^0.116"
+version = "0.7.17"
+checksum = "55faec36fb930034bc2c12b5891a3d1eac4c7a08e939c2dc461748d8186bda7a"
+nu-plugin-dep = "^0.116.1"
 broken = true
