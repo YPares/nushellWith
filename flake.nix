@@ -3,7 +3,7 @@
 
   inputs = {
     crane.url = "github:ipetkov/crane";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
 
     # Latest Nushell stable version:
     nushell-src = {
