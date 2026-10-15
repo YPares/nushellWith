@@ -47,11 +47,11 @@
     "nushell-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1791913600,
-        "narHash": "sha256-B0gtnVAM3vUHFb4EUzJkK/head0chC9DH6aQeHj4tRg=",
+        "lastModified": 1792012561,
+        "narHash": "sha256-ZVai+9/Fej5VPRimypwLA6PR5su//Sa8HmCf+ltbiIw=",
         "owner": "nushell",
         "repo": "nushell",
-        "rev": "b23af9f4904204854af9f425e2f3417b4c006ed4",
+        "rev": "f5affecddc93241fc5055765713145d25f815689",
         "type": "github"
       },
       "original": {
