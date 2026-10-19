@@ -743,6 +743,13 @@ checksum = "98f297f831420e10a56998c0d8c6834c849b481e00d76ebf03372e7d516a1d1c"
 nu-plugin-dep = "^0.105.1"
 broken = true
 
+[vulkan_matrix]
+name = "nu_plugin_vulkan_matrix"
+version = "0.1.2"
+checksum = "eaf43fccd30848a378e520d905c29ca0c6e5efd0ee7169af60f3a88ce4388d7c"
+nu-plugin-dep = "=0.116.1"
+broken = true
+
 [ws]
 name = "nu_plugin_ws"
 version = "1.0.6"
