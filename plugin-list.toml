@@ -31,9 +31,9 @@ broken = true
 
 [bigquery]
 name = "nu_plugin_bigquery"
-version = "0.5.0"
-checksum = "06259cbfc11b06b53e7cea16f00f4dee8cd86769f9dba82c39a8ce501266e234"
-nu-plugin-dep = "^0.116.0"
+version = "0.5.1"
+checksum = "b7ae03d36da3f5fde0aa3875d1e0981ce260160f3c142ae1f78226c4089a5368"
+nu-plugin-dep = "^0.116.1"
 broken = true
 
 [binaryview]
@@ -741,6 +741,13 @@ name = "nu_plugin_vec"
 version = "1.1.6"
 checksum = "98f297f831420e10a56998c0d8c6834c849b481e00d76ebf03372e7d516a1d1c"
 nu-plugin-dep = "^0.105.1"
+broken = true
+
+[vulkan_matrix]
+name = "nu_plugin_vulkan_matrix"
+version = "0.1.2"
+checksum = "eaf43fccd30848a378e520d905c29ca0c6e5efd0ee7169af60f3a88ce4388d7c"
+nu-plugin-dep = "=0.116.1"
 broken = true
 
 [ws]
