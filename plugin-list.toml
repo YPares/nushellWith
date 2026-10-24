@@ -3,8 +3,8 @@
 
 [audio]
 name = "nu_plugin_audio"
-version = "0.2.12"
-checksum = "c6f8c24bc957f2b31b51c0885459938f3ff5815b44c3a8c0d2ac4f9b611f4bed"
+version = "0.2.13"
+checksum = "7c2baedbde440ab2d893e3ec6a6b8aa58515df00b41bd25a0b3facd1871701da"
 nu-plugin-dep = "^0.116.1"
 broken = false
 
@@ -780,7 +780,7 @@ broken = true
 
 [zstdsep]
 name = "nu_plugin_zstdsep"
-version = "0.8.0"
-checksum = "983747bc35fa9fc155a7baaafc3784a46cbad9d68e7f3b2d1dffaef48ab20c84"
+version = "0.9.0"
+checksum = "148a2fbfd842fe0355c43f0309eef63ef87c4d28bdeb2b5f4f496949737d36b4"
 nu-plugin-dep = "^0.116.1"
 broken = false
