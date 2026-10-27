@@ -17,11 +17,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1792812153,
-        "narHash": "sha256-GNxqGToDYDZH2M4YeIj5nLPEyljtn3hEdIFY1/JNm0M=",
-        "rev": "674a2028661e550a97400c1cc992b9cca9a668a1",
+        "lastModified": 1792842277,
+        "narHash": "sha256-lrp+A0ZwQN3V0tSZP6vVFIX/16FFOzr19mSup8XD80w=",
+        "rev": "d3b13ad75cc492690728f9307e443dec9ef9a20e",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1100667.674a2028661e/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1100901.d3b13ad75cc4/nixexprs.tar.zst"
       },
       "original": {
         "type": "tarball",
@@ -47,11 +47,11 @@
     "nushell-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1792958822,
-        "narHash": "sha256-oIN2ZhiWmnsBTek+seamw6TMZnGSXJgkcNKJdTVYOAI=",
+        "lastModified": 1793023342,
+        "narHash": "sha256-6SGIxGr3tg4xiab5jNQGx7Pbi8pZYA4SR9yUwyvP6+g=",
         "owner": "nushell",
         "repo": "nushell",
-        "rev": "706259d6f8f15a9875ab3446baace78f89c102a6",
+        "rev": "36c057c9736234f00b8d49f5f145574617cf75ed",
         "type": "github"
       },
       "original": {
