@@ -197,6 +197,13 @@ checksum = "be6ddd950819acc75c8b1d1d7d96fca759c7d5721383284f71ce6e243c668bdb"
 nu-plugin-dep = "^0.111.0"
 broken = false
 
+[flashback]
+name = "nu_plugin_flashback"
+version = "0.0.0"
+checksum = "34a441b567f1d9bf90f42aa313f05772df1041828acd49ae6d42237c04e07d91"
+nu-plugin-dep = "<Nothing>"
+broken = true
+
 [flatbuffers]
 name = "nu_plugin_flatbuffers"
 version = "0.1.0"
@@ -776,6 +783,13 @@ name = "nu_plugin_xpath"
 version = "0.44.0"
 checksum = "b089d09367b7282db1c9425560eae5b4ba507478627f4ca385e9df6457840ba3"
 nu-plugin-dep = "^0.44.0"
+broken = true
+
+[zip]
+name = "nu_plugin_zip"
+version = "0.1.0+nu-0.116.0"
+checksum = "8b51c4b2b277b738dd0662f7e0ed92c7133cdb03db1774fbcc19dfa4b36d49a0"
+nu-plugin-dep = "=0.116.0"
 broken = true
 
 [zstdsep]
