@@ -773,9 +773,9 @@ broken = true
 
 [xlsx]
 name = "nu_plugin_xlsx"
-version = "0.3.1+nu-0.115.1"
-checksum = "fbf9e4b25e0a367551ba26b0b4700d611eb9917afb78e7e937a3f2dec84670cf"
-nu-plugin-dep = "=0.115.1"
+version = "0.3.2+nu-0.116.0"
+checksum = "057b8144783403f3a9ba091d4db347055b9dd8b36ed087d07fb49c28b663f637"
+nu-plugin-dep = "=0.116.0"
 broken = true
 
 [xpath]
