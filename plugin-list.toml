@@ -787,8 +787,8 @@ broken = true
 
 [zip]
 name = "nu_plugin_zip"
-version = "0.1.0+nu-0.116.0"
-checksum = "8b51c4b2b277b738dd0662f7e0ed92c7133cdb03db1774fbcc19dfa4b36d49a0"
+version = "0.2.0+nu-0.116.0"
+checksum = "0ccb890e48a8457afedc84d5a09b564d6aeccd17c265125eea8eac58e0e4bb54"
 nu-plugin-dep = "=0.116.0"
 broken = true
 
