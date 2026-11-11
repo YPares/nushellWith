@@ -283,9 +283,9 @@ broken = false
 
 [handlebars]
 name = "nu_plugin_handlebars"
-version = "0.3.0"
-checksum = "5d9ac7dd10002438c1e078b1b48826d2217ad0e36e9c5d6ee8c8aca7e05a6f18"
-nu-plugin-dep = "^0.116.0"
+version = "0.4.0"
+checksum = "65788b4b8c0a2c00d8a99ca7740dc6bd9ba91247107276eacec4f0ff0c627771"
+nu-plugin-dep = "^0.117.0"
 broken = true
 
 [hashes]
