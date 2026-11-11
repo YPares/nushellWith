@@ -52,10 +52,10 @@ broken = true
 
 [browse]
 name = "nu_plugin_browse"
-version = "0.10.0"
-checksum = "e7c5febf51d6c1f954071ccd3c6c045b56ba406051d889935ce0f003c97de78a"
-nu-plugin-dep = "^0.116.0"
-broken = true
+version = "0.11.0"
+checksum = "bfbbaf025f8d33ff15a7b70af95ea48142c931a9a44e61fae2d4d25164f8d249"
+nu-plugin-dep = "^0.117.0"
+broken = false
 
 [cassandra_query]
 name = "nu_plugin_cassandra_query"
@@ -192,10 +192,10 @@ broken = true
 
 [file_dialog]
 name = "nu_plugin_file_dialog"
-version = "0.26.0"
-checksum = "517dc8919328357fc1808bc42a61d07a47f4bf1fe808c2dfa318b716fae69862"
-nu-plugin-dep = "^0.116.0"
-broken = true
+version = "0.27.0"
+checksum = "480345d07cee507fd86b372f128d3643e830ba0d8da4b8c7734bc9ad430a05c6"
+nu-plugin-dep = "^0.117.0"
+broken = false
 
 [flashback]
 name = "nu_plugin_flashback"
@@ -283,10 +283,10 @@ broken = false
 
 [handlebars]
 name = "nu_plugin_handlebars"
-version = "0.3.0"
-checksum = "5d9ac7dd10002438c1e078b1b48826d2217ad0e36e9c5d6ee8c8aca7e05a6f18"
-nu-plugin-dep = "^0.116.0"
-broken = true
+version = "0.4.0"
+checksum = "65788b4b8c0a2c00d8a99ca7740dc6bd9ba91247107276eacec4f0ff0c627771"
+nu-plugin-dep = "^0.117.0"
+broken = false
 
 [hashes]
 name = "nu_plugin_hashes"
@@ -388,10 +388,10 @@ broken = true
 
 [mongo]
 name = "nu_plugin_mongo"
-version = "0.1.14"
-checksum = "2e34443357468d58db4bdf1876c08012e5104655aab7b476df0df5fd23448be7"
-nu-plugin-dep = "^0.114"
-broken = true
+version = "0.1.17"
+checksum = "5ed92a8d4e7a59a7b1b65ac5d57fd8a8e1165f49767002cf41738a3469a5b7e3"
+nu-plugin-dep = "^0.117.0"
+broken = false
 
 [net]
 name = "nu_plugin_net"
@@ -598,10 +598,10 @@ broken = true
 
 [skim]
 name = "nu_plugin_skim"
-version = "0.31.0"
-checksum = "bcfadf2b8116009c2d4006144474fb02042ccddaab3fdc815555a5bb127548b0"
-nu-plugin-dep = "^0.116"
-broken = true
+version = "0.32.0"
+checksum = "db072da55efac215d857e3bbc14ecde3d24447ac7a6a5366e7794159622ee9dd"
+nu-plugin-dep = "^0.117"
+broken = false
 
 [sled]
 name = "nu_plugin_sled"
@@ -724,10 +724,10 @@ broken = true
 
 [ulid]
 name = "nu_plugin_ulid"
-version = "0.25.0"
-checksum = "e1716698ddcce04851368c247680f4b324839b9c56c5699d3291969106cd3496"
-nu-plugin-dep = "^0.116.0"
-broken = true
+version = "0.26.0"
+checksum = "7bcd7c71ff6bc109394178fd598b007605b4acbf7517348fa0283b6ba68a249f"
+nu-plugin-dep = "^0.117.0"
+broken = false
 
 [units]
 name = "nu_plugin_units"
