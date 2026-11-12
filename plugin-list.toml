@@ -752,9 +752,9 @@ broken = true
 
 [vulkan_matrix]
 name = "nu_plugin_vulkan_matrix"
-version = "0.1.2"
-checksum = "eaf43fccd30848a378e520d905c29ca0c6e5efd0ee7169af60f3a88ce4388d7c"
-nu-plugin-dep = "=0.116.1"
+version = "0.1.3"
+checksum = "58c0f625152b773f61c69c4fe103e229f51b541f8edf6d41ff574e326da0c900"
+nu-plugin-dep = "=0.117.0"
 broken = true
 
 [ws]
