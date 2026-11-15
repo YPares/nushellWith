@@ -80,9 +80,9 @@ broken = true
 
 [charton]
 name = "nu_plugin_charton"
-version = "0.9.0"
-checksum = "76043fae013089b4a568d7b8d17b5feced0d8e06675b48bc7ad21ebe1e002f6e"
-nu-plugin-dep = "=0.116"
+version = "0.9.1"
+checksum = "6632b5bfb008c0c133795f099d9699437ccbbcda6d5635fbdc6c1eecbdee873f"
+nu-plugin-dep = "=0.117"
 broken = true
 
 [chipa_touch]
@@ -546,6 +546,13 @@ version = "0.19.0"
 checksum = "2886cafc7d279dffebab435d872eb18f36636ff48e9c5d13a7ef91da44622bad"
 nu-plugin-dep = "^0.110.0"
 broken = false
+
+[render]
+name = "nu_plugin_render"
+version = "0.1.0"
+checksum = "22a6ba662f6a8f33582dc9dda7211c4926b7b2504ba59cb69c9a9acdc4544538"
+nu-plugin-dep = "^0.117.0"
+broken = true
 
 [roaring]
 name = "nu_plugin_roaring"
