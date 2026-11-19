@@ -493,9 +493,9 @@ broken = true
 
 [prometheus]
 name = "nu_plugin_prometheus"
-version = "0.14.0"
-checksum = "66df4b34010c24ce6335483cb1b71a9e18c63725cd2e562f4e683f0a706d3135"
-nu-plugin-dep = "^0.115"
+version = "0.15.0"
+checksum = "e65a3e70834a731036ec997f946506e40dae1b3c174f5c229d01da736bec02d5"
+nu-plugin-dep = "^0.117"
 broken = true
 
 [ps]
