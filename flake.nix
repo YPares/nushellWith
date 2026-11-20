@@ -7,7 +7,7 @@
 
     # Latest Nushell stable version:
     nushell-src = {
-      url = "github:nushell/nushell/0.116.1";
+      url = "github:nushell/nushell/0.117.0";
       flake = false;
     };
 
