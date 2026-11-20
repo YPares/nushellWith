@@ -101,9 +101,9 @@ broken = true
 
 [cloud]
 name = "nu_plugin_cloud"
-version = "0.2.11+0.110.0"
-checksum = "5647454e7645a6e75e5a1dae49aee15ba5f3eb05805c9e02f5e0be4849739200"
-nu-plugin-dep = "^0.110"
+version = "0.2.13+0.117.0"
+checksum = "5e5def18d3ba748577d3aaa448272ca3e2034f3cfd1b837f5329beb8a54de41e"
+nu-plugin-dep = "^0.117.0"
 broken = true
 
 [compress]
