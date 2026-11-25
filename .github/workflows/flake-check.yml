@@ -1,4 +1,4 @@
-name: "nix build nushellWithStdPlugins"
+name: "build nushell + std plugins & upload on cachix"
 on:
   push:
   pull_request:
@@ -6,8 +6,10 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v5
-    - uses: DeterminateSystems/nix-installer-action@main
-    - uses: DeterminateSystems/magic-nix-cache-action@main
-    - uses: DeterminateSystems/flake-checker-action@main
-    - run: nix build .#nushellWithStdPlugins
+      - uses: actions/checkout@v7
+      - uses: cachix/install-nix-action@v31
+      - uses: cachix/cachix-action@v17
+        with:
+          name: nushellwith
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+      - run: nix --accept-flake-config build .#nushell .#nushellWithStdPlugins
