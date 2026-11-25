@@ -14,6 +14,14 @@ The simplest way to use this flake is via the `nixpkgs` overlay it provides:
 
 ```nix
 {
+  # Tell nix to use nushellWith's binary cache you don't have to rebuild nushell and standard plugins from scratch
+  nixConfig = {
+    extra-substituters = [ "https://nushellwith.cachix.org" ];
+    extra-trusted-public-keys = [
+      "nushellwith.cachix.org-1:1+XlAvSUnazkXAjyAOJmR0HYG7mfiG0pZTB/LK3lm58="
+    ];
+  };
+
   inputs = {
     nushellWith.url = "github:YPares/nushellWith/nu0.111";
       # Alternatively, select another branch for a specific Nushell version (built by nushellWith)

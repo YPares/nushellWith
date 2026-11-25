@@ -1,6 +1,13 @@
 {
   description = "Make a nushell instance with specific plugins and/or nushell libraries";
 
+  nixConfig = {
+    extra-substituters = [ "https://nushellwith.cachix.org" ];
+    extra-trusted-public-keys = [
+      "nushellwith.cachix.org-1:1+XlAvSUnazkXAjyAOJmR0HYG7mfiG0pZTB/LK3lm58="
+    ];
+  };
+
   inputs = {
     crane.url = "github:ipetkov/crane";
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
@@ -111,13 +118,18 @@
         {
           update-plugin-list = {
             type = "app";
-            program = pkgs.lib.getExe (pkgs.writeShellApplication {
-              name = "update-plugin-list";
-              runtimeInputs = [ pkgs.nushell semcheck ];
-              text = ''
-                exec nu ${./nu-src/update-plugin-list.nu} "$@"
-              '';
-            });
+            program = pkgs.lib.getExe (
+              pkgs.writeShellApplication {
+                name = "update-plugin-list";
+                runtimeInputs = [
+                  pkgs.nushell
+                  semcheck
+                ];
+                text = ''
+                  exec nu ${./nu-src/update-plugin-list.nu} "$@"
+                '';
+              }
+            );
           };
         }
       );
