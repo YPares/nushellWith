@@ -10,7 +10,6 @@ crane: rec {
         runNuCommand
         runNuScript
         writeNuScriptBin
-        writeNushellApplication
         ;
     };
 
@@ -47,23 +46,6 @@ crane: rec {
 
       ${contents}
     '';
-
-  # A nushell version of pkgs.writeShellApplication
-  #
-  # Build a derivation that executes the given inlined nushell script,
-  # and can add runtimeInputs that this script can use
-  writeNushellApplication =
-    pkgs: args:
-    pkgs.writeShellApplication (
-      args
-      // {
-        text = ''
-          #!${pkgs.lib.getExe pkgs.nushell}
-
-          ${args.text}
-        '';
-      }
-    );
 
   # Patch a nushell library so it refers to a specific PATH and can use its dependencies
   makeNuLibrary =
@@ -134,7 +116,6 @@ crane: rec {
       runNuCommand = runNuCommand pkgs;
       runNuScript = runNuScript pkgs;
       writeNuScriptBin = writeNuScriptBin pkgs;
-      writeNushellApplication = writeNushellApplication pkgs;
       makeNuLibrary = withPkgs makeNuLibrary;
       extractBuildEnv = withPkgs extractBuildEnv;
       makeNuModuleExporting = withPkgs makeNuModuleExporting;
