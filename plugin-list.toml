@@ -794,9 +794,9 @@ broken = true
 
 [zip]
 name = "nu_plugin_zip"
-version = "0.2.0+nu-0.116.0"
-checksum = "0ccb890e48a8457afedc84d5a09b564d6aeccd17c265125eea8eac58e0e4bb54"
-nu-plugin-dep = "=0.116.0"
+version = "0.2.1+nu-0.117.0"
+checksum = "3493ef76408d49e5c2c76d06657e52853865e04e695aa477188d5adcc63d1d0a"
+nu-plugin-dep = "=0.117.0"
 broken = true
 
 [zstdsep]
