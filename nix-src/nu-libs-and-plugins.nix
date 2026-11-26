@@ -24,10 +24,7 @@ let
 
   nushellPlugins =
     let
-      pluginsBaseBuildInputs =
-        with pkgs;
-        [ pkg-config ]
-        ;
+      pluginsBaseBuildInputs = with pkgs; [ pkg-config ];
       nativeBuildInputs =
         with pkgs;
         lib.optionals (stdenv.hostPlatform.isDarwin) [
@@ -37,8 +34,7 @@ let
       pluginSpecifics = import ../plugin-specifics.nix;
 
       buildPluginFromCratesIo =
-        shortName:
-        { broken, ... }@infoFromToml:
+        shortName: infoFromToml:
         let
           src = pkgs.craneLib.downloadCargoPackage (
             infoFromToml
@@ -53,16 +49,23 @@ let
           };
         in
         pkgs.craneLib.buildPackage {
-          inherit src buildInputs nativeBuildInputs cargoArtifacts;
+          pname = infoFromToml.name;
+          inherit
+            src
+            buildInputs
+            nativeBuildInputs
+            cargoArtifacts
+            ;
           doCheck = false;
         }
         // {
-          meta.broken = broken || builtins.elem shortName pluginSpecifics.known-broken;
+          meta.broken = infoFromToml.broken || builtins.elem shortName pluginSpecifics.known-broken;
+          meta.mainProgram = infoFromToml.name;
         };
 
     in
     # All the plugins from crates.io:
-    builtins.mapAttrs (shortName: buildPluginFromCratesIo shortName) (
+    builtins.mapAttrs buildPluginFromCratesIo (
       fromTOML (builtins.readFile ../plugin-list.toml)
     );
 
