@@ -35,8 +35,7 @@ let
       pluginSpecifics = import ../plugin-specifics.nix;
 
       buildPluginFromCratesIo =
-        shortName:
-        { broken, ... }@infoFromToml:
+        shortName: infoFromToml:
         let
           src = final-pkgs.craneLib.downloadCargoPackage (
             infoFromToml
@@ -51,6 +50,7 @@ let
           };
         in
         final-pkgs.craneLib.buildPackage {
+          pname = infoFromToml.name;
           inherit
             src
             buildInputs
@@ -60,7 +60,8 @@ let
           doCheck = false;
         }
         // {
-          meta.broken = broken || builtins.elem shortName pluginSpecifics.known-broken;
+          meta.broken = infoFromToml.broken || builtins.elem shortName pluginSpecifics.known-broken;
+          meta.mainProgram = infoFromToml.name;
         };
 
     in
