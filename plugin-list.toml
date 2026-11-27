@@ -451,10 +451,10 @@ broken = true
 
 [plotters]
 name = "nu_plugin_plotters"
-version = "0.2.5+0.111.0"
-checksum = "13b184933c5c96a6ebbd52ad08af3fea94480d35ced21fcce96a780ee19b896a"
-nu-plugin-dep = "^0.111.0"
-broken = true
+version = "0.2.6+0.117.0"
+checksum = "23da13caa3572c6e7c9e9be806d4dc40be2bcec0f4bc45427442ae9d0eca4d3b"
+nu-plugin-dep = "^0.117.0"
+broken = false
 
 [polars]
 name = "nu_plugin_polars"
