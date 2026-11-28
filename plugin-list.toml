@@ -416,10 +416,10 @@ broken = true
 
 [parquet]
 name = "nu_plugin_parquet"
-version = "0.26.0"
-checksum = "0fb392f1555daa7f65d79d23d7d7136056ce34eb1638c18cef176f3c86df4197"
-nu-plugin-dep = "^0.116.1"
-broken = true
+version = "0.27.0"
+checksum = "3876a292061d060c0b469af108747b7ff21f83b205b914a22e7fc8789f825952"
+nu-plugin-dep = "^0.117.0"
+broken = false
 
 [periodic_table]
 name = "nu_plugin_periodic_table"
